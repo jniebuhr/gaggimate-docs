@@ -1,0 +1,14 @@
+{
+  "name": "GaggiMate Controller",
+  "version": "v0.2.1",
+  "funding_url": "https://ko-fi.com/jniebuhr",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "controller-firmware.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
