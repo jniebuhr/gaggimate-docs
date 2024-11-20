@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:build": "tailwindcss -m -i docs/style.css -o docs/style.min.css",
+    "docs:build": "tailwindcss -m -i src/style.css -o src/style.min.css",
     "docs:build:watch": "tailwindcss -m -i docs/style.css -o docs/style.min.css --watch"
   },
   "repository": {
