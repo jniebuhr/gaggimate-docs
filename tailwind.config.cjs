@@ -4,7 +4,9 @@ module.exports = {
 	theme: {
 		extend: {},
         fontFamily: {
-            logo: ['Montserrat']
+          sans: ['ui-sans-serif', 'system-ui', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+          logo: ['Montserrat'],
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
         }
 	},
 	plugins: [

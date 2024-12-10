@@ -1,0 +1,43 @@
+---
+layout: ../layouts/Layout.astro
+title: GaggiMate
+description: New to GaggiMate? See what it's all about!
+section: Getting Started
+order: 1
+showQuicklinks: true
+---
+
+import { Image } from 'astro:assets';
+import imgRendered from '../assets/images/gaggimate-render.png';
+import imgStandbyScreen from '../assets/images/standby-screen.png';
+import imgBrewScreen from '../assets/images/brew-screen.png';
+
+This project upgrades a Gaggia espresso machine with smart controls to improve your coffee-making experience. By adding a display and custom electronics, you can monitor and control the machine more easily.
+
+## Features
+
+- **Temperature Control**: Monitor the boiler temperature to ensure optimal brewing conditions.
+- **Brew timer**: Set a target duration and run the brewing for the specific time.
+- **Steam and Hot Water mode**: Control the pump and valve to run the respective task.
+- **Safety Features**: Automatic shutoff if the system becomes unresponsive or overheats.
+- **User Interface**: Simple, intuitive display to control and monitor the machine.
+
+## Group Buy
+
+The first round of the group buy is filled up but I'll keep the form open. You can register there to get notified about the second round which will hopefully start at the beginning of 2025.
+
+[https://forms.gle/KEXdpgJGCZbsFdKD7](https://forms.gle/KEXdpgJGCZbsFdKD7)
+
+## Screenshots
+
+<div class="flex flex-row flex-wrap gap-8">
+<Image src={imgRendered} width={400} alt="Gaggia Classic render with GaggiMate integration" />
+<Image src={imgStandbyScreen} width={400} alt="GaggiMate Standby Screen" />
+<Image src={imgBrewScreen} width={400} alt="Gaggimate Brew Screen" />
+</div>
+
+## Installation
+
+The installation process of this mod consists of purely electrical changes. You will have to wire up the 3-Way valve and pump to the relays provided on the board. The existing thermostats of your machine have to be removed and bridged while connecting the heater to the SSR instead. The M4 thermistor goes into the screw hole where the brew thermostat would usually sit.
+
+I will soon update this with detailed instructions.
