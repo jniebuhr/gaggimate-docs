@@ -1,0 +1,65 @@
+---
+import Header from '../components/Header.astro';
+import Navigation from '../components/Navigation.astro';
+import ContentNavigation from '../components/ContentNavigation.astro';
+import ContentFooter from '../components/ContentFooter.astro';
+import QuickLinks from '../components/QuickLinks.astro';
+
+export interface Props {
+  title: string;
+}
+
+const { content = {} } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='318' height='318' viewBox='0 0 318 145' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke-linecap='round' fill-rule='nonzero' font-size='9pt' stroke='%23000' stroke-width='0.25mm' fill='%23000' style='stroke:%23000;stroke-width:0.25mm;fill:%23000'%3E%3Cpath d='M 178.005 141.006 L 168.005 141.006 L 168.005 1.006 L 176.605 1.006 L 241.605 113.206 L 237.005 113.206 L 301.805 1.006 L 310.205 1.006 L 310.405 141.006 L 300.405 141.006 L 300.205 16.406 L 303.005 16.406 L 241.605 122.406 L 236.605 122.406 L 175.005 16.406 L 178.005 16.406 L 178.005 141.006 Z' id='1' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M 132.004 22.809 Q 122.204 11.609 107.904 5.809 Q 93.604 0.009 75.804 0.009 Q 59.404 0.009 45.604 5.309 Q 31.804 10.609 21.504 20.309 Q 11.204 30.009 5.604 43.209 Q 0.004 56.409 0.004 72.009 Q 0.004 87.609 5.604 100.809 Q 11.204 114.009 21.404 123.709 Q 31.604 133.409 45.304 138.709 Q 59.004 144.009 75.404 144.009 Q 90.204 144.009 104.704 139.509 Q 119.204 135.009 130.204 126.209 L 130.204 70.409 L 105.604 70.409 L 105.604 122.809 L 130.204 126.209 L 115.404 106.809 Q 106.604 114.609 96.904 117.909 Q 87.204 121.209 76.804 121.209 Q 65.604 121.209 56.404 117.609 Q 47.204 114.009 40.404 107.309 Q 33.604 100.609 29.904 91.609 Q 26.204 82.609 26.204 72.009 Q 26.204 61.209 29.904 52.209 Q 33.604 43.209 40.404 36.609 Q 47.204 30.009 56.604 26.409 Q 66.004 22.809 77.004 22.809 Q 88.404 22.809 97.904 26.709 Q 107.404 30.609 115.604 38.809 L 132.004 22.809 Z' id='0' vector-effect='non-scaling-stroke'/%3E%3C/g%3E%3C/svg%3E" />
+  <meta name="generator" content={Astro.generator} />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>{content.title}</title>
+</head>
+<body>
+  <Header />
+
+  <main class="relative flex justify-center mx-auto max-w-8xl sm:px-2 lg:px-8 xl:px-12">
+    <Navigation />
+
+    <div class="flex-auto max-w-2xl min-w-0 px-4 py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+      <article class="">
+        <header class="">
+          <p class="text-base font-medium text-slate-500">
+            {content.section}
+          </p>
+
+          <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+            {content.title}
+          </h1>
+        </header>
+
+        <p class="mt-2 text-xl text-slate-600">
+          {content.description}
+        </p>
+
+        <div class="mt-8 prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-lead:text-slate-500 prose-a:font-semibold prose-a:underline prose-pre:bg-slate-900">
+          <slot />
+        </div>
+
+        <QuickLinks showQuicklinks={content.showQuicklinks} />
+
+        <ContentFooter />
+      </article>
+
+      <ContentNavigation />
+    </div>
+  </main>
+
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" />
+</body>
+</html>
+
+<style is:global>
+</style>

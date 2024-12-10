@@ -1,0 +1,48 @@
+---
+layout: ../../layouts/Layout.astro
+title: Printed parts
+description: See this for all printed parts in this repository.
+section: Sourcing
+order: 7
+---
+
+import { Image } from 'astro:assets';
+import imgScreenExploded from '../../assets/images/screen-exploded-view.png';
+import imgPcbExploded from '../../assets/images/pcb-exploded-view.png';
+
+GaggiMate requires a handful of printed parts to function. You will need to either print these yourself or source them from somewhere. One place you could source them from is [jlc3dp.com](https://jlc3dp.com/). You will probably also be able to find a place locally to make these for you.
+
+## All routes - Display housing
+<Image src={imgScreenExploded} width={800} alt="Exploded View" />
+
+### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_front.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/case_front.stl) (Print 2 if unsure about sturdyness of the print)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_back.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/case_back.stl)
+* 4 pcs 6x3mm Neodymium Magnet N52  [(AliExpress)](https://s.click.aliexpress.com/e/_EjwXuaU) (Ignore this if you want to screw down the display)
+* LilyGo T-RGB (See other sourcing pages)
+
+### Assembly
+
+Push the magnets into the 4 holes if you're going for a magnetic install, otherwise drill holes into your machine and screw it down with the provided screw holes.
+The magnets should hold by themselves, if they're a bit loose you can use a dab of superglue.
+
+Sit the screen inside of the case back and align the connectors correctly. Now carefully push the case front down onto the screen until it clicks into place.
+This will bend the tabs outside along the layerlines so be careful not to break them.
+
+## PCB Route - PCB Casing
+<Image src={imgPcbExploded} width={800} alt="Exploded View" />
+
+### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/pcb_clipped_base.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/pcb_clipped_base.stl) (Print 2 if unsure about sturdyness of the print)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/pcb_clipped_cover.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/pcb_clipped_cover.stl)
+* GaggiMate Controller PCB (See other sourcing pages)
+* Double sided tape (VHB or similar)
+
+### Assembly
+
+Sit the PCB on top of the case bottom and align the mounting holes correctly. Now carefully push the cover down onto the base until it clicks into place.
+This will bend the tabs outside along the layerlines so be careful not to break them.
+
+## Lego Route - Lego Casing
+
+This is currently work in progress.
