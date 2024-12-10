@@ -1,30 +1,21 @@
 {
-  "name": "gaggimate-docs",
-  "version": "0.2.1",
-  "description": "GaggiMate espresso machine controller",
-  "main": "tailwind.config.js",
-  "directories": {
-    "doc": "docs",
-    "lib": "lib",
-    "test": "test"
-  },
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:build": "tailwindcss -m -i src/style.css -o src/style.min.css",
-    "docs:build:watch": "tailwindcss -m -i docs/style.css -o docs/style.min.css --watch"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jniebuhr/gaggimate-docs.git"
+  "dependencies": {
+    "@astrojs/tailwind": "^2.1.1",
+    "astro": "^1.5.2",
+    "tailwindcss": "^3.0.24"
   },
-  "author": "",
-  "license": "SEE LICENSE IN README.md",
-  "bugs": {
-    "url": "https://github.com/jniebuhr/gaggimate/issues"
-  },
-  "homepage": "https://github.com/jniebuhr/gaggimate#readme",
   "devDependencies": {
-    "inliner": "^1.13.1",
-    "tailwindcss": "^3.4.14"
+    "@tailwindcss/typography": "^0.5.15"
   }
 }
