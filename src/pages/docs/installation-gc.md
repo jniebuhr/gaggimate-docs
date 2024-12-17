@@ -64,14 +64,14 @@ Document the existing wiring configurations with photos or diagrams for referenc
 #### Label All Wires
 Use labeling tape or a marker on the plugs to mark each wire according to its function.
 
-| Part | Letter | Pins                        |
-| ---- | ----- |-----------------------------|
-| Power Switch | PS | I - IN, O - OUT             |
-| Brew Switch | B | I - IN, O - OUT             |
-| Steam Switch | S | I - IN, O - OUT             |
-| Heater | H | I - IN, B - BRIDGE, O - OUT |
-| Pump | P | L - LINE, N - NEUTRAL |
-| Valve | V | L - LINE, N - NEUTRAL, E - EARTH (if present) |
+| Part         | Letter | Pins                                          |
+|--------------|--------|-----------------------------------------------|
+| Power Switch | PS     | I - IN, O - OUT                               |
+| Brew Switch  | B      | I - IN, O - OUT                               |
+| Mode Switch   | M      | I - IN, B - Brew, S - Steam                   |
+| Heater       | H      | I - IN, B - BRIDGE, O - OUT                   |
+| Pump         | P      | L - LINE, N - NEUTRAL                         |
+| Valve        | V      | L - LINE, N - NEUTRAL, E - EARTH (if present) |
 
 #### Replace Brew thermostat
 
