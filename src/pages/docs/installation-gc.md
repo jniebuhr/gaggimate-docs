@@ -56,7 +56,7 @@ Make yourself familiar with the wiring diagrams for your machine in [Wiring](/do
 
 
 #### Disassemble the Machine
-Remove the side panels of the Gaggia Classic to access the internal wiring and components.
+Remove the top panel of the Gaggia Classic to access the internal wiring and components.
 Document the existing wiring configurations with photos or diagrams for reference.
 
 ### HV Wiring
