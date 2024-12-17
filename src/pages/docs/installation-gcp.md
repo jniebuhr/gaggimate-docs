@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Layout.astro
-title: Gaggia Classic Pro
+title: Gaggia Classic Pro/Evo
 description: Installation procedure for Gaggia Classic Pro/Evo/etc machines
 section: Installation
 order: 13
