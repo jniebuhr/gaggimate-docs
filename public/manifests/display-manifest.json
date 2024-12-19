@@ -1,6 +1,6 @@
 {
   "name": "GaggiMate Display",
-  "version": "v0.4.1",
+  "version": "v1.0.0",
   "funding_url": "https://ko-fi.com/jniebuhr",
   "new_install_prompt_erase": false,
   "builds": [
@@ -10,7 +10,8 @@
         { "path": "/firmware/display/esp32-s3/bootloader.bin", "offset": 0 },
         { "path": "/firmware/display/esp32-s3/partitions.bin", "offset": 32768 },
         { "path": "/firmware/generic/boot_app0.bin", "offset": 57344 },
-        { "path": "/firmware/display/esp32-s3/firmware.bin", "offset": 65536 }
+        { "path": "/firmware/display/esp32-s3/firmware.bin", "offset": 65536 },
+        { "path": "/firmware/display/esp32-s3/filesystem.bin", "offset": 13172736 }
       ]
     }
   ]
