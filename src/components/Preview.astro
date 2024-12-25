@@ -1,0 +1,10 @@
+---
+import { Image, getImage } from 'astro:assets';
+const {src, width, alt} = Astro.props;
+
+const linkTarget = await getImage({src});
+---
+
+<a href={linkTarget.src} target="_blank">
+    <Image src={src} alt={alt} width={width} />
+</a>

@@ -10,7 +10,7 @@ If you don't feel like ordering a PCB and soldering it or paying for assembly an
 
 ## Components
 
-* ESP-S3 DevKit - N8R8 [(AliExpress)](https://s.click.aliexpress.com/e/_EzXyAvP)
+* ESP-S3 DevKit - N8R8 [(AliExpress)](https://s.click.aliexpress.com/e/_EQmqlAC)
 * 2-Channel 5V Relay [(AliExpress)](https://s.click.aliexpress.com/e/_ExUVY9J) (2 or 3 channel if you want the Grinder integration)
 * MAX31855 Temperature sensor board [(AliExpress)](https://s.click.aliexpress.com/e/_EuEbJO4)
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_Eju6rYD)
