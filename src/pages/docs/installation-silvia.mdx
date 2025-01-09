@@ -7,22 +7,6 @@ order: 14
 ---
 
 import Preview from '../../components/Preview.astro';
-import gcp_buttons_stock from '../../assets/images/gcp/gcp_buttons_stock.jpg';
-import gcp_eco_bridge from '../../assets/images/gcp/gcp_eco_bridge.jpg';
-import gcp_gaggimate from '../../assets/images/gcp/gcp_gaggimate.jpg';
-import gcp_line_wiring from '../../assets/images/gcp/gcp_line_wiring.jpg';
-import gcp_lv_ssr_connection from '../../assets/images/gcp/gcp_lv_ssr_connection.jpg';
-import gcp_neutral_wiring from '../../assets/images/gcp/gcp_neutral_wiring.jpg';
-import gcp_pump_wiring from '../../assets/images/gcp/gcp_pump_wiring.jpg';
-import gcp_screen_mounting from '../../assets/images/gcp/gcp_screen_mounting.jpg';
-import gcp_steam_button_modded from '../../assets/images/gcp/gcp_steam_button_modded.jpg';
-import gcp_steam_thermostat_ssr from '../../assets/images/gcp/gcp_steam_thermostat_ssr.jpg';
-import gcp_stock_open_view from '../../assets/images/gcp/gcp_stock_open_view.jpg';
-import gcp_thermocouple from '../../assets/images/gcp/gcp_thermocouple.jpg';
-import gcp_thermostat_bridge from '../../assets/images/gcp/gcp_thermostat_bridge.jpg';
-import gcp_valve_wiring from '../../assets/images/gcp/gcp_valve_wiring.jpg';
-
-
 import pcb_placement from '../../assets/images/silvia/pcb_placement.jpeg';
 import screen from '../../assets/images/silvia/screen.jpeg';
 import ssr_placement from '../../assets/images/silvia/ssr_placement.jpeg';
@@ -31,6 +15,7 @@ import pump_wiring from '../../assets/images/silvia/pump_wiring.png';
 import front_panel_removed from '../../assets/images/silvia/front_panel_removed.png';
 import back_panel_removed from '../../assets/images/silvia/back_panel_removed.png';
 import rancilio_installed from '../../assets/images/silvia/rancilio_installed.jpeg';
+import finished_wiring from '../../assets/images/silvia/finished_wiring.jpeg';
 
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
 <h3 class="my-2">Important Notes</h3>
@@ -201,6 +186,10 @@ Review all your labeled connections for accuracy and completeness.
 Ensure that there are no exposed wires and that all connections are secure and insulated.
 
 Once you have completed that step, test your wiring for possible shorts with a multimeter and make sure you haven't connected any LV connections with HV connections. Also test the switches operation for continuity in the different switch positions.
+
+<Preview src={finished_wiring} width={400} alt="Wire Placement" />
+
+Here you can get a view of how I routed my wires. Since I received a wrong thermocouple from Amazon I had to temporarily use an M4 one in place of the thermal fuse. I do NOT recommend that as a permanent solution.
 
 ### PCB Placement
 
