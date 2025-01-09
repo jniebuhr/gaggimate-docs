@@ -1,0 +1,225 @@
+---
+layout: ../../layouts/Layout.astro
+title: Rancilio Silvia
+description: Installation procedure for Rancilio Silvia machines
+section: Installation
+order: 14
+---
+
+import Preview from '../../components/Preview.astro';
+import gcp_buttons_stock from '../../assets/images/gcp/gcp_buttons_stock.jpg';
+import gcp_eco_bridge from '../../assets/images/gcp/gcp_eco_bridge.jpg';
+import gcp_gaggimate from '../../assets/images/gcp/gcp_gaggimate.jpg';
+import gcp_line_wiring from '../../assets/images/gcp/gcp_line_wiring.jpg';
+import gcp_lv_ssr_connection from '../../assets/images/gcp/gcp_lv_ssr_connection.jpg';
+import gcp_neutral_wiring from '../../assets/images/gcp/gcp_neutral_wiring.jpg';
+import gcp_pump_wiring from '../../assets/images/gcp/gcp_pump_wiring.jpg';
+import gcp_screen_mounting from '../../assets/images/gcp/gcp_screen_mounting.jpg';
+import gcp_steam_button_modded from '../../assets/images/gcp/gcp_steam_button_modded.jpg';
+import gcp_steam_thermostat_ssr from '../../assets/images/gcp/gcp_steam_thermostat_ssr.jpg';
+import gcp_stock_open_view from '../../assets/images/gcp/gcp_stock_open_view.jpg';
+import gcp_thermocouple from '../../assets/images/gcp/gcp_thermocouple.jpg';
+import gcp_thermostat_bridge from '../../assets/images/gcp/gcp_thermostat_bridge.jpg';
+import gcp_valve_wiring from '../../assets/images/gcp/gcp_valve_wiring.jpg';
+
+
+import pcb_placement from '../../assets/images/silvia/pcb_placement.jpeg';
+import screen from '../../assets/images/silvia/screen.jpeg';
+import ssr_placement from '../../assets/images/silvia/ssr_placement.jpeg';
+import stock_view from '../../assets/images/silvia/stock_view.jpeg';
+import pump_wiring from '../../assets/images/silvia/pump_wiring.png';
+import front_panel_removed from '../../assets/images/silvia/front_panel_removed.png';
+import back_panel_removed from '../../assets/images/silvia/back_panel_removed.png';
+import rancilio_installed from '../../assets/images/silvia/rancilio_installed.jpeg';
+
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+<h3 class="my-2">Important Notes</h3>
+
+<strong class="font-bold text-red-700">High Voltage Safety</strong>: Exercise extreme caution when working with high voltage. If you are unsure about any steps, consult a professional technician.
+<strong class="font-bold text-red-700">Follow Local Codes</strong>: Ensure that your work adheres to local electrical codes and standards.
+<strong class="font-bold text-red-700">Documentation</strong>: Keep a record of your wiring setup for future reference and troubleshooting.
+
+</div>
+
+<div class="bg-blue-50 mt-4 border border-blue-500 text-blue-800 px-4 py-3 rounded">
+<h3 class="my-2">Tools and Materials Needed</h3>
+
+**Tools**
+
+* Phillips head screwdriver
+* Wire crimpers (for female and male spade connectors, ferrules and JST connections)
+* Wire strippers or knife
+* Multimeter (for testing connections)
+
+**Materials**
+
+* K-type thermocouple (Ring type)
+* Solid State Relay (SSR)
+* M4 Hex Nut
+* Assembled control board
+* Assembled display
+* 18 AWG wires for 230/110V connections
+* 22 AWG wires for power to the display and buttons
+* 2* JST XH 2P connector
+* 1* JST XH 4P connector (if doing buttons)
+* PA2.0 4P connector
+* Spade connectors (male, female and piggyback)
+* Ferrules
+* Thermal grease
+* Heat shrink tubing (optional, for added insulation)
+* Electrical tape or zipties for organizing
+* Labeling tape or markers for wire labeling
+
+</div>
+
+### Preparation
+
+**Safety First!**
+Unplug your machine to ensure there's no live connections while working on it.
+Work in a dry environment to prevent electrical hazards.
+
+Start by gathering all the materials and tools listed above so you have everything ready for the next steps. Follow these guides if you haven't already: [Printed Parts Assembly](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
+
+Make yourself familiar with the wiring diagrams for your machine in [Wiring](/docs/wiring).
+
+**Batch 1 notice**
+If you bought your PCB in batch 1 you might still have some rails on the top and bottom of the PCB that will prevent you from plugging in a USB-C plug. These can be carefully broken off by bending them up and down.
+
+#### Disassemble the Machine
+
+Remove the tank lid and tank from the Silvia. Dry off and set aside the pump hoses to not spill water on your electrical components.
+Remove the 4 screws at the top that hold the top panel and take it off.
+
+This is what it should look like when you open up your machine:
+
+<Preview src={stock_view} width={400} alt="Silvia Top View" />
+
+We will also need access to the back and front of the machine. Continue by removing the 2 screws that hold in the front cover below the grouphead and slide off the panel.
+
+<Preview src={front_panel_removed} width={400} alt="Silvia Front View" />
+
+Next remove the back panel that hides the pump. You will need a long screw driver to reach a screw at the bottom of the tank compartment. You don't need to fully remove this, just loosen it up. Loosen up the 2 screws at the top that hold in the back panel as well and swing up the back panel to remove it.
+
+<Preview src={back_panel_removed} width={400} alt="Silvia Back View" />
+
+### HV Wiring
+
+<div class="bg-blue-50 mt-4 border border-blue-500 text-blue-800 px-4 py-4 rounded font-medium">Use 18 AWG wiring for all 120/240V connections.</div>
+
+#### Label All Wires
+Use labeling tape or a marker on the plugs to mark each wire according to its function.
+
+| Part | Letter | Pins                                                           |
+| ---- | ----- |----------------------------------------------------------------|
+| Power Switch | IG | 1, 2, 3, 4 |
+| Brew Switch | IC | 1, 2, 3, 4 |
+| Steam Switch | IV | 1, 2, 3, 4 |
+| Water Switch | IA | 1, 2, 3, 4 |
+| Pump | P | L - LINE, N - NEUTRAL |
+| Valve | V | L - LINE, N - NEUTRAL, E - EARTH |
+
+#### Replace Brew thermostat
+
+Remove the 3 screws that hold down the thermostats. Remove the 2 brackets and set them aside.
+The brew thermostat has a red and gray wire attached to it. Remove the wires from the thermostat and set the thermostat aside.
+
+Prepare a small jumper wire with 2 spade connectors at the end and connect it in place of the brew thermostat.
+
+#### Replace Steam thermostat
+
+Remove the connections from the remaining thermostat. These should be yellow and gray. Make 2 wires with a spade connector on one and ferrules on the other end.
+Connect them to the yellow and gray wire and route them through a hole next to the boiler into the front where the solenoid is located.
+
+#### Install SSR
+
+Use the M4 hex nut to bolt the SSR to the front of the machine.
+
+<Preview src={ssr_placement} width={400} alt="SSR location" />
+
+Connect the two wires you previously routed to the Output of your SSR.
+
+#### 3WV Connection
+
+Unplug the orange wire from the Brew Switch. Make an extension with a spade connector on one and a ferrule on the other end.
+Route it the same way you previously routed the SSR connections and connect it to the V port of the PCB.
+
+#### Pump connections
+
+Unplug the Line (red) connection from the Pump. (This will most likely connect to a smaller wire with a thermal fuse).
+Make an extension with a spade connector on one and a ferrule on the other end and route it to the same location you ran the previous wires.
+Connect it to the P port of the PCB.
+
+<Preview src={pump_wiring} width={400} alt="Pump Install" />
+
+
+#### Switch wiring
+
+##### Brew switch
+
+Remove the red line from the brew switch. Make an extension with a spade connector and ferrule and run it to the PCB. Connect it to the L port.
+
+Remove the white and black lines from the brew switch and bridge them with a small jumper cable with spade connectors.
+
+##### Steam Switch
+
+Remove the black wire from the steam switch. Make an extension with a spade connector and ferrule and run it to the PCB. Connect it to the N port.
+
+Remove the gray and red wires from the steam switch and isolate them.
+
+Each of your buttons should now have one side that is free of HV and can be used to wire up the buttons to your PCB in the next step.
+
+### LV Wiring
+
+#### Install thermocouple
+
+Use a bit of thermal grease on the thermocouple, place it on one of the thermostat mounting holes in the boiler and screw it down with the existing screws.
+You can either use a washer or the tabs that were previously on there to hold it down.
+
+Connect the thermocouples wires to the thermocouple port of the PCB. Orientation matters for this connection! The wires come precrimped with ferrules so you don't have to do anything to the wires.
+
+#### Make the screen power connection
+
+The standard use case is to connect the screen to power from the PCB. Make a cable that consists of 2 wires with a JST XH 2P connector on one and a JST PA 4P connector on the other side. Check the pinout on the back of the screen if you're unsure which pins to use.
+You can route this wire from the front compartment back to the top of the machine and through a gap next to the top panel.
+Connect it to screen and PCB.
+
+<Preview src={screen} width={400} alt="Screen Mounting" />
+
+#### Connect buttons (optional)
+
+Make a 22 AWG cable with 4 wires that has a JST 4P on one end and female spade connectors on the other. It should consist of two GND, Steam Button and Brew Button connection.
+Connect the GND connections to the inputs of the Brew/Steam switches.
+Connect the Brew connection to the output of the Brew switch.
+Connect the Steam connection to the output of the Steam switch.
+
+#### SSR logic
+
+Make 22 AWG cable with 2 wires with a JST XH 2P connector on one and ferrules or a fork connector on the other end. Connect it to the SSR output of the PCB and the input side of the SSR. Be sure to connect it the correct way (+/-).
+
+### Double-Check All Connections
+Review all your labeled connections for accuracy and completeness.
+Ensure that there are no exposed wires and that all connections are secure and insulated.
+
+Once you have completed that step, test your wiring for possible shorts with a multimeter and make sure you haven't connected any LV connections with HV connections. Also test the switches operation for continuity in the different switch positions.
+
+### PCB Placement
+
+Place the PCB in the case and install it over the SSR. You can use magnets or tape to hold it in place.
+
+<Preview src={pcb_placement} width={400} alt="PCB Placement" />
+
+### Testing
+Now is the big moment. Turn on your machine for the first time. The heater should not be heating on power-on and nothing else should be running. You can check if the heater is doing anything by observing the LED on the SSR.
+The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up.
+
+### Final Steps
+Reassemble the Machine: Carefully put the panels back on, ensuring that there are no pinched wires.
+Conduct a Safety Check: Perform a final inspection to ensure everything is insulated and that there are no exposed wiring connections.
+
+If you have any further questions or need additional clarifications, feel free to go into the Discord and make a help thread or post on our Subreddit.
+
+### Congratulations
+
+You have now finished setting up your Rancilio Silvia with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
+
+<Preview src={rancilio_installed} width={400} alt="GaggiMate install" />
