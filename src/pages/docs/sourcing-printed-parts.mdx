@@ -8,6 +8,7 @@ order: 7
 
 import { Image } from 'astro:assets';
 import imgScreenExploded from '../../assets/images/screen-exploded-view.png';
+import imgScreenAngledExploded from '../../assets/images/screen-angled-exploded-view.png';
 import imgPcbExploded from '../../assets/images/pcb-exploded-view.png';
 
 GaggiMate requires a handful of printed parts to function. You will need to either print these yourself or source them from somewhere. One place you could source them from is [jlc3dp.com](https://jlc3dp.com/). You will probably also be able to find a place locally to make these for you.
@@ -27,6 +28,21 @@ It is recommended not to use PLA for these as it has a low melting point and mig
 
 Push the magnets into the 4 holes if you're going for a magnetic install, otherwise drill holes into your machine and screw it down with the provided screw holes.
 The magnets should hold by themselves, if they're a bit loose you can use a dab of superglue.
+
+Sit the screen inside of the case back and align the connectors correctly. Now carefully push the case front down onto the screen until it clicks into place.
+This will bend the tabs outside along the layerlines so be careful not to break them.
+
+### Variant: Angled display housing
+
+<Image src={imgScreenAngledExploded} width={800} alt="Exploded View" />
+
+#### BOM
+
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_front.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/case_front.stl) (Print 2 if unsure about sturdyness of the print)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/angled</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/angled) (Choose the correct back part for your machine)
+* LilyGo T-RGB (See other sourcing pages)
+
+#### Assembly
 
 Sit the screen inside of the case back and align the connectors correctly. Now carefully push the case front down onto the screen until it clicks into place.
 This will bend the tabs outside along the layerlines so be careful not to break them.
