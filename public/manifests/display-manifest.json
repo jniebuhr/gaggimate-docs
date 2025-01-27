@@ -1,6 +1,6 @@
 {
   "name": "GaggiMate Display",
-  "version": "v1.1.1",
+  "version": "v1.2.1",
   "funding_url": "https://ko-fi.com/jniebuhr",
   "new_install_prompt_erase": false,
   "builds": [
