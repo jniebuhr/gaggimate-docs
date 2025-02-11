@@ -10,7 +10,7 @@ Going the PCB route is the more integrated and clean solution and is recommended
 
 ## Components
 
-* GaggiMate Controller PCB [(PCBWay)](https://www.pcbway.com/project/shareproject/GaggiMate_Espresso_Machine_Conversion_fa7d5404.html) [(Gerber files)](https://github.com/jniebuhr/gaggimate/tree/master/pcb/jlcpcb/production_files)
+* GaggiMate Controller PCB
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_Eju6rYD)
 * AC SSR 40A [(AliExpress)](https://s.click.aliexpress.com/e/_EvPScvr)
 * K-Type M4 Thermocouple - 0.5m [(AliExpress)](https://s.click.aliexpress.com/e/_Exzhqx7)
