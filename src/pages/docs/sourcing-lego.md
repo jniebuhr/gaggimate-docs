@@ -6,7 +6,7 @@ section: Sourcing
 order: 6
 ---
 
-If you don't feel like ordering a PCB and soldering it or paying for assembly and are more comfortable connecting up different components you can go this route too. Below you'll find all the components that essentially make up the PCB too.
+If you don't feel like ordering a PCB or kit and are more comfortable connecting up different components you can go this route too. Below you'll find all the components that essentially make up the PCB too.
 
 ## Components
 

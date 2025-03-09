@@ -6,7 +6,7 @@ section: Sourcing
 order: 5
 ---
 
-Going the PCB route is the more integrated and clean solution and is recommended but it will require you to either buy the PCB as part of the kit or order it from a source like JLCPCB or PCBWay. It is reasonsably easy to solder yourself if you have some soldering experience and a hotplate. Make sure to order a stencil along the PCB.
+Going the PCB route is the recommended way to install GaggiMate. The store is now open at [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/) and you can source it either as part of a kit that comes with pre-crimped wires included or on its own.
 
 ## Components
 
