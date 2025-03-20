@@ -1,6 +1,6 @@
 {
   "name": "GaggiMate Controller",
-  "version": "v1.3.0",
+  "version": "v1.4.2",
   "funding_url": "https://ko-fi.com/jniebuhr",
   "new_install_prompt_erase": false,
   "builds": [
