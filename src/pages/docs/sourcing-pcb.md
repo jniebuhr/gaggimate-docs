@@ -20,6 +20,7 @@ If you want to go for self-sourcing, you'll need the following components:
 * 18 AWG Silicone Wire for HV wiring [(AliExpress)](https://s.click.aliexpress.com/e/_EJEs0ak)
 * 6.35mm Spade Connectors [(AliExpress)](https://s.click.aliexpress.com/e/_Ew8LURi)
 * 6.35mm Piggyback Connectors [(AliExpress)](https://s.click.aliexpress.com/e/_EH4r52U)
+* Fork connectors (SV1.25-5s) [(AliExpress)](https://s.click.aliexpress.com/e/_EGLHZwo)
 * JST PH Connectors [(AliExpress)](https://s.click.aliexpress.com/e/_EHaVBXe)
 * 2.0mm PA Jumper wires - 4P [(AliExpress)](https://s.click.aliexpress.com/e/_EQEyQGy)
 
