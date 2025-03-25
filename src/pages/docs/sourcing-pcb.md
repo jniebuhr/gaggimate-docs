@@ -12,7 +12,7 @@ Going the PCB route is the recommended way to install GaggiMate. The store is no
 
 If you want to go for self-sourcing, you'll need the following components:
 
-* GaggiMate Controller PCB (Standard or Pro)  [(Shop)](https://shop.gaggimate.eu/)
+* GaggiMate Controller PCB (Standard or Pro)  [(Shop)](https://shop.gaggimate.eu/collections/parts)
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_Eju6rYD)
 * AC SSR 40A [(AliExpress)](https://s.click.aliexpress.com/e/_EvPScvr)
 * K-Type M4 Thermocouple - 0.5m [(AliExpress)](https://s.click.aliexpress.com/e/_Exzhqx7)
