@@ -6,7 +6,7 @@ section: Installation
 order: 10
 ---
 
-The flashing process of your new components is simply done on this website. You need to use either Chrome or Firefox for it to work. Simply plug in your devices to USB and press the correct button below.
+The flashing process of your new components is simply done on this website. You need to use either Chrome, Edge or Opera (Chromium based browsers) for it to work. Simply plug in your devices to USB and press the correct button below.
 
 **Notice**: When you flash these for the first time you might have to start them in Bootloader mode. To do this simply hold the BOOT button while plugging them into USB.
 
