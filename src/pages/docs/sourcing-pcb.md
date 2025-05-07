@@ -40,6 +40,12 @@ If you want to go for self-sourcing, you'll need the following components:
 * High Pressure Silicone braided hose (~6mm ID, 12mm OD) [(AliExpress)](https://s.click.aliexpress.com/e/_EvUXSPe)
 * 6mm Barb T-Fitting [(AliExpress)](https://s.click.aliexpress.com/e/_Ev2iqBQ)
 * 6mm Barb to G1/4 female fitting - PCF 6mm 1/4" [(AliExpress)](https://s.click.aliexpress.com/e/_EGT7xgU)
+* Hose Clamps - 6-12mm 10pcs [(AliExpress)](https://s.click.aliexpress.com/e/_EyizSFY)
+
+**for Rancilio Silvia**
+* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_EGn7WBq)
+* Male T-Fitting G1/4 - T-MMM 1/4" [(AliExpress)](https://www.aliexpress.com/item/1005005296973353.html)
+* 2 pieces 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EzlXYGY)
 
 ## Tools
 

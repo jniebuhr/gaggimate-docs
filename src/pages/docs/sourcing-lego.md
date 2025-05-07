@@ -23,6 +23,7 @@ If you don't feel like ordering a PCB or kit and are more comfortable connecting
 * Dupont Connectors [(AliExpress)](https://s.click.aliexpress.com/e/_Ewjx5ks)
 * 2.0mm PA Jumper wires - 4P [(AliExpress)](https://s.click.aliexpress.com/e/_EQEyQGy)
 * Ferrules - AWG18 [(AliExpress)](https://s.click.aliexpress.com/e/_EuV5olm)
+* 5V 2A Power supply [(AliExpress)](https://s.click.aliexpress.com/e/_EGCsOgK)
 
 ## Tools
 
