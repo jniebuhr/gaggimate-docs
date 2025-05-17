@@ -6,11 +6,9 @@ section: Sourcing
 order: 5
 ---
 
-Going the PCB route is the recommended way to install GaggiMate. The store is now open at [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/) and you can source it either as part of a kit that comes with pre-crimped wires included or on its own. If you buy the kit you won't need any of the components below.
+You can go the PCB route if you already have a bunch of the components for the install and like the cleanliness of using the PCB. The store is now open at [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/) and you can source it there.
 
 ## Components
-
-If you want to go for self-sourcing, you'll need the following components:
 
 * GaggiMate Controller PCB (Standard or Pro)  [(Shop)](https://shop.gaggimate.eu/collections/parts)
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_EwmnrEs)
