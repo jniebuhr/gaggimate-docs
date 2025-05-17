@@ -90,17 +90,18 @@ Screw the SSR against the back vents of your machine for added cooling.
 
 #### Pump connections
 
-Remove the existing Line connection from the pump. Make a new 18 AWG wire that connects from the pumps Line connection to the P port of the PCB.
+Remove the red wire from the pump (this is the one that does not run to the thermal fuse or has two wires going into it since colors may differ). Make a new 18 AWG wire that connects from the now open connection to the P port of the PCB.
 
 #### 3WV connection
 
-Use the Line wire that usually runs from the pump to the 3WV and connect it to the V port of the PCB.
+Use the wire that you just removed from the pump - this runs to the 3WV via the steam button - and connect it with the extension to the V port of the PCB.
 
 #### Switch wiring
 
-Remove the HV wiring from the Brew and Steam switch. The switches can be used to control the display and will be wired up with LV wires in the next step.
+Remove the connection labeled 3 in the machine diagram from the steam switch. Plug in the blue extension from the wiring kit and run it to the Line port of the PCB.
+Connect the grey wire from the wiring kit between the bottom connection of the power switch and the wire that's attached there currently. Run the grey wire to the PCB and connect it to the Neutral port.
 
-Make 2 wires for L and N with piggyback connectors on one and ferrules on the other end. Run these from the power switches L and N connections to the respective inputs on the PCB.
+Remove the HV wiring from the brew switch and the right side of the steam switch (looking from the front). These connections will be used for LV button control.
 
 ### LV Wiring
 
