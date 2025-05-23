@@ -7,196 +7,276 @@ order: 13
 ---
 
 import Preview from '../../components/Preview.astro';
-import gcp_buttons_stock from '../../assets/images/gcp/gcp_buttons_stock.jpg';
-import gcp_eco_bridge from '../../assets/images/gcp/gcp_eco_bridge.jpg';
-import gcp_gaggimate from '../../assets/images/gcp/gcp_gaggimate.jpg';
-import gcp_line_wiring from '../../assets/images/gcp/gcp_line_wiring.jpg';
-import gcp_lv_ssr_connection from '../../assets/images/gcp/gcp_lv_ssr_connection.jpg';
-import gcp_neutral_wiring from '../../assets/images/gcp/gcp_neutral_wiring.jpg';
-import gcp_pump_wiring from '../../assets/images/gcp/gcp_pump_wiring.jpg';
-import gcp_screen_mounting from '../../assets/images/gcp/gcp_screen_mounting.jpg';
-import gcp_steam_button_modded from '../../assets/images/gcp/gcp_steam_button_modded.jpg';
-import gcp_steam_thermostat_ssr from '../../assets/images/gcp/gcp_steam_thermostat_ssr.jpg';
-import gcp_stock_open_view from '../../assets/images/gcp/gcp_stock_open_view.jpg';
-import gcp_thermocouple from '../../assets/images/gcp/gcp_thermocouple.jpg';
-import gcp_thermostat_bridge from '../../assets/images/gcp/gcp_thermostat_bridge.jpg';
-import gcp_valve_wiring from '../../assets/images/gcp/gcp_valve_wiring.jpg';
+import img_01 from '../../assets/images/gcp/01_parts.jpeg';
+import img_02 from '../../assets/images/gcp/02_parts.jpeg';
+import img_03 from '../../assets/images/gcp/03_screen_glue.jpeg';
+import img_04 from '../../assets/images/gcp/04_screen_assemble.jpeg';
+import img_05 from '../../assets/images/gcp/05_pcb_assemble.jpeg';
+import img_06 from '../../assets/images/gcp/06_pcb_assemble.jpeg';
+import img_07 from '../../assets/images/gcp/07_machine_clear.jpeg';
+import img_08 from '../../assets/images/gcp/08_machine_open.jpeg';
+import img_09 from '../../assets/images/gcp/09_cup_warmer.jpeg';
+import img_10 from '../../assets/images/gcp/10_overview.jpeg';
+import img_11 from '../../assets/images/gcp/11_stock_buttons.jpeg';
+import img_12 from '../../assets/images/gcp/12_tilt_buttons.jpeg';
+import img_13 from '../../assets/images/gcp/13_tilt_buttons.jpeg';
+import img_14 from '../../assets/images/gcp/14_monoblocks.jpeg';
+import img_15 from '../../assets/images/gcp/15_labeling.jpeg';
+import img_16 from '../../assets/images/gcp/16_labeling.jpeg';
+import img_17 from '../../assets/images/gcp/17_steam_valve.jpeg';
+import img_18 from '../../assets/images/gcp/18_group_head.jpeg';
+import img_19 from '../../assets/images/gcp/19_brew_thermostat.jpeg';
+import img_20 from '../../assets/images/gcp/20_bt_bridge.jpeg';
+import img_21 from '../../assets/images/gcp/21_thermocouple.jpeg';
+import img_22 from '../../assets/images/gcp/22_thermocouple.jpeg';
+import img_23 from '../../assets/images/gcp/23_steam_valve.jpeg';
+import img_24 from '../../assets/images/gcp/24_stsw_stock.jpeg';
+import img_25 from '../../assets/images/gcp/25_neutral.jpeg';
+import img_26 from '../../assets/images/gcp/26_stsw_modded.jpeg';
+import img_27 from '../../assets/images/gcp/27_brsw_stock.jpeg';
+import img_28 from '../../assets/images/gcp/28_eco.jpeg';
+import img_29 from '../../assets/images/gcp/29_line.jpeg';
+import img_30 from '../../assets/images/gcp/30_brsw_modded.jpeg';
+import img_31 from '../../assets/images/gcp/31_logic_buttons.jpeg';
+import img_32 from '../../assets/images/gcp/32_3wv.jpeg';
+import img_33 from '../../assets/images/gcp/33_pump.jpeg';
+import img_34 from '../../assets/images/gcp/34_steam_thermostat.jpeg';
+import img_35 from '../../assets/images/gcp/35_stean_thermostat.jpeg';
+import img_36 from '../../assets/images/gcp/36_ssr.jpeg';
+import img_37 from '../../assets/images/gcp/37_pcb_connections.jpeg';
+import img_38 from '../../assets/images/gcp/38_pcb_placement.jpeg';
+import img_39 from '../../assets/images/gcp/39_pressure.jpeg';
+import img_40 from '../../assets/images/gcp/40_pressure.jpeg';
+import img_41 from '../../assets/images/gcp/41_pressure.jpeg';
+import img_42 from '../../assets/images/gcp/42_pressure.jpeg';
+import img_43 from '../../assets/images/gcp/43_pressure.jpeg';
+import img_44 from '../../assets/images/gcp/44_pump_connection.jpeg';
+import img_45 from '../../assets/images/gcp/45_transducer_placement.jpeg';
+import img_46 from '../../assets/images/gcp/46_screen_placement.jpeg';
+import img_47 from '../../assets/images/gcp/47_finished.jpeg';
+
 
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
 <h3 class="my-2">Important Notes</h3>
 
-<strong class="font-bold text-red-700">High Voltage Safety</strong>: Exercise extreme caution when working with high voltage. If you are unsure about any steps, consult a professional technician.  
-<strong class="font-bold text-red-700">Follow Local Codes</strong>: Ensure that your work adheres to local electrical codes and standards.  
+<strong class="font-bold text-red-700">High Voltage Safety</strong>: Exercise extreme caution when working with high voltage. If you are unsure about any steps, consult a professional technician. <br />
+<strong class="font-bold text-red-700">Follow Local Codes</strong>: Ensure that your work adheres to local electrical codes and standards. <br />
 <strong class="font-bold text-red-700">Documentation</strong>: Keep a record of your wiring setup for future reference and troubleshooting.
-
-</div>
-
-<div class="bg-blue-50 mt-4 border border-blue-500 text-blue-800 px-4 py-3 rounded">
-<h3 class="my-2">Tools and Materials Needed</h3>
-
-**Tools**
-
-* Phillips head screwdriver
-* Wire crimpers (for female and male spade connectors, ferrules and JST connections)
-* Wire strippers or knife
-* Multimeter (for testing connections)
-
-**Materials**
-
-* K-type thermocouple
-* Solid State Relay (SSR)
-* Assembled control board
-* Assembled display
-* 18 AWG wires for 230/110V connections
-* 22 AWG wires for power to the display and buttons
-* 2* JST XH 2P connector
-* 1* JST XH 4P connector (if doing buttons)
-* PA2.0 4P connector
-* Spade connectors (male, female and piggyback)
-* Ferrules
-* Heat shrink tubing (optional, for added insulation)
-* Electrical tape or zipties for organizing
-* Labeling tape or markers for wire labeling
 
 </div>
 
 ### Preparation
 
 **Safety First!**
-Unplug your machine to ensure there's no live connections while working on it.  
-Work in a dry environment to prevent electrical hazards.  
+Unplug your machine to ensure there's no live connections while working on it.
+Work in a dry environment to prevent electrical hazards.
 
-Start by gathering all the materials and tools listed above so you have everything ready for the next steps. Follow these guides if you haven't already: [Printed Parts Assembly](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
+Start by gathering all the materials and tools listed in the sourcing pages. Follow these guides if you haven't already: [Printed Parts](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
 
-Make yourself familiar with the wiring diagrams for your machine in [Wiring](/docs/wiring).
+Check the [Pinout](/docs/pinout) and prepare the [wires](/docs/wiring) if you didn't buy the kit.
 
-**Batch 1 notice**
-If you bought your PCB in batch 1 you might still have some rails on the top and bottom of the PCB that will prevent you from plugging in a USB-C plug. These can be carefully broken off by bending them up and down.
+#### Check all the parts
+Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below.
 
-#### Disassemble the Machine
-Remove the top panel of the Gaggia Classic to access the internal wiring and components.
-Document the existing wiring configurations with photos or diagrams for reference.
+<div className="flex flex-row gap-4">
+  <Preview src={img_01} width={400} alt="" />
+  <Preview src={img_02} width={400} alt="" />
+</div>
 
-This is what it should look like when you open up your machine:
+#### Prepare the wire labels
 
-<Preview src={gcp_stock_open_view} width={400} alt="Gaggia Classic Pro Disassembled View" />
+We've prepared a printable guide to label your wires in order to easier follow the install and fix mistakes. You can also just use tape, sticky labels or whatever else you have.
 
-### Eco Switch Mod
+<a href="/downloads/gcp-wiring-labels.pdf" target="_blank">Download the wire labels</a>
 
-The EU (240V) machines have an Eco PCB installed in them, meaning they'll switch off after 20 minutes.
-There is two ways to bypass this mechanism.
+#### Assemble the printed parts
 
-#### 1. Trick the Eco PCB
+<div className="flex flex-row gap-4">
+  <Preview src={img_03} width={400} alt="" />
+  <Preview src={img_04} width={400} alt="" />
+</div>
+Take the screen out of the box and try to glue it as straight and centered as possible. Place it in the base and close with the cover.
 
-The simplest possible way to bypass the shutdown timer is to trick the machine into thinking you're pulling a shot of espresso constantly.
-There are two wires connected to the left side of the Brew Switch (from behind) that run to the Eco PCB. Make a short jumper with 2 spade connectors and bridge them.
+<div className="flex flex-row gap-4">
+  <Preview src={img_05} width={400} alt="" />
+  <Preview src={img_06} width={400} alt="" />
+</div>
+Place the PCB in the pcb cover at an angle to guide the USB-C port in the cutout. Afterwards push it down to lock it in the base. Make sure you've already flashed it before as you might need to access the boot button to do so.
 
-<Preview src={gcp_eco_bridge} width={400} alt="Eco Bridge" />
+### Machine preparation
 
-#### 2. Remove the Eco PCB
+#### Disassemble the machine
 
-We don't have our own guide on this yet so check a Youtube Video on how to bypass it. (e.g. [YouTube](https://www.youtube.com/watch?v=WNs3uSLA4Ts))
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_07} width={400} alt="" />
+  <Preview src={img_08} width={400} alt="" />
+  <Preview src={img_09} width={400} alt="" />
+</div>
+
+Remove all parts from the machine that could bother you during the installation or fall out like the water lid, drip tray and portafilter. Undo the two screws marked above in the picture.<br />
+Afterwards, remove the cupwarmer and disconnect the two grounding wires. Remember to connect these again during re-assembly!
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_10} width={400} alt="" />
+  <Preview src={img_11} width={400} alt="" />
+</div>
+
+You see an overview of what you should expect above. Make yourself familiar with the layout of the machine. You can use above pictures for reference if you need to check anything. The machine in the pictures is a Gaggia Classic Pro E24 with the Eco PCB. This machine uses monoblock connectors, the wiring is identical to other models though.
+
+#### Labeling
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_12} width={400} alt="" />
+  <Preview src={img_13} width={400} alt="" />
+  <Preview src={img_14} width={400} alt="" />
+</div>
+
+To make labeling a bit easier, especially with the monoblock style connectors you can tilt out the front switches a bit to free those. If you do not have monoblock connectors tilting the switches might still help with labeling.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_15} width={400} alt="" />
+  <Preview src={img_16} width={400} alt="" />
+</div>
+
+Now use the labels that you printed or tape to label all the connections, we will refer to those by their number/name in the following steps.
+
+### Heater modifications
+
+#### Brew thermostat
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_17} width={400} alt="" />
+  <Preview src={img_18} width={400} alt="" />
+</div>
+
+In order to make uninstallation of the brew thermostat as well of installation of the thermocouple easier, it's recommended to loosen the steam valve assembly and unscrew the group head from the case so you're able to tilt the boiler assembly.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_19} width={400} alt="" />
+  <Preview src={img_20} width={400} alt="" />
+</div>
+
+By tilting the boiler you can easily access the brew thermostat, unscrew it and bridge the connections BT.A and BT.B with the small red jumper.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_21} width={400} alt="" />
+  <Preview src={img_22} width={400} alt="" />
+</div>
+
+Now that the brew thermostat is removed from the boiler you can screw in the M4 thermocouple into the boiler. Be careful to rotate the wire as you screw it in and only fasten it hand tight. The thermocouple can easily be damaged.
+
+#### Steam thermostat
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_34} width={400} alt="" />
+  <Preview src={img_35} width={400} alt="" />
+</div>
+
+Remove the connections labeled ST.A and ST.B from the steam thermostat and extend them with the two yellow AWG18 wires. You can choose to either remove the steam thermostat or leave it in place.
+
+<Preview src={img_36} width={400} alt="" />
+
+Mount the SSR on the back slots of the machine with either M4 screws and bolts or zip ties. Connect the two yellow cables to Output side of the SSR (polarity does not matter) as well as the Yellow/Black Signal cable to the Input side. (Yellow = +, Black = -)
 
 ### HV Wiring
 
-<div class="bg-blue-50 mt-4 border border-blue-500 text-blue-800 px-4 py-4 rounded font-medium">Use 18 AWG wiring for all 120/240V connections.</div>
+#### Steam Switch
 
-#### Label All Wires
-Use labeling tape or a marker on the plugs to mark each wire according to its function.
+<Preview src={img_24} width={400} alt="" />
 
-| Part | Letter | Pins                                                           |
-| ---- | ----- |----------------------------------------------------------------|
-| Power Switch | PS | IL - IN Line, OL - OUT Line, IN - IN Neutral, ON - Out Neutral |
-| Brew Switch | B | I - IN, O - OUT                                                |
-| Steam Switch | S | I - IN, O - OUT                                                |
-| Heater | H | I - IN, B - BRIDGE, O - OUT                                    |
-| Pump | P | L - LINE, N - NEUTRAL                                          |
-| Valve | V | L - LINE, N - NEUTRAL, E - EARTH (if present)                  |
+The picture above shows how the steam switch is wired by default. On a machine without the Eco PCB, the green wire labeled S.1 would be missing.
 
-#### Replace Brew thermostat
+<Preview src={img_25} width={400} alt="" />
 
-Unscrew the brew thermostat (around the middle of the boiler). If you have trouble accessing it you can unscrew the steam wand and the group head and tilt your boiler slightly.
-Screw in the K-Type thermocouple into the M4 threads. Make sure not to overtighten this, it only needs to be hand-tight.
+Remove the S.5 (white) from the left side of the steam switch (or the monoblock connector, you can push the connectors out with a screwdriver) and use the blue cable from the wiring kit to extend is to the N/Neutral connector of the PCB.
 
-<Preview src={gcp_thermocouple} width={400} alt="Thermocouple Install" />
+<Preview src={img_26} width={400} alt="" />
 
-Prepare a small jumper wire with 2 spade connectors at the end and connect it in place of the brew thermostat.
+Remove S.1 from the switch if it is present and move S.4 (black) to that position. Afterwards the wiring of the switch should look like in the above picture. Use tape to make sure the connections or removed connectors are properly insulated.
 
-<Preview src={gcp_thermostat_bridge} width={400} alt="Thermostat Bridge" />
+#### Brew switch
 
-#### Install SSR
+<Preview src={img_27} width={400} alt="" />
 
-Unplug the wires from your steam thermostat. If you want you can remove the steam thermostat as well, it is no longer needed. Run those wires to the SSR or make extensions with ferrules at the end.
-They need to be connected to the output side of the SSR. Since the output side is AC the orientation does not matter.
-Screw the SSR against the back vents of your machine for added cooling.
+The picture above shows how the brew switch is wired by default. On a machine without the Eco PCB, the wires labeled C.1 and C.2 would be missing.
 
-<Preview src={gcp_steam_thermostat_ssr} width={400} alt="SSR Install" />
+<Preview src={img_28} width={400} alt="" />
 
-#### Pump connections
+If you do have the Eco PCB, you deactivate it in this step by bridging the wires C.1 and C.2 with the short yellow jumper from the wiring kit.
 
-Remove the existing Line wire from the pump. Make a new 18 AWG wire that connects from the pumps Line connection to the P port of the PCB.
+<Preview src={img_29} width={400} alt="" />
 
-<Preview src={gcp_pump_wiring} width={400} alt="SSR Install" />
+Now remove C.4 (brown) from the brew switch and extend it with the grey cable from the wiring kit to the L/Line connector of the PCB.
 
-#### 3WV connection
+<Preview src={img_30} width={400} alt="" />
 
-Use the Line wire that usually runs from the pump to the 3WV or an extension from there and connect it to the V port of the PCB.
+When you're done, the brew switch (or monoblock connector) should look like this. Again, make sure to insulate any connections.
 
-<Preview src={gcp_valve_wiring} width={400} alt="SSR Install" />
+#### Pump/Three way valve
 
-#### Switch wiring
+<Preview src={img_32} width={400} alt="" />
 
-This is what your switches will look like with an Eco PCB installed.
-Remove all the connections to the Eco PCB for the next step if you use one. If you did the Eco mod above the connections from your Brew switch should already be missing.
+Remove the connector PMP.B (the one that doesn't go into the thermal fuse on the pump) from the pump and extend it with the red wire from the wiring kit to the V/Valve connector of the PCB.
 
-<Preview src={gcp_buttons_stock} width={400} alt="Stock Buttons" />
+<Preview src={img_33} width={400} alt="" />
 
-##### Steam Switch
-
-Move over the black wire on the top row of the steam switch to where the green wire is on the picture. Remove the white wire from the right side of the button.
-
-<Preview src={gcp_steam_button_modded} width={400} alt="Modded steam button" />
-
-Now make an extension with a spade connector on one end and a ferrule on the other from the loose white wire to the N port of your PCB.
-
-<Preview src={gcp_neutral_wiring} width={400} alt="Neutral wiring" />
-
-##### Brew switch
-
-Remove the brown connector from the brew switch and make another extension with a spade connectors and a ferrule to the L port of your PCB.
-
-<Preview src={gcp_line_wiring} width={400} alt="Stock Buttons" />
-
-Each of your buttons should now have one side that is free of HV and can be used to wire up the buttons to your PCB in the next step.
+Now connect the green wire from the wiring kit to the pump where PMP.B was previously connected and run it to the P/Pump connector of the PCB.
 
 ### LV Wiring
 
-#### Connect thermocouple
+#### Button functionality
 
-Connect the thermocouples wires to the thermocouple port of the PCB. Orientation matters for this connection! The wires come precrimped with ferrules so you don't have to do anything to the wires.
+You can choose to retain the functionality of the buttons by using the green/black 4-wire cable from the wiring kit. Connect a green and black wire (check the pinout for steam/brew) to the free sides of both switches (Positions C.1, C.2, S.4, S.5).
+If you have the monoblock, you should put those back first and then push the connectors in there. Make sure never to mix up high and low voltage.
 
-#### Make the screen power connection
+<Preview src={img_31} width={400} alt="" />
 
-The standard use case is to connect the screen to power from the PCB. Make a cable that consists of 2 wires with a JST XH 2P connector on one and a JST PA 4P connector on the other side. Check the pinout on the back of the screen if you're unsure which pins to use.
-You can route this wire in front of the grouphead, through a gap at the corner of the cup warmer or through the buttons if you plan to remove them.
-Connect it to screen and PCB.
+#### PCB
 
-You can run the cable through a gap between the frame and cup heater and fasten it to the back of your Screen casing.
+<div className="flex flex-row gap-4">
+  <Preview src={img_37} width={400} alt="" />
+  <Preview src={img_38} width={400} alt="" />
+</div>
 
-<Preview src={gcp_screen_mounting} width={400} alt="Screen Mounting" />
+Connect the JST PH connectors to the PCB and you can either place it in the corner of the casing now for Standard or do this after you install the pressure parts for GaggiMate Pro.
 
-#### Connect buttons (optional)
+#### Screen
 
-Make a 22 AWG cable with 4 wires that has a JST 4P on one end and female spade connectors on the other. It should consist of two GND, Steam Button and Brew Button connection.
-Connect the GND connections to the inputs of the Brew/Steam switches.
-Connect the Brew connection to the output of the Brew switch.
-Connect the Steam connection to the output of the Steam switch.
+<Preview src={img_46} width={400} alt="" />
 
-#### SSR logic
+Run the red/black cable from the PCB to the screen and connect it to the 4 pin connector. The cable has enough space to be routed between the cup warmer and casing. The screen casing simply sits on the edge of the housing. Some machines have a slightly thicker paint so if you have trouble getting the casing on, you can use a nail file or sand paper in the groove.
 
-Make 22 AWG cable with 2 wires with a JST XH 2P connector on one and ferrules or a fork connector on the other end. Connect it to the SSR output of the PCB and the input side of the SSR. Be sure to connect it the correct way (+/-).
+### Plumbing / Pressure installation
 
-<Preview src={gcp_lv_ssr_connection} width={400} alt="LV SSR wire" />
+Follow this part only if you're installing GaggiMate Pro.
+
+#### Transducer assembly
+
+<Preview src={img_39} width={400} alt="" />
+
+Prepare the cable of the transducer by cutting off a bit of the black insulation and stripping the wires to 11mm.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_40} width={400} alt="" />
+  <Preview src={img_41} width={400} alt="" />
+  <Preview src={img_42} width={400} alt="" />
+  <Preview src={img_43} width={400} alt="" />
+</div>
+
+Gather all the plumbing parts from the kit and start by placing the little gasket inside of the barbs connector. Screw the transducer into the barbs connector. You want it tight enough so it doesn't leak but not so tight that the gasket is pushed out and blocks the transducer.<br />
+Cut 15-20cm of the tube and connect it to the transducer, secure it with hose clamps. Fill this tube with water and connect the other side to the T-fitting. You can choose to either cut the original hose of the machine in the middle and add your T-fitting there or add a short piece on one end of the T-fitting so you don't need to modify the original hose.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_44} width={400} alt="" />
+  <Preview src={img_45} width={400} alt="" />
+</div>
+
+Place the T-fitting inline with the pump (In this example i've opted to simply extend the original tube for a non-destructive installation. You can loosen the Oetiker clamps with a flathead screwdriver). Make sure everything is tightened securely and place the transducer at the bottom of the casing.<br />
+
+#### Pressure test
+
+Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
 
 ### Double-Check All Connections
 Review all your labeled connections for accuracy and completeness.
@@ -206,10 +286,10 @@ Once you have completed that step, test your wiring for possible shorts with a m
 
 ### Testing
 Now is the big moment. Turn on your machine for the first time. The heater should not be heating on power-on and nothing else should be running. You can check if the heater is doing anything by observing the LED on the SSR.
-The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up.
+The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up. Check that nothing is leaking inside of the machine.
 
 ### Final Steps
-Reassemble the Machine: Carefully put the panels back on, ensuring that there are no pinched wires.  
+Reassemble the Machine: Carefully put the panels back on, ensuring that there are no pinched wires. <br />
 Conduct a Safety Check: Perform a final inspection to ensure everything is insulated and that there are no exposed wiring connections.
 
 If you have any further questions or need additional clarifications, feel free to go into the Discord and make a help thread or post on our Subreddit.
@@ -218,4 +298,4 @@ If you have any further questions or need additional clarifications, feel free t
 
 You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
 
-<Preview src={gcp_gaggimate} width={400} alt="GaggiMate install" />
+<Preview src={img_47} width={400} alt="GaggiMate install" />
