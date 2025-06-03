@@ -8,34 +8,31 @@ showQuicklinks: true
 ---
 
 import { Image } from 'astro:assets';
-import imgRendered from '../assets/images/gaggimate-render.png';
-import imgStandbyScreen from '../assets/images/standby-screen.png';
-import imgBrewScreen from '../assets/images/brew-screen.png';
+import imgMenuScreen from '../assets/images/menu_screen.png';
+import imgStandbyScreen from '../assets/images/standby_screen.png';
+import imgBackground from '../assets/images/background.png';
+import imgPcb from '../assets/images/pcb_comparison_render_front.png';
 
 This project upgrades a Gaggia espresso machine with smart controls to improve your coffee-making experience. By adding a display and custom electronics, you can monitor and control the machine more easily.
 
 ## Features
 
-- **Temperature Control**: Monitor the boiler temperature to ensure optimal brewing conditions.
-- **Brew timer**: Set a target duration and run the brewing for the specific time.
-- **Steam and Hot Water mode**: Control the pump and valve to run the respective task.
+- **PID Boiler Control**: Monitor and control the boiler temperature to ensure the optimal temperature for your coffee.
+- **Brew by time / Brew by weight**: Set a target duration or weight and stop automatically at your target.
+- **Hot Water mode**: Set a separate temperature to pull hot water from your machine
+- **Pro Steam**: We enhance the steam from a Gaggia by raising the temperature and running the pump at a low rate to keep water in the boiler.
 - **Safety Features**: Automatic shutoff if the system becomes unresponsive or overheats.
-- **User Interface**: Simple, intuitive display to control and monitor the machine.
+- **Minimalistic Touch UI**: Simple, intuitive display to control and monitor the machine.
 
 ## How to buy
 
-The shop is now open for preorders and you can buy your kit on [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/).
+The shop is now open and you can buy your kit on [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/).
 
-## Screenshots
+## Pictures
 
-<div class="flex flex-row flex-wrap gap-8">
-<Image src={imgRendered} width={400} alt="Gaggia Classic render with GaggiMate integration" />
+<div className="flex flex-row flex-wrap gap-2">
+<Image src={imgBackground} width={1200} alt="Gaggia Classic render with GaggiMate integration" />
+<Image src={imgMenuScreen} width={400} alt="GaggiMate Standby Screen" />
 <Image src={imgStandbyScreen} width={400} alt="GaggiMate Standby Screen" />
-<Image src={imgBrewScreen} width={400} alt="Gaggimate Brew Screen" />
+<Image src={imgPcb} width={400} alt="Gaggimate Brew Screen" />
 </div>
-
-## Installation
-
-The installation process of this mod consists of purely electrical changes. You will have to wire up the 3-Way valve and pump to the relays provided on the board. The existing thermostats of your machine have to be removed and bridged while connecting the heater to the SSR instead. The M4 thermistor goes into the screw hole where the brew thermostat would usually sit.
-
-I will soon update this with detailed instructions.
