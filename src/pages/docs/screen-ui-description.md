@@ -6,48 +6,122 @@ section: Usage
 order: 16
 ---
 
-Now everything is setup, and ready to go. But what does all these shiny new things on my display really mean? Let me walk you through them.
+Now everything is setup, and ready to go. But what are all these shiny new things on my display? Let me walk you through them.
 
 ### GaggiMate Starting...
 
 ![Screen has 2 text lines, first showing the GaggiMate logo. Second saying "Starting..."](../../assets/images/ScreenUiDescriptions/0-Starting.png)
 
-<p>This will be the very first screen you ever see with your GaggiMate screen.<br>
-It is shown when the screen starts up, and will stay this way until a bluetooth connection with the controller PCB has been made.</p>
+This will be the very first screen you ever see with your GaggiMate screen.
 
-### Standby Screen
+It is shown when the screen starts up, and will stay this way until a bluetooth connection with the controller PCB has been made.
+
+### Standby screen
 
 ![Standby screen, showing 3 logos explained below, a clock, the GaggiMate logo and a touch symbol.](../../assets/images/ScreenUiDescriptions/1-Standby-screen.png)
 
-<p>This screen is the standby screen, this will be shown when there is a connection to the controller PCB, and the GaggiMate system is in standby mode, meaning that the heater and pump is turned off.</p>
-<p>This screen has 3 possible logos in the top section. I'll explain each, going from left to right.</p>
-<ul>
-<li>Wifi symbol. If present, the GaggiMate is connected to a wifi connection, hopefully yours?!</li>
-<li>Bluetooth icon. This icon is shown when the screen has a bluetooth connection to the Controller PCB.</li>
-<li>Update icon. This signifies that there is an update available to either the screen, the controller PCB or both. It will only appear if the screen is connected to the internet.</li>
-</ul>
-<p>The clock will be set automaticlly, but you might have to visit the settings page to set the right timezone for you, unless you prefer Italian Espresso Time to be your timezone.
-<br>When you touch the screen in this mode, it will switch to brew mode.</p>
+This screen is the standby screen, this will be shown when there is a connection to the controller PCB, and the GaggiMate system is in standby mode, meaning that the heater and pump is turned off.
 
-### Main Menu
+This screen has 3 possible logos in the top section. I'll explain each, going from left to right.
 
-![Standby screen, showing 3 logos explained below, a clock, the GaggiMate logo and a touch symbol.](../../assets/images/ScreenUiDescriptions/2-Main-menu.png)
+- Wifi symbol. If present, the GaggiMate is connected to a wifi connection, hopefully yours?!
+- Bluetooth icon. This icon is shown when the screen has a bluetooth connection to the Controller PCB.
+- Update icon. This signifies that there is an update available to either the screen, the controller PCB or both. It will only appear if the screen is connected to the internet.
 
-<p>The main menu is used to navigate the different modes that GaggiMate offers.</p>
-<p>This screen has one or two gauges around the menu menus. On the Standart version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.</p>
-<p>In the bottom of the screen you will have a power-botton symbol, if you press this, your GaggiMate system will enter Standby mode.</p>
-</p>In the middle of the screen you will have 4 symbols in 2 rows.
-<ul>
-<li><b>Top row</b>
-    <ul>
-    <li>Brew mode, on the left.</li>
-    <li>Steam mode, on the right.</li>
-    </ul>
-</li>
-<li><b>Bottom row</b>
-    <ul>
-    <li>Water mode, on the left.</li>
-    <li>Grinder mode, on the right.</li>
-    </ul>
-</li>
-</ul>
+The clock will be set automaticlly, but you might have to visit the settings page to set the right timezone for you, unless you prefer Italian Espresso Time to be your timezone.
+
+When you touch the screen in this mode, it will switch to brew mode.
+
+### Main menu
+
+![Main menu, showing pressure and temperature gauges, and 4 menu items. Brew, steam, water and grind.](../../assets/images/ScreenUiDescriptions/2-Main-menu.png)
+
+The main menu is used to navigate the different modes that GaggiMate offers.
+
+This screen has one or two gauges around the menu menus. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the bottom of the screen you will have a power-botton symbol, if you press this, your GaggiMate system will enter Standby mode.
+In the middle of the screen you will have 4 symbols in 2 rows.
+
+- **Top row**
+  - Brew mode, on the left.
+  - Steam mode, on the right.
+- **Bottom row**
+  - Water mode, on the left.
+  - Grinder mode, on the right.
+
+You can click on either of the symbols to enter that mode.
+
+### Brew screen
+
+![Brew main page. Showing different brew options.](../../assets/images/ScreenUiDescriptions/3-Brew-screen.png)
+
+This is the brew screens start image, some information on this screen changes depending on the board type (Standard or Pro) as well as if you have a scale connected to your gaggimate or not.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the top part of the middle section, you have what mode you are in, in this case Brew.
+
+Next next section is dependent on a connection to a scale. If you dont have one connected to GaggiMate, this section will not be visible. If it is not visible, you will automaticly be in "Brew by time" mode.
+
+The two buttons is:
+
+- Brew by time (watch)
+- Brew by weight (scale)
+
+Below this you will have the selected profile that you are going to brew, as well as a symbol that you can click to go into profile selection.
+
+Lastly in the middle section, you have a play button. This button will start the brew process.
+
+In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+
+### Profile selection screen
+
+![Profile selections screen. Allowing you to see and select different profiles to brew by.](../../assets/images/ScreenUiDescriptions/4-Profile-selection-screen.png)
+
+If you clicked on the profile selection button on the brew screen, you will end up here.
+
+This screen will hold all profiles that is favorited on the web interfaces profile page.
+If you look through the profiles, and dont find the profile you expected, then it might be because it is not favorited on the web interface, and you will need to do this first, or change the active profile on the web interface if you just want to brew a one off on a non-favorited profile.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the top part of the middle section, you have what screen you are on, in this case Profile selection.
+
+Next you will have information about the current profile.
+
+- Name of the profile
+- Target temperature
+- Target time
+- How many phases the brew has got
+- How many steps are in these phases.
+
+On either side of this information you might have arrows pointing left and/or right. This means there are more profiles to choose from. You can either click those, or swipe in either direction to choose the next or previous profile in the list.
+
+On the bottom of the middel section, you have a checkmark. You can click this to indicate that you want to select the shown profile.
+
+In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+
+### Active brew screen
+
+![Profile selections screen. Allowing you to see and select different profiles to brew by.](../../assets/images/ScreenUiDescriptions/5-Active-brew.png)
+
+Once you start your brew, you will be met with some information about the current state of the brew.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the middle section, you will have information about the brew happening.
+
+On top you have target information, with the temperature target being the first, and the time target being the second information.
+
+If you go down a bit further, you have a line that shows what phase the brew is currently in.
+
+Just under the phase, you have the active step. This line holds the label you have put on this step of the brew when you made the profile in the Profile editor on the web interface.
+
+You will then have a progress bar, showing the progress of the current step as well as the target that this bar represents just below.
+
+Under the bar you have a active timer, showing you have far along the timeline for the step you are.
+
+Lastly in the middel you have a pause symbol, this aborts the current brew and sends you back to the Brew screen describe previously.
+
+In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
