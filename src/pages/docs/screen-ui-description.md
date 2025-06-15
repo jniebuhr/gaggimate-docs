@@ -6,6 +6,21 @@ section: Usage
 order: 16
 ---
 
+## 📘 Table of content.
+
+- [GaggiMate Starting Screen](#gaggimate-starting)
+- [Standby Screen](#standby-screen)
+- [Main Menu](#main-menu)
+- [Brew Screen](#brew-screen)
+- [Profile Selection Screen](#profile-selection-screen)
+- [Active Brew Screen](#active-brew-screen)
+- [Steam Screen](#steam-screen)
+- [Water Screen](#water-screen)
+- [Grinder Screen](#grinder-screen)
+
+---
+
+
 Now everything is setup, and ready to go. But what are all these shiny new things on my display? Let me walk you through them.
 
 ### GaggiMate Starting...
