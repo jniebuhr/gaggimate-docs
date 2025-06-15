@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
-title: Screen UI description
-description: What is what on the screens UI?
+title: Touch Screen Usage
+description: What is what on the Touch UI?
 section: Usage
 order: 17
 ---
