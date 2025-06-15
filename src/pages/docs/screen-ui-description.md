@@ -104,7 +104,7 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 
 ### Active brew screen
 
-![Profile selections screen. Allowing you to see and select different profiles to brew by.](../../assets/images/ScreenUiDescriptions/5-Active-brew.png)
+![Active brew screen. Giving a status view for the current brew.](../../assets/images/ScreenUiDescriptions/5-Active-brew.png)
 
 Once you start your brew, you will be met with some information about the current state of the brew.
 
@@ -125,3 +125,60 @@ Under the bar you have a active timer, showing you have far along the timeline f
 Lastly in the middel you have a pause symbol, this aborts the current brew and sends you back to the Brew screen describe previously.
 
 In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+
+### Steam screen
+
+![Steam screen. Activate steam function for improved steaming.](../../assets/images/ScreenUiDescriptions/6-Steam-screen.png)
+
+The steam screen doesnt show much info, since all that really is needed is temperature control, and a possiblity to activate the pump to improve the steam output.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the middle section you will find 3 different rows of information.
+
+The top row shows what screen you are on, steam in this case.
+
+The second shows the current target temperature for your steam setting, as well as a plus and minus icon that lets you adjust the steam target temperature.
+
+On the third and last line on the screen you have the play button, that will activate the improved steam method, that will pump a bit of water into the boiler during the steaming process to increase pressure and the amount of water available to create steam.
+
+In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+
+### Water screen
+
+![Water screen. Do you fancy a tea? Or maybe just a bit of water for an americano?](../../assets/images/ScreenUiDescriptions/7-Water-screen.png)
+
+Do you fancy a tea? Or maybe just a bit of water for an americano? In that case you would need hot water, and GaggiMate got you covered here, with the water mode.
+The screen looks very similar as steam, since it is very much the same controls you need here.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+
+In the middle section you will find 3 different rows of information.
+
+The top row shows what screen you are on, water in this case.
+
+The second shows the current target temperature for your water setting, as well as a plus and minus icon that lets you adjust the water target temperature.
+
+On the third and last line on the screen you have the play button, that will activate the water mode.
+
+In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+
+### Grinder screen
+
+![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/8-grind-screen.png)
+
+Did you want grinder with grind by weight, but ended up elsewhere? You are in luck, because gaggiamte mated with a tasmota, gives you exactly that.
+
+All you need for this feature is a grinder and a tasmota power socket, and preferably also a vale.
+
+This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading. This information is not something you would need to worry to much about while grinding.
+
+In the midddle sectino you will find a few peices of information used for the the grind feature.
+
+On top you will find the screen mode, Grind on this screen.
+
+Just below the mode, you will only see something if you have a bluetooth scale connected to your GaggiMate. If you have a scale connected, you can chose between Grind by time (watch logo) or Grind by weight (scale logo).
+If you have choosen grind by time, your next line will show for how long the grinder should be active once you click the play button.
+If you have a connected scale, this screen will have the possibility to set that amount of grams it should produce before turning the grinder ouf.
+
+Lastly on the screen, you have a play button,that activiates the grinder mode.
