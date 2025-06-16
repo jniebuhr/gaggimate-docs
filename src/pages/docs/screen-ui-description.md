@@ -180,7 +180,7 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 
 ### Grinder screen
 
-![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/8-grind-screen.png)
+![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/8-Grind-screen.png)
 
 Did you want grinder with grind by weight, but ended up elsewhere? You are in luck, because gaggiamte mated with a tasmota, gives you exactly that.
 
