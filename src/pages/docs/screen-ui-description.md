@@ -86,7 +86,14 @@ The two buttons is:
 
 Below this you will have the selected profile that you are going to brew, as well as a symbol that you can click to go into profile selection.
 
-Lastly in the middle section, you have a play button. This button will start the brew process.
+Lastly in the middle section, you have a play button. This button has got 2 functions.
+
+- Click to brew
+- Hold to purge
+
+If you short click the button, it will start the selected brew and move to the [Active Brew Screen](#active-brew-screen).
+
+If you hold the button, it will purge the brewhead, useful for flushing the portafilter or the showerscreen with hot water.
 
 In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
