@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
@@ -11,5 +12,8 @@ export default defineConfig({
       nesting: true
     }),
     mdx()
-  ]
+  ],
+  markdown: {
+    remarkPlugins: [[remarkToc, {maxDepth: 2}]],
+  }
 });

@@ -1,0 +1,63 @@
+---
+layout: ../../layouts/Layout.astro
+title: Troubleshooting
+description: What to check first when things act up.
+section: Installation
+order: 15
+---
+
+## Contents
+
+## Why is my steam light on? [GCP]
+
+This is intended, the steam light shows heater activity on the Gaggia Classic Pro. When it's off, the boiler is heating.
+It may flash in different speeds during machine operation, this is the PID doing its job.
+
+## The pump makes a weird sound when steaming
+
+What you're hearing is the Pro Steam feature, it keeps water in the boiler during steaming to enhance the steaming experience.
+
+## My brew button goes into steam mode
+
+You might have switched around the green wires during installation, check the pinout.
+
+## My temperature rises above the configured temperature
+
+This can always happen with PID controllers. If it rises too much you should try tuning it.
+
+## My temperature jumps all over the place / is unstable
+
+Please check that that the ferrules of the sensor are connected correctly. If they can't fit all the way in you may twist off the plastic bits.
+It can also help to route the wire away from HV wires.
+
+## I'm not getting any picture on the screen even though the LEDs are all on
+
+Re-check the ribbon cable of the screen as outlined in the guides.
+
+## My 3 way valve is not opening / no water coming out anymore
+
+Please check that the steam button is not pressed, this will disable the valve.
+
+## Gaggia is not displaying my room temperature when starting the machine
+
+The thermocouples have a small offset at low temperatures which is not existent in higher temperatures.
+
+## GaggiMate runs but neither pump or valve are running
+
+You may have swapped the L and N connections on the PCB. Please check again in the corresponding guide.
+
+## I am brewing coffee but the pressure stays at 0
+
+Check that you have connected the pressure sensor properly and uninsulated the wires to 11mm. If that is okay you might have fastened the sensor too much and blocked the intake.
+
+## I just started my machine but it's showing 16 bars of pressure.
+
+This happens if you swap the red and black wires of the transducer on the PCB.
+
+## The pressure is stuck around 14.5 bars
+
+This can happen when the pressure sensors black cable is not making a connection.
+
+## PID Autotune does not finish / reports weird looking values
+
+Please always start the Autotune from a cold machine.
