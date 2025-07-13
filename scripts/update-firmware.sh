@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version="v1.5.0"
+version="v1.5.1"
 
 curl -sL -o public/firmware/controller/esp32-s3/bootloader.bin https://github.com/jniebuhr/gaggimate/releases/download/$version/board-bootloader.bin
 curl -sL -o public/firmware/controller/esp32-s3/partitions.bin https://github.com/jniebuhr/gaggimate/releases/download/$version/board-partitions.bin
