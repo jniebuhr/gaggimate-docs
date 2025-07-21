@@ -7,6 +7,7 @@ order: 14
 ---
 
 import Preview from '../../components/Preview.astro';
+import img_diagram from '../../assets/images/silvia/00_diagram.png';
 import img_01 from '../../assets/images/silvia/01_parts.jpeg';
 import img_02 from '../../assets/images/silvia/02_parts.jpeg';
 import img_03 from '../../assets/images/silvia/03_screen_glue.jpeg';
@@ -48,6 +49,29 @@ import img_38 from '../../assets/images/silvia/38_finished.jpeg';
 import img_39 from '../../assets/images/silvia/39_pressure.jpeg';
 import ribbon from '../../assets/images/screen_ribbon.jpeg';
 
+import img_101 from '../../assets/images/silvia/101_plumbing.jpeg';
+import img_102 from '../../assets/images/silvia/102_plumbing.jpeg';
+import img_103 from '../../assets/images/silvia/103_plumbing.jpeg';
+import img_104 from '../../assets/images/silvia/104_plumbing.jpeg';
+import img_105 from '../../assets/images/silvia/105_plumbing.jpeg';
+import img_106 from '../../assets/images/silvia/106_plumbing.jpeg';
+import img_107 from '../../assets/images/silvia/107_plumbing.jpeg';
+import img_108 from '../../assets/images/silvia/108_plumbing.jpeg';
+import img_109 from '../../assets/images/silvia/109_plumbing.jpeg';
+import img_110 from '../../assets/images/silvia/110_plumbing.jpeg';
+import img_111 from '../../assets/images/silvia/111_plumbing.jpeg';
+import img_112 from '../../assets/images/silvia/112_plumbing.jpeg';
+import img_113 from '../../assets/images/silvia/113_plumbing.jpeg';
+import img_114 from '../../assets/images/silvia/114_plumbing.jpeg';
+import img_115 from '../../assets/images/silvia/115_plumbing.jpeg';
+import img_116 from '../../assets/images/silvia/116_plumbing.jpeg';
+
+import img_plumbing_packed from '../../assets/images/new_plumbing_packed.jpeg';
+import img_plumbing_unpacked from '../../assets/images/new_plumbing_unpacked.jpeg';
+
+import img_wrong_connector from '../../assets/images/wrong_connector.jpeg';
+import img_trimmed_connector from '../../assets/images/trimmed_connector.jpeg';
+
 
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
   <h3 class="my-2">Important Notes</h3>
@@ -58,22 +82,28 @@ import ribbon from '../../assets/images/screen_ribbon.jpeg';
 
 </div>
 
-### Preparation
+
+## Contents
+
+## 1. Preparation
 
 **Safety First!**
 Unplug your machine to ensure there's no live connections while working on it.
 Work in a dry environment to prevent electrical hazards.
 
-Start by gathering all the materials and tools listed in the sourcing pages. Follow these guides if you haven't already: [Printed Parts](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
+Start by gathering all the materials and tools listed in the sourcing pages. Follow these guides if you haven't already: [Printed Parts](/docs/sourcing-printed-parts) and [Flashing (Software installation)](/docs/flashing).
 
 Check the [Pinout](/docs/pinout) and prepare the [wires](/docs/wiring) if you didn't buy the kit.
 
 #### Check all the parts
-Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below.
+Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below. Depending on the kit generation the plumbing parts will be replaced by the ones in the last 2 pictures.
+If that's the case follow the plumbing variant for the new plumbing.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_01} width={400} alt="" />
   <Preview src={img_02} width={400} alt="" />
+  <Preview src={img_plumbing_packed} width={400} alt="" />
+  <Preview src={img_plumbing_unpacked} width={400} alt="" />
 </div>
 
 #### Prepare the wire labels
@@ -81,6 +111,10 @@ Check that you have all the parts ready to go. You can see what parts and tools 
 We've prepared a printable guide to label your wires in order to easier follow the install and fix mistakes. You can also just use tape, sticky labels or whatever else you have.
 
 <a href="/downloads/silvia-wiring-labels.pdf" target="_blank">Download the wire labels</a>
+
+You can check the wiring diagram for additional information.
+
+<Preview src={img_diagram} width={400} alt="" />
 
 #### Check the screen
 
@@ -96,7 +130,8 @@ Check for an image by plugging it into a USB connection before you continue.
   <Preview src={img_03} width={400} alt="" />
   <Preview src={img_04} width={400} alt="" />
 </div>
-Take the screen out of the box and try to glue it as straight and centered as possible. Place it in the base and close with the cover.
+
+After this is checked try to glue it as straight and centered as possible with the pre-applied double sided tape. Place it in the base and close with the cover.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_05} width={400} alt="" />
@@ -104,7 +139,7 @@ Take the screen out of the box and try to glue it as straight and centered as po
 </div>
 Place the PCB in the pcb cover at an angle to guide the USB-C port in the cutout. Afterwards push it down to lock it in the base. Make sure you've already flashed it before as you might need to access the boot button to do so.
 
-### Machine preparation
+## 2. Machine preparation
 
 #### Disassemble the machine
 
@@ -146,7 +181,7 @@ To make labeling a bit easier, you can remove the front part of the housing as w
 
 We will refer to the numbers on the labels in the following steps.
 
-### Heater modifications
+## 3. Heater modifications
 
 #### Thermostats
 
@@ -172,7 +207,7 @@ Remove the thermostats and their clamps from the boiler and screw in the M3 Ther
 Make sure you only screw this in hand-tight and carefully handle and rotate the wire while screwing it in.
 It can easily be damaged if the wire gets twisted. Route that wire to the same location the SSR is in while keeping it mostly away from the HV wires.
 
-### HV Wiring
+## 4. HV Wiring
 
 #### Brew switch
 
@@ -192,13 +227,13 @@ Remove the connection C.4 from the brew switch, extend it with the blue cable fr
 
 <Preview src={img_25} width={400} alt="" />
 
-Disconnect the wire PMP.A before the Thermal Fuse (so not at the pump) and connect the green cable from the wiring kit to this connection. Run the green cable to the P port of the PCB.
+Disconnect the wire PMP.A. This wire will either be connected to a thermal fuse or directly to the pump. If you have a thermal fuse, disconnect it before that. Connect the green cable from the wiring kit to this connection. Run the green cable to the P port of the PCB.
 
 <Preview src={img_26} width={400} alt="" />
 
 Disconnect the wire PMP.B from the pump and use the grey wire from the wiring kit to piggy back off of this connection (one end at PMP.B, one end at the pump) and run it to the N port of the PCB.
 
-### LV Wiring
+## 5. LV Wiring
 
 #### Button functionality
 
@@ -224,9 +259,75 @@ Run the display power cable out the top of the case.
 
 Run the red/black cable from the PCB to the screen and connect it to the 4 pin connector. The cable has enough space to be routed between the cup warmer and casing. The screen casing simply sits on the edge of the housing.
 
-### Plumbing / Pressure installation
+Some generations of the kit came with a slightly mismatched connector. This can be fixed by cutting off one of the side rails of the plug as shown in the pictures below. Make sure not to force the connector into the screen as you may damage it.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_wrong_connector} width={400} alt="" />
+  <Preview src={img_trimmed_connector} width={400} alt="" />
+</div>
+
+
+## 6. Plumbing / Pressure installation
 
 Follow this part only if you're installing GaggiMate Pro.
+
+### 6.1 New Plumbing (Installation at pump)
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_101} width={400} alt="" />
+  <Preview src={img_102} width={400} alt="" />
+  <Preview src={img_103} width={400} alt="" />
+</div>
+
+Turn around the machine so you're looking at the pump then disconnect the cables from the pump. After that's done, also disconnect the suction tube from the pump as shown above.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_104} width={400} alt="" />
+  <Preview src={img_105} width={400} alt="" />
+</div>
+
+Take out the pump from the right rubber mount and unscrew it from the L-fitting. Your pump should now be completely free.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_106} width={400} alt="" />
+  <Preview src={img_107} width={400} alt="" />
+</div>
+
+Put 4–5 rounds of the PTFE-Tape clockwise onto the L-fitting. This will make sure your connection holds pressure.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_108} width={400} alt="" />
+  <Preview src={img_109} width={400} alt="" />
+  <Preview src={img_110} width={400} alt="" />
+</div>
+
+Screw on the T-fitting from the kit onto the L-fitting making sure it's tight. The white part can be rotated around so the position doesn't matter. Once this is done, you can screw the pump onto the new fittings.
+
+Make sure you thread the pump back through the rubber mount before.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_111} width={400} alt="" />
+  <Preview src={img_112} width={400} alt="" />
+</div>
+
+Screw the G1/4 PTFE fitting onto the pressure transducer - this should only be hand tight but tight enough to hold pressure - and place it between the steam valve and boiler.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_113} width={400} alt="" />
+  <Preview src={img_114} width={400} alt="" />
+</div>
+
+Plug the PTFE tube into the fitting near the pump and measure out what length you need to your pressure sensor. Use the included cutter to cut it to length. Fill the tube with water and connect it to both the T-fitting and the pressure transducer.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_115} width={400} alt="" />
+  <Preview src={img_116} width={400} alt="" />
+</div>
+
+Finally, reconnect the wires to the pump as well as the suction tube. Also connect the pressure transducer to your PCB as shown above. You have now installed the plumbing onto your machine.
+
+### 6.2 Legacy Plumbing (Installation at boiler)
+
 
 #### Transducer assembly
 
@@ -253,12 +354,12 @@ Cut 15-20cm of the tube and connect it to the transducer Fill this tube with wat
 Unscrew the connections from the OPV and pump, remove the OPV, then remove the double G1/4 connector from the tank. Put the T-piece from the kit in place of that connector and re-assemble. Use plumbers tape where necessary.<br />
 Afterwards, place the pressure sensor laying flat into the machine.
 
-#### Pressure test
+### 6.3 Pressure test
 
 Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
 If there's no leaks at room temperature, try again at brew temperature.
 
-### Double-Check All Connections
+## 7. Finishing steps
 Review all your labeled connections for accuracy and completeness.
 Ensure that there are no exposed wires and that all connections are secure and insulated.
 
@@ -273,9 +374,10 @@ Reassemble the Machine: Carefully put the panels back on, ensuring that there ar
 Conduct a Safety Check: Perform a final inspection to ensure everything is insulated and that there are no exposed wiring connections.
 
 If you have any further questions or need additional clarifications, feel free to go into the Discord and make a help thread or post on our Subreddit.
+Please also check out the [Troubleshooting guide](/docs/troubleshooting).
 
 ### Congratulations
 
-You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
+You have now finished setting up your Rancilio Silvia with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
 
 <Preview src={img_38} width={400} alt="GaggiMate install" />
