@@ -33,7 +33,7 @@ You can go the PCB route if you already have a bunch of the components for the i
 * 6mm OD Pressure T-Fitting PE - PE 1/4" [(AliExpress)](https://s.click.aliexpress.com/e/_EyxHEI4)
 * 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EzlXYGY)
 
-**for Gaggia Classic Pro/Evo/E24 or Silvia (Barb fittings)**
+**for Gaggia Classic Pro/Evo/E24 (Barb fittings)**
 
 * High Pressure Silicone braided hose (~6mm ID, 12mm OD) [(AliExpress)](https://s.click.aliexpress.com/e/_EvUXSPe)
 * 6mm Barb T-Fitting [(AliExpress)](https://s.click.aliexpress.com/e/_Ev2iqBQ)
