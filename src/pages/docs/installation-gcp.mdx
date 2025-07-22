@@ -57,6 +57,32 @@ import img_47 from '../../assets/images/gcp/47_finished.jpeg';
 import ribbon from '../../assets/images/screen_ribbon.jpeg';
 
 
+import img_101 from '../../assets/images/gcp/101_plumbing.jpeg';
+import img_102 from '../../assets/images/gcp/102_plumbing.jpeg';
+import img_103 from '../../assets/images/gcp/103_plumbing.jpeg';
+import img_104 from '../../assets/images/gcp/104_plumbing.jpeg';
+import img_105 from '../../assets/images/gcp/105_plumbing.jpeg';
+import img_106 from '../../assets/images/gcp/106_plumbing.jpeg';
+import img_107 from '../../assets/images/gcp/107_plumbing.jpeg';
+import img_108 from '../../assets/images/gcp/108_plumbing.jpeg';
+import img_109 from '../../assets/images/gcp/109_plumbing.jpeg';
+import img_110 from '../../assets/images/gcp/110_plumbing.jpeg';
+import img_111 from '../../assets/images/gcp/111_plumbing.jpeg';
+import img_112 from '../../assets/images/gcp/112_plumbing.jpeg';
+import img_113 from '../../assets/images/gcp/113_plumbing.jpeg';
+import img_114 from '../../assets/images/gcp/114_plumbing.jpeg';
+import img_115 from '../../assets/images/gcp/115_plumbing.jpeg';
+import img_116 from '../../assets/images/gcp/116_plumbing.jpeg';
+import img_117 from '../../assets/images/gcp/117_plumbing.jpeg';
+import img_118 from '../../assets/images/gcp/118_plumbing.jpeg';
+
+import img_plumbing_packed from '../../assets/images/new_plumbing_packed.jpeg';
+import img_plumbing_unpacked from '../../assets/images/new_plumbing_unpacked.jpeg';
+
+import img_wrong_connector from '../../assets/images/wrong_connector.jpeg';
+import img_trimmed_connector from '../../assets/images/trimmed_connector.jpeg';
+
+
 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
 <h3 class="my-2">Important Notes</h3>
 
@@ -66,7 +92,9 @@ import ribbon from '../../assets/images/screen_ribbon.jpeg';
 
 </div>
 
-### Preparation
+## Contents
+
+## 1. Preparation
 
 **Safety First!**
 Unplug your machine to ensure there's no live connections while working on it.
@@ -77,11 +105,14 @@ Start by gathering all the materials and tools listed in the sourcing pages. Fol
 Check the [Pinout](/docs/pinout) and prepare the [wires](/docs/wiring) if you didn't buy the kit.
 
 #### Check all the parts
-Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below.
+Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below. Depending on the kit generation the plumbing parts will be replaced by the ones in the last 2 pictures.
+If that's the case follow the plumbing variant for the new plumbing.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_01} width={400} alt="" />
   <Preview src={img_02} width={400} alt="" />
+  <Preview src={img_plumbing_packed} width={400} alt="" />
+  <Preview src={img_plumbing_unpacked} width={400} alt="" />
 </div>
 
 #### Prepare the wire labels
@@ -112,10 +143,9 @@ Take the screen out of the box and try to glue it as straight and centered as po
 </div>
 Place the PCB in the pcb cover at an angle to guide the USB-C port in the cutout. Afterwards push it down to lock it in the base. Make sure you've already flashed it before as you might need to access the boot button to do so.
 
-### Machine preparation
+## 2. Machine preparation
 
 #### Disassemble the machine
-
 
 <div className="flex flex-row gap-4">
   <Preview src={img_07} width={400} alt="" />
@@ -150,7 +180,7 @@ To make labeling a bit easier, especially with the monoblock style connectors yo
 
 Now use the labels that you printed or tape to label all the connections, we will refer to those by their number/name in the following steps.
 
-### Heater modifications
+## 3. Heater modifications
 
 #### Brew thermostat
 
@@ -188,13 +218,13 @@ Remove the connections labeled ST.A and ST.B from the steam thermostat and exten
 
 Mount the SSR on the back slots of the machine with either M4 screws and bolts or zip ties. Connect the two yellow cables to Output side of the SSR (polarity does not matter) as well as the Yellow/Black Signal cable to the Input side. (Yellow = +, Black = -)
 
-### HV Wiring
+## 4. HV Wiring
 
 #### Steam Switch
 
 <Preview src={img_24} width={400} alt="" />
 
-The picture above shows how the steam switch is wired by default. On a machine without the Eco PCB, the green wire labeled S.1 would be missing.
+The picture above shows how the steam switch is wired by default. On a machine without the Eco PCB, the green wire labeled S.1 would be missing. On a US machine the double white will be on the other side. Follow the labeling and modifications of the switch positions regardless of that.
 
 <Preview src={img_25} width={400} alt="" />
 
@@ -232,12 +262,12 @@ Remove the connector PMP.B (the one that doesn't go into the thermal fuse on the
 
 Now connect the green wire from the wiring kit to the pump where PMP.B was previously connected and run it to the P/Pump connector of the PCB.
 
-### LV Wiring
+## 5. LV Wiring
 
 #### Button functionality
 
 You can choose to retain the functionality of the buttons by using the green/black 4-wire cable from the wiring kit. Connect a green and black wire (check the pinout for steam/brew) to the free sides of both switches (Positions C.1, C.2, S.4, S.5).
-If you have the monoblock, you should put those back first and then push the connectors in there. Make sure never to mix up high and low voltage.
+If you have the monoblock, you should put those back first and then push the connectors in there. Make sure never to mix up high and low voltage on the same side of the switch.
 
 <Preview src={img_31} width={400} alt="" />
 
@@ -250,15 +280,93 @@ If you have the monoblock, you should put those back first and then push the con
 
 Connect the JST PH connectors to the PCB and you can either place it in the corner of the casing now for Standard or do this after you install the pressure parts for GaggiMate Pro.
 
+If the PCB casing doesn't fit in the displayed position you can also fit it just behind the steam wand.
+
 #### Screen
 
 <Preview src={img_46} width={400} alt="" />
 
 Run the red/black cable from the PCB to the screen and connect it to the 4 pin connector. The cable has enough space to be routed between the cup warmer and casing. The screen casing simply sits on the edge of the housing. Some machines have a slightly thicker paint so if you have trouble getting the casing on, you can use a nail file or sand paper in the groove.
 
-### Plumbing / Pressure installation
+Some generations of the kit came with a slightly mismatched connector. This can be fixed by cutting off one of the side rails of the plug as shown in the pictures below. Make sure not to force the connector into the screen as you may damage it.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_wrong_connector} width={400} alt="" />
+  <Preview src={img_trimmed_connector} width={400} alt="" />
+</div>
+
+## 6. Plumbing / Pressure installation
 
 Follow this part only if you're installing GaggiMate Pro.
+
+### 6.1 New Plumbing (Installation at pump)
+
+#### Pump removal
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_101} width={400} alt="" />
+  <Preview src={img_103} width={400} alt="" />
+  <Preview src={img_104} width={400} alt="" />
+</div>
+
+Free up a bit of space around the pump so you can remove the connectors from it. Also remove the hose connecting it to the tank and the little spout on the bottom of the pump. The spout prevents it from being lifted out of the mount.
+
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_105} width={400} alt="" />
+  <Preview src={img_106} width={400} alt="" />
+  <Preview src={img_107} width={400} alt="" />
+</div>
+
+Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on) You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one.
+
+Now that the pump is free to rotate simply unscrew it from the black OPV part as shown in the picture.
+
+#### Prepare the new fittings
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_108} width={400} alt="" />
+  <Preview src={img_109} width={400} alt="" />
+  <Preview src={img_110} width={400} alt="" />
+</div>
+
+Gather the shown parts from the plumbing kit. Wrap 4-5 layers of PTFE tape around the male part of the L-shaped fitting. You want to do this clock-wise so it doesn't undo itself when screwing on the pump later.
+
+Once you're done with that, connect the two parts as shown above. The T-fitting comes with a gasket so no PTFE tape is needed on that connection.
+
+#### Reassembly
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_111} width={400} alt="" />
+  <Preview src={img_112} width={400} alt="" />
+  <Preview src={img_113} width={400} alt="" />
+</div>
+
+Screw the combined piece onto the OPV as shown in the first picture above. It should sit at a similar angle as shown to make routing the tubes easier.
+
+Then just screw the pump onto the new fitting by rotating it as you did before. When you feel the connection is tight and the pump sits in a way where you can reach the connectors, push it back into the lower rubber mount.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_114} width={400} alt="" />
+  <Preview src={img_115} width={400} alt="" />
+</div>
+
+If you have a thermal fuse, insert that back into the holder on the pump then plug back in the wires that you previously removed. Put the tube back onto the spout and plug the spout back onto the pump.
+
+#### Connecting the transducer
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_116} width={400} alt="" />
+  <Preview src={img_117} width={400} alt="" />
+  <Preview src={img_118} width={400} alt="" />
+</div>
+
+Push in the PTFE tube into the T-fitting. Screw the push fitting onto the pressure transducer. This only need to be hand tight. Measure out a length of tube so that the transducer can lie horizontally on the bottom of the machine and cut it with the provided PTFE-cutter.
+The tube needs to be filled with water, you can either do that manually in this state or bleed it by unscrewing the transducer fitting slightly and using the pump when the machine is on. Make sure to put a towel around it so water doesn't spray everywhere.
+
+Plug the PTFE tube into the transducer fitting and place it at the bottom of the machine.
+
+### 6.2 Legacy Plumbing (Installation in hose)
 
 #### Transducer assembly
 
@@ -283,11 +391,11 @@ Cut 15-20cm of the tube and connect it to the transducer, secure it with hose cl
 
 Place the T-fitting inline with the pump (In this example i've opted to simply extend the original tube for a non-destructive installation. You can loosen the Oetiker clamps with a flathead screwdriver). Make sure everything is tightened securely and place the transducer at the bottom of the casing.<br />
 
-#### Pressure test
+### 6.3 Pressure test
 
 Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
 
-### Double-Check All Connections
+## 7. Final checks
 Review all your labeled connections for accuracy and completeness.
 Ensure that there are no exposed wires and that all connections are secure and insulated.
 
