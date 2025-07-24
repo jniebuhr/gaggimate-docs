@@ -135,7 +135,7 @@ Check for an image by plugging it into a USB connection before you continue.
   <Preview src={img_03} width={400} alt="" />
   <Preview src={img_04} width={400} alt="" />
 </div>
-Take the screen out of the box and try to glue it as straight and centered as possible. Place it in the base and close with the cover.
+Take the screen out of the box and try to glue it as straight and centered as possible. Place it in the base and close gently with the cover. Be careful as the screen may fall apart easily if force is applied. There is no need to remove the plastic piece between in-between the screen and the board.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_05} width={400} alt="" />
@@ -189,7 +189,8 @@ Now use the labels that you printed or tape to label all the connections, we wil
   <Preview src={img_18} width={400} alt="" />
 </div>
 
-In order to make uninstallation of the brew thermostat as well of installation of the thermocouple easier, it's recommended to loosen the steam valve assembly and unscrew the group head from the case so you're able to tilt the boiler assembly.
+In order to make uninstallation of the brew thermostat as well of installation of the thermocouple easier, it's required to loosen the steam valve assembly and unscrew the group head from the case so you're able to tilt the boiler assembly.
+It's recommended to remove the steam knob and steam wand to gain even more space.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_19} width={400} alt="" />
@@ -203,7 +204,8 @@ By tilting the boiler you can easily access the brew thermostat, unscrew it and 
   <Preview src={img_22} width={400} alt="" />
 </div>
 
-Now that the brew thermostat is removed from the boiler you can screw in the M4 thermocouple into the boiler. Be careful to rotate the wire as you screw it in and only fasten it hand tight. The thermocouple can easily be damaged.
+Now that the brew thermostat is removed from the boiler you can screw in the M4 thermocouple into the boiler. Be careful to rotate the wire (folding the wire cautiously helps) as you screw it in and only fasten it hand tight. The thermocouple can easily break off during the screwing process if not handled with care.
+It is advised to connect the thermocouple at the end of the installation to the PCB.
 
 #### Steam thermostat
 
@@ -216,7 +218,8 @@ Remove the connections labeled ST.A and ST.B from the steam thermostat and exten
 
 <Preview src={img_36} width={400} alt="" />
 
-Mount the SSR on the back slots of the machine with either M4 screws and bolts or zip ties. Connect the two yellow cables to Output side of the SSR (polarity does not matter) as well as the Yellow/Black Signal cable to the Input side. (Yellow = +, Black = -)
+Mount the SSR now or at the end of the installation on the back slots of the machine with either M4 screws and bolts or zip ties. Connect the two yellow cables to Output side of the SSR (polarity does not matter) as well as the Yellow/Black Signal cable to the Input side. (Yellow = +, Black = -)
+Be careful not to mix up the yellow output and cables.
 
 ## 4. HV Wiring
 
@@ -247,6 +250,7 @@ If you do have the Eco PCB, you deactivate it in this step by bridging the wires
 <Preview src={img_29} width={400} alt="" />
 
 Now remove C.4 (brown) from the brew switch and extend it with the grey cable from the wiring kit to the L/Line connector of the PCB.
+If your grey cable has two ends for the monoblock connector, simply use tape to insulate the spare end. (This is required for another machine installation)
 
 <Preview src={img_30} width={400} alt="" />
 
@@ -256,7 +260,7 @@ When you're done, the brew switch (or monoblock connector) should look like this
 
 <Preview src={img_32} width={400} alt="" />
 
-Remove the connector PMP.B (the one that doesn't go into the thermal fuse on the pump) from the pump and extend it with the red wire from the wiring kit to the V/Valve connector of the PCB.
+Remove the connector PMP.B (grey cable, the one that doesn't go into the thermal fuse on the pump) from the pump and extend it with the red wire from the wiring kit to the V/Valve connector of the PCB.
 
 <Preview src={img_33} width={400} alt="" />
 
@@ -288,7 +292,7 @@ If the PCB casing doesn't fit in the displayed position you can also fit it just
 
 Run the red/black cable from the PCB to the screen and connect it to the 4 pin connector. The cable has enough space to be routed between the cup warmer and casing. The screen casing simply sits on the edge of the housing. Some machines have a slightly thicker paint so if you have trouble getting the casing on, you can use a nail file or sand paper in the groove.
 
-Some generations of the kit came with a slightly mismatched connector. This can be fixed by cutting off one of the side rails of the plug as shown in the pictures below. Make sure not to force the connector into the screen as you may damage it.
+Some generations of the kit came with a slightly mismatched connector. This can be fixed by cutting off one of the side rails of the plug as shown in the pictures below. Make sure not to force the connector too much into the screen as you may damage it.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_wrong_connector} width={400} alt="" />
