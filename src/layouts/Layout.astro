@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 import ContentNavigation from '../components/ContentNavigation.astro';
 import ContentFooter from '../components/ContentFooter.astro';
@@ -10,6 +11,17 @@ export interface Props {
 }
 
 const { content = {} } = Astro.props;
+
+const routePath = Astro.url.pathname.replace(/\/$/, "") || "/index";
+const docs = await Astro.glob('../pages/**/*.{md,mdx}')
+
+const match = docs.find(({ file }) =>
+  file.replace(/^.*\/src\/pages/, "").replace(/\.(md|mdx)$/, "") === routePath
+);
+
+const relativePath = match
+  ? match.file.split("/src/")[1]
+  : `pages${routePath}.md`; // fallback
 ---
 
 <!DOCTYPE html>
@@ -58,6 +70,8 @@ const { content = {} } = Astro.props;
       <ContentNavigation />
     </div>
   </main>
+
+  <Footer filePath={relativePath}/>
 
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" />
 </body>

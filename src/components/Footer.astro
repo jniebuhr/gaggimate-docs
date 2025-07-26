@@ -1,0 +1,11 @@
+---
+const { filePath } = Astro.props;
+const repoBase = "https://github.com/jniebuhr/gaggimate-docs";
+const editUrl = `${repoBase}/edit/master/src/${filePath}`;
+const viewUrl = `${repoBase}/blob/master/src/${filePath}`;
+---
+
+<footer class="bg-zinc-100 p-2 flex gap-4 justify-center">
+  <a href={editUrl} target="_blank" rel="noopener noreferrer">✏️ Edit this page</a>
+  <a href={viewUrl} target="_blank" rel="noopener noreferrer">View source</a>
+</footer>
