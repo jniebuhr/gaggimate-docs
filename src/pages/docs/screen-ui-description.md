@@ -53,7 +53,7 @@ When you touch the screen in this mode, it will switch to brew mode.
 
 The main menu is used to navigate the different modes that GaggiMate offers.
 
-This screen has one or two gauges around the menu menus. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the menu menus. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the bottom of the screen you will have a power-botton symbol, if you press this, your GaggiMate system will enter Standby mode.
 In the middle of the screen you will have 4 symbols in 2 rows.
@@ -73,13 +73,13 @@ You can click on either of the symbols to enter that mode.
 
 This is the brew screens start image, some information on this screen changes depending on the board type (Standard or Pro) as well as if you have a scale connected to your gaggimate or not.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the top part of the middle section, you have what mode you are in, in this case Brew.
 
 Next next section is dependent on a connection to a scale. If you dont have one connected to GaggiMate, this section will not be visible. If it is not visible, you will automaticly be in "Brew by time" mode.
 
-The two buttons is:
+The two buttons are:
 
 - Brew by time (watch)
 - Brew by weight (scale)
@@ -95,7 +95,7 @@ If you short click the button, it will start the selected brew and move to the [
 
 If you hold the button, it will purge the brewhead, useful for flushing the portafilter or the showerscreen with hot water.
 
-In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+In the very bottom you have an arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
 ### Profile selection screen
 
@@ -103,10 +103,10 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 
 If you clicked on the profile selection button on the brew screen, you will end up here.
 
-This screen will hold all profiles that is favorited on the web interfaces profile page.
+This screen will hold all profiles that are favorited on the web interfaces profile page.
 If you look through the profiles, and dont find the profile you expected, then it might be because it is not favorited on the web interface, and you will need to do this first, or change the active profile on the web interface if you just want to brew a one off on a non-favorited profile.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the top part of the middle section, you have what screen you are on, in this case Profile selection.
 
@@ -120,9 +120,9 @@ Next you will have information about the current profile.
 
 On either side of this information you might have arrows pointing left and/or right. This means there are more profiles to choose from. You can either click those, or swipe in either direction to choose the next or previous profile in the list.
 
-On the bottom of the middel section, you have a checkmark. You can click this to indicate that you want to select the shown profile.
+On the bottom of the middle section, you have a checkmark. You can click this to indicate that you want to select the shown profile.
 
-In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+In the very bottom you have an arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
 ### Active brew screen
 
@@ -130,7 +130,7 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 
 Once you start your brew, you will be met with some information about the current state of the brew.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the middle section, you will have information about the brew happening.
 
@@ -142,11 +142,11 @@ Just under the phase, you have the active step. This line holds the label you ha
 
 You will then have a progress bar, showing the progress of the current step as well as the target that this bar represents just below.
 
-Under the bar you have a active timer, showing you have far along the timeline for the step you are.
+Under the bar you have a active timer, showing you how far along the timeline for the step you are.
 
-Lastly in the middel you have a pause symbol, this aborts the current brew and sends you back to the Brew screen describe previously.
+Lastly in the middle you have a pause symbol, this aborts the current brew and sends you back to the Brew screen described previously.
 
-In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+In the very bottom you have an arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
 ### Steam screen
 
@@ -154,7 +154,7 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 
 The steam screen doesnt show much info, since all that really is needed is temperature control, and a possiblity to activate the pump to improve the steam output.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the middle section you will find 3 different rows of information.
 
@@ -164,7 +164,7 @@ The second shows the current target temperature for your steam setting, as well 
 
 On the third and last line on the screen you have the play button, that will activate the improved steam method, that will pump a bit of water into the boiler during the steaming process to increase pressure and the amount of water available to create steam.
 
-In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+In the very bottom you have an arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
 ### Water screen
 
@@ -173,7 +173,7 @@ In the very bottom you have a arrow up symbol, if you swipe up from this, it wil
 Do you fancy a tea? Or maybe just a bit of water for an americano? In that case you would need hot water, and GaggiMate got you covered here, with the water mode.
 The screen looks very similar as steam, since it is very much the same controls you need here.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the middle section you will find 3 different rows of information.
 
@@ -183,24 +183,24 @@ The second shows the current target temperature for your water setting, as well 
 
 On the third and last line on the screen you have the play button, that will activate the water mode.
 
-In the very bottom you have a arrow up symbol, if you swipe up from this, it will take you to the main menu.
+In the very bottom you have an arrow up symbol, if you swipe up from this, it will take you to the main menu.
 
 ### Grinder screen
 
 ![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/8-Grind-screen.png)
 
-Did you want grinder with grind by weight, but ended up elsewhere? You are in luck, because gaggiamte mated with a tasmota, gives you exactly that.
+Did you want grinder with grind by weight, but ended up elsewhere? You are in luck, because gaggimate mated with a tasmota, gives you exactly that.
 
 All you need for this feature is a grinder and a tasmota power socket, and preferably also a vale.
 
-This screen has one or two gauges around the main informtaion area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro verison you will have 2, the left one being temperature, and the right one being pressue. In both cases you will have a nummeric value of the gauge/gauges current reading. This information is not something you would need to worry to much about while grinding.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading. This information is not something you would need to worry too much about while grinding.
 
-In the midddle sectino you will find a few peices of information used for the the grind feature.
+In the middle section you will find a few pieces of information used for the grind feature.
 
 On top you will find the screen mode, Grind on this screen.
 
 Just below the mode, you will only see something if you have a bluetooth scale connected to your GaggiMate. If you have a scale connected, you can chose between Grind by time (watch logo) or Grind by weight (scale logo).
-If you have choosen grind by time, your next line will show for how long the grinder should be active once you click the play button.
-If you have a connected scale, this screen will have the possibility to set that amount of grams it should produce before turning the grinder ouf.
+If you have chosen grind by time, your next line will show for how long the grinder should run once you click the play button.
+If you have a connected scale, this screen will have the possibility to set that amount of grams it should produce before turning the grinder off.
 
-Lastly on the screen, you have a play button,that activiates the grinder mode.
+Lastly on the screen, you have a play button, that activates the grinder mode.
