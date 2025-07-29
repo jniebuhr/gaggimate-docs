@@ -53,7 +53,7 @@ When you touch the screen in this mode, it will switch to brew mode.
 
 The main menu is used to navigate the different modes that GaggiMate offers.
 
-This screen has one or two gauges around the menu menus. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the menu menus. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the bottom of the screen you will have a power-botton symbol, if you press this, your GaggiMate system will enter Standby mode.
 In the middle of the screen you will have 4 symbols in 2 rows.
@@ -73,7 +73,7 @@ You can click on either of the symbols to enter that mode.
 
 This is the brew screens start image, some information on this screen changes depending on the board type (Standard or Pro) as well as if you have a scale connected to your gaggimate or not.
 
-This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the top part of the middle section, you have what mode you are in, in this case Brew.
 
@@ -154,7 +154,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 The steam screen doesnt show much info, since all that really is needed is temperature control, and a possiblity to activate the pump to improve the steam output.
 
-This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the middle section you will find 3 different rows of information.
 
@@ -173,7 +173,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 Do you fancy a tea? Or maybe just a bit of water for an americano? In that case you would need hot water, and GaggiMate got you covered here, with the water mode.
 The screen looks very similar as steam, since it is very much the same controls you need here.
 
-This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading.
 
 In the middle section you will find 3 different rows of information.
 
@@ -193,7 +193,7 @@ Did you want grinder with grind by weight, but ended up elsewhere? You are in lu
 
 All you need for this feature is a grinder and a tasmota power socket, and preferably also a vale.
 
-This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro numeric you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading. This information is not something you would need to worry too much about while grinding.
+This screen has one or two gauges around the main information area. On the Standard version of the GaggiMate system, you will have 1 gauge showing temperature. On the Pro version you will have 2, the left one being temperature, and the right one being pressure. In both cases you will have a numeric value of the gauge/gauges current reading. This information is not something you would need to worry too much about while grinding.
 
 In the middle section you will find a few pieces of information used for the grind feature.
 
