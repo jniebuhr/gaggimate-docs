@@ -13,7 +13,7 @@ You can go the PCB route if you already have a bunch of the components for the i
 * GaggiMate Controller PCB (Standard or Pro)  [(Shop)](https://shop.gaggimate.eu/collections/parts)
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_EwmnrEs)
 * AC SSR 40-DA [(AliExpress)](https://s.click.aliexpress.com/e/_EHYcrLa)
-* K-Type M3/M4 Thermocouple - 0.5m [(AliExpress)](https://s.click.aliexpress.com/e/_Ez9hyd6)
+* K-Type M3/M4 Thermocouple - 0.5m (M3 for Silvia, M4 for Gaggia Classic) [(AliExpress)](https://s.click.aliexpress.com/e/_Ez9hyd6)
 * 22 AWG Silicone Wire for LV wiring [(AliExpress)](https://s.click.aliexpress.com/e/_EQltZj2)
 * 18 AWG Silicone Wire for HV wiring [(AliExpress)](https://s.click.aliexpress.com/e/_EJ5sOfm)
 * 6.35mm Spade Connectors [(AliExpress)](https://s.click.aliexpress.com/e/_EuLcsLO)
