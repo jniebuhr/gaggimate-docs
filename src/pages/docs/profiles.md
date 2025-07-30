@@ -25,8 +25,7 @@ During a phase, the machine's pump may be on or off, and the three-way valve may
 Users of Gaggimate Pro may also configure the pump to run at a specific pressure, to which it is tuned using the pressure transducer.
 For brew recipes, the three-way valve typically remains closed, but opening it can be useful in certain cases, such as for a profile for backflushing.
 
-A profile has a single target temperature across all phases.
-Since you can not reasonably assume that the temperature can be tuned quickly enough to reach a new temperature for a new phase, this is only sensible.
+A profile currently has a single target temperature across all phases. The ability to set declining temperature targets will be coming with the advanced profiles.
 
 ## Creating a simple profile
 
@@ -35,6 +34,7 @@ You can also manually write the profiles as JSON files and then import them into
 
 ### Using the web UI
 At the bottom of the "Profiles" page in the web UI, click "Add new" at the bottom of the page, then select "Simple profile".
+Advanced profiles featuring temperature gradients and transitions will follow soon.
 We are then presented with the following blank profile:
 
 ![Blank profile screen](../../assets/images/blank_profile.png)
