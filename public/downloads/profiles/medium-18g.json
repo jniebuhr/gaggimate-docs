@@ -1,0 +1,67 @@
+{
+  "label": "Medium 18g 1:2",
+  "type": "standard",
+  "description": "",
+  "temperature": 93,
+  "phases": [
+    {
+      "name": "Pre-infusion",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 3,
+      "pump": {
+        "target": "pressure",
+        "pressure": 5,
+        "flow": 0
+      }
+    },
+    {
+      "name": "Bloom",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 7,
+      "pump": 0
+    },
+    {
+      "name": "Pressurise",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 10,
+      "pump": {
+        "target": "pressure",
+        "pressure": 9,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Ramp down",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 8,
+      "pump": {
+        "target": "pressure",
+        "pressure": 5,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 36
+        }
+      ]
+    },
+    {
+      "name": "Hammer",
+      "phase": "brew",
+      "valve": 0,
+      "duration": 1,
+      "pump": 100
+    }
+  ]
+}

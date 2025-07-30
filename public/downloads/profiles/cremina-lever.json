@@ -1,0 +1,120 @@
+{
+  "label": "Cremina Lever",
+  "type": "standard",
+  "description": "Lever style, Traditional",
+  "temperature": 89,
+  "phases": [
+    {
+      "name": "Pre-infusion & Soak",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 15,
+      "pump": {
+        "target": "pressure",
+        "pressure": 1.1,
+        "flow": 0
+      }
+    },
+    {
+      "name": "Ramp up - 3",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 4,
+      "pump": {
+        "target": "pressure",
+        "pressure": 3,
+        "flow": 0
+      }
+    },
+    {
+      "name": "Ramp up - 6",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 4,
+      "pump": {
+        "target": "pressure",
+        "pressure": 6,
+        "flow": 0
+      }
+    },
+    {
+      "name": "Ramp up - 9",
+      "phase": "preinfusion",
+      "valve": 1,
+      "duration": 2,
+      "pump": {
+        "target": "pressure",
+        "pressure": 9,
+        "flow": 0
+      }
+    },
+    {
+      "name": "Ramp down - 8",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 10,
+      "pump": {
+        "target": "pressure",
+        "pressure": 8,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "name": "Ramp down - 7",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 10,
+      "pump": {
+        "target": "pressure",
+        "pressure": 7,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "name": "Ramp down - 6",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 10,
+      "pump": {
+        "target": "pressure",
+        "pressure": 6,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "name": "Ramp down - 5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 10,
+      "pump": {
+        "target": "pressure",
+        "pressure": 5,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "volumetric",
+          "value": 36
+        }
+      ]
+    }
+  ]
+}

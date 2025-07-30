@@ -90,3 +90,37 @@ By exporting the profile we just created and looking at the contents of the JSON
   ]
 }
 ```
+
+## Sharing profiles
+
+Profiles can be imported and exported on the overview page. The import feature is located on the top right of the page and every profile card will have an export symbol on the right side.
+Profiles provided on this page or on our Discord server in the #profiles channel will come as a .json file which can then be uploaded to GaggiMate on the Web UI.
+
+## Profile recommendations
+
+### Cremina Lever by Johnyez
+
+**Recommendations**:
+
+Roast: Medium-Dark to Very Dark  
+Grind: 4 on DF64  
+Texture: Lots of crema, traditional  
+Time: 40-60s  
+Ratio: 1:1.5 - 1:2.2  
+Temperature: 78-90 (increase/decrease it by 1 or 2ºC at a time until your preferred flavor, varies by roast)  
+
+<a href="/downloads/profiles/cremina-lever.json" download>Download</a>
+
+### Medium 18g 1:2 by alexr1525
+
+This profile is a relatively simple one that starts with a pre-infusion and bloom and then uses a 9 bar pressure phase with a decline at the end.
+
+<a href="/downloads/profiles/medium-18g.json" download>Download</a>
+
+### Backflush profile
+
+This profile can be used to backflush your machine with Cafiza.
+
+Add the cleaner to a blind basket as specified on the product instructions and run the profile. After it's finished, clean out the blind basket and wipe the group head then run the profile another time to remove any cleaner residue from the machine.
+
+<a href="/downloads/profiles/backflush.json" download>Download</a>
