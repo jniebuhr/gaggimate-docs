@@ -1,0 +1,49 @@
+---
+layout: ../../layouts/Layout.astro
+title: La soluzione intelligente per la macchina da espresso
+description: Nuovo su GaggiMate? Scopri di cosa si tratta!
+section: Per iniziare
+order: 1
+showQuicklinks: true
+---
+
+import { Image } from 'astro:assets';
+import imgMenuScreen from '../../assets/images/menu_screen.png';
+import imgStandbyScreen from '../../assets/images/standby_screen.png';
+import imgBackground from '../../assets/images/background.png';
+import imgPcb from '../../assets/images/pcb_comparison_render_front.png';
+
+Questo progetto aggiorna una macchina da espresso Gaggia con controlli smart per migliorare la tua esperienza di preparazione del caffè. Aggiungendo un display ed elettronica personalizzata, puoi monitorare e controllare la macchina in modo più semplice.
+
+## Elenco funzionalità e confronto
+
+| Funzionalità                     | GaggiMate Standard                           | GaggiMate Pro |
+|----------------------------------|----------------------------------------------| ------------- |
+| Interfaccia touch minimalista | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Controllo temperatura PID         | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Profili di estrazione semplici            | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Profili con controllo di pressione / flusso  | <i className="fa fa-times text-red-600" />   | <i className="fa fa-check text-green-600" /> |
+| Diagrammi dell'estrazione                       | <i className="fa fa-check text-yellow-600" /> | <i className="fa fa-check text-green-600" /> |
+| Vapore Pro                       | <i className="fa fa-check text-yellow-600" /> | <i className="fa fa-check text-green-600" /> |
+| Estrazione per peso | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Macinatura per peso (Relè / Tasmota) | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Integrazione HomeKit | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Integrazione Home Assistant | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Funzione acqua calda | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Interfaccia web | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Aggiornamenti OTA | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Bilance Bluetooth | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+| Modalità headless | <i className="fa fa-check text-green-600" /> | <i className="fa fa-check text-green-600" /> |
+
+## Come acquistare
+
+Il negozio è aperto e puoi acquistare il tuo kit su [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/).
+
+## Immagini
+
+<div className="flex flex-row flex-wrap gap-2">
+<Image src={imgBackground} width={1200} alt="Render della Gaggia Classic con integrazione GaggiMate" />
+<Image src={imgMenuScreen} width={400} alt="Schermata Menu di GaggiMate" />
+<Image src={imgStandbyScreen} width={400} alt="Schermata di standby di GaggiMate" />
+<Image src={imgPcb} width={400} alt="Schermata di estrazione GaggiMate" />
+</div>
