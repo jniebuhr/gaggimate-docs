@@ -33,8 +33,15 @@ const groupedDocs = sortedDocs.reduce((docs, object) => {
 </label>
 
 <input type="checkbox" name="navigation" id="navigation" class="hidden peer" />
+<label
+  for="navigation"
+  id="navigation-backdrop"
+  aria-hidden
+  class="fixed hidden transition-opacity peer-checked:block duration-200 z-30 w-full h-full bg-slate-300/50 lg:hidden cursor-pointer"
+></label>
 <div
-  class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none z-40"
+  id="navigation-container"
+  class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 hidden peer-checked:block transition-transform -translate-x-full peer-checked:translate-x-0 lg:transition-none lg:translate-x-0 duration-200 ease-in-out motion-reduce:transistion-none lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none z-40"
 >
   <div
     class="absolute inset-y-0 right-0 w-full lg:w-[50vw] bg-white lg:bg-slate-50"
@@ -73,3 +80,20 @@ const groupedDocs = sortedDocs.reduce((docs, object) => {
     </ul>
   </nav>
 </div>
+
+<style>
+  #navigation-backdrop,
+  #navigation-container {
+    transition-behavior: allow-discrete;
+  }
+
+  @starting-style {
+    #navigation-backdrop {
+      opacity: 0;
+    }
+
+    #navigation-container {
+      transform: translateX(-100%);
+    }
+  }
+</style>
