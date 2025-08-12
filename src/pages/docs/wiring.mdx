@@ -5,232 +5,261 @@ description: What parts you need to assemble before starting installation
 section: Installation
 order: 11
 ---
-import { Image } from 'astro:assets';
-import imgWiring from '../../assets/images/wiring_kit.jpg';
+
+import { Image } from "astro:assets";
+import imgWiring from "../../assets/images/wiring_kit.jpg";
 
 <Image src={imgWiring} width={800} alt="Wiring Kit Pinout" />
 
 If you didn't source the kit, refer to this list of the wires you'll need. It is highly recommended to use high temperature silicone wire for this.
 
-<table>
-  <thead>
-  <tr>
-    <th>Usage</th>
-    <th>Count</th>
-    <th>Pin</th>
-    <th>Connector (A)</th>
-    <th>AWG</th>
-    <th>Color</th>
-    <th>Length</th>
-    <th>Connector (B)</th>
-    <th>Pin</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Eco Bridge</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Male Quick Connect</td>
-      <td>18</td>
-      <td>Yellow</td>
-      <td>30mm</td>
-      <td>6.35mm Male Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Heater Bridge</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Male Quick Connect</td>
-      <td>18</td>
-      <td>Red</td>
-      <td>30mm</td>
-      <td>6.35mm Male Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Three Way Valve</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Male Quick Connect</td>
-      <td>18</td>
-      <td>Red</td>
-      <td>450mm</td>
-      <td>10mm stripped bare wire</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Pump</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Female Quick Connect</td>
-      <td>18</td>
-      <td>Green</td>
-      <td>450mm</td>
-      <td>10mm stripped bare wire</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Neutral</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Male Quick Connect</td>
-      <td>18</td>
-      <td>Blue</td>
-      <td>450mm</td>
-      <td>10mm stripped bare wire</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th valign="baseline">Live</th>
-      <td>1</td>
-      <td></td>
-      <td>6.35mm Piggyback Quick Connect or <br /> Female + 30mm Male Extension<br /><small>Wiring kits come like this, just the male one is necessary for a Gaggia Classic Pro</small></td>
-      <td>18</td>
-      <td>Gray</td>
-      <td>450mm</td>
-      <td>10mm stripped bare wire</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Heater to SSR</th>
-      <td>2</td>
-      <td></td>
-      <td>6.35mm Male Quick Connect</td>
-      <td>18</td>
-      <td>Yellow</td>
-      <td>300mm</td>
-      <td>Fork connector / Ferrule</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th rowSpan={4} valign="middle">Buttons</th>
-      <td rowSpan={4} style="vertical-align: middle">1</td>
-      <td>1 (Brew)</td>
-      <td rowSpan={4} style="vertical-align: middle">JST PH 2.0mm 4P</td>
-      <td>22</td>
-      <td>Green</td>
-      <td>450mm</td>
-      <td>6.35mm Female Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">2 (Steam)</td>
-      <td>22</td>
-      <td>Green</td>
-      <td>450mm</td>
-      <td>6.35mm Female Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
-      <td>22</td>
-      <td>Black</td>
-      <td>450mm</td>
-      <td>6.35mm Female Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">4 (GND)</td>
-      <td>22</td>
-      <td>Black</td>
-      <td>450mm</td>
-      <td>6.35mm Female Quick Connect</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th rowSpan={3} valign="middle">SSR Signal</th>
-      <td rowSpan={3} style="vertical-align: middle">1</td>
-      <td>1 (Empty / Signal 2)</td>
-      <td rowSpan={3} style="vertical-align: middle">JST PH 2.0mm 3P</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">2 (Signal)</td>
-      <td>22</td>
-      <td>Yellow</td>
-      <td>150mm</td>
-      <td>Fork Connector / Ferrule</td>
-      <td>+</td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
-      <td>22</td>
-      <td>Black</td>
-      <td>150mm</td>
-      <td>Fork Connector / Ferrule</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th rowSpan={4} valign="middle">Screen Power</th>
-      <td rowSpan={4} style="vertical-align: middle">1</td>
-      <td>1 (GND)</td>
-      <td rowSpan={4} style="vertical-align: middle">JST PH 2.0mm 2P</td>
-      <td>22</td>
-      <td>Black</td>
-      <td>550mm</td>
-      <td rowSpan={4} style="vertical-align: middle">JST PA 2.0mm 4P / Grove 2.0mm 4P</td>
-      <td>1 (GND)</td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em">2 (+3.3V)</td>
-      <td>22</td>
-      <td>Red</td>
-      <td>550mm</td>
-      <td>2 (+3.3V)</td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>3 (SDA)</td>
-    </tr>
-    <tr>
-      <td style="padding-inline-start: 0.5714286em"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>4 (SCL)</td>
-    </tr>
-  </tbody>
-</table>
+<div class="max-w-full overflow-auto">
+  <table class="min-w-96">
+    <thead>
+      <tr>
+        <th>Usage</th>
+        <th>Count</th>
+        <th>Pin</th>
+        <th>Connector (A)</th>
+        <th>AWG</th>
+        <th>Color</th>
+        <th>Length</th>
+        <th>Connector (B)</th>
+        <th>Pin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Eco Bridge</th>
+        <td>1</td>
+        <td></td>
+        <td>6.35mm Male Quick Connect</td>
+        <td>18</td>
+        <td>Yellow</td>
+        <td>30mm</td>
+        <td>6.35mm Male Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Heater Bridge</th>
+        <td>1</td>
+        <td></td>
+        <td>6.35mm Male Quick Connect</td>
+        <td>18</td>
+        <td>Red</td>
+        <td>30mm</td>
+        <td>6.35mm Male Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Three Way Valve</th>
+        <td>1</td>
+        <td></td>
+        <td>6.35mm Male Quick Connect</td>
+        <td>18</td>
+        <td>Red</td>
+        <td>450mm</td>
+        <td>10mm stripped bare wire</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Pump</th>
+        <td>1</td>
+        <td></td>
+        <td>6.35mm Female Quick Connect</td>
+        <td>18</td>
+        <td>Green</td>
+        <td>450mm</td>
+        <td>10mm stripped bare wire</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Neutral</th>
+        <td>1</td>
+        <td></td>
+        <td>6.35mm Male Quick Connect</td>
+        <td>18</td>
+        <td>Blue</td>
+        <td>450mm</td>
+        <td>10mm stripped bare wire</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th valign="baseline">Live</th>
+        <td>1</td>
+        <td></td>
+        <td>
+          6.35mm Piggyback Quick Connect or <br /> Female + 30mm Male Extension
+          <br />
+          <small>
+            Wiring kits come like this, just the male one is necessary for a
+            Gaggia Classic Pro
+          </small>
+        </td>
+        <td>18</td>
+        <td>Gray</td>
+        <td>450mm</td>
+        <td>10mm stripped bare wire</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Heater to SSR</th>
+        <td>2</td>
+        <td></td>
+        <td>6.35mm Male Quick Connect</td>
+        <td>18</td>
+        <td>Yellow</td>
+        <td>300mm</td>
+        <td>Fork connector / Ferrule</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th rowSpan={4} valign="middle">
+          Buttons
+        </th>
+        <td rowSpan={4} style="vertical-align: middle">
+          1
+        </td>
+        <td>1 (Brew)</td>
+        <td rowSpan={4} style="vertical-align: middle">
+          JST PH 2.0mm 4P
+        </td>
+        <td>22</td>
+        <td>Green</td>
+        <td>450mm</td>
+        <td>6.35mm Female Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">2 (Steam)</td>
+        <td>22</td>
+        <td>Green</td>
+        <td>450mm</td>
+        <td>6.35mm Female Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
+        <td>22</td>
+        <td>Black</td>
+        <td>450mm</td>
+        <td>6.35mm Female Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">4 (GND)</td>
+        <td>22</td>
+        <td>Black</td>
+        <td>450mm</td>
+        <td>6.35mm Female Quick Connect</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th rowSpan={3} valign="middle">
+          SSR Signal
+        </th>
+        <td rowSpan={3} style="vertical-align: middle">
+          1
+        </td>
+        <td>1 (Empty / Signal 2)</td>
+        <td rowSpan={3} style="vertical-align: middle">
+          JST PH 2.0mm 3P
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">2 (Signal)</td>
+        <td>22</td>
+        <td>Yellow</td>
+        <td>150mm</td>
+        <td>Fork Connector / Ferrule</td>
+        <td>+</td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
+        <td>22</td>
+        <td>Black</td>
+        <td>150mm</td>
+        <td>Fork Connector / Ferrule</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <th rowSpan={4} valign="middle">
+          Screen Power
+        </th>
+        <td rowSpan={4} style="vertical-align: middle">
+          1
+        </td>
+        <td>1 (GND)</td>
+        <td rowSpan={4} style="vertical-align: middle">
+          JST PH 2.0mm 2P
+        </td>
+        <td>22</td>
+        <td>Black</td>
+        <td>550mm</td>
+        <td rowSpan={4} style="vertical-align: middle">
+          JST PA 2.0mm 4P / Grove 2.0mm 4P
+        </td>
+        <td>1 (GND)</td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em">2 (+3.3V)</td>
+        <td>22</td>
+        <td>Red</td>
+        <td>550mm</td>
+        <td>2 (+3.3V)</td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3 (SDA)</td>
+      </tr>
+      <tr>
+        <td style="padding-inline-start: 0.5714286em"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>4 (SCL)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Wire BOM
 
 It is recommended to buy extra
 
-| Wire | Color | Length |
-| ---- | ----- | ------ |
-| AWG 18 Silicone Wire | Red | 480 mm |
-| AWG 18 Silicone Wire | Yellow | 630 mm |
-| AWG 18 Silicone Wire | Green | 450 mm |
-| AWG 18 Silicone Wire | Gray | 480 mm |
-| AWG 18 Silicone Wire | Blue | 450 mm |
-| AWG 22 Silicone Wire | Green | 900 mm |
-| AWG 22 Silicone Wire | Red | 550 mm |
-| AWG 22 Silicone Wire | Yellow | 150 mm |
-| AWG 22 Silicone Wire | Black | 1600 mm |
+| Wire                 | Color  | Length  |
+| -------------------- | ------ | ------- |
+| AWG 18 Silicone Wire | Red    | 480 mm  |
+| AWG 18 Silicone Wire | Yellow | 630 mm  |
+| AWG 18 Silicone Wire | Green  | 450 mm  |
+| AWG 18 Silicone Wire | Gray   | 480 mm  |
+| AWG 18 Silicone Wire | Blue   | 450 mm  |
+| AWG 22 Silicone Wire | Green  | 900 mm  |
+| AWG 22 Silicone Wire | Red    | 550 mm  |
+| AWG 22 Silicone Wire | Yellow | 150 mm  |
+| AWG 22 Silicone Wire | Black  | 1600 mm |
 
 ### Connector BOM
 
 It is recommended to buy extra
 
-| Description | Count |
-| ----------- | ----- |
-| 6.35mm Male Spade Connector | 9 |
-| 6.35mm Female Spade Connector | 6 |
-| 6.35mm Piggyback Spade Connector | 1 (optional) |
-| Fork Connector / Ferrule | 4 |
-| JST PH 2P Connector Housing | 1 |
-| JST PH 3P Connector Housing | 1 |
-| JST PH 4P Connector Housing | 1 |
-| JST PH Crimp | 8 |
-| JST PA 2.0mm / Grove 4P Connector Housing | 1 |
-| JST PA 2.0mm / Grove crimps | 2 |
-
+| Description                               | Count        |
+| ----------------------------------------- | ------------ |
+| 6.35mm Male Spade Connector               | 9            |
+| 6.35mm Female Spade Connector             | 6            |
+| 6.35mm Piggyback Spade Connector          | 1 (optional) |
+| Fork Connector / Ferrule                  | 4            |
+| JST PH 2P Connector Housing               | 1            |
+| JST PH 3P Connector Housing               | 1            |
+| JST PH 4P Connector Housing               | 1            |
+| JST PH Crimp                              | 8            |
+| JST PA 2.0mm / Grove 4P Connector Housing | 1            |
+| JST PA 2.0mm / Grove crimps               | 2            |
