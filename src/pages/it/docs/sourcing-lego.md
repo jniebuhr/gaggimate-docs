@@ -2,7 +2,7 @@
 layout: ../../../layouts/Layout.astro
 title: Costruzione Lego
 description: Cosa ti serve se scegli la strada "Lego".
-section: Approvvigionamento
+section: Procurarsi il materiale
 order: 6
 ---
 
@@ -11,7 +11,7 @@ Se non vuoi ordinare un PCB o un kit e ti senti più a tuo agio a collegare tra 
 ## Componenti
 
 * ESP-S3 DevKit - N8R8 [(AliExpress)](https://s.click.aliexpress.com/e/_EQmqlAC)
-* Relè 5V a 2 canali [(AliExpress)](https://s.click.aliexpress.com/e/_ExUVY9J) (2 o 3 canali se vuoi l’integrazione del macinino)
+* Relè 5V a 2 canali [(AliExpress)](https://s.click.aliexpress.com/e/_ExUVY9J) (2 o 3 canali se vuoi l’integrazione del macina caffè)
 * Scheda sensore di temperatura MAX31855 [(AliExpress)](https://s.click.aliexpress.com/e/_EuEbJO4)
 * LilyGo T-RGB 2.1" Display - Full Circle [(AliExpress)](https://s.click.aliexpress.com/e/_Eju6rYD)
 * AC SSR 40A [(AliExpress)](https://s.click.aliexpress.com/e/_EvPScvr)
@@ -27,8 +27,8 @@ Se non vuoi ordinare un PCB o un kit e ti senti più a tuo agio a collegare tra 
 
 ## Strumenti
 
-* Spellafili o coltello
-* Pinza crimpatrice (SNA02C-06-06WF-58B) - Questa copre tutte le crimpature necessarie per l’assemblaggio [(AliExpress)](https://a.aliexpress.com/_EuVLJ9A)
+* Spela cavi o taglierino
+* Pinza crimpatrice (SNA02C-06-06WF-58B) - Questa permette di eseguire tutte le crimpature necessarie per l’assemblaggio [(AliExpress)](https://a.aliexpress.com/_EuVLJ9A)
 * Cacciavite
 * Fascette (consigliate)
 * Etichette per cavi/nastro (consigliati)

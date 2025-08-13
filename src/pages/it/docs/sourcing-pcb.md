@@ -2,11 +2,11 @@
 layout: ../../../layouts/Layout.astro
 title: PCB
 description: Cosa ti serve se scegli la strada della PCB.
-section: Approvvigionamento
+section: Procurarsi il materiale
 order: 5
 ---
 
-Puoi scegliere la strada della PCB se hai già diversi componenti per l’installazione e apprezzi la pulizia d’uso della scheda. Il negozio è ora aperto su [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/) e puoi acquistare tutto lì.
+Puoi scegliere la strada della PCB se hai già diversi componenti per l’installazione e apprezzi la pulizia d’uso del PCB. Il negozio è ora aperto su [https://shop.gaggimate.eu/](https://shop.gaggimate.eu/) e puoi acquistare tutto lì.
 
 ## Componenti
 
@@ -47,8 +47,8 @@ Puoi scegliere la strada della PCB se hai già diversi componenti per l’instal
 
 ## Strumenti
 
-* Spellafili o coltello
-* Pinza crimpatrice (SNA02C-06-06WF-58B) - Questa copre tutte le crimpature necessarie per l’assemblaggio [(AliExpress)](https://a.aliexpress.com/_EuVLJ9A)
+* Spela cavi o taglierino
+* Pinza crimpatrice (SNA02C-06-06WF-58B) - Questa permette di eseguire tutte le crimpature necessarie per l’assemblaggio [(AliExpress)](https://a.aliexpress.com/_EuVLJ9A)
 * Cacciavite
 * Chiave inglese / Chiave a forchetta
 * Fascette (consigliate)

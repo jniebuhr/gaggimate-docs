@@ -2,7 +2,7 @@
 layout: ../../../layouts/Layout.astro
 title: Kit
 description: Cosa serve se scegli la strada del Kit.
-section: Approvvigionamento
+section: Procurarsi il materiale
 order: 4
 ---
 
@@ -19,8 +19,8 @@ Scegliere il Kit è il modo consigliato per installare GaggiMate. Il negozio è 
 * Guarnizione trasduttore
 * Kit cablaggio
 * Tubo PTFE 4 mm ID 6 mm OD
-* Raccordo a T per pressione 6 mm OD PE
-* Raccordo pressione 6 mm OD a G1/4 femmina
+* Raccordo a T a pressione 6 mm OD PE
+* Raccordo a pressione 6 mm OD a G1/4 femmina
 
 ### Pro - Gaggia Classic Pro / Evo / E24 (Termistore M4 + Raccordi a beccuccio)
 * GaggiMate Controller Pro PCB
@@ -49,7 +49,7 @@ Scegliere il Kit è il modo consigliato per installare GaggiMate. Il negozio è 
 
 ## Strumenti / Consumabili necessari
 
-* Coltello (o tronchese per PTFE se scegli la variante con tubo PTFE e ne hai uno a disposizione)
+* Taglierino (o tronchese per PTFE se scegli la variante con tubo PTFE e ne hai uno a disposizione)
 * Cacciavite
 * Chiave inglese / Chiave a forchetta
 * Fascette (consigliate)
