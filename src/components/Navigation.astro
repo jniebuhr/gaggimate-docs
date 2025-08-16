@@ -1,5 +1,5 @@
 ---
-const docs = await Astro.glob('../pages/it/docs/*.{md,mdx}');
+const docs = await Astro.glob('../pages/docs/*.{md,mdx}');
 
 const sortedDocs = docs.sort(function (a, b) {
     return a.frontmatter.order - b.frontmatter.order;
