@@ -1,0 +1,63 @@
+---
+layout: ../../../layouts/Layout.astro
+title: Risoluzione problemi
+description: Cosa controllare inizialmente quando qualcosa non va.
+section: Installazione
+order: 15
+---
+
+## Contenuti
+
+## Perché la spia vapore è accesa? [GCP]
+
+È voluto: sulla Gaggia Classic Pro la spia vapore indica l’attività della resistenza. Quando è spenta, la caldaia sta scaldando.
+Può lampeggiare a velocità diverse durante il funzionamento: è il PID che sta regolando.
+
+## La pompa fa un rumore strano durante il vapore
+
+Quello che senti è la funzione Pro Steam: mantiene l'acqua nella caldaia durante la montatura per migliorare l'erogazione del vapore.
+
+## Il pulsante di erogazione attiva la modalità vapore
+
+Potresti aver invertito i cavi verdi durante l’installazione: controlla il pinout.
+
+## La temperatura sale oltre quella impostata
+
+Con i controllori PID può capitare. Se l’overshoot è eccessivo, prova a fare il tuning.
+
+## La temperatura salta di continuo / è instabile
+
+Controlla che i puntalini (ferrule) del sensore siano collegati correttamente. Se non entrano fino in fondo, puoi rimuovere le parti in plastica.
+Aiuta anche separare il cavo del sensore dai cavi HV (alto voltaggio).
+
+## Non vedo alcuna immagine sul display anche se i LED sono accesi
+
+Ricontrolla il cavo piatto (ribbon) del display come mostrato nelle guide.
+
+## La valvola a 3 vie non apre / non esce più acqua
+
+Assicurati che il pulsante vapore non sia premuto: in tal caso la valvola è disabilitata.
+
+## All’avvio la Gaggia non mostra la temperatura ambiente
+
+Le termocoppie possono avere un piccolo offset a basse temperature che non è presente a temperature più elevate.
+
+## GaggiMate è acceso ma né pompa né valvola funzionano
+
+Potresti aver invertito Fase (L) e Neutro (N) sulla PCB. Controlla di nuovo la guida corrispondente.
+
+## Sto erogando ma la pressione resta a 0
+
+Controlla di aver collegato correttamente il sensore di pressione e di aver spelato i cavi per 11 mm. Se è tutto ok, potresti aver stretto troppo il sensore, bloccando l’ingresso.
+
+## Appena avviata la macchina mostra 16 bar di pressione
+
+Succede se inverti i fili rosso e nero del trasduttore sulla PCB.
+
+## La pressione è bloccata intorno a 14,5 bar
+
+Può accadere quando il cavo nero del sensore di pressione non fa contatto.
+
+## L’autotune del PID non termina / mostra valori strani
+
+Esegui sempre l’autotune a macchina fredda.
