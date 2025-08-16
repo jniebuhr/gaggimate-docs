@@ -21,4 +21,4 @@ In questi casi verrà avviata una rete Wi‑Fi in modalità AP per consentirti d
 </div>
 
 Puoi quindi visitare la pagina di configurazione di GaggiMate. Poiché mDNS non funziona in modalità AP, devi visitare [http://4.4.4.1/](http://192.168.4.1/).
-Fai clic su Settings, configura il Wi‑Fi e sei pronto. Una volta riavviato e connesso alla tua rete Wi‑Fi, potrai sempre accedere alle impostazioni su [http://gaggimate.local](http://gaggimate.local).
+Fai clic su Settings, configura la rete Wi‑Fi e sei pronto. Una volta riavviato e connesso alla tua rete Wi‑Fi, potrai sempre accedere alle impostazioni su [http://gaggimate.local](http://gaggimate.local).

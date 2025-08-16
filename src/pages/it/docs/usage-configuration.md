@@ -8,7 +8,7 @@ order: 16
 
 ## Impostazione PID
 
-Per controllare la resistenza della macchina, GaggiMate usa un [controllore PID](https://en.wikipedia.org/wiki/Proportional–integral–derivative_controller).
+Per controllare la resistenza della macchina, GaggiMate usa un [controllore PID](https://it.wikipedia.org/wiki/Controllo_PID).
 Questo controllore necessita dei parametri corretti per funzionare con la tua macchina. Tutti questi parametri possono essere configurati nella pagina Settings. Abbiamo testato alcune macchine e ti forniamo i seguenti valori di partenza:
 
 | Macchina                   | Valori PID | Offset temperatura | Note |
@@ -31,7 +31,7 @@ Questo plugin riempie la caldaia all’avvio e all’uscita dalla modalità vapo
 
 ### Smart Grind Plugin
 
-Questo plugin ti permette di usare una presa smart Tasmota per accendere/spegnere un macinacaffè e controllarlo dal display di GaggiMate. Funziona anche in combinazione con bilance Bluetooth per abilitare la Macinatura a peso. Collega semplicemente il macinino a una presa Tasmota, inserisci l’IP della presa nel campo dedicato e scegli se GaggiMate deve accendere il macinino all’inizio e spegnerlo alla fine, fare un toggle al termine o solo spegnerlo.
+Questo plugin ti permette di usare una presa smart Tasmota per accendere/spegnere un macinacaffè e controllarlo dal display di GaggiMate. Funziona anche in combinazione con bilance Bluetooth per abilitare la Macinatura a peso. Collega semplicemente il macinino a una presa Tasmota, inserisci l’IP della presa nel campo dedicato e scegli se GaggiMate deve accendere il macinino all’inizio e spegnerlo alla fine, spegnerlo e riaccenderlo al termine o solo spegnerlo.
 
 ### Home Assistant (MQTT)
 

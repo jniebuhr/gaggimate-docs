@@ -84,18 +84,18 @@ I due pulsanti sono:
 - Erogazione per tempo (orologio)
 - Erogazione per peso (bilancia)
 
-Sotto trovi il profilo selezionato con cui erogherai, oltre a un simbolo su cui puoi toccare per entrare nella selezione dei profili.
+Sotto trovi il profilo selezionato per l'estrazione, oltre a un simbolo che puoi premere per entrare nella selezione dei profili.
 
 Infine, nella sezione centrale, c'è un pulsante Play che ha 2 funzioni:
 
-- Tocca per erogare
-- Tieni premuto per purgare
+- Tocca per avviare l'estrazione
+- Tieni premuto per scaricare acqua dal gruppo
 
 Con un tocco breve si avvia l'erogazione selezionata e si passa alla [Schermata di erogazione attiva](#schermata-di-erogazione-attiva).
 
-Teniendolo premuto si effettua la purga del gruppo, utile per sciacquare il portafiltro o la doccetta con acqua calda.
+Tenendolo premuto si effettua la pulizia del gruppo, utile per sciacquare il portafiltro o la doccetta con acqua calda.
 
-Nella parte più bassa c'è un simbolo a freccia verso l'alto: se scorri verso l'alto da qui torni al menu principale.
+Nella parte più bassa c'è un simbolo a freccia verso l'alto: se scorri (swipe) verso l'alto da qui torni al menu principale.
 
 ### Schermata di selezione profilo
 
@@ -104,7 +104,7 @@ Nella parte più bassa c'è un simbolo a freccia verso l'alto: se scorri verso l
 Se hai toccato il pulsante di selezione profilo nella schermata di erogazione, arrivi qui.
 
 Questa schermata mostra tutti i profili che hai contrassegnato come preferiti nella pagina Profili dell'interfaccia web.
-Se passando tra i profili non trovi quello che ti aspettavi, potrebbe non essere tra i preferiti sull'interfaccia web: contrassegnalo prima come preferito, oppure cambia il profilo attivo dall'interfaccia web se vuoi fare un'erogazione singola con un profilo non preferito.
+Se passando tra i profili non trovi quello che ti aspettavi, potrebbe non essere tra i preferiti sull'interfaccia web: contrassegnalo prima come preferito, oppure cambia il profilo attivo dall'interfaccia web se vuoi un'erogazione con un profilo non preferito.
 
 Questa schermata ha uno o due indicatori attorno all'area informativa principale. Nella versione Standard c'è un indicatore per la temperatura. Nella versione Pro due: a sinistra la temperatura, a destra la pressione. In entrambi i casi è mostrato anche il valore numerico della/le misura/e corrente/i.
 
@@ -189,18 +189,18 @@ Nella parte più bassa c'è un simbolo a freccia verso l'alto: se scorri verso l
 
 ![Schermata Macinacaffè. Volevi macinare con controllo per peso ma sei finito altrove? Sei fortunato.](../../../assets/images/ScreenUiDescriptions/8-Grind-screen.png)
 
-Volevi una macinacaffè con macinatura a peso ma hai scelto altro? Sei fortunato, perché GaggiMate abbinato a Tasmota ti offre proprio questo.
+Volevi un macinacaffè con la macinatura per peso, ma ne hai scelto altro? Sei fortunato, perché GaggiMate abbinato a Tasmota ti offre proprio questo.
 
-Tutto ciò che serve è un macinacaffè e una presa smart Tasmota e, preferibilmente, anche una valvola.
+Tutto ciò che serve è un macinacaffè e una presa smart Tasmota e preferibilmente, anche una valvola.
 
 Questa schermata ha uno o due indicatori attorno all'area informativa principale. Nella versione Standard c'è un indicatore per la temperatura. Nella versione Pro due: a sinistra la temperatura, a destra la pressione. In entrambi i casi è mostrato anche il valore numerico della/le misura/e corrente/i. Queste informazioni, durante la macinatura, non sono particolarmente rilevanti.
 
 Nella sezione centrale trovi alcune informazioni utili per la funzione macinatura.
 
-In alto trovi la modalità della schermata, Macina in questo caso.
+In alto trovi la modalità della schermata, Macinatura in questo caso.
 
-Poco sotto vedi qualcosa solo se hai una bilancia Bluetooth collegata a GaggiMate. Se presente, puoi scegliere tra Macina per tempo (icona orologio) o Macina per peso (icona bilancia).
+Poco sotto vedi qualcosa solo se hai una bilancia Bluetooth collegata a GaggiMate. Se presente, puoi scegliere tra Macinatura a tempo (icona orologio) o Macinatura per peso (icona bilancia).
 Se scegli la macinatura per tempo, la riga successiva mostra per quanto tempo il macinino deve funzionare dopo aver toccato Play.
-Se hai una bilancia collegata, puoi impostare quanti grammi produrre prima che il macinino si spenga automaticamente.
+Se hai una bilancia collegata, puoi impostare quanti grammi macinare prima che il macinino si spenga automaticamente.
 
 Infine, c'è il pulsante Play che attiva la modalità macinacaffè.
