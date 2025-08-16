@@ -121,7 +121,7 @@ Puoi consultare lo schema di cablaggio per informazioni aggiuntive.
 <Preview src={ribbon} width={400} alt="" />
 
 Prima di assemblare lo schermo, verifica che il flat cable sia inserito e bloccato correttamente come in questa immagine. Se per qualsiasi motivo non lo fosse,
-sblocca il connettore tirando verso il basso la linguetta nera in orizzontale rispetto alla scheda, inserisci il cavo e richiudi.
+sblocca il connettore tirando verso il basso le linguette nere in orizzontale rispetto alla scheda, inserisci il cavo e richiudi.
 Controlla che compaia un’immagine collegandolo a una porta USB prima di procedere.
 
 #### Assembla le parti stampate
@@ -252,14 +252,14 @@ I fili verdi dovrebbero andare dove hai rimosso C.2 e S.1, quelli neri dove hai 
   <Preview src={img_30} width={400} alt="" />
 </div>
 
-Collega tutti i cavi alla PCB come in foto e posizionala sopra l’SSR nella parte anteriore della macchina. Assicurati che non ci siano cavi sotto il rivestimento, altrimenti il pannello frontale non si adatterà.
+Collega tutti i cavi alla PCB come in foto e posizionala sopra l’SSR nella parte anteriore della macchina. Assicurati che non ci siano cavi sotto il rivestimento, altrimenti il pannello frontale non si chiuderà.
 Fai uscire il cavo di alimentazione del display dalla parte superiore del case.
 
 #### Schermo
 
 Porta il cavo rosso/nero dalla PCB allo schermo e collegalo al connettore a 4 pin. Il cavo ha spazio sufficiente per essere instradato tra lo scaldatazze e la scocca. L’alloggiamento dello schermo si appoggia semplicemente sul bordo della scocca.
 
-Alcune generazioni del kit sono arrivate con un connettore leggermente non corrispondente. Questo può essere risolto tagliando una delle guide laterali della spina come mostrato nelle immagini sotto. Assicurati di non forzare il connettore nello schermo perché potresti danneggiarlo.
+Alcune generazioni del kit sono arrivate con un connettore leggermente differente. Questo può essere risolto tagliando una delle guide laterali della spina come mostrato nelle immagini sotto. Assicurati di non forzare il connettore nello schermo perché potresti danneggiarlo.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_wrong_connector} width={400} alt="" />
@@ -342,7 +342,7 @@ Prepara il cavo del trasduttore tagliando un po’ dell’isolamento nero e spel
   <Preview src={img_34} width={400} alt="" />
 </div>
 
-Raccogli tutte le parti idrauliche del kit e inizia posizionando la piccola guarnizione all’interno di uno dei connettori PTFE. Avvita il trasduttore nel connettore. Deve essere abbastanza stretto da non perdere ma non così stretto da spingere fuori la guarnizione bloccando il trasduttore.<br />
+Raccogli tutte le parti idrauliche del kit e inizia posizionando la piccola guarnizione all’interno di uno dei connettori PTFE. Avvita il trasduttore nel connettore. Deve essere abbastanza stretto da non perdere ma non così stretto da schiacciare la guarnizione bloccando il trasduttore.<br />
 Taglia 15–20 cm di tubo e collegalo al trasduttore. Riempi questo tubo d’acqua e collega l’altro lato al raccordo opposto.
 
 <div className="flex flex-row gap-4">
@@ -361,17 +361,17 @@ Se non ci sono perdite a temperatura ambiente, riprova alla temperatura di eroga
 
 ## 7. Passi finali
 Ricontrolla tutte le connessioni etichettate per accuratezza e completezza.
-Assicurati che non ci siano fili scoperti e che tutte le connessioni siano sicure e isolate.
+**Assicurati che non ci siano fili scoperti e che tutte le connessioni siano sicure e isolate.**
 
-Una volta completato questo passaggio, testa il cablaggio per possibili cortocircuiti con un multimetro e assicurati di non aver collegato connessioni LV con connessioni HV. Verifica anche il funzionamento degli interruttori per continuità nelle diverse posizioni.
+Una volta completato questo passaggio, testa il cablaggio per possibili cortocircuiti con un multimetro e assicurati di non aver collegato connessioni LV con connessioni HV. Verifica anche la continuità degli interruttori nelle diverse posizioni.
 
 ### Test
 È il grande momento. Accendi la macchina per la prima volta. Il riscaldatore non dovrebbe scaldare all’accensione e nient’altro dovrebbe essere in funzione. Puoi verificare se il riscaldatore sta facendo qualcosa osservando il LED sull’SSR.
-Lo schermo dovrebbe accendersi e mostrare la schermata Standby di GaggiMate. Tocca lo schermo una volta per passare alla modalità warmup: dovresti vedere la temperatura ambiente attuale e il LED sull’SSR che si illumina indicando che sta riscaldando. Controlla che all’interno della macchina non ci siano perdite.
+Lo schermo dovrebbe accendersi e mostrare la schermata Standby di GaggiMate. Tocca lo schermo una volta per passare alla modalità riscaldamento: dovresti vedere la temperatura ambiente attuale e il LED sull’SSR che si illumina indicando che sta riscaldando. Controlla che all’interno della macchina non ci siano perdite.
 
 ### Passi finali
-Riassembla la macchina: rimonta con attenzione i pannelli, assicurandoti che non ci siano cavi schiacciati. <br />
-Esegui un controllo di sicurezza: effettua un’ispezione finale per assicurarti che tutto sia isolato e che non ci siano connessioni scoperte.
+Scollega dalla rete la macchina e riassembla il tutto, rimonta con attenzione i pannelli, assicurandoti che non ci siano cavi schiacciati. <br />
+**Esegui un controllo di sicurezza: effettua un’ispezione finale per assicurarti che tutto sia isolato e che non ci siano connessioni scoperte.**
 
 Se hai ulteriori domande o hai bisogno di chiarimenti, entra su Discord e apri un thread di aiuto oppure scrivi sul nostro Subreddit.
 Consulta anche la [Guida alla risoluzione dei problemi](/docs/troubleshooting).

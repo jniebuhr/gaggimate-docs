@@ -115,37 +115,37 @@ In tal caso, segui la variante relativa alla nuova idraulica.
   <Preview src={img_plumbing_unpacked} width={400} alt="" />
 </div>
 
-#### Prepare the wire labels
+#### Prepara le etichette dei cavi
 
-We've prepared a printable guide to label your wires in order to easier follow the install and fix mistakes. You can also just use tape, sticky labels or whatever else you have.
+Abbiamo preparato una guida stampabile per etichettare i cavi, così da seguire l’installazione più facilmente e correggere eventuali errori. In alternativa puoi usare nastro, etichette adesive o qualsiasi altra soluzione tu abbia a disposizione.
 
-<a href="/downloads/gcp-wiring-labels.pdf" target="_blank">Download the wire labels</a>
+<a href="/downloads/gcp-wiring-labels.pdf" target="_blank">Scarica le etichette per i cavi</a>
 
-#### Check the screen
+#### Controlla lo schermo
 
 <Preview src={ribbon} width={400} alt="" />
 
-Before you assemble the screen, check that the ribbon is seated and locked correctly like in this picture. If it isn't for any reason,
-unlock the connector by pulling down the black locking tab horizontally to the board, insert the cable and close it back up.
-Check for an image by plugging it into a USB connection before you continue.
+Prima di assemblare lo schermo, verifica che il flat cable sia inserito e bloccato correttamente come in questa immagine. Se non lo fosse,
+sblocca il connettore tirando verso il basso le linguette nere di blocco parallelamente alla scheda, inserisci il cavo e richiudilo.
+Prima di proseguire, verifica che compaia un’immagine collegandolo a una porta USB.
 
-#### Assemble the printed parts
+#### Assembla le parti stampate
 
 <div className="flex flex-row gap-4">
   <Preview src={img_03} width={400} alt="" />
   <Preview src={img_04} width={400} alt="" />
 </div>
-Take the screen out of the box and try to glue it as straight and centered as possible. Place it in the base and close gently with the cover. Be careful as the screen may fall apart easily if force is applied. There is no need to remove the plastic piece between in-between the screen and the board.
+Togli lo schermo dalla scatola e incollalo il più possibile dritto e centrato. Posizionalo nella base e chiudi delicatamente con la cover. Fai attenzione: applicando forza lo schermo può separarsi facilmente. Non è necessario rimuovere la pellicola/plastichetta tra schermo e scheda.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_05} width={400} alt="" />
   <Preview src={img_06} width={400} alt="" />
 </div>
-Place the PCB in the pcb cover at an angle to guide the USB-C port in the cutout. Afterwards push it down to lock it in the base. Make sure you've already flashed it before as you might need to access the boot button to do so.
+Inserisci la PCB nel suo coperchio con un’inclinazione tale da far entrare la porta USB‑C nell’apposito intaglio. Poi premila verso il basso per bloccarla nella base. Assicurati di aver già eseguito il flashing in precedenza, perché potresti dover accedere al pulsante di boot.
 
-## 2. Machine preparation
+## 2. Preparazione della macchina
 
-#### Disassemble the machine
+#### Smonta la macchina
 
 <div className="flex flex-row gap-4">
   <Preview src={img_07} width={400} alt="" />
@@ -153,17 +153,17 @@ Place the PCB in the pcb cover at an angle to guide the USB-C port in the cutout
   <Preview src={img_09} width={400} alt="" />
 </div>
 
-Remove all parts from the machine that could bother you during the installation or fall out like the water lid, drip tray and portafilter. Undo the two screws marked above in the picture.<br />
-Afterwards, remove the cupwarmer and disconnect the two grounding wires. Remember to connect these again during re-assembly!
+Rimuovi tutte le parti dalla macchina che potrebbero darti fastidio durante l’installazione o cadere fuori, come il coperchio dell’acqua, la vaschetta raccogli gocce e il portafiltro. Svita le due viti evidenziate nell’immagine sopra.<br />
+Successivamente, rimuovi lo scaldatazze e scollega i due fili di messa a terra. **Ricordati di ricollegarli durante il riassemblaggio!**
 
 <div className="flex flex-row gap-4">
   <Preview src={img_10} width={400} alt="" />
   <Preview src={img_11} width={400} alt="" />
 </div>
 
-You see an overview of what you should expect above. Make yourself familiar with the layout of the machine. You can use above pictures for reference if you need to check anything. The machine in the pictures is a Gaggia Classic Pro E24 with the Eco PCB. This machine uses monoblock connectors, the wiring is identical to other models though.
+Sopra trovi una panoramica di ciò che ti aspetta. Familiarizza con il layout della macchina. Puoi usare le foto come riferimento se devi controllare qualcosa. La macchina nelle foto è una Gaggia Classic Pro E24 con PCB Eco. Questa macchina usa connettori monoblocco, ma il cablaggio è identico agli altri modelli.
 
-#### Labeling
+#### Etichettatura
 
 <div className="flex flex-row gap-4">
   <Preview src={img_12} width={400} alt="" />
@@ -171,107 +171,107 @@ You see an overview of what you should expect above. Make yourself familiar with
   <Preview src={img_14} width={400} alt="" />
 </div>
 
-To make labeling a bit easier, especially with the monoblock style connectors you can tilt out the front switches a bit to free those. If you do not have monoblock connectors tilting the switches might still help with labeling.
+Per rendere l’etichettatura un po’ più semplice, soprattutto con i connettori in stile monoblocco, puoi inclinare leggermente i pulsanti frontali per liberarli. Anche se non hai connettori monoblocco, inclinare gli interruttori può comunque aiutare nell’etichettatura.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_15} width={400} alt="" />
   <Preview src={img_16} width={400} alt="" />
 </div>
 
-Now use the labels that you printed or tape to label all the connections, we will refer to those by their number/name in the following steps.
+Ora usa le etichette che hai stampato o del nastro per etichettare tutte le connessioni: nei passaggi seguenti faremo riferimento a esse tramite il loro numero/nome.
 
-## 3. Heater modifications
+## 3. Modifiche al riscaldatore
 
-#### Brew thermostat
+#### Termostato caffè (brew)
 
 <div className="flex flex-row gap-4">
   <Preview src={img_17} width={400} alt="" />
   <Preview src={img_18} width={400} alt="" />
 </div>
 
-In order to make uninstallation of the brew thermostat as well of installation of the thermocouple easier, it's required to loosen the steam valve assembly and unscrew the group head from the case so you're able to tilt the boiler assembly.
-It's recommended to remove the steam knob and steam wand to gain even more space.
+Per facilitare la rimozione del termostato caffè e l’installazione della termocoppia, è necessario allentare l’assieme della valvola del vapore e svitare il gruppo dalla scocca così da poter inclinare il blocco caldaia.
+Si consiglia di rimuovere la manopola del vapore e la lancia vapore per ottenere ancora più spazio.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_19} width={400} alt="" />
   <Preview src={img_20} width={400} alt="" />
 </div>
 
-By tilting the boiler you can easily access the brew thermostat, unscrew it and bridge the connections BT.A and BT.B with the small red jumper.
+Inclinando la caldaia puoi accedere facilmente al termostato caffè, svitarlo e ponticellare i contatti BT.A e BT.B con il piccolo ponticello rosso.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_21} width={400} alt="" />
   <Preview src={img_22} width={400} alt="" />
 </div>
 
-Now that the brew thermostat is removed from the boiler you can screw in the M4 thermocouple into the boiler. Be careful to rotate the wire (folding the wire cautiously helps) as you screw it in and only fasten it hand tight. The thermocouple can easily break off during the screwing process if not handled with care.
-It is advised to connect the thermocouple at the end of the installation to the PCB.
+Ora che il termostato caffè è stato rimosso dalla caldaia, puoi avvitare la termocoppia M4 nella caldaia. Fai attenzione a ruotare il cavo (piegandolo con cautela aiuta) mentre avviti e stringi solo a mano. La termocoppia può rompersi facilmente durante l’avvitamento se non maneggiata con cura.
+Si consiglia di collegare la termocoppia alla PCB alla fine dell’installazione.
 
-#### Steam thermostat
+#### Termostato vapore
 
 <div className="flex flex-row gap-4">
   <Preview src={img_34} width={400} alt="" />
   <Preview src={img_35} width={400} alt="" />
 </div>
 
-Remove the connections labeled ST.A and ST.B from the steam thermostat and extend them with the two yellow AWG18 wires. You can choose to either remove the steam thermostat or leave it in place.
+Rimuovi le connessioni etichettate ST.A e ST.B dal termostato vapore e prolungale con i due fili gialli AWG18. Puoi scegliere se rimuovere il termostato vapore o lasciarlo in sede.
 
 <Preview src={img_36} width={400} alt="" />
 
-Mount the SSR now or at the end of the installation on the back slots of the machine with either M4 screws and bolts or zip ties. Connect the two yellow cables to Output side of the SSR (polarity does not matter) as well as the Yellow/Black Signal cable to the Input side. (Yellow = +, Black = -)
-Be careful not to mix up the yellow output and cables.
+Monta l’SSR ora o al termine dell’installazione negli slot posteriori della macchina usando viti e dadi M4 oppure fascette. Collega i due cavi gialli al lato Output dell’SSR (la polarità non è importante) e il cavo segnale giallo/nero al lato Input (Giallo = +, Nero = -).
+Fai attenzione a non confondere i cavi gialli dell’uscita con quelli del segnale.
 
-## 4. HV Wiring
+## 4. Cablaggio HV
 
-#### Steam Switch
+#### Interruttore vapore
 
 <Preview src={img_24} width={400} alt="" />
 
-The picture above shows how the steam switch is wired by default. On a machine without the Eco PCB, the green wire labeled S.1 would be missing. On a US machine the double white will be on the other side. Follow the labeling and modifications of the switch positions regardless of that.
+L’immagine sopra mostra il cablaggio di default dell’interruttore del vapore. Su una macchina senza PCB Eco, il filo verde etichettato S.1 sarà assente. Su una macchina USA il doppio filo bianco si troverà dall’altro lato. Segui comunque l’etichettatura e le modifiche delle posizioni dell’interruttore.
 
 <Preview src={img_25} width={400} alt="" />
 
-Remove the S.5 (white) from the left side of the steam switch (or the monoblock connector, you can push the connectors out with a screwdriver) and use the blue cable from the wiring kit to extend is to the N/Neutral connector of the PCB.
+Rimuovi S.5 (bianco) dal lato sinistro dell’interruttore del vapore (o dal connettore monoblocco; puoi spingere fuori i connettori con un cacciavite) e usa il cavo blu del kit di cablaggio per prolungarlo fino al connettore N/Neutro della PCB.
 
 <Preview src={img_26} width={400} alt="" />
 
-Remove S.1 from the switch if it is present and move S.4 (black) to that position. Afterwards the wiring of the switch should look like in the above picture. Use tape to make sure the connections or removed connectors are properly insulated.
+Rimuovi S.1 dall’interruttore, se presente, e sposta S.4 (nero) in quella posizione. In seguito, il cablaggio dell’interruttore dovrebbe essere come nell’immagine sopra. Usa del nastro per assicurarti che le connessioni o i connettori rimossi siano correttamente isolati.
 
-#### Brew switch
+#### Interruttore erogazione (brew)
 
 <Preview src={img_27} width={400} alt="" />
 
-The picture above shows how the brew switch is wired by default. On a machine without the Eco PCB, the wires labeled C.1 and C.2 would be missing.
+L’immagine sopra mostra il cablaggio di default dell’interruttore di erogazione. Su una macchina senza PCB Eco, i fili etichettati C.1 e C.2 saranno assenti.
 
 <Preview src={img_28} width={400} alt="" />
 
-If you do have the Eco PCB, you deactivate it in this step by bridging the wires C.1 and C.2 with the short yellow jumper from the wiring kit.
+Se hai la PCB Eco, disattivala in questo passaggio ponticellando i fili C.1 e C.2 con il corto ponticello giallo del kit di cablaggio.
 
 <Preview src={img_29} width={400} alt="" />
 
-Now remove C.4 (brown) from the brew switch and extend it with the grey cable from the wiring kit to the L/Line connector of the PCB.
-If your grey cable has two ends for the monoblock connector, simply use tape to insulate the spare end. (This is required for another machine installation)
+Ora rimuovi C.4 (marrone) dall’interruttore di erogazione e prolungalo con il cavo grigio del kit di cablaggio fino al connettore L/Line della PCB.
+Se il tuo cavo grigio ha due terminali per il connettore monoblocco, isola semplicemente l’estremità inutilizzata con del nastro. (Serve per l’installazione su un’altra macchina)
 
 <Preview src={img_30} width={400} alt="" />
 
-When you're done, the brew switch (or monoblock connector) should look like this. Again, make sure to insulate any connections.
+Quando hai finito, l’interruttore di erogazione (o il connettore monoblocco) dovrebbe apparire così. Di nuovo, assicurati di isolare tutte le connessioni.
 
-#### Pump/Three way valve
+#### Pompa/Valvola a tre vie
 
 <Preview src={img_32} width={400} alt="" />
 
-Remove the connector PMP.B (grey cable, the one that doesn't go into the thermal fuse on the pump) from the pump and extend it with the red wire from the wiring kit to the V/Valve connector of the PCB.
+Rimuovi il connettore PMP.B (cavo grigio, quello che non passa nel fusibile termico sulla pompa) dalla pompa e prolungalo con il cavo rosso del kit di cablaggio fino al connettore V/Valve della PCB.
 
 <Preview src={img_33} width={400} alt="" />
 
-Now connect the green wire from the wiring kit to the pump where PMP.B was previously connected and run it to the P/Pump connector of the PCB.
+Ora collega il cavo verde del kit di cablaggio alla pompa nel punto in cui era collegato PMP.B e portalo al connettore P/Pump della PCB.
 
-## 5. LV Wiring
+## 5. Cablaggio LV
 
-#### Button functionality
+#### Funzionalità pulsanti
 
-You can choose to retain the functionality of the buttons by using the green/black 4-wire cable from the wiring kit. Connect a green and black wire (check the pinout for steam/brew) to the free sides of both switches (Positions C.1, C.2, S.4, S.5).
-If you have the monoblock, you should put those back first and then push the connectors in there. Make sure never to mix up high and low voltage on the same side of the switch.
+Puoi mantenere la funzionalità dei pulsanti usando il cavo a 4 fili verde/nero del kit di cablaggio. Collega un filo verde e uno nero (controlla il pinout per vapore/erogazione) ai lati liberi di entrambi gli interruttori (posizioni C.1, C.2, S.4, S.5).
+Se hai il connettore monoblocco, rimontalo prima e poi inserisci lì i faston. Assicurati di non mescolare mai bassa e alta tensione sullo stesso lato dell’interruttore.
 
 <Preview src={img_31} width={400} alt="" />
 
@@ -282,30 +282,30 @@ If you have the monoblock, you should put those back first and then push the con
   <Preview src={img_38} width={400} alt="" />
 </div>
 
-Connect the JST PH connectors to the PCB and you can either place it in the corner of the casing now for Standard or do this after you install the pressure parts for GaggiMate Pro.
+Collega i connettori JST PH alla PCB e puoi posizionarla subito nell’angolo della scocca per la versione Standard, oppure farlo dopo aver installato le parti per la pressione della GaggiMate Pro.
 
-If the PCB casing doesn't fit in the displayed position you can also fit it just behind the steam wand.
+Se l’involucro della PCB non entra nella posizione mostrata, puoi anche posizionarlo appena dietro la lancia vapore.
 
-#### Screen
+#### Schermo
 
 <Preview src={img_46} width={400} alt="" />
 
-Run the red/black cable from the PCB to the screen and connect it to the 4 pin connector. The cable has enough space to be routed between the cup warmer and casing. The screen casing simply sits on the edge of the housing. Some machines have a slightly thicker paint so if you have trouble getting the casing on, you can use a nail file or sand paper in the groove.
+Fai passare il cavo rosso/nero dalla PCB allo schermo e collegalo al connettore a 4 pin. Il cavo ha spazio sufficiente per essere instradato tra lo scaldatazze e la scocca. L’alloggiamento dello schermo si appoggia semplicemente sul bordo della scocca. Alcune macchine hanno una vernice leggermente più spessa: se fai fatica a montare la cover, puoi usare una limetta o carta abrasiva nella scanalatura.
 
-Some generations of the kit came with a slightly mismatched connector. This can be fixed by cutting off one of the side rails of the plug as shown in the pictures below. Make sure not to force the connector too much into the screen as you may damage it.
+Alcune generazioni del kit sono arrivate con un connettore leggermente diverso. Puoi risolvere tagliando una delle guide laterali della spina, come mostrato nelle immagini sotto. Non forzare troppo il connettore nello schermo, potresti danneggiarlo.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_wrong_connector} width={400} alt="" />
   <Preview src={img_trimmed_connector} width={400} alt="" />
 </div>
 
-## 6. Plumbing / Pressure installation
+## 6. Impianto idraulico / Installazione pressione
 
-Follow this part only if you're installing GaggiMate Pro.
+Segui questa parte solo se stai installando GaggiMate Pro.
 
-### 6.1 New Plumbing (Installation at pump)
+### 6.1 Nuova idraulica (installazione sulla pompa)
 
-#### Pump removal
+#### Rimozione della pompa
 
 <div className="flex flex-row gap-4">
   <Preview src={img_101} width={400} alt="" />
@@ -313,7 +313,7 @@ Follow this part only if you're installing GaggiMate Pro.
   <Preview src={img_104} width={400} alt="" />
 </div>
 
-Free up a bit of space around the pump so you can remove the connectors from it. Also remove the hose connecting it to the tank and the little spout on the bottom of the pump. The spout prevents it from being lifted out of the mount.
+Libera un po’ di spazio intorno alla pompa così da poter rimuovere i connettori. Rimuovi anche il tubo che la collega al serbatoio e il piccolo beccuccio sul fondo della pompa: quel beccuccio impedisce di sollevarla dal supporto.
 
 
 <div className="flex flex-row gap-4">
@@ -322,11 +322,11 @@ Free up a bit of space around the pump so you can remove the connectors from it.
   <Preview src={img_107} width={400} alt="" />
 </div>
 
-Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on) You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one.
+Una volta rimosse queste connessioni puoi semplicemente sollevare la pompa dalla staffa di gomma inferiore (è semplicemente infilata a pressione). Ora puoi tenere la pompa inclinata e, se presente, rimuovere il fusibile termico dalla pompa.
 
-Now that the pump is free to rotate simply unscrew it from the black OPV part as shown in the picture.
+Ora che la pompa è libera di ruotare, svitala semplicemente dal pezzo nero dell’OPV come mostrato in foto.
 
-#### Prepare the new fittings
+#### Prepara i nuovi raccordi
 
 <div className="flex flex-row gap-4">
   <Preview src={img_108} width={400} alt="" />
@@ -334,11 +334,11 @@ Now that the pump is free to rotate simply unscrew it from the black OPV part as
   <Preview src={img_110} width={400} alt="" />
 </div>
 
-Gather the shown parts from the plumbing kit. Wrap 4-5 layers of PTFE tape around the male part of the L-shaped fitting. You want to do this clock-wise so it doesn't undo itself when screwing on the pump later.
+Recupera le parti mostrate dal kit idraulico. Avvolgi 4–5 strati di nastro PTFE sulla parte maschio del raccordo a L. Fallo in senso orario, così il nastro non si allenta quando avviterai la pompa in seguito.
 
-Once you're done with that, connect the two parts as shown above. The T-fitting comes with a gasket so no PTFE tape is needed on that connection.
+Una volta fatto, collega i due pezzi come mostrato sopra. Il raccordo a T è dotato di guarnizione, quindi su quella connessione non serve nastro PTFE.
 
-#### Reassembly
+#### Riassemblaggio
 
 <div className="flex flex-row gap-4">
   <Preview src={img_111} width={400} alt="" />
@@ -346,18 +346,18 @@ Once you're done with that, connect the two parts as shown above. The T-fitting 
   <Preview src={img_113} width={400} alt="" />
 </div>
 
-Screw the combined piece onto the OPV as shown in the first picture above. It should sit at a similar angle as shown to make routing the tubes easier.
+Avvita il pezzo assemblato all’OPV come mostrato nella prima immagine sopra. Dovrebbe posizionarsi con un’angolazione simile a quella mostrata per facilitare il passaggio dei tubi.
 
-Then just screw the pump onto the new fitting by rotating it as you did before. When you feel the connection is tight and the pump sits in a way where you can reach the connectors, push it back into the lower rubber mount.
+Poi avvita la pompa al nuovo raccordo ruotandola come hai fatto prima. Quando la connessione è ben serrata e la pompa è orientata in modo da poter raggiungere i connettori, reinseriscila nella staffa di gomma inferiore.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_114} width={400} alt="" />
   <Preview src={img_115} width={400} alt="" />
 </div>
 
-If you have a thermal fuse, insert that back into the holder on the pump then plug back in the wires that you previously removed. Put the tube back onto the spout and plug the spout back onto the pump.
+Se hai un fusibile termico, reinseriscilo nel suo alloggiamento sulla pompa e ricollega i cavi che avevi rimosso. Riposiziona il tubo sul beccuccio e reinserisci il beccuccio sulla pompa.
 
-#### Connecting the transducer
+#### Collegamento del trasduttore
 
 <div className="flex flex-row gap-4">
   <Preview src={img_116} width={400} alt="" />
@@ -365,18 +365,18 @@ If you have a thermal fuse, insert that back into the holder on the pump then pl
   <Preview src={img_118} width={400} alt="" />
 </div>
 
-Push in the PTFE tube into the T-fitting. Screw the push fitting onto the pressure transducer. This only need to be hand tight. Measure out a length of tube so that the transducer can lie horizontally on the bottom of the machine and cut it with the provided PTFE-cutter.
-The tube needs to be filled with water, you can either do that manually in this state or bleed it by unscrewing the transducer fitting slightly and using the pump when the machine is on. Make sure to put a towel around it so water doesn't spray everywhere.
+Inserisci il tubo in PTFE nel raccordo a T. Avvita il raccordo rapido sul trasduttore di pressione: basta stringerlo a mano. Misura una lunghezza di tubo tale che il trasduttore possa stare orizzontale sul fondo della macchina e taglialo con il taglia‑PTFE fornito.
+Il tubo deve essere riempito d’acqua: puoi farlo manualmente in questa fase oppure spurgarlo svitando leggermente il raccordo del trasduttore e usando la pompa a macchina accesa. Metti un panno attorno per evitare spruzzi d’acqua ovunque.
 
-Plug the PTFE tube into the transducer fitting and place it at the bottom of the machine.
+Inserisci il tubo in PTFE nel raccordo del trasduttore e posizionalo sul fondo della macchina.
 
-### 6.2 Legacy Plumbing (Installation in hose)
+### 6.2 Idraulica legacy (installazione sul tubo)
 
-#### Transducer assembly
+#### Assemblaggio del trasduttore
 
 <Preview src={img_39} width={400} alt="" />
 
-Prepare the cable of the transducer by cutting off a bit of the black insulation and stripping the wires to 11mm.
+Prepara il cavo del trasduttore rimuovendo un po’ di guaina nera e spelando i singoli fili per 11 mm.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_40} width={400} alt="" />
@@ -385,32 +385,32 @@ Prepare the cable of the transducer by cutting off a bit of the black insulation
   <Preview src={img_43} width={400} alt="" />
 </div>
 
-Gather all the plumbing parts from the kit and start by placing the little gasket inside of the barbs connector. Screw the transducer into the barbs connector. You want it tight enough so it doesn't leak but not so tight that the gasket is pushed out and blocks the transducer.<br />
-Cut 15-20cm of the tube and connect it to the transducer, secure it with hose clamps. Fill this tube with water and connect the other side to the T-fitting. You can choose to either cut the original hose of the machine in the middle and add your T-fitting there or add a short piece on one end of the T-fitting so you don't need to modify the original hose.
+Raccogli tutte le parti idrauliche del kit e inizia inserendo la piccola guarnizione all’interno del raccordo a innesto per tubi zigrinati (barbs). Avvita il trasduttore nel raccordo con barbs: deve essere abbastanza stretto da non perdere, ma non così stretto da spingere fuori la guarnizione e ostruire il trasduttore.<br />
+Taglia 15–20 cm di tubo e collegalo al trasduttore, fissandolo con le fascette. Riempi questo tratto di tubo d’acqua e collega l’altro lato al raccordo a T. Puoi scegliere se tagliare a metà il tubo originale della macchina e inserire lì il raccordo a T, oppure aggiungere un piccolo pezzo su un’estremità del raccordo a T così da non modificare il tubo originale.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_44} width={400} alt="" />
   <Preview src={img_45} width={400} alt="" />
 </div>
 
-Place the T-fitting inline with the pump (In this example i've opted to simply extend the original tube for a non-destructive installation. You can loosen the Oetiker clamps with a flathead screwdriver). Make sure everything is tightened securely and place the transducer at the bottom of the casing.<br />
+Posiziona il raccordo a T in linea con la pompa (in questo esempio ho scelto di estendere semplicemente il tubo originale per un’installazione non distruttiva. Puoi allentare le fascette Oetiker con un cacciavite a taglio). Assicurati che tutto sia ben serrato e posiziona il trasduttore sul fondo della scocca.<br />
 
 ### 6.3 Test pressione
 Prima di richiudere la macchina, esegui un test di pressione dell’impianto per individuare eventuali perdite. Puoi farlo avviando la modalità acqua per un po’ e verificando se serve intervenire.
 
 ## 7. Controlli finali
 Rivedi tutte le connessioni etichettate per accuratezza e completezza.
-Assicurati che non ci siano fili scoperti e che tutte le connessioni siano salde e isolate.
+**Assicurati che non ci siano fili scoperti e che tutte le connessioni siano salde e isolate.**
 
-Una volta fatto, prova il cablaggio con un multimetro per verificare eventuali corti e assicurati di non aver collegato linee LV con HV. Verifica anche il funzionamento degli interruttori per continuità nelle diverse posizioni.
+Una volta fatto, prova il cablaggio con un multimetro per verificare eventuali corti e assicurati di non aver collegato linee LV con HV. Verifica anche la continuità degli interruttori nelle diverse posizioni.
 
-### Testing
+### Test
 Momento della verità: accendi la macchina per la prima volta. All’accensione la resistenza non dovrebbe attivarsi e nient’altro dovrebbe avviarsi. Puoi controllare l’attività della resistenza osservando il LED sul SSR.
-Lo schermo dovrebbe accendersi e mostrare la schermata di Standby di GaggiMate. Tocca lo schermo per passare al riscaldamento: dovresti vedere la temperatura ambiente attuale e il LED dell’SSR accendersi a indicare che sta scaldando. Verifica che non ci siano perdite all’interno della macchina.
+Lo schermo dovrebbe accendersi e mostrare la schermata di Standby di GaggiMate. Tocca lo schermo per passare al riscaldamento, dovresti vedere la temperatura ambiente attuale e il LED dell’SSR accendersi a indicare che sta scaldando. Verifica che non ci siano perdite all’interno della macchina.
 
 ### Passi finali
-Riassembla la macchina: rimonta con cura i pannelli, assicurandoti che nessun cavo venga schiacciato. <br />
-Controllo di sicurezza: esegui un’ispezione finale per assicurarti che tutto sia isolato e non ci siano connessioni scoperte.
+Scollega dalla rete la macchina e riassembla il tutto, rimonta con cura i pannelli, assicurandoti che nessun cavo venga schiacciato. <br />
+**Controllo di sicurezza: esegui un’ispezione finale per assicurarti che tutto sia isolato e non ci siano connessioni scoperte.**
 
 Se hai ulteriori domande o necessiti di chiarimenti, unisciti al nostro Discord e apri un thread di aiuto o scrivi sul nostro Subreddit.
 
