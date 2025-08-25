@@ -75,6 +75,7 @@ import img_115 from '../../assets/images/gcp/115_plumbing.jpeg';
 import img_116 from '../../assets/images/gcp/116_plumbing.jpeg';
 import img_117 from '../../assets/images/gcp/117_plumbing.jpeg';
 import img_118 from '../../assets/images/gcp/118_plumbing.jpeg';
+import img_119 from '../../assets/images/gcp/119_labeling.jpeg';
 
 import img_plumbing_packed from '../../assets/images/new_plumbing_packed.jpeg';
 import img_plumbing_unpacked from '../../assets/images/new_plumbing_unpacked.jpeg';
@@ -100,13 +101,18 @@ import img_trimmed_connector from '../../assets/images/trimmed_connector.jpeg';
 Unplug your machine to ensure there's no live connections while working on it.
 Work in a dry environment to prevent electrical hazards.
 
-Start by gathering all the materials and tools listed in the sourcing pages. Follow these guides if you haven't already: [Printed Parts](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
+Start by gathering all the materials and tools listed in the sourcing pages.
+Follow these guides if you haven't already: [Printed Parts](/docs/sourcing-printed-parts) and [Flashing](/docs/flashing).
+
+Read through the entire guide first to make sure any questions will be cleared before the installation. You can always contact us for help or open a help thread on our [Discord](https://discord.gaggimate.eu/).
 
 Check the [Pinout](/docs/pinout) and prepare the [wires](/docs/wiring) if you didn't buy the kit.
 
 #### Check all the parts
-Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below. Depending on the kit generation the plumbing parts will be replaced by the ones in the last 2 pictures.
-If that's the case follow the plumbing variant for the new plumbing.
+Check that you have all the parts ready to go. You can see what parts and tools you might need in the pictures below.
+
+Depending on the kit generation the plumbing parts (fittings and hose in the left two pictures) will be replaced by the ones in the right two pictures.
+We have split up chapter 6 in 2 parts for either the new or the old kind of plumbing. You will only have to do one of the two.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_01} width={400} alt="" />
@@ -179,6 +185,11 @@ To make labeling a bit easier, especially with the monoblock style connectors yo
 </div>
 
 Now use the labels that you printed or tape to label all the connections, we will refer to those by their number/name in the following steps.
+
+
+<Preview src={img_119} width={400} alt="" />
+
+The picture above will show you where these labels should be placed for the button cables. The connections marked with an asterisk are only present on a 240V machine.
 
 ## 3. Heater modifications
 
@@ -301,7 +312,7 @@ Some generations of the kit came with a slightly mismatched connector. This can 
 
 ## 6. Plumbing / Pressure installation
 
-Follow this part only if you're installing GaggiMate Pro.
+Follow this part only if you're installing GaggiMate Pro.  As mentioned at the start of the guide please only follow either 6.1 or 6.2 depending on which generation of the kit you received.
 
 ### 6.1 New Plumbing (Installation at pump)
 
@@ -315,14 +326,13 @@ Follow this part only if you're installing GaggiMate Pro.
 
 Free up a bit of space around the pump so you can remove the connectors from it. Also remove the hose connecting it to the tank and the little spout on the bottom of the pump. The spout prevents it from being lifted out of the mount.
 
-
 <div className="flex flex-row gap-4">
   <Preview src={img_105} width={400} alt="" />
   <Preview src={img_106} width={400} alt="" />
   <Preview src={img_107} width={400} alt="" />
 </div>
 
-Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on) You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one.
+Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on) You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one. This is the little disk shaped component next to the two pump connectors. In some machines this will be fixed with hot glue which can be peeled off.
 
 Now that the pump is free to rotate simply unscrew it from the black OPV part as shown in the picture.
 
@@ -417,6 +427,6 @@ If you have any further questions or need additional clarifications, feel free t
 
 ### Congratulations
 
-You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
+You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start). If you encounter any problems during the installation check our [Troubleshooting guide](/pages/troubleshooting) or open a help thread in #gaggimate-help on [Discord](https://discord.gaggimate.eu/).
 
 <Preview src={img_47} width={400} alt="GaggiMate install" />
