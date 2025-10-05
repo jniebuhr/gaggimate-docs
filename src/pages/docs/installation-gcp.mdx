@@ -177,7 +177,8 @@ You see an overview of what you should expect above. Make yourself familiar with
   <Preview src={img_14} width={400} alt="" />
 </div>
 
-To make labeling a bit easier, especially with the monoblock style connectors you can tilt out the front switches a bit to free those. If you do not have monoblock connectors tilting the switches might still help with labeling.
+To make labeling a bit easier, especially with the monoblock style connectors you can tilt out the front switches a bit to free those.
+If you do not have monoblock connectors tilting the switches might still help with labeling.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_15} width={400} alt="" />
@@ -185,11 +186,11 @@ To make labeling a bit easier, especially with the monoblock style connectors yo
 </div>
 
 Now use the labels that you printed or tape to label all the connections, we will refer to those by their number/name in the following steps.
-
+The brew thermostat (BT) sits on the left side of your boiler, the steam thermostat (ST) is the one screwed into the top of the boiler.
 
 <Preview src={img_119} width={400} alt="" />
 
-The picture above will show you where these labels should be placed for the button cables. The connections marked with an asterisk are only present on a 240V machine.
+The picture above will show you where these labels should be placed for the button cables. The connections marked with an asterisk are only present on a 240 V machine.
 
 ## 3. Heater modifications
 
@@ -201,7 +202,7 @@ The picture above will show you where these labels should be placed for the butt
 </div>
 
 In order to make uninstallation of the brew thermostat as well of installation of the thermocouple easier, it's required to loosen the steam valve assembly and unscrew the group head from the case so you're able to tilt the boiler assembly.
-It's recommended to remove the steam knob and steam wand to gain even more space.
+You remove the steam knob and steam wand to gain even more space. After you're done with the install, re-assemble them before testing the machine.
 
 <div className="flex flex-row gap-4">
   <Preview src={img_19} width={400} alt="" />
@@ -216,7 +217,7 @@ By tilting the boiler you can easily access the brew thermostat, unscrew it and 
 </div>
 
 Now that the brew thermostat is removed from the boiler you can screw in the M4 thermocouple into the boiler. Be careful to rotate the wire (folding the wire cautiously helps) as you screw it in and only fasten it hand tight. The thermocouple can easily break off during the screwing process if not handled with care.
-It is advised to connect the thermocouple at the end of the installation to the PCB.
+It is advised to connect the thermocouple at the end of the installation to the PCB. The red cable is the + connection and the blue is -. See the [Pinout](/docs/pinout) for where these are located.
 
 #### Steam thermostat
 
@@ -269,6 +270,8 @@ When you're done, the brew switch (or monoblock connector) should look like this
 
 #### Pump/Three way valve
 
+**If you're installing the pro kit you can do these steps together with # 6.1 where you remove the pump. It makes accessing the wires easier.**
+
 <Preview src={img_32} width={400} alt="" />
 
 Remove the connector PMP.B (grey cable, the one that doesn't go into the thermal fuse on the pump) from the pump and extend it with the red wire from the wiring kit to the V/Valve connector of the PCB.
@@ -293,7 +296,7 @@ If you have the monoblock, you should put those back first and then push the con
   <Preview src={img_38} width={400} alt="" />
 </div>
 
-Connect the JST PH connectors to the PCB and you can either place it in the corner of the casing now for Standard or do this after you install the pressure parts for GaggiMate Pro.
+Connect the JST PH connectors (small white plugs) to the PCB and you can either place it in the corner of the casing now for Standard or do this after you install the pressure parts for GaggiMate Pro.
 
 If the PCB casing doesn't fit in the displayed position you can also fit it just behind the steam wand.
 
@@ -332,7 +335,9 @@ Free up a bit of space around the pump so you can remove the connectors from it.
   <Preview src={img_107} width={400} alt="" />
 </div>
 
-Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on) You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one. This is the little disk shaped component next to the two pump connectors. In some machines this will be fixed with hot glue which can be peeled off.
+Once these connections are removed you can simply lift it out of the lower rubber bracket. (It is simply pushed on)
+You can now hold the pump at an angle and remove the thermal fuse from the pump if you have one.
+This is the little disk shaped component next to the two pump connectors. In some machines this will be fixed with hot glue which can be peeled off.
 
 Now that the pump is free to rotate simply unscrew it from the black OPV part as shown in the picture.
 
@@ -345,6 +350,7 @@ Now that the pump is free to rotate simply unscrew it from the black OPV part as
 </div>
 
 Gather the shown parts from the plumbing kit. Wrap 4-5 layers of PTFE tape around the male part of the L-shaped fitting. You want to do this clock-wise so it doesn't undo itself when screwing on the pump later.
+If you still encounter leaks after installation, add additional layers of PTFE tape.
 
 Once you're done with that, connect the two parts as shown above. The T-fitting comes with a gasket so no PTFE tape is needed on that connection.
 
@@ -405,10 +411,6 @@ Cut 15-20cm of the tube and connect it to the transducer, secure it with hose cl
 
 Place the T-fitting inline with the pump (In this example i've opted to simply extend the original tube for a non-destructive installation. You can loosen the Oetiker clamps with a flathead screwdriver). Make sure everything is tightened securely and place the transducer at the bottom of the casing.<br />
 
-### 6.3 Pressure test
-
-Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
-
 ## 7. Final checks
 Review all your labeled connections for accuracy and completeness.
 Ensure that there are no exposed wires and that all connections are secure and insulated.
@@ -417,16 +419,26 @@ Once you have completed that step, test your wiring for possible shorts with a m
 
 ### Testing
 Now is the big moment. Turn on your machine for the first time. The heater should not be heating on power-on and nothing else should be running. You can check if the heater is doing anything by observing the LED on the SSR.
-The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up. Check that nothing is leaking inside of the machine.
+The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up.
+
+### Pressure test
+
+Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
 
 ### Final Steps
 Reassemble the Machine: Carefully put the panels back on, ensuring that there are no pinched wires. <br />
-Conduct a Safety Check: Perform a final inspection to ensure everything is insulated and that there are no exposed wiring connections.
+
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+  <strong class="font-bold text-red-700">Important</strong>: Conduct a Safety Check: Perform a final inspection to ensure everything is insulated and that there are no exposed wiring connections. <br />
+</div>
 
 If you have any further questions or need additional clarifications, feel free to go into the Discord and make a help thread or post on our Subreddit.
 
 ### Congratulations
 
-You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee. To check more tasks on your first startup go to [First Start](/docs/usage-first-start). If you encounter any problems during the installation check our [Troubleshooting guide](/pages/troubleshooting) or open a help thread in #gaggimate-help on [Discord](https://discord.gaggimate.eu/).
+You have now finished setting up your Gaggia Classic Pro with GaggiMate and can start making coffee.
+To check more tasks on your first startup go to [First Start](/docs/usage-first-start).
+When you do the first test shots and check the system, remember that you'll need to have a puck or blind filter in the machine to build any pressure.
+If you encounter any problems during the installation check our [Troubleshooting guide](/pages/troubleshooting) or open a help thread in #gaggimate-help on [Discord](https://discord.gaggimate.eu/).
 
 <Preview src={img_47} width={400} alt="GaggiMate install" />

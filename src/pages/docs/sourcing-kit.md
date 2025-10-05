@@ -10,6 +10,8 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 
 ## Contents
 
+## What the kit comes with
+
 ### Pro - Gaggia Classic (M4 Thermistor + Pressure Fittings)
 * GaggiMate Controller Pro PCB
 * LilyGo T-RGB 2.1" Display
@@ -49,8 +51,12 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 
 ## Tools / Consumables you need
 
-* Knife (or PTFE cutter if you get a variant with PTFE tubing and have one available)
-* Screwdriver
-* Wrench / Spanner
-* Zipties (good to have)
-* Cable labels/tape (good to have)
+* Philipps Screwdriver
+* 4mm + 5mm Allen Key to to unbolt the boiler and steam wand
+* Adjustable or 14mm Wrench / Spanner 
+* Electrical tape for insulating unused connections
+* Multimeter
+* Optional: Thermal paste, useful for older machines where the pre-applied paste has dried out
+* Optional: Zipties
+* Optional: Small flathead screwdriver to remove connections
+* Optional: Cable labels/tape

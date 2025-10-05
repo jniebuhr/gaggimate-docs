@@ -49,40 +49,152 @@ However, it is not yet available on the machine itself.
 In order to do so, click the left star icon on the profile to make it available on the machine.
 You are now ready to brew some coffee.
 
+## Creating a Pro profile
+
+If you have installed GaggiMate Pro you can also create a Pro profile, this allows for further visualization, multiple stop conditions, transitions between phases and more.
+
+### Using the Web UI
+
+To create a Pro profile, simply select the Pro option when creating a new profile. Below you can see how editing the Cremina Lever profile would look.
+
+![Pro profile screen](../../assets/images/pro_profile.png)
+
+At the top you have the basic profile settings, followed by a visualization of the entire profile. At the bottom you can edit the specific phases.
+You can change through the phases using the arrow buttons at the right top of the Brew phases section. 
+
+For each phase you set which type and name it should have, the maximum duration of the phase (if there's stop conditions, it will stop when either the duration or any of the conditions are reached) and a temperature override for that phase.
+Next you should select if you want the Valve to be open (you usually want that) and in which mode to run the pump.
+If you select Power, you will have to enter the percentage at which to run the pump, if you select Pressure or Flow, you will have to enter the target flow/pressure and can optionally enter a flow/pressure limit.
+
+For the transition between phases, you can select different ramp styles, their duration and whether to start the ramp at the previous phases target or at the current value.
+For example: Phase 1 targets 3 bar but the machine only reaches 2 bar during that phase. Phase 2 does a linear ramp up to 7 bar. If the ramp should start at the previous target, it will ramp from 3 up to 7 bar. If it should start at the current value, it will ramp from 2 to 7 bar instead.
+
+The final phase setting is stop conditions, here you can select multiple stop conditions for each phase:
+
+**Water pumped**
+This will exit when x ml of water was pumped in the current phase. For example you could exit the pre-infusion after 40ml of water went into the puck.
+
+**Weight above**
+This will exit when the current weight from the scale is above the set value. It's mostly used to define the shot target.
+
+**Pressure above**
+Exit when the boiler pressure goes above the set value.
+
+**Pressure below**
+Exit when the boiler pressure drops below the set value
+
+**Flow above**
+Exit when the pump flow goes above the set value
+
+**Flow below**
+Exit when the pump flow drops below the set value
+
 ### The JSON format
 
 By exporting the profile we just created and looking at the contents of the JSON file, the structure of these profiles will become apparent:
 
 ```json
 {
-  "label": "New Profile",
-  "type": "standard",
+  "label": "Gagne",
+  "type": "pro",
   "description": "",
-  "temperature": 93,
+  "temperature": 92,
   "phases": [
     {
-      "name": "Pump",
+      "name": "5ml/s",
       "phase": "preinfusion",
       "valve": 1,
-      "duration": 3,
-      "pump": 100
+      "duration": 4,
+      "temperature": 0,
+      "transition": {
+        "type": "instant",
+        "duration": 0,
+        "adaptive": true
+      },
+      "pump": {
+        "target": "flow",
+        "pressure": 1,
+        "flow": 5
+      }
     },
     {
-      "name": "Bloom",
+      "name": "2ml/s",
       "phase": "preinfusion",
       "valve": 1,
-      "duration": 5,
-      "pump": 0
+      "duration": 4,
+      "temperature": 0,
+      "transition": {
+        "type": "instant",
+        "duration": 0,
+        "adaptive": true
+      },
+      "pump": {
+        "target": "flow",
+        "pressure": 1,
+        "flow": 2
+      }
     },
     {
-      "name": "Pump",
+      "name": "Ramp",
       "phase": "brew",
       "valve": 1,
-      "duration": 20,
-      "pump": 100,
+      "duration": 3,
+      "temperature": 0,
+      "transition": {
+        "type": "instant",
+        "duration": 0,
+        "adaptive": true
+      },
+      "pump": {
+        "target": "pressure",
+        "pressure": 9,
+        "flow": 0
+      },
+      "targets": [
+        {
+          "type": "pressure",
+          "operator": "gte",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "name": "Hold 9 bar",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 6,
+      "temperature": 0,
+      "transition": {
+        "type": "instant",
+        "duration": 0,
+        "adaptive": true
+      },
+      "pump": {
+        "target": "pressure",
+        "pressure": 9,
+        "flow": 4
+      }
+    },
+    {
+      "name": "Adaptive Flow",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 30,
+      "temperature": 0,
+      "transition": {
+        "type": "instant",
+        "duration": 0,
+        "adaptive": true
+      },
+      "pump": {
+        "target": "flow",
+        "pressure": 9,
+        "flow": -1
+      },
       "targets": [
         {
           "type": "volumetric",
+          "operator": "gte",
           "value": 36
         }
       ]
