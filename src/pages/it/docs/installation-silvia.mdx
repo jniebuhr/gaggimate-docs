@@ -1,0 +1,383 @@
+---
+layout: ../../../layouts/Layout.astro
+title: Rancilio Silvia
+description: Procedura di installazione per le macchine Rancilio Silvia
+section: Installazione
+order: 14
+---
+
+import Preview from '../../../components/Preview.astro';
+import img_diagram from '../../../assets/images/silvia/00_diagram.png';
+import img_01 from '../../../assets/images/silvia/01_parts.jpeg';
+import img_02 from '../../../assets/images/silvia/02_parts.jpeg';
+import img_03 from '../../../assets/images/silvia/03_screen_glue.jpeg';
+import img_04 from '../../../assets/images/silvia/04_screen_assemble.jpeg';
+import img_05 from '../../../assets/images/silvia/05_pcb_assemble.jpeg';
+import img_06 from '../../../assets/images/silvia/06_pcb_assemble.jpeg';
+import img_07 from '../../../assets/images/silvia/07_machine_disassembly.jpeg';
+import img_08 from '../../../assets/images/silvia/08_machine_overview.jpeg';
+import img_09 from '../../../assets/images/silvia/09_machine_disassembly.jpeg';
+import img_10 from '../../../assets/images/silvia/10_machine_disassembly.jpeg';
+import img_11 from '../../../assets/images/silvia/11_machine_disassembly.jpeg';
+import img_12 from '../../../assets/images/silvia/12_machine_overview.jpeg';
+import img_13 from '../../../assets/images/silvia/13_machine_overview.jpeg';
+import img_14 from '../../../assets/images/silvia/14_labeling.jpeg';
+import img_15 from '../../../assets/images/silvia/15_labeling.jpeg';
+import img_16 from '../../../assets/images/silvia/16_labeling.jpeg';
+import img_17 from '../../../assets/images/silvia/17_ssr.jpeg';
+import img_18 from '../../../assets/images/silvia/18_ssr.jpeg';
+import img_19 from '../../../assets/images/silvia/19_ssr.jpeg';
+import img_20 from '../../../assets/images/silvia/20_ssr.jpeg';
+import img_21 from '../../../assets/images/silvia/21_ssr.jpeg';
+import img_22 from '../../../assets/images/silvia/22_brew_switch.jpeg';
+import img_23 from '../../../assets/images/silvia/23_brew_switch.jpeg';
+import img_24 from '../../../assets/images/silvia/24_brew_switch.jpeg';
+import img_25 from '../../../assets/images/silvia/25_pump.jpeg';
+import img_26 from '../../../assets/images/silvia/26_pump.jpeg';
+import img_27 from '../../../assets/images/silvia/27_software_buttons.jpeg';
+import img_28 from '../../../assets/images/silvia/28_software_buttons.jpeg';
+import img_29 from '../../../assets/images/silvia/29_pcb_connections.jpeg';
+import img_30 from '../../../assets/images/silvia/30_pcb_placement.jpeg';
+import img_31 from '../../../assets/images/silvia/31_pressure.jpeg';
+import img_32 from '../../../assets/images/silvia/32_pressure.jpeg';
+import img_33 from '../../../assets/images/silvia/33_pressure.jpeg';
+import img_34 from '../../../assets/images/silvia/34_pressure.jpeg';
+import img_35 from '../../../assets/images/silvia/35_pressure.jpeg';
+import img_36 from '../../../assets/images/silvia/36_pressure.jpeg';
+import img_37 from '../../../assets/images/silvia/37_pressure.jpeg';
+import img_38 from '../../../assets/images/silvia/38_finished.jpeg';
+import img_39 from '../../../assets/images/silvia/39_pressure.jpeg';
+import ribbon from '../../../assets/images/screen_ribbon.jpeg';
+
+import img_101 from '../../../assets/images/silvia/101_plumbing.jpeg';
+import img_102 from '../../../assets/images/silvia/102_plumbing.jpeg';
+import img_103 from '../../../assets/images/silvia/103_plumbing.jpeg';
+import img_104 from '../../../assets/images/silvia/104_plumbing.jpeg';
+import img_105 from '../../../assets/images/silvia/105_plumbing.jpeg';
+import img_106 from '../../../assets/images/silvia/106_plumbing.jpeg';
+import img_107 from '../../../assets/images/silvia/107_plumbing.jpeg';
+import img_108 from '../../../assets/images/silvia/108_plumbing.jpeg';
+import img_109 from '../../../assets/images/silvia/109_plumbing.jpeg';
+import img_110 from '../../../assets/images/silvia/110_plumbing.jpeg';
+import img_111 from '../../../assets/images/silvia/111_plumbing.jpeg';
+import img_112 from '../../../assets/images/silvia/112_plumbing.jpeg';
+import img_113 from '../../../assets/images/silvia/113_plumbing.jpeg';
+import img_114 from '../../../assets/images/silvia/114_plumbing.jpeg';
+import img_115 from '../../../assets/images/silvia/115_plumbing.jpeg';
+import img_116 from '../../../assets/images/silvia/116_plumbing.jpeg';
+
+import img_plumbing_packed from '../../../assets/images/new_plumbing_packed.jpeg';
+import img_plumbing_unpacked from '../../../assets/images/new_plumbing_unpacked.jpeg';
+
+import img_wrong_connector from '../../../assets/images/wrong_connector.jpeg';
+import img_trimmed_connector from '../../../assets/images/trimmed_connector.jpeg';
+
+
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+  <h3 class="my-2">Note importanti</h3>
+
+  <strong class="font-bold text-red-700">Sicurezza Alta Tensione</strong>: Presta la massima cautela quando lavori con l’alta tensione. Se non sei sicuro di qualche passaggio, consulta un tecnico professionista. <br />
+  <strong class="font-bold text-red-700">Rispettare le normative locali</strong>: Assicurati che il tuo lavoro sia conforme ai codici e agli standard elettrici locali. <br />
+  <strong class="font-bold text-red-700">Documentazione</strong>: Tieni traccia del tuo schema di cablaggio per riferimenti futuri e per la risoluzione dei problemi.
+
+</div>
+
+
+## Contenuti
+
+## 1. Preparazione
+
+**Sicurezza prima di tutto!**
+Scollega la macchina dalla corrente per assicurarti che non ci siano connessioni attive mentre lavori.
+Lavora in un ambiente asciutto per prevenire pericoli elettrici.
+
+Inizia raccogliendo tutti i materiali e gli strumenti elencati nelle pagine di approvvigionamento. Segui queste guide se non l’hai già fatto: [Parti stampate](/docs/sourcing-printed-parts) e [Flashing (Installazione software)](/docs/flashing).
+
+Controlla il [Pinout](/docs/pinout) e prepara i [cavi](/docs/wiring) se non hai acquistato il kit.
+
+#### Controlla tutte le parti
+Controlla di avere tutte le parti pronte. Nelle immagini sotto puoi vedere quali parti e strumenti potrebbero servirti. A seconda della generazione del kit, i componenti idraulici potrebbero essere sostituiti da quelli mostrati nelle ultime 2 immagini.
+In tal caso segui la variante idraulica per la nuova idraulica.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_01} width={400} alt="" />
+  <Preview src={img_02} width={400} alt="" />
+  <Preview src={img_plumbing_packed} width={400} alt="" />
+  <Preview src={img_plumbing_unpacked} width={400} alt="" />
+</div>
+
+#### Prepara le etichette per i cavi
+
+Abbiamo preparato una guida stampabile per etichettare i cavi in modo da seguire più facilmente l’installazione e correggere eventuali errori. In alternativa, puoi usare del nastro, etichette adesive o qualsiasi altra soluzione tu abbia a disposizione.
+
+<a href="/downloads/silvia-wiring-labels.pdf" target="_blank">Download the wire labels</a>
+
+Puoi consultare lo schema di cablaggio per informazioni aggiuntive.
+
+<Preview src={img_diagram} width={400} alt="" />
+
+#### Controlla lo schermo
+
+<Preview src={ribbon} width={400} alt="" />
+
+Prima di assemblare lo schermo, verifica che il flat cable sia inserito e bloccato correttamente come in questa immagine. Se per qualsiasi motivo non lo fosse,
+sblocca il connettore tirando verso il basso le linguette nere in orizzontale rispetto alla scheda, inserisci il cavo e richiudi.
+Controlla che compaia un’immagine collegandolo a una porta USB prima di procedere.
+
+#### Assembla le parti stampate
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_03} width={400} alt="" />
+  <Preview src={img_04} width={400} alt="" />
+</div>
+
+Dopo aver verificato, prova a incollarlo il più dritto e centrato possibile con il biadesivo preapplicato. Posizionalo nella base e chiudi con la cover.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_05} width={400} alt="" />
+  <Preview src={img_06} width={400} alt="" />
+</div>
+Posiziona la PCB nel coperchio PCB con un angolo per guidare la porta USB-C nel relativo ritaglio. Poi spingila verso il basso per bloccarla nella base. Assicurati di averla già flashata in precedenza, perché potresti dover accedere al pulsante di boot per farlo.
+
+## 2. Preparazione della macchina
+
+#### Smontare la macchina
+
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_07} width={400} alt="" />
+  <Preview src={img_08} width={400} alt="" />
+</div>
+
+Rimuovi tutte le parti dalla macchina che potrebbero intralciare durante l’installazione o cadere, come il coperchio dell’acqua, il serbatoio, la vaschetta raccogligocce e il portafiltro. Svita le quattro viti che fissano lo scaldatazze al case.<br />
+Successivamente, rimuovi lo scaldatazze. La macchina nelle foto è una Rancilio Silvia V6E, quindi potrebbe apparire leggermente diversa dalla tua.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_09} width={400} alt="" />
+  <Preview src={img_10} width={400} alt="" />
+  <Preview src={img_13} width={400} alt="" />
+</div>
+
+Ora usa un cacciavite lungo e sottile per svitare la vite sul fondo del case, svita le due viti circa a metà che tengono la parte posteriore del case e solleva la porzione posteriore verso l’alto.
+Poi svita le 2 viti che fissano il pannello che tiene in posizione il serbatoio. Ora hai accesso anche alla pompa.
+
+<Preview src={img_11} width={400} alt="" />
+
+Rimuovi le 2 viti che fissano il pannello sotto il gruppo e rimuovi il pannello. Qui andranno posizionate la PCB e l’SSR.
+
+<Preview src={img_12} width={400} alt="" />
+
+Con tutto rimosso, questa è la vista che dovresti avere.
+
+#### Etichettatura
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_14} width={400} alt="" />
+  <Preview src={img_15} width={400} alt="" />
+</div>
+
+Ora etichetta tutti gli interruttori e la pompa con le etichette fornite. L’ordine degli interruttori è da sinistra a destra e dall’alto verso il basso quando li guardi dal fronte della macchina.
+Per rendere l’etichettatura un po’ più semplice, puoi anche rimuovere la parte frontale della scocca oppure rimuovere direttamente gli interruttori.
+
+Nei passaggi successivi faremo riferimento ai numeri sulle etichette.
+
+## 3. Modifiche al riscaldatore
+
+#### Termostati
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_17} width={400} alt="" />
+  <Preview src={img_18} width={400} alt="" />
+</div>
+
+Rimuovi entrambe le connessioni (BT.A, BT.B) dal termostato caffè e usa il ponticello rosso corto del kit di cablaggio per collegarle.
+Poi rimuovi entrambe le connessioni dal termostato vapore (ST.A, ST.B) e usa i cavi Heater dell’SSR per estenderle verso il basso fino al frontale del case.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_20} width={400} alt="" />
+  <Preview src={img_21} width={400} alt="" />
+</div>
+
+Monta l’SSR sulla vite esistente che sporge nell’area mostrata. Puoi accedervi dal retro della scocca.
+Collega i cavi gialli al lato Output dell’SSR.
+
+<Preview src={img_19} width={400} alt="" />
+
+Rimuovi i termostati e le loro staffe dalla caldaia e avvita la termocoppia M3 in uno dei fori.
+Assicurati di avvitarla solo a mano e maneggia/ruota il filo con attenzione mentre la avviti.
+Può danneggiarsi facilmente se il cavo si attorciglia. Instrada quel cavo nella stessa posizione dell’SSR tenendolo il più possibile lontano dai cavi HV.
+
+## 4. Cablaggio HV
+
+#### Interruttore caffè
+
+<Preview src={img_22} width={400} alt="" />
+
+Rimuovi la connessione C.2 dall’interruttore caffè, estendila con il cavo rosso del kit di cablaggio e portala alla porta V della PCB.
+
+<Preview src={img_23} width={400} alt="" />
+
+Rimuovi le connessioni C.1 e C.3 dall’interruttore caffè e usa il piccolo ponticello giallo del kit di cablaggio per metterle in ponte.
+
+<Preview src={img_24} width={400} alt="" />
+
+Rimuovi la connessione C.4 dall’interruttore caffè, estendila con il cavo blu del kit di cablaggio e portala alla porta L della PCB.
+
+#### Pompa/Valvola a tre vie
+
+<Preview src={img_25} width={400} alt="" />
+
+Scollega il filo PMP.A. Questo filo sarà collegato a un fusibile termico oppure direttamente alla pompa. Se hai un fusibile termico, scollegalo prima. Collega a questa connessione il cavo verde del kit di cablaggio. Porta il cavo verde alla porta P della PCB.
+
+<Preview src={img_26} width={400} alt="" />
+
+Scollega il filo PMP.B dalla pompa e utilizza il cavo grigio del kit di cablaggio per creare un collegamento a ponte su questa connessione (un'estremità su PMP.B, un'estremità sulla pompa) e portalo alla porta N della PCB.
+
+## 5. Cablaggio LV
+
+#### Funzionalità pulsanti
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_27} width={400} alt="" />
+  <Preview src={img_28} width={400} alt="" />
+</div>
+
+Puoi scegliere di mantenere la funzionalità dei pulsanti utilizzando il cavo a 4 fili verde/nero del kit di cablaggio. Collega un filo verde e uno nero (controlla il pinout per vapore/erogazione) agli interruttori Brew e Steam. Assicurati prima di rimuovere e isolare tutti i fili dall'interruttore del vapore.
+I fili verdi dovrebbero andare dove hai rimosso C.2 e S.1, quelli neri dove hai rimosso C.4 e S.3.
+
+#### PCB
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_29} width={400} alt="" />
+  <Preview src={img_30} width={400} alt="" />
+</div>
+
+Collega tutti i cavi alla PCB come in foto e posizionala sopra l’SSR nella parte anteriore della macchina. Assicurati che non ci siano cavi sotto il rivestimento, altrimenti il pannello frontale non si chiuderà.
+Fai uscire il cavo di alimentazione del display dalla parte superiore del case.
+
+#### Schermo
+
+Porta il cavo rosso/nero dalla PCB allo schermo e collegalo al connettore a 4 pin. Il cavo ha spazio sufficiente per essere instradato tra lo scaldatazze e la scocca. L’alloggiamento dello schermo si appoggia semplicemente sul bordo della scocca.
+
+Alcune generazioni del kit sono arrivate con un connettore leggermente differente. Questo può essere risolto tagliando una delle guide laterali della spina come mostrato nelle immagini sotto. Assicurati di non forzare il connettore nello schermo perché potresti danneggiarlo.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_wrong_connector} width={400} alt="" />
+  <Preview src={img_trimmed_connector} width={400} alt="" />
+</div>
+
+
+## 6. Idraulica / Installazione pressione
+
+Segui questa parte solo se stai installando GaggiMate Pro.
+
+### 6.1 Nuova idraulica (installazione sulla pompa)
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_101} width={400} alt="" />
+  <Preview src={img_102} width={400} alt="" />
+  <Preview src={img_103} width={400} alt="" />
+</div>
+
+Gira la macchina in modo da guardare la pompa quindi scollega i cavi dalla pompa. Fatto ciò, scollega anche il tubo di aspirazione dalla pompa come mostrato sopra.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_104} width={400} alt="" />
+  <Preview src={img_105} width={400} alt="" />
+</div>
+
+Rimuovi la pompa dal supporto in gomma destro e svitala dal raccordo a L. Ora la pompa dovrebbe essere completamente libera.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_106} width={400} alt="" />
+  <Preview src={img_107} width={400} alt="" />
+</div>
+
+Applica 4–5 giri di nastro PTFE in senso orario sul raccordo a L. Questo garantirà che la connessione tenga la pressione.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_108} width={400} alt="" />
+  <Preview src={img_109} width={400} alt="" />
+  <Preview src={img_110} width={400} alt="" />
+</div>
+
+Avvita il raccordo a T del kit sul raccordo a L assicurandoti che sia ben stretto. La parte bianca può ruotare, quindi la posizione non è importante. Una volta fatto, puoi avvitare la pompa ai nuovi raccordi.
+
+Assicurati prima di far passare la pompa attraverso il supporto in gomma.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_111} width={400} alt="" />
+  <Preview src={img_112} width={400} alt="" />
+</div>
+
+Avvita il raccordo PTFE G1/4 al trasduttore di pressione: deve essere solo stretto a mano ma abbastanza da tenere la pressione, e posizionalo tra la valvola del vapore e la caldaia.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_113} width={400} alt="" />
+  <Preview src={img_114} width={400} alt="" />
+</div>
+
+Inserisci il tubo PTFE nel raccordo vicino alla pompa e misura la lunghezza necessaria fino al sensore di pressione. Usa il tagliatubi incluso per tagliarlo a misura. Riempi il tubo d’acqua e collegalo sia al raccordo a T che al trasduttore di pressione.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_115} width={400} alt="" />
+  <Preview src={img_116} width={400} alt="" />
+</div>
+
+Infine, ricollega i cavi alla pompa e anche il tubo di aspirazione. Collega inoltre il trasduttore di pressione alla tua PCB come mostrato sopra. Hai ora installato l’impianto idraulico sulla tua macchina.
+
+### 6.2 Idraulica legacy (installazione sulla caldaia)
+
+
+#### Assemblaggio trasduttore
+
+<Preview src={img_39} width={400} alt="" />
+
+Prepara il cavo del trasduttore tagliando un po’ dell’isolamento nero e spelando i fili per 11 mm.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_31} width={400} alt="" />
+  <Preview src={img_32} width={400} alt="" />
+  <Preview src={img_33} width={400} alt="" />
+  <Preview src={img_34} width={400} alt="" />
+</div>
+
+Raccogli tutte le parti idrauliche del kit e inizia posizionando la piccola guarnizione all’interno di uno dei connettori PTFE. Avvita il trasduttore nel connettore. Deve essere abbastanza stretto da non perdere ma non così stretto da schiacciare la guarnizione bloccando il trasduttore.<br />
+Taglia 15–20 cm di tubo e collegalo al trasduttore. Riempi questo tubo d’acqua e collega l’altro lato al raccordo opposto.
+
+<div className="flex flex-row gap-4">
+  <Preview src={img_35} width={400} alt="" />
+  <Preview src={img_36} width={400} alt="" />
+  <Preview src={img_37} width={400} alt="" />
+</div>
+
+Svita le connessioni dalla OPV e dalla pompa, rimuovi la OPV, quindi rimuovi il doppio connettore G1/4 dal serbatoio. Metti il pezzo a T del kit al posto di quel connettore e rimonta. Usa il nastro da idraulico dove necessario.<br />
+Successivamente, posiziona il sensore di pressione in orizzontale all’interno della macchina.
+
+### 6.3 Test di pressione
+
+Prima di richiudere la macchina, esegui un test di pressione del sistema per individuare eventuali perdite. Per farlo puoi semplicemente far funzionare la modalità acqua per un po’ e vedere se c’è qualcosa da sistemare.
+Se non ci sono perdite a temperatura ambiente, riprova alla temperatura di erogazione.
+
+## 7. Passi finali
+Ricontrolla tutte le connessioni etichettate per accuratezza e completezza.
+**Assicurati che non ci siano fili scoperti e che tutte le connessioni siano sicure e isolate.**
+
+Una volta completato questo passaggio, testa il cablaggio per possibili cortocircuiti con un multimetro e assicurati di non aver collegato connessioni LV con connessioni HV. Verifica anche la continuità degli interruttori nelle diverse posizioni.
+
+### Test
+È il grande momento. Accendi la macchina per la prima volta. Il riscaldatore non dovrebbe scaldare all’accensione e nient’altro dovrebbe essere in funzione. Puoi verificare se il riscaldatore sta facendo qualcosa osservando il LED sull’SSR.
+Lo schermo dovrebbe accendersi e mostrare la schermata Standby di GaggiMate. Tocca lo schermo una volta per passare alla modalità riscaldamento: dovresti vedere la temperatura ambiente attuale e il LED sull’SSR che si illumina indicando che sta riscaldando. Controlla che all’interno della macchina non ci siano perdite.
+
+### Passi finali
+Scollega dalla rete la macchina e riassembla il tutto, rimonta con attenzione i pannelli, assicurandoti che non ci siano cavi schiacciati. <br />
+**Esegui un controllo di sicurezza: effettua un’ispezione finale per assicurarti che tutto sia isolato e che non ci siano connessioni scoperte.**
+
+Se hai ulteriori domande o hai bisogno di chiarimenti, entra su Discord e apri un thread di aiuto oppure scrivi sul nostro Subreddit.
+Consulta anche la [Guida alla risoluzione dei problemi](/docs/troubleshooting).
+
+### Congratulazioni
+
+Hai completato la configurazione della tua Rancilio Silvia con GaggiMate e puoi iniziare a fare caffè. Per ulteriori attività al primo avvio vai a [Primo avvio](/docs/usage-first-start).
+
+<Preview src={img_38} width={400} alt="GaggiMate install" />
