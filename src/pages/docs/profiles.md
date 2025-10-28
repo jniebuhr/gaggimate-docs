@@ -23,7 +23,7 @@ Volumetric targets can alternatively have a value of zero grams, in which case t
 
 During a phase, the machine's pump may be on or off, and the three-way valve may be open or closed.
 Users of Gaggimate Pro may also configure the pump to run at a specific pressure, to which it is tuned using the pressure transducer.
-For brew recipes, the three-way valve typically remains closed, but opening it can be useful in certain cases, such as for a profile for backflushing.
+For brew recipes, the three-way valve typically remains open, but closing it can be useful in certain cases, such as for a profile for backflushing.
 
 A profile currently has a single target temperature across all phases. The ability to set declining temperature targets will be coming with the advanced profiles.
 
