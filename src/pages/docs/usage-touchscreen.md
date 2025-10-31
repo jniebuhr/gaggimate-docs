@@ -25,7 +25,7 @@ Now everything is setup, and ready to go. But what are all these shiny new thing
 
 ### GaggiMate Starting...
 
-![Screen has 2 text lines, first showing the GaggiMate logo. Second saying "Starting..."](../../assets/images/ScreenUiDescriptions/0-Starting.png)
+![Screen has 2 text lines, first showing the GaggiMate logo. Second saying "Starting..."](../../assets/images/ScreenUiDescriptions/00_initscreen.png)
 
 This will be the very first screen you ever see with your GaggiMate screen.
 
@@ -33,7 +33,7 @@ It is shown when the screen starts up, and will stay this way until a bluetooth 
 
 ### Standby screen
 
-![Standby screen, showing 3 logos explained below, a clock, the GaggiMate logo and a touch symbol.](../../assets/images/ScreenUiDescriptions/1-Standby-screen.png)
+![Standby screen, showing 3 logos explained below, a clock, the GaggiMate logo and a touch symbol.](../../assets/images/ScreenUiDescriptions/01_standbyscreen.png)
 
 This screen is the standby screen, this will be shown when there is a connection to the controller PCB, and the GaggiMate system is in standby mode, meaning that the heater and pump is turned off.
 
@@ -49,7 +49,7 @@ When you touch the screen in this mode, it will switch to brew mode.
 
 ### Main menu
 
-![Main menu, showing pressure and temperature gauges, and 4 menu items. Brew, steam, water and grind.](../../assets/images/ScreenUiDescriptions/2-Main-menu.png)
+![Main menu, showing pressure and temperature gauges, and 4 menu items. Brew, steam, water and grind.](../../assets/images/ScreenUiDescriptions/02_menuscreen.png)
 
 The main menu is used to navigate the different modes that GaggiMate offers.
 
@@ -69,7 +69,7 @@ You can click on either of the symbols to enter that mode.
 
 ### Brew screen
 
-![Brew main page. Showing different brew options.](../../assets/images/ScreenUiDescriptions/3-Brew-screen.png)
+![Brew main page. Showing different brew options.](../../assets/images/ScreenUiDescriptions/03_brewscreen.png)
 
 This is the brew screens start image, some information on this screen changes depending on the board type (Standard or Pro) as well as if you have a scale connected to your gaggimate or not.
 
@@ -99,7 +99,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 ### Profile selection screen
 
-![Profile selections screen. Allowing you to see and select different profiles to brew by.](../../assets/images/ScreenUiDescriptions/4-Profile-selection-screen.png)
+![Profile selections screen. Allowing you to see and select different profiles to brew by.](../../assets/images/ScreenUiDescriptions/04_profilescreen.png)
 
 If you clicked on the profile selection button on the brew screen, you will end up here.
 
@@ -126,7 +126,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 ### Active brew screen
 
-![Active brew screen. Giving a status view for the current brew.](../../assets/images/ScreenUiDescriptions/5-Active-brew.png)
+![Active brew screen. Giving a status view for the current brew.](../../assets/images/ScreenUiDescriptions/05_statusscreen.png)
 
 Once you start your brew, you will be met with some information about the current state of the brew.
 
@@ -150,7 +150,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 ### Steam screen
 
-![Steam screen. Activate steam function for improved steaming.](../../assets/images/ScreenUiDescriptions/6-Steam-screen.png)
+![Steam screen. Activate steam function for improved steaming.](../../assets/images/ScreenUiDescriptions/06_steamscreen.png)
 
 The steam screen doesnt show much info, since all that really is needed is temperature control, and a possiblity to activate the pump to improve the steam output.
 
@@ -168,7 +168,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 ### Water screen
 
-![Water screen. Do you fancy a tea? Or maybe just a bit of water for an americano?](../../assets/images/ScreenUiDescriptions/7-Water-screen.png)
+![Water screen. Do you fancy a tea? Or maybe just a bit of water for an americano?](../../assets/images/ScreenUiDescriptions/07_waterscreen.png)
 
 Do you fancy a tea? Or maybe just a bit of water for an americano? In that case you would need hot water, and GaggiMate got you covered here, with the water mode.
 The screen looks very similar as steam, since it is very much the same controls you need here.
@@ -187,7 +187,7 @@ In the very bottom you have an arrow up symbol, if you swipe up from this, it wi
 
 ### Grinder screen
 
-![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/8-Grind-screen.png)
+![Grinder screen. Did you want grinder with grind by weight, but ended up elsewhere? You are in luck.](../../assets/images/ScreenUiDescriptions/08_grindscreen.png)
 
 Did you want grinder with grind by weight, but ended up elsewhere? You are in luck, because gaggimate mated with a tasmota, gives you exactly that.
 
