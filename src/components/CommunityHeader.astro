@@ -1,0 +1,18 @@
+---
+import GuideHeader from "./GuideHeader.astro"
+const {author, updated, credits} = Astro.props;
+---
+
+<div class="mb-4">
+    <div class="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative mb-4" role="alert">
+        <h3 class="my-2">Community Guide</h3>
+
+        <strong class="font-bold text-orange-700">This guide is a community guide which is not maintained by GaggiMate. The author is not affiliated with GaggiMate.</strong><br /><br />
+
+        <strong class="font-bold text-orange-700">Author</strong>: {author} <br />
+        <strong class="font-bold text-orange-700">Last Updated</strong>: {updated} <br />
+        <strong class="font-bold text-orange-700">Credits</strong>: {credits}
+    </div>
+
+    <GuideHeader />
+</div>
