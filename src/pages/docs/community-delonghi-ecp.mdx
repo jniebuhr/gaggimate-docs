@@ -7,6 +7,7 @@ order: 51
 ---
 
 import Preview from '../../components/Preview.astro';
+import teaser from '../../assets/images/community/delonghi-ecp/teaser.webp';
 import image_2_pin_setup from '../../assets/images/community/delonghi-ecp/image_2_pin_setup.png';
 import image_3_pin_setup from '../../assets/images/community/delonghi-ecp/image_3_pin_setup.png';
 import image_4_pin_preparation from '../../assets/images/community/delonghi-ecp/image_4_pin_preparation.png';
@@ -46,7 +47,7 @@ import image_wiring_hole from '../../assets/images/community/delonghi-ecp/image_
 import CommunityHeader from '../../components/CommunityHeader.astro';
 
 <CommunityHeader author="Jayblah" updated="Oct 28, 2025" credits="Photo credits by Flavius" />
-<Preview src={image_delonghimate} alt="" width={500} />
+<Preview src={teaser} alt="" width={500} />
 
 ## Contents
 
@@ -113,11 +114,21 @@ To get the GaggiMate to work with the DeLonghi ECP series, you must buy the foll
 <Preview src={image_pneumatic_t_fitting} alt="" width={300} />
 * **PRO PCB ONLY** [**4mm** OD Pressure Fitting to G1/4 female **PLF 04-02**](https://www.aliexpress.us/item/3256802393459934.html)
 <Preview src={image_pneumatic_elbow_fitting} alt="" width={300} />
-* **OPTIONAL** [Screen housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing), or find a [free 3D print](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it
-  * **OPTIONAL ALTERNATIVE** [Magnetic housing for the 2.1” screen](https://www.printables.com/model/1456974-gaggimate-screen-holder)
-    ⚠️ *This is still a work-in-progress.* If you print this and you find issues or have recommendations for improvements, please provide feedback to us or in the link’s comment section. This work is being iterated for free by the generous [Georg Mierau](https://www.printables.com/@georgmierau).
-* **OPTIONAL** [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or find a [free 3D print](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it
 
+### 3D printed parts
+
+#### Screen
+
+There's multiple options for the screen housing. The one in the teaser image replaces the entire front of the ECP and can be found [here](https://www.printables.com/model/1471726-delonghi-ecp-front-panel-for-gaggimate).
+
+Alternatively you can buy the [Screen housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself.
+
+The third option that is still work in progress is the [Magnetic housing for the 2.1” screen](https://www.printables.com/model/1456974-gaggimate-screen-holder).
+If you print this and you find issues or have recommendations for improvements, please provide feedback to us or in the link’s comment section. This work is being iterated for free by the generous [Georg Mierau](https://www.printables.com/@georgmierau).
+
+#### PCB
+
+You can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself.
 
 ## **Tools / Consumables**
 
