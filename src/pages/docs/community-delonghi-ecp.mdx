@@ -81,11 +81,11 @@ export const alt = ({ children }) => (
 
 ## Contents
 
-## **Foreword**
+## Foreword
 
 If you see any errors or have any suggestions on making purchasing cheaper or easier for people, please contact Jayblah in the GaggiMate Discord.
 
-### **About This Guide**
+### About This Guide
 
 The author wrote this guide for the **American version** of the DeLonghi ECP. There are slight but notable differences between the American and European models.
 
@@ -93,7 +93,7 @@ If you have the **European version**, you can still follow this guide. It will g
 
 Please note that many of the recommended purchases are suggestions. If you're a confident tinkerer, analyze the list of items (especially the ones that I recommend to make your life easier) and determine whether or not *you* actually need them.
 
-### **Why Do This?**
+### Why Do This?
 
 The DeLonghi ECP is a popular, affordable, and surprisingly capable espresso machine. You can often find a well-maintained pre-owned model on Facebook Marketplace or elsewhere for a great price. I paid just $50 for mine.
 
@@ -101,13 +101,13 @@ Even in stock form, the ECP can produce excellent espresso. Its stainless-steel 
 
 However, if the idea of installing a *Ferrari engine inside a Toyota chassis* sounds exciting, this modification is for you. After installing the GaggiMate, this little sleeper can rival the performance and features of $1,000-plus single-boiler espresso machines, all for a fraction of the cost.
 
-### **You *Can* Do This\!**
+### You *Can* Do This\!
 
 Before I started this modification, I had never cut, crimped, or spliced a wire in my life. Despite that, I successfully installed the GaggiMate on my DeLonghi ECP. If I can do it, you can do it too\!
 
 Take your time, follow each step carefully, and you will be just fine.
 
-## **Shopping List**
+## Shopping List
 
 To get the GaggiMate to work with the DeLonghi ECP series, you must buy the following.
 
@@ -148,7 +148,7 @@ To get the GaggiMate to work with the DeLonghi ECP series, you must buy the foll
       - <pro>**PRO PCB VERSION ONLY**</pro> [**4mm** OD Pressure Fitting to G1/4 female **PLF 04-02**](https://www.aliexpress.us/item/3256802393459934.html)
 <Preview src={image_pneumatic_elbow_fitting} alt="" width={300} />
 
-## **Printed Parts**
+## Printed Parts
 
 ### Screen Prints
 
@@ -164,7 +164,7 @@ There are multiple options for the screen housing:
       - You can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself.
             - ⚠️ <warn>*It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.*</warn>
 
-## **Tools / Consumables**
+## Tools / Consumables
 
       - Knife / PTFE cutter (if you get a variant with PTFE tubing)
       - [Crimping tool](https://www.amazon.com/dp/B0DPKYVZYC?titleSource=true)
@@ -181,16 +181,16 @@ There are multiple options for the screen housing:
       - Zip ties or other cable management solutions
       - Labels/tape
 
-## **Installation**
+## Installation
 
 Please refer to the GaggiMate installation documents for installation on your machine:
 [https://docs.gaggimate.eu/docs/flashing/](https://docs.gaggimate.eu/docs/flashing/)
 
 This guide is **not** for users who opt to try a “LEGO” build. This guide **assumes** you have purchased a standard or proPCB from the GaggiMate team.
 
-## **Preparation**
+## Preparation
 
-- ⚠️ <warn>**Safety First**</warn>
+- **Safety First**
       <br />Unplug the machine and allow it to cool completely before performing any work.
 
 - **Set Up Your Workspace**
@@ -214,7 +214,7 @@ This guide is **not** for users who opt to try a “LEGO” build. This guide **
 - **Read Before Starting**
       <br />Please, read through this entire document **at least once** *before* you begin.
 
-## **Opening the machine**
+## Opening the machine
 
 - **Remove Grouphead Screws**
       <br />Using a Philips screwdriver, remove the two screws located near the grouphead. Keep these screws in a safe place for reassembly.
@@ -249,7 +249,7 @@ This guide is **not** for users who opt to try a “LEGO” build. This guide **
 - **Remove the Top Cover**
       <br />Once the clips are released, lift the top cover off and set it aside. You now have full access to the internal components of the machine.
 
-## **Drill a hole**
+## Drill a hole
 
 Unfortunately, to route the wires from inside the machine to the PCB, you will need to drill a hole in the back panel.
 
@@ -299,7 +299,7 @@ Unfortunately, to route the wires from inside the machine to the PCB, you will n
 
 <Preview src={image_pressure_installation} alt="" width={300} />
 
-## **Attach the thermocouple**
+## Attach the thermocouple
 
 - **Remove the Old Thermostats**
       - You will now remove the two thermostats attached to the boiler (see image below).
@@ -344,9 +344,9 @@ Unfortunately, to route the wires from inside the machine to the PCB, you will n
 
 <Preview src={image_thermocouple_installation} alt="" width={300} />
 
-## **Diagram - Wiring**
+## Diagram - Wirin
 
-## **Wiring the Solid State Relay (SSR)**
+## Wiring the Solid State Relay (SSR)
 
 - **Remove the SSR Screws**
       - Start by unscrewing all four Philips screws from the SSR.
@@ -404,9 +404,9 @@ Unfortunately, to route the wires from inside the machine to the PCB, you will n
       - Tuck the SSR with all four attached wires into an open space inside the machine.
       - You can use **double-sided adhesive tape** to secure it to an inner wall near the pump to prevent it from moving.
 
-## **Attaching SSR Heater Wires to the Heater Elements**
+## Attaching SSR Heater Wires to the Heater Elements
 
-⚠️ <warn>Before you proceed, take a moment to **note the positions of the two wires connected directly to the boiler inside the grouphead**.</warn>
+⚠️ <warn>*Before you proceed, take a moment to **note the positions of the two wires connected directly to the boiler inside the grouphead**.*</warn>
 
 It is important to remember **which connector the insulated wire is attached to**, since this wire contains a built-in resistor for safety.
 
@@ -444,7 +444,7 @@ When completed, the wiring should look like this:
 <Preview src={image_boiler_to_ssr} alt="" width={300} />
 <Preview src={image_heater_bridge_wiring} alt="" width={300} />
 
-## **Diagram - Rotary Switch**
+## Diagram - Rotary Switch
 
 Before proceeding, it is a good idea to **test your rotary switch for continuity** using a multimeter.
 
@@ -452,11 +452,11 @@ Before proceeding, it is a good idea to **test your rotary switch for continuity
 * Use the **probes to test the rotary switch pins** in each position (see the diagram below).
 * Confirm that your switch behaves exactly as shown in the reference diagram.
 
-⚠️ <warn>My rotary switch was wired differently, with **pin 3** and **pin 4** reversed. Make sure you understand your configuration before installation.</warn>
+⚠️ <warn>*My rotary switch was wired differently, with **pin 3** and **pin 4** reversed. Make sure you understand your configuration before installation.*</warn>
 
 <Preview src={image_rotary_switch_diagram} alt="" width={300} />
 
-## **Tapping into the Rotary Switch**
+## Tapping into the Rotary Switch
 
 ⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
@@ -476,7 +476,7 @@ Test your rotary switch connections with a multimeter before finalizing the taps
 
 * If the readings match these values, your rotary switch is wired correctly, and you can proceed with the next steps.
 
-⚠️ <warn>If the voltage readings are incorrect, double-check your continuity tests on the rotary pins before continuing to avoid damaging components.</warn>
+⚠️ <warn>*If the voltage readings are incorrect, double-check your continuity tests on the rotary pins before continuing to avoid damaging components.*</warn>
 
 - **Prepare the “Line” Wire Tap**
       - Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
@@ -510,7 +510,7 @@ Test your rotary switch connections with a multimeter before finalizing the taps
 
 <Preview src={image_rotary_switch_installation} alt="" width={300} />
 
-## **Testing for Leaks**
+## Testing for Leaks
 
 ⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
@@ -542,7 +542,7 @@ Now that your taps are complete, it is time to test for leaks.
 - **Repeat Testing**
       - Repeat the above tests until no leaks are observed. Once the system is leak-free, you may proceed with the installation.
 
-## **Wiring the Screen**
+## Wiring the Screen
 
 This section explains how to prepare a **LILYGO screen** for connection to the PCB.
 
@@ -594,16 +594,16 @@ If you purchased a **Waveshare screen**, you will need to perform **two addition
       - Insert the connector crimped on the **red** wire into **slot 2** (note the tab orientation).
       - Gently tug on both wires to ensure they are **securely seated** in the connector.
 
-## **Diagram - PCB Wiring Pinout**
+## Diagram - PCB Wiring Pinout
 
 Refer to the wiring pinout diagram below as we begin connecting the remaining wires to the PCB. Following the pinout carefully is crucial to ensure proper functionality and avoid damage to components.
 
 <Preview src={image_pcb_diagram} alt="" width={300} />
 
-## **Wiring the PCB**
+## Wiring the PCB
 
 <Preview src={image_pcb_wiring} alt="" width={300} />
-⚠️ <warn>It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.</warn>
+⚠️ <warn>*It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages. The image above is just for visual reference.*</warn>
 
 - **Screen Connection**
       - Insert the **2-pin JST connector** from the screen wiring into the **PCB**.
@@ -637,7 +637,7 @@ If your thermocouple has **ferrule connectors**, first try inserting them into t
       - Strip about ½ inch of insulation from the wire tapped into **live**. ⚠️ <warn>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</warn>
       - Twist the wire to prevent fraying, then insert it into the **Line slot** on the PCB.
 
-## **Power-On Test and First Boot**
+## Power-On Test and First Boot
 
 ⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
@@ -651,9 +651,9 @@ If any of these three things do **not** occur, there is likely a wiring issue. R
 
 Assuming all three systems power on correctly, visit the **GaggiMate website** and follow the instructions in the [First Start](https://docs.gaggimate.eu/docs/usage-first-start/) documentation. While there, also review the [Configuration](https://docs.gaggimate.eu/docs/usage-configuration/) and [Touch Screen Usage](https://docs.gaggimate.eu/docs/screen-ui-description/) documents to familiarize yourself with the GaggiMate software and its features.
 
-## **Final Setup and Testing**
+## Final Setup and Testing
 
-- Use **GaggiMate’s software Auto-Tune** feature in the PID Autotune page to generate PID values specific to your machine. This ensures the software can control temperature effectively and accurately.
+- Use GaggiMate’s software **Auto-Tune** feature in the PID Autotune page to generate PID values specific to your machine. This ensures the software can control temperature effectively and accurately.
 
 - For **DeLonghi ECP** users, it is recommended to **disable Steam Assist** in the *Settings* page by setting its value to **0**.
 
@@ -663,11 +663,11 @@ Assuming all three systems power on correctly, visit the **GaggiMate website** a
 
 - Before final reassembly, take some time to **organize your internal wiring** using your solution of choice. Verify that no wires are **resting directly on the grouphead** where heat could cause damage to them over time.
 
-### **🎉 Congratulations\!**
+## 🎉 Congratulations\!
 
 Welcome to the world of **turbocharged espresso**\! Now you can extract café-quality shots from a compact, affordable machine that now rivals the big names at a fraction of the cost.
 
-## **Acknowlegements**
+## Acknowlegements
 
 - **Flavius** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for successfully installing a GaggiMate on a European-model DeLonghi ECP, answering a ton of questions, and helping identify the required components.
 - **mdwasp** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for also providing a lot of information, and for being the creator of the GaggiMate project\!
