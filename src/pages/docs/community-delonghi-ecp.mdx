@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: Delonghi ECP
-description: Community Guide for Delonghi ECP machines
+description: Community Guide for Delonghi ECP Espresso Machines
 section: Community Guides
 order: 51
 ---
@@ -46,22 +46,54 @@ import image_wire_spliced from '../../assets/images/community/delonghi-ecp/image
 import image_wiring_hole from '../../assets/images/community/delonghi-ecp/image_wiring_hole.jpg';
 import CommunityHeader from '../../components/CommunityHeader.astro';
 
-<CommunityHeader author="Jayblah" updated="Nov. 8, 2025" />
+export const warn = ({ children }) => (
+  <span style={{ color: 'red'}}>{children}</span>
+);
+
+export const pro = ({ children }) => (
+  <span
+    style={{
+      backgroundColor: 'hsla(27, 81%, 60%, 1.00)', // light orange
+      color: 'black',
+      padding: '0.1em 0.3em',
+      borderRadius: '4px',
+    }}
+  >
+    {children}
+  </span>
+);
+
+export const alt = ({ children }) => (
+  <span
+    style={{
+      backgroundColor: 'rgba(144, 238, 144, 0.5)', // light green
+      color: 'black',
+      padding: '0.1em 0.3em',
+      borderRadius: '4px',
+    }}
+  >
+    {children}
+  </span>
+);
+
+<CommunityHeader author="Jayblah" updated="Nov. 8, 2025" credits="Jayblah, Flavius, mdwasp, TorxFighter"/>
 <Preview src={teaser} alt="" width={500} />
 
 ## Contents
 
-## **Foreword**
+## Foreword
 
 If you see any errors or have any suggestions on making purchasing cheaper or easier for people, please contact Jayblah in the GaggiMate Discord.
 
-### **About This Guide**
+### About This Guide
 
 The author wrote this guide for the **American version** of the DeLonghi ECP. There are slight but notable differences between the American and European models.
 
 If you have the **European version**, you can still follow this guide. It will get you about **99% of the way through the installation**. However, there are a few additional steps you may need to perform (such as disabling *eco mode*) that are not directly covered here.
 
-### **Why Do This?**
+Please note that many of the recommended purchases are suggestions. If you're a confident tinkerer, analyze the list of items (especially the ones that I recommend to make your life easier) and determine whether or not *you* actually need them.
+
+### Why Do This?
 
 The DeLonghi ECP is a popular, affordable, and surprisingly capable espresso machine. You can often find a well-maintained pre-owned model on Facebook Marketplace or elsewhere for a great price. I paid just $50 for mine.
 
@@ -69,348 +101,341 @@ Even in stock form, the ECP can produce excellent espresso. Its stainless-steel 
 
 However, if the idea of installing a *Ferrari engine inside a Toyota chassis* sounds exciting, this modification is for you. After installing the GaggiMate, this little sleeper can rival the performance and features of $1,000-plus single-boiler espresso machines, all for a fraction of the cost.
 
-### **You *Can* Do This\!**
+### You *Can* Do This\!
 
 Before I started this modification, I had never cut, crimped, or spliced a wire in my life. Despite that, I successfully installed the GaggiMate on my DeLonghi ECP. If I can do it, you can do it too\!
 
-Take your time, follow each step carefully, and you’ll be just fine.
+Take your time, follow each step carefully, and you will be just fine.
 
-## **Shopping List**
+## Shopping List
 
 To get the GaggiMate to work with the DeLonghi ECP series, you must buy the following.
 
-* [GaggiMate **Pro** PCB](https://shop.gaggimate.eu/products/gaggimate-pro-pcb) **OR** [GaggiMate **Standard** PCB](https://shop.gaggimate.eu/products/gaggimate-standard-pcb)
+- [GaggiMate **Pro** PCB](https://shop.gaggimate.eu/products/gaggimate-pro-pcb) **OR** [GaggiMate **Standard** PCB](https://shop.gaggimate.eu/products/gaggimate-standard-pcb) ⚠️ <warn>*Buy **only** one.*</warn>
 
-* Pick *only one* of the following:
-  * [**2.1-inch** LILYGO T-RGB ESP32-S3 Round Touch Screen](https://s.click.aliexpress.com/e/_EwmnrEs) (**CST820 Full Circle**)
-  * [**2.1-inch** Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-ESP32-S3-2-1inch-Processor-Resolution/dp/B0DDPQSKJD)
-  * [**2.8-inch** LILYGO T-RGB ESP32-S3 2.8-Inch Round Touch Screen](https://www.aliexpress.us/item/3256809213148508.html)
-  * [**2.8-inch** Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-Capacitive-Development-Dual-core-Processor/dp/B0DMJZPH2R)
+- Buy **only one** of the following:
+      - [**2.1-inch** LILYGO T-RGB ESP32-S3 Round Touch Screen](https://s.click.aliexpress.com/e/_EwmnrEs) (**CST820 Full Circle**)
+      - [**2.1-inch** Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-ESP32-S3-2-1inch-Processor-Resolution/dp/B0DDPQSKJD)
+      - [**2.8-inch** LILYGO T-RGB ESP32-S3 2.8-Inch Round Touch Screen](https://www.aliexpress.us/item/3256809213148508.html) ⚠️ <warn>*There is currently no DeLonghi-specific 3D print for this screen size.*</warn>
+      -[**2.8-inch** Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-Capacitive-Development-Dual-core-Processor/dp/B0DMJZPH2R) ⚠️ <warn>*There is currently no DeLonghi-specific 3D print for this screen size.*</warn>
 
 *For reference, this is what the 2.8” screen looks like against the DeLonghi:*
 <Preview src={image_large_screen} alt="Large screen" width={300} />
 
-* [Solid State Relay DC to AC **40-DA**](https://www.amazon.com/SSR-40DA-3-32VDC-Output-24-480VAC-Plastic/dp/B08GPB7N2T):
+      - [Solid State Relay DC to AC **40-DA**](https://www.amazon.com/SSR-40DA-3-32VDC-Output-24-480VAC-Plastic/dp/B08GPB7N2T):
 <Preview src={image_ssr} alt="" width={300} />
-* [**K-Type** **M4** **0.5m** Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR03/FTARR03-K-D5M0.5.html) ⚠️ <span style={{ color: 'red' }}>*It must be ungrounded.*</span>
+      - [**K-Type** **M4** **0.5m** Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR03/FTARR03-K-D5M0.5.html) ⚠️ <warn>*It **must** be ungrounded.*</warn>
 <Preview src={image_thermocouple} alt="" width={300} />
-* [22 AWG silicone wire](https://a.co/d/4bYdrS1) ⚠️ <span style={{ color: 'red' }}>*You can buy 24 AWG silicone wire instead for an easier time crimping to JST connectors.*</span>
-* [18 AWG silicone wire](https://a.co/d/8NlcNLm)
-* [6.3mm **and** 4.8mm Spade Connectors](https://www.amazon.com/Feggizuli-Connectors-Insulating-Terminals-Electrical/dp/B0CJQ8H94N?s=industrial) ⚠️ <span style={{ color: 'red' }}>*If you buy the crimping tool linked in the [Tools / Consumables](#heading=h.88c16nrbwwxi) section, then you do **NOT** need to buy these connectors separately.*</span>
-* [6.3mm Piggyback Connectors](https://www.amazon.com/Tellegloww-Connectors-Electrical-Disconnect-Assortment/dp/B0CWNB97BS?s=industrial)
-* [Fork connectors ( **SV1.25-5s** )](https://www.aliexpress.us/item/3256805889663603.html) ⚠️ <span style={{ color: 'red' }}>*If you buy the crimping tool linked in the [Tools / Consumables](#heading=h.88c16nrbwwxi) section, then you do **NOT** need to buy these connectors separately. You can use the **ring connectors** that come with the kit to connect to the Solid State Relay instead of using these fork connectors.*</span>
-* [JST **PH 2.0** Connectors](https://www.aliexpress.us/item/3256806312346188.html) ⚠️ <span style={{ color: 'red' }}>*If you don’t want to experience the pain of crimping tiny JST connectors, you can use an alternative solution as follows:*</span>
-  * * <span style="color: #64c28bff">**ALTERNATIVE**</span>
-  * * * [**30cm PH2.0** JST Connector **2P**](https://www.aliexpress.us/item/3256808900846056.html)
-  * * * [**30cm PH2.0** JST Connector **3P**](https://www.aliexpress.us/item/3256808900846056.html)
+      - [22 AWG silicone wire](https://a.co/d/4bYdrS1) ⚠️ <warn>*You can buy 24 AWG silicone wire instead for an easier time crimping to JST connectors.*</warn>
+      - [18 AWG silicone wire](https://a.co/d/8NlcNLm)
+      - [6.3mm **and** 4.8mm Spade Connectors](https://www.amazon.com/Feggizuli-Connectors-Insulating-Terminals-Electrical/dp/B0CJQ8H94N?s=industrial) ⚠️ <warn>*If you buy the crimping tool linked in the Tools / Consumables section, then you do **NOT** need to buy these connectors separately.*</warn>
+      - [6.3mm Piggyback Connectors](https://www.amazon.com/Tellegloww-Connectors-Electrical-Disconnect-Assortment/dp/B0CWNB97BS?s=industrial)
+      - [Fork connectors ( **SV1.25-5s** )](https://www.aliexpress.us/item/3256805889663603.html) ⚠️ <warn>*If you buy the crimping tool linked in the Tools / Consumables section, then you do **NOT** need to buy these connectors separately. You can use the **ring connectors** that come with the kit to connect to the Solid State Relay instead of using these fork connectors.*</warn>
+      - [JST **PH 2.0** Connectors](https://www.aliexpress.us/item/3256806312346188.html) ⚠️ <warn>*If you do not want to experience the pain of crimping tiny JST connectors, you can use an alternative solution as follows:*</warn>
+            - <alt>**ALTERNATIVE**</alt>
+                  - [**30cm PH2.0** JST Connector **2P**](https://www.aliexpress.us/item/3256808900846056.html)
+                  - [**30cm PH2.0** JST Connector **3P**](https://www.aliexpress.us/item/3256808900846056.html)
 
-    ⚠️ <span style={{ color: 'red' }}>*If you choose to go with the “easier” alternative solution, you *must* buy both. Go with the 30cm options to give you enough length to play with. You will splice the unconnected ends of these to their corresponding wires.*</span>
+    ⚠️ <warn>*If you choose to go with the “easier” alternative solution, you **must** buy both. Buy the 30cm options to give you extra length. You will splice the unconnected ends of these to their corresponding wires.*</warn>
 
-* [2.0mm PA jumper wires **4P**](https://www.aliexpress.us/item/3256805930259221.html)
-* <span style="color: #f2ff00ff">**PRO PCB ONLY**</span> [Pressure Transducer **0-1.6 MPa**, 5V Supply, 0.5 \- 4.5V Output](https://www.aliexpress.us/item/3256805324139332.html)
-* <span style="color: #f2ff00ff">**PRO PCB ONLY**</span> [Silicone gasket **1/4** inch](https://www.aliexpress.us/item/2255799841120591.html)
-* <span style="color: #f2ff00ff">**PRO PCB ONLY**</span> [**ID-2mm OD-4mm** Tube](https://www.aliexpress.us/item/2251832544541096.html)
+      - [2.0mm PA jumper wires **4P**](https://www.aliexpress.us/item/3256805930259221.html)
+      - <pro>**PRO PCB VERSION ONLY**</pro> [Pressure Transducer **0-1.6 MPa**, 5V Supply, 0.5 \- 4.5V Output](https://www.aliexpress.us/item/3256805324139332.html)
+      - <pro>**PRO PCB VERSION ONLY**</pro> [Silicone gasket **1/4** inch](https://www.aliexpress.us/item/2255799841120591.html)
+      - <pro>**PRO PCB VERSION ONLY**</pro> [**ID-2mm OD-4mm** Tube](https://www.aliexpress.us/item/2251832544541096.html)
 <Preview src={image_silicone_tube} alt="" width={300} />
-* <span style="color: #f2ff00ff">**PRO PCB ONLY**</span> [**4mm 5/32** inch OD Pressure T-Fitting **PE**](https://www.aliexpress.us/item/3256808320030680.html)
+      - <pro>**PRO PCB VERSION ONLY**</pro> [**4mm 5/32** inch OD Pressure T-Fitting **PE**](https://www.aliexpress.us/item/3256808320030680.html)
 <Preview src={image_pneumatic_t_fitting} alt="" width={300} />
-* <span style="color: #f2ff00ff">**PRO PCB ONLY**</span> [**4mm** OD Pressure Fitting to G1/4 female **PLF 04-02**](https://www.aliexpress.us/item/3256802393459934.html)
+      - <pro>**PRO PCB VERSION ONLY**</pro> [**4mm** OD Pressure Fitting to G1/4 female **PLF 04-02**](https://www.aliexpress.us/item/3256802393459934.html)
 <Preview src={image_pneumatic_elbow_fitting} alt="" width={300} />
 
-### 3D Printed Parts
+## Printed Parts
 
-#### Screen Prints
+### Screen Prints
 
 There are multiple options for the screen housing:
 
-- The one in the teaser image that replaces the entire front panel of the ECP can be found [here](https://www.printables.com/model/1471726-delonghi-ecp-front-panel-for-gaggimate). Note that this is not a free print, but it is a fantastic one designed by TorxFighter and is available at a fair price. The author of this guide does not earn any money from the sale of the print.
+      - The one shown in the image at the start of this guide can be found [here](https://www.printables.com/model/1471726-delonghi-ecp-front-panel-for-gaggimate). Note that this is **not** a free print, but it is a beautiful print designed by TorxFighter. It replaces the entire front panel resulting in a seamless integration of the screen to the ECP. The author of this guide does **not** earn any money from the sale of the print.
+      - Alternatively, you can buy the [housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself.
+      -The third option is a [magnetic housing for the 2.1” screen](https://www.printables.com/model/1456974-gaggimate-screen-holder). Note that this print is a work in progress.
+            - If you print this and you find issues or have recommendations for improvements, please provide feedback to in the comments. This work is being iterated for free by the generous [Georg Mierau](https://www.printables.com/@georgmierau).
 
-- Alternatively, you can buy the [screen housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself.
+### PCB Prints
 
-- The third option is a [magnetic housing for the 2.1” screen](https://www.printables.com/model/1456974-gaggimate-screen-holder). Note that this print is a work in progress.
-      - If you print this and you find issues or have recommendations for improvements, please provide feedback to in the comments. This work is being iterated for free by the generous [Georg Mierau](https://www.printables.com/@georgmierau).
+      - You can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself.
+            - ⚠️ <warn>*It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.*</warn>
 
-#### PCB Prints
+## Tools / Consumables
 
-- You can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself.
-      - ⚠️ <span style={{ color: 'red' }}>It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.</span>
+      - Knife / PTFE cutter (if you get a variant with PTFE tubing)
+      - [Crimping tool](https://www.amazon.com/dp/B0DPKYVZYC?titleSource=true)
+  ⚠️ <warn>*This will only crimp **non-insulated** connectors.*</warn>
+      - [Mini-micro open barrel crimping tool](https://www.amazon.com/IWISS-Crimping-AWG28-20-Terminals-Connectors/dp/B078WNZ9FW)
+      - Highly recommended, as it makes crimping the tiny JST PH pins much easier. I struggled a lot with crimping these using pliers.*
+      - [Heat-shrink butt connectors](https://www.amazon.com/Waterproof-Electrical-Maintenance-Automotive-Decoration/dp/B0BNXRSMB5?refinements=p_72%3A1248921011)
+ *Highly recommended. You will need to splice at least two wires. These will make it much easier.*
+      - [Clips](https://www.amazon.com/dp/B0FKB8BKF5) *Highly recommended. Will secure the waterlines.*
+      - Wire-cutter/stripper
+      - Screwdriver(s)
+      - Thermal paste
+      - Wrench/spanner
+      - Zip ties or other cable management solutions
+      - Labels/tape
 
-## **Tools / Consumables**
-
-* Knife / PTFE cutter (if you get a variant with PTFE tubing)
-* [Crimping tool](https://www.amazon.com/dp/B0DPKYVZYC?titleSource=true)
-  ⚠️ <span style={{ color: 'red' }}>*Will only crimp **non-insulated** connectors.*</span>
-* [Mini-micro open barrel crimping tool](https://www.amazon.com/IWISS-Crimping-AWG28-20-Terminals-Connectors/dp/B078WNZ9FW)
-  *Highly recommended, as it makes crimping the tiny JST PH pins much easier. I struggled a lot with crimping these using pliers.*
-* [Heat-shrink butt connectors](https://www.amazon.com/Waterproof-Electrical-Maintenance-Automotive-Decoration/dp/B0BNXRSMB5?refinements=p_72%3A1248921011)
-  *Highly recommended. You will need to splice at least two wires. These will make it much easier.*
-* [Clips](https://www.amazon.com/dp/B0FKB8BKF5)
-  *Highly recommended. Will secure the waterlines.*
-* Wire-cutter/stripper
-* Screwdriver(s)
-* Thermal paste
-* Wrench/spanner
-* Zip ties or other cable management solutions
-* Labels/tape
-
-## **Installation**
+## Installation
 
 Please refer to the GaggiMate installation documents for installation on your machine:
 [https://docs.gaggimate.eu/docs/flashing/](https://docs.gaggimate.eu/docs/flashing/)
 
-This guide is **NOT** for users who opt to try a “LEGO” build. This guide **assumes** you have purchased a PCB from the GaggiMate team.
+This guide is **not** for users who opt to try a “LEGO” build. This guide **assumes** you have purchased a standard or proPCB from the GaggiMate team.
 
-For a “LEGO” build (a more difficult build), here’s a link to the [wiring schematic](https://discord.com/channels/951416527721230336/1378844857426251918/1385030063866642452) in PDF format (credit: Flavius).
+## Preparation
 
-## **Preparation**
+- **Safety First**
+      <br />Unplug the machine and allow it to cool completely before performing any work.
 
-- [ ] ⚠️ <span style={{ color: 'red' }}>**Safety First**</span>
-      Unplug the machine and allow it to cool completely before performing any work.
+- **Set Up Your Workspace**
+      <br />Make sure you have all the necessary tools and a clean, well-lit workspace.
 
-- [ ] **Set Up Your Workspace**
-      Make sure you have all the necessary tools and a clean, well-lit workspace.
+- **Remove External Components**
+      <br />Detach the water tank, drip tray, and any other removable parts, then set them aside.
 
-- [ ] **Remove External Components**
-      Detach the water tank, drip tray, and any other removable parts, then set them aside.
-
-- [ ] **Document Internal Layout**
-      Before proceeding with disassembly, take clear, detailed photos of the machine's interior. These will serve as a reference for how the wiring and tubing are connected, as configurations can differ between machines.
+- **Document Internal Layout**
+      <br />Before proceeding with disassembly, take clear, detailed photos of the machine's interior. These will serve as a reference for how the wiring and tubing are connected, as configurations can differ between machines.
 
       Here is a [useful video](https://youtu.be/paImrXJvxlg?si=31uOG_DgweDzkNb_) for familiarizing yourself with the internals.
 
-- [ ] **Replace Steam Wand**
-      It is strongly recommended that you install a [Rancilio Silvia steam wand](https://www.amazon.com/dp/B00K49GMMW) before attempting the GaggiMate modification.
+- **Replace Steam Wand**
+      <br />It is strongly recommended that you install a [Rancilio Silvia steam wand](https://www.amazon.com/dp/B00K49GMMW) before attempting the GaggiMate modification.
 
       Doing this will help you familiarize yourself with the internal layout of your machine and increase your confidence when working on it.
 
       This [video guide](https://www.youtube.com/watch?v=cW8ft7pLJpQ) provides an excellent walkthrough for the steam wand installation.
 
-- [ ] **Read Before Starting**
-      Please, read through this entire document **at least once** *before* you begin.
+- **Read Before Starting**
+      <br />Please, read through this entire document **at least once** *before* you begin.
 
-## **Opening the machine**
+## Opening the machine
 
-- [ ] **Remove Grouphead Screws**
-      Using a Philips screwdriver, remove the two screws located near the grouphead. Keep these screws in a safe place for reassembly.
+- **Remove Grouphead Screws**
+      <br />Using a Philips screwdriver, remove the two screws located near the grouphead. Keep these screws in a safe place for reassembly.
 
 <Preview src={image_underside_screws} alt="" width={300} />
 
-- [ ] **Remove the Front Knob**
-      Gently pull the front knob straight off the shaft. Avoid twisting or prying to prevent damage.
+- **Remove the Front Knob**
+      <br />Gently pull the front knob straight off the shaft. Avoid twisting or prying to prevent damage.
 
-- [ ] **Remove Front Panel Screws**
-      Behind the knob, remove the two Philips screws securing the front panel. Keep these screws in a safe place for reassembly.
+- **Remove Front Panel Screws**
+      <br />Behind the knob, remove the two Philips screws securing the front panel. Keep these screws in a safe place for reassembly.
 
 <Preview src={image_behind_knob_screws} alt="" width={300} />
 
-- [ ] **Remove the Front Metal Panel**
-      * With all four screws removed, carefully lift off the front metal panel.
-      * If the panel is snug, use a slim plastic tool, such as a bike tire lever or a flathead screwdriver wrapped in tape, to gently unseat it.
+- **Remove the Front Metal Panel**
+      - With all four screws removed, carefully lift off the front metal panel.
+      - If the panel is snug, use a slim plastic tool, such as a bike tire lever or a flathead screwdriver wrapped in tape, to gently unseat it.
 
-      ⚠️ <span style={{ color: 'red' }}>*Take care not to scratch the surface.*</span>
+      ⚠️ <warn>*Take care not to scratch the surface.*</warn>
 
-- [ ] **Remove Case Screws**
-      Locate and remove the two deep-set Philips screws that hold the outer case in place. Keep these screws in a safe place for reassembly*.*
+- **Remove Case Screws**
+      <br />Locate and remove the two deep-set Philips screws that hold the outer case in place. Keep these screws in a safe place for reassembly*.*
 
 <Preview src={image_top_screws} alt="" width={300} />
 
-- [ ] **Release Rear Clips**
-      * On the back of the machine, press the two plastic clips inward to release the top cover.
-      * Use gentle, even pressure. A flathead screwdriver can help, but avoid excessive force to prevent breaking the clips.
+- **Release Rear Clips**
+      - On the back of the machine, press the two plastic clips inward to release the top cover.
+      - Use gentle, even pressure. A flathead screwdriver can help, but avoid excessive force to prevent breaking the clips.
 
 <Preview src={image_rear_clips} alt="" width={300} />
 
-- [ ] **Remove the Top Cover**
-      Once the clips are released, lift the top cover off and set it aside. You now have full access to the internal components of the machine.
+- **Remove the Top Cover**
+      <br />Once the clips are released, lift the top cover off and set it aside. You now have full access to the internal components of the machine.
 
-## **Drill a hole**
+## Drill a hole
 
-Unfortunately, to route the wires from inside the machine to the PCB, you’ll need to drill a hole in the back panel.
+Unfortunately, to route the wires from inside the machine to the PCB, you will need to drill a hole in the back panel.
 
-⚠️ <span style={{ color: 'red' }}>*Before drilling, double-check what’s behind the panel to make sure you don’t hit any internal components or wiring*</span>
+⚠️ <warn>*Before drilling, double-check what is behind the panel to make sure you do not hit any internal components or wiring*</warn>
 
-- [ ] Drill a hole large enough to fit a **⅜-inch rubber grommet**. This keeps the opening tidy and protects the wires from sharp edges.
+- Drill a hole large enough to fit a **⅜-inch rubber grommet**. This keeps the opening tidy and protects the wires from sharp edges.
 
 <Preview src={image_wiring_hole} alt="" width={300} />
 
-## **<span style="color: #f2ff00ff">**PRO PCB ONLY**</span> Connect the Pressure Transducer**
+## <pro>**PRO PCB VERSION ONLY**</pro> **Connect the Pressure Transducer**
 
-- [ ] **Cut the water line that runs from the pump to the grouphead.**
+- **Cut the water line that runs from the pump to the grouphead.**
       Ensure that each cut is straight, not angled. Use a razor-sharp blade to avoid crushing the hose, as this can cause improper fit.
 
 <Preview src={image_cut_hose} alt="" width={300} />
 
-- [ ] **Install the T-Fitting**
-      * Take your **4mm (5/32”) OD Pressure T-Fitting (PE)** and push each cut end of the water line into the T-fitting.
-      * Press gently but firmly until both ends are seated snugly.
-      * Give each side a light tug to confirm they’re secure.
+- **Install the T-Fitting**
+      - Take your **4mm (5/32”) OD Pressure T-Fitting (PE)** and push each cut end of the water line into the T-fitting.
+      - Press gently but firmly until both ends are seated snugly.
+      - Give each side a light tug to confirm they are secure.
 
-- [ ] **Prepare the Short Hose Section**
-      * Cut a 3-inch length of your **2mm ID / 4mm OD** tube.
-      * Again, make sure your cuts are clean and straight. No crushing or angled cuts.
+- **Prepare the Short Hose Section**
+      - Cut a 3-inch length of your **2mm ID / 4mm OD** tube.
+      - Again, make sure your cuts are clean and straight. No crushing or angled cuts.
 
-- [ ] **Connect the Short Hose**
-      * Attach one end of the short hose to the **Elbow Fitting (4mm OD Pressure Fitting to G1/4" Female, PLF 04-02)** using the same push-fit method.
-      * Carefully fill this tube with water. Using a syringe is ideal; otherwise, submerge the open end of the tube into a water-filled bowl until it fills. The goal is to ensure there is no air in the tube and to provide a buffer that decouples the pressure sensor from vibrations and protects it from overheating.
-      * Attach the other end of the now water-filled short hose to the open branch of the T-Fitting
-      * Ensure both connections are snug.
+- **Connect the Short Hose**
+      - Attach one end of the short hose to the **Elbow Fitting (4mm OD Pressure Fitting to G1/4" Female, PLF 04-02)** using the same push-fit method.
+      - Carefully fill this tube with water. Using a syringe is ideal. Otherwise, submerge the open end of the tube into a water-filled bowl until the tube is full. The goal is to ensure there is no air in the tube and to provide a buffer that decouples the pressure sensor from vibrations and protects it from overheating.
+      - Attach the other end of the now water-filled short hose to the open branch of the T-Fitting
+      - Ensure both connections are snug.
 
-- [ ] **Install the Gasket and Transducer**
-      * Drop a **¼-inch silicone gasket** into the threaded opening of the Elbow Fitting to ensure a leak-proof seal.
-      * Screw your **Pressure Transducer (0–1.6 MPa, 5V Supply, 0.5–4.5V Output)** onto the threaded end of the elbow fitting.
-⚠️ <span style={{ color: 'red' }}>*Do not overtighten\! Hand-tighten until snug.*</span>
+- **Install the Gasket and Transducer**
+      - Drop a **¼-inch silicone gasket** into the threaded opening of the Elbow Fitting to ensure a leak-proof seal.
+      - Screw your **Pressure Transducer (0–1.6 MPa, 5V Supply, 0.5–4.5V Output)** onto the threaded end of the elbow fitting.
+⚠️ <warn>*Do not overtighten\! Hand-tighten until snug.*</warn>
 
-- [ ] **Position the Transducer**
-      * Tuck the connected Pressure Transducer into the open space to the left of the pump or wherever it fits snugly.
+- **Position the Transducer**
+      - Tuck the connected Pressure Transducer into the open space to the left of the pump or wherever it fits snugly.
 
 <Preview src={image_pressure_position} alt="" width={300} />
 
-- [ ] **Route the Wire**
-      * Feed the thick black wire from the transducer through the hole you drilled earlier in the back of the machine.
-      * Leave it for now. These wires will connect to the PCB later.
+- **Route the Wire**
+      - Feed the thick black wire from the transducer through the hole you drilled earlier in the back of the machine.
+      - Leave it for now. These wires will connect to the PCB later.
 
-      A correct installation of the Pressure Transducer and the fittings looks like this:
+*A correct installation of the Pressure Transducer and the fittings looks like this:*
 
 <Preview src={image_pressure_installation} alt="" width={300} />
 
-## **Attach the thermocouple**
+## Attach the thermocouple
 
-- [ ] **Remove the Old Thermostats**
-      * You will now remove the two thermostats attached to the boiler (see image below).
-      * These will no longer be needed after the GaggiMate installation.
+- **Remove the Old Thermostats**
+      - You will now remove the two thermostats attached to the boiler (see image below).
+      - These will no longer be needed after the GaggiMate installation.
 
 <Preview src={image_thermostats} alt="" width={300} />
 
-- [ ] **Disconnect the Wires**
-      * Gently but firmly pull off the four wires attached to the two thermostats.
-      * Take your time and avoid yanking the connectors to prevent damage.
+- **Disconnect the Wires**
+      - Gently but firmly pull off the four wires attached to the two thermostats.
+      - Take your time and avoid yanking the connectors to prevent damage.
 
-- [ ] **Remove the Mounting Nut and Washers**
-      * Unscrew the nut that holds the thermostat bracket in place. The nut is located between the two thermostats.
-      * Save this nut for later.
-      * Remove the flat washer and the thin black washer as well. At a minimum, keep the flat washer.
+- **Remove the Mounting Nut and Washers**
+      - Unscrew the nut that holds the thermostat bracket in place. The nut is located between the two thermostats.
+      - Save this nut for later.
+      - Remove the flat washer and the thin black washer as well. At a minimum, keep the flat washer.
 
-- [ ] **Remove the Thermostats and Bracket**
-      * Once the nut and washers are off, lift the bracket and the two thermostats away from the boiler.
+- **Remove the Thermostats and Bracket**
+      - Once the nut and washers are off, lift the bracket and the two thermostats away from the boiler.
 
-- [ ] **Clean the Boiler Surface**
-      * Use a damp paper towel to wipe away any old thermal paste from the boiler surface where the thermostats were attached.
-      * Make sure the area is clean and smooth before continuing.
+- **Clean the Boiler Surface**
+      - Use a damp paper towel to wipe away any old thermal paste from the boiler surface where the thermostats were attached.
+      - Make sure the area is clean and smooth before continuing.
 
-- [ ] **Apply New Thermal Paste**
-      * Take your new thermal paste and squeeze a small amount around the base of the threaded stud that is now exposed after removing the bracket.
-      * This will help ensure good thermal contact for the thermocouple.
+- **Apply New Thermal Paste**
+      - Take your new thermal paste and squeeze a small amount around the base of the threaded stud that is now exposed after removing the bracket.
+      - This will help ensure good thermal contact for the thermocouple.
 
-- [ ] **Install the New Thermocouple**
-      * Take your **K-Type M4 0.5m thermocouple** and place the hole connector over the threaded stud where the thermostat bracket was.
-      * Slide it down until it rests flat against the boiler and is seated in the thermal paste.
+- **Install the New Thermocouple**
+      - Take your **K-Type M4 0.5m thermocouple** and place the hole connector over the threaded stud where the thermostat bracket was.
+      - Slide it down until it rests flat against the boiler and is seated in the thermal paste.
 
-- [ ] **Secure the Thermocouple**
-      * Slide the flat washer back onto the stud, and, if desired, add the thin black washer as well (this is optional).
-      * Screw the saved nut back onto the stud to hold the thermocouple in place.
-⚠️ <span style={{ color: 'red' }}>*Do not overtighten.*</span>
+- **Secure the Thermocouple**
+      - Slide the flat washer back onto the stud, and, if desired, add the thin black washer as well (this is optional).
+      - Screw the saved nut back onto the stud to hold the thermocouple in place.
+⚠️ <warn>*Do not overtighten.*</warn>
 
-- [ ] **Route the Thermocouple Wire**
-      * Feed the double-connector end of the thermocouple through the hole you drilled earlier in the back of the machine.
-      * Leave it there for now. These leads will be connected to the PCB later.
+- **Route the Thermocouple Wire**
+      - Feed the double-connector end of the thermocouple through the hole you drilled earlier in the back of the machine.
+      - Leave it there for now. These leads will be connected to the PCB later.
 
       A successful thermocouple installation will look like this (rear-view of the boiler):
 
 <Preview src={image_thermocouple_installation} alt="" width={300} />
 
-## **Diagram - Wiring**
+## Diagram - Wirin
 
-## **Wiring the Solid State Relay (SSR)**
+## Wiring the Solid State Relay (SSR)
 
-- [ ] **Remove the SSR Screws**
-      * Start by unscrewing all four Philips screws from the SSR.
-      * Save these screws and the small metal screw plates that come off with them. You will reuse them shortly.
+- **Remove the SSR Screws**
+      - Start by unscrewing all four Philips screws from the SSR.
+      - Save these screws and the small metal screw plates that come off with them. You will reuse them shortly.
 
-- [ ] **Cut the Wires**
-      * Cut four wires as follows:
-1. Two **18 AWG** wires, about 4 inches or longer. These will be your heater wires.
-2. Two **22 AWG** wires, about 16 inches or longer. These will be your control wires and will later connect to the PCB. You can trim them shorter later if needed.
+- **Cut the Wires**
+      - Cut four wires as follows:
+            1. Two **18 AWG** wires, about 4 inches or longer. These will be your *heater wires*.
+            2. Two **22 (or 24) AWG** wires, about 16 inches or longer. These will be your *control* wires and will later connect to the PCB. You can trim them shorter later if needed.
 
-- [ ] **Prepare the Heater Wires**
-      * Strip about **¼ inch** of insulation from both ends of each heater wire.
-      * On one end of each heater wire, crimp a **fork connector** (or a **ring connector** that fits snugly under the SSR screw).
-      * Slide the insulation cover for the fork (or ring) connector onto the wire before crimping if desired.
-      * On the other end of each heater wire, slide on the insulation cover for a **4.8 mm male spade connector**, then crimp the connector onto the stripped wire end.
-      * Make sure all crimps are tight and secure.
+- **Prepare the Heater Wires**
+      - Strip about **¼ inch** of insulation from both ends of each heater wire.
+      - On one end of each heater wire, crimp a **fork connector** (or a **ring connector** that fits snugly under the SSR screw).
+      - Slide the insulation cover for the fork (or ring) connector onto the wire before crimping if desired.
+      - On the other end of each heater wire, slide on the insulation cover for a **4.8 mm male spade connector**, then crimp the connector onto the stripped wire end.
+      - Make sure all crimps are tight and secure.
 
-- [ ] **Attach the Heater Wires to the SSR**
-      * Attach both heater wires to the **OUTPUT** terminals on the SSR.
-      * For each heater wire, place the fork (or ring) connector under one of the SSR’s screw plates.
-      * Reinstall the Philips screws to hold them in place.
+- **Attach the Heater Wires to the SSR**
+      - Attach both heater wires to the **OUTPUT** terminals on the SSR.
+      - For each heater wire, place the fork (or ring) connector under one of the SSR’s screw plates.
+      - Reinstall the Philips screws to hold them in place.
 
 <Preview src={image_ssr_wiring_of_output} alt="" width={300} />
 
-- [ ] **Prepare the SSR-side of the Control Wires**
-      * Strip about **¼ inch** of insulation from one end of each control wire.
-      * Crimp a **fork (or ring) connector** onto the stripped ends, and slide on the insulation cover if desired.
+- **Prepare the SSR-side of the Control Wires**
+      - Strip about **¼ inch** of insulation from one end of each control wire.
+      - Crimp a **fork (or ring) connector** onto the stripped ends, and slide on the insulation cover if desired.
 
-- [ ] **Prepare the PCB-side of the Control Wires**
-      * From your JST PH 2.0 connectors kit, obtain two metal pins.
-      * Crimp one metal pin onto each of the uncrimped ends of the two wires.
-      * Take a female **3-pin** connector from the JST PH 2.0 kit.
-      * Insert the wire connected to the SSR “–” terminal into **slot 3** of the 3-pin connector (see image below). This is the SSR ground wire (note the tab orientation).
-      * Insert the wire connected to the SSR “+” terminal wire into **slot 2** of the 3-pin connector (see image below). This is the SSR communication wire (note the tab orientation).
+- **Prepare the PCB-side of the Control Wires**
+      - From your JST PH 2.0 connectors kit, obtain two metal pins.
+      - Crimp one metal pin onto each of the uncrimped ends of the two wires.
+      - Take a female **3-pin** connector from the JST PH 2.0 kit.
+      - Insert the wire connected to the SSR “–” terminal into **slot 3** of the 3-pin connector (see image below). This is the SSR ground wire (note the tab orientation).
+      - Insert the wire connected to the SSR “+” terminal wire into **slot 2** of the 3-pin connector (see image below). This is the SSR communication wire (note the tab orientation).
 
 <Preview src={image_3_pin_setup} alt="" width={300} />
 
-    * Gently tug on both wires to ensure they are securely seated in the connector.
-      1. ⚠️ <span style={{ color: 'red' }}>*Correct placement in the connector is critical for proper SSR control and PCB operation.*</span>
+    * Gently tug on both wires to ensure they are securely seated in the connector. ⚠️ <warn>*Correct placement in the connector is critical for proper SSR control and PCB operation.*</warn>
 
-- [ ] **Attach the SSR-side Control Wires to the SSR**
-      * Attach both control wires to the **“CONTROL 3–32 VDC”** terminals on the SSR.
-      1. ⚠️ <span style={{ color: 'red' }}>***Important:** Label the wire connected to the **“–” terminal** as **“GROUND.”** This label will be helpful when you connect the wires to the PCB.*</span>
+- **Attach the SSR-side Control Wires to the SSR**
+      - Attach both control wires to the **“CONTROL 3–32 VDC”** terminals on the SSR. ⚠️ <warn>***Important:** Label the wire connected to the **“–” terminal** as **“GROUND.”** This label will be helpful when you connect the wires to the PCB.*</warn>
 
 <Preview src={image_ssr_wiring_of_output} alt="" width={300} />
 
-      * Place each fork (or ring) connector under one of the remaining screw plates on the SSR.
-      * Reinstall the Philips screws to secure the connectors.
+      - Place each fork (or ring) connector under one of the remaining screw plates on the SSR.
+      - Reinstall the Philips screws to secure the connectors.
 
 <Preview src={image_ssr_wiring_of_control} alt="" width={300} />
 
-- [ ] **Route the Control Wires**
-      * Feed the uncrimped ends of the control wires through the hole you drilled in the back of the machine.
-      * Set them aside for now. You will connect these to the PCB later.
+- **Route the Control Wires**
+      - Feed the uncrimped ends of the control wires through the hole you drilled in the back of the machine.
+      - Set them aside for now. You will connect these to the PCB later.
 
-- [ ] **Position the SSR**
-      * Tuck the SSR with all four attached wires into an open space inside the machine.
-      * You can use **double-sided adhesive tape** to secure it to an inner wall near the pump to prevent it from moving.
+- **Position the SSR**
+      - Tuck the SSR with all four attached wires into an open space inside the machine.
+      - You can use **double-sided adhesive tape** to secure it to an inner wall near the pump to prevent it from moving.
 
-## **Attaching SSR Heater Wires to the Heater Elements**
+## Attaching SSR Heater Wires to the Heater Elements
 
-⚠️ <span style={{ color: 'red' }}>Before you proceed, take a moment to **note the positions of the two wires connected directly to the boiler inside the grouphead**.</span>
+⚠️ <warn>*Before you proceed, take a moment to **note the positions of the two wires connected directly to the boiler inside the grouphead**.*</warn>
 
-It’s important to remember **which connector the insulated wire is attached to**, since this wire contains a built-in resistor for safety.
+It is important to remember **which connector the insulated wire is attached to**, since this wire contains a built-in resistor for safety.
 
 In the reference image below, the **insulated wire** is connected to **boiler connector “1”**. After you note the position of your 2 wires, proceed with installation.
 
 <Preview src={image_boiler_heater_connections} alt="" width={300} />
 
-- [ ] **Connect the Left Heater Wire**
-      * From the **OUTPUT** side of the SSR, take one of the heater wires and plug its male spade connector into the female spade connector of the red wire that was previously attached to the left thermostat.
-      * Ensure that the connection is firm and fully seated.
+- **Connect the Left Heater Wire**
+      - From the **OUTPUT** side of the SSR, take one of the heater wires and plug its male spade connector into the female spade connector of the red wire that was previously attached to the left thermostat.
+      - Ensure that the connection is firm and fully seated.
 
 <Preview src={image_boiler_red_wire} alt="" width={300} />
 
-- [ ] **Connect the Right Heater Wire**
-      * From the **OUTPUT** side of the SSR, take the other heater wire and plug its male spade connector into the female spade connector of the grey wire that was previously attached to the left thermostat.
-      * Again, check that the connection is snug and secure.
+- **Connect the Right Heater Wire**
+      - From the **OUTPUT** side of the SSR, take the other heater wire and plug its male spade connector into the female spade connector of the grey wire that was previously attached to the left thermostat.
+      - Again, check that the connection is snug and secure.
 
 <Preview src={image_boiler_long_grey_wire} alt="" width={300} />
 
-- [ ] **Prepare the Heater Bridge**
-      * Cut a piece of **18 AWG** wire about 3 inches long.
-      * Strip about **¼ inch** of insulation from both ends.
-      * Crimp a male spade connector onto each end of the wire, making sure both connectors are tight and secure.
-      * This short wire will act as your heater bridge in the next step.
+- **Prepare the Heater Bridge**
+      - Cut a piece of **18 AWG** wire about 3 inches long.
+      - Strip about **¼ inch** of insulation from both ends.
+      - Crimp a male spade connector onto each end of the wire, making sure both connectors are tight and secure.
+      - This short wire will act as your heater bridge in the next step.
 
-- [ ] **Attach the Heater Bridge \-** Take the heater bridge you just made and connect it as follows:
-      * Insert **one male spade connector** on the heater bridge into the **female spade connector of the black wire** that was previously attached to the **right thermostat**.
-      * Insert the **other male spade connector** on the heater bridge into the **female spade connector of the short grey wire** (the one that branches off from the long grey wire) that was also attached to the **right thermostat**.
-      * Make sure both connections are snug and fully seated.
+- **Attach the Heater Bridge \-** Take the heater bridge you just made and connect it as follows:
+      - Insert **one male spade connector** on the heater bridge into the **female spade connector of the black wire** that was previously attached to the **right thermostat**.
+      - Insert the **other male spade connector** on the heater bridge into the **female spade connector of the short grey wire** (the one that branches off from the long grey wire) that was also attached to the **right thermostat**.
+      - Make sure both connections are snug and fully seated.
 
 <Preview src={image_boiler_black_and_short_grey_wire} alt="" width={300} />
 
@@ -419,21 +444,21 @@ When completed, the wiring should look like this:
 <Preview src={image_boiler_to_ssr} alt="" width={300} />
 <Preview src={image_heater_bridge_wiring} alt="" width={300} />
 
-## **Diagram - Rotary Switch**
+## Diagram - Rotary Switch
 
-Before proceeding, it’s a good idea to **test your rotary switch for continuity** using a multimeter.
+Before proceeding, it is a good idea to **test your rotary switch for continuity** using a multimeter.
 
 * Set your multimeter to **continuity mode**.
 * Use the **probes to test the rotary switch pins** in each position (see the diagram below).
 * Confirm that your switch behaves exactly as shown in the reference diagram.
 
-⚠️ <span style={{ color: 'red' }}>My rotary switch was wired differently, with **pin 3** and **pin 4** reversed. Make sure you understand your configuration before installation.</span>
+⚠️ <warn>*My rotary switch was wired differently, with **pin 3** and **pin 4** reversed. Make sure you understand your configuration before installation.*</warn>
 
 <Preview src={image_rotary_switch_diagram} alt="" width={300} />
 
-## **Tapping into the Rotary Switch**
+## Tapping into the Rotary Switch
 
-⚠️ <span style={{ color: 'red' }}>*Do not touch any exposed wires or terminals while the machine is powered.*</span>
+⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
 This step is **highly recommended** for the **American version** of the DeLonghi ECP machine.
 
@@ -443,7 +468,7 @@ Test your rotary switch connections with a multimeter before finalizing the taps
 
 <Preview src={image_rotary_switch_labeled} alt="" width={300} />
 
-- [ ] **Test the Rotary Switch Voltage**
+- **Test the Rotary Switch Voltage**
 * Using a multimeter and with the machine plugged in, carefully measure the voltage between the A pin and B pin on the rotary switch in both the 0° and 30° positions (refer to the [Diagram \- Rotary Switch](#diagram---rotary-switch) section above).
 
   * The **0° position** should show **0 V**.
@@ -451,204 +476,201 @@ Test your rotary switch connections with a multimeter before finalizing the taps
 
 * If the readings match these values, your rotary switch is wired correctly, and you can proceed with the next steps.
 
-⚠️ <span style={{ color: 'red' }}>If the voltage readings are incorrect, double-check your continuity tests on the rotary pins before continuing to avoid damaging components.</span>
+⚠️ <warn>*If the voltage readings are incorrect, double-check your continuity tests on the rotary pins before continuing to avoid damaging components.*</warn>
 
-- [ ] **Prepare the “Line” Wire Tap**
-      * Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
-      * Strip about **¼ inch** of insulation from one end.
-      * Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
-      * Disconnect the **A pin** from the rotary switch.
-      * Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **A pin**.
-      * Wrap the connection with **electrical tape** to secure it.
-      * Insert the **female end** of the piggyback spade connector back onto the **A pin**.
-      * Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
+- **Prepare the “Line” Wire Tap**
+      - Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
+      - Strip about **¼ inch** of insulation from one end.
+      - Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
+      - Disconnect the **A pin** from the rotary switch.
+      - Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **A pin**.
+      - Wrap the connection with **electrical tape** to secure it.
+      - Insert the **female end** of the piggyback spade connector back onto the **A pin**.
+      - Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
 
-- [ ] **Prepare the “Neutral” Wire Tap**
-      * Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
-      * Strip about **¼ inch** of insulation from one end.
-      * Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
-      * Disconnect the **B pin** from the rotary switch.
-      * Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **B pin**.
-      * Wrap the connection with **electrical tape** to secure it.
-      * Insert the **female end** of the piggyback spade connector back onto the **B pin**.
-      * Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
+- **Prepare the “Neutral” Wire Tap**
+      - Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
+      - Strip about **¼ inch** of insulation from one end.
+      - Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
+      - Disconnect the **B pin** from the rotary switch.
+      - Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **B pin**.
+      - Wrap the connection with **electrical tape** to secure it.
+      - Insert the **female end** of the piggyback spade connector back onto the **B pin**.
+      - Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
 
-- [ ] **Prepare the “Pump” Wire Tap**
-      * Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
-      * Strip about **¼ inch** of insulation from one end.
-      * Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
-      * Disconnect the **3 pin** from the rotary switch.
-      * Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **3-pin**.
-      * Wrap the connection with **electrical tape** to secure the tap.
-      * Insert the **female end** of the piggyback spade connector back onto the **3 pin**.
-      * Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
+- **Prepare the “Pump” Wire Tap**
+      - Once your multimeter testing is complete and the readings are correct, cut **a piece of 18 AWG wire**, each about 16 inches or longer. You can trim the wires shorter later if needed, but starting longer makes routing easier.
+      - Strip about **¼ inch** of insulation from one end.
+      - Crimp a **6.3 mm piggyback spade connector** onto the stripped end of the wire.
+      - Disconnect the **3 pin** from the rotary switch.
+      - Insert the **male piggyback spade connector** into the **female spade connector** that was previously attached to the **3-pin**.
+      - Wrap the connection with **electrical tape** to secure the tap.
+      - Insert the **female end** of the piggyback spade connector back onto the **3 pin**.
+      - Feed the uncrimped end of the wire through the hole you drilled in the back of the machine.
 
 <Preview src={image_rotary_switch_installation} alt="" width={300} />
 
-## **Testing for Leaks**
+## Testing for Leaks
 
-⚠️ <span style={{ color: 'red' }}>*Do not touch any exposed wires or terminals while the machine is powered.*</span>
+⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
-Now that your taps are complete, it’s time to test for leaks.
+Now that your taps are complete, it is time to test for leaks.
 
-- [ ] **Initial Power-On Check**
-      * Plug in the machine and turn it to “On”.
-      * Ensure the machine powers on correctly.
-      * Check that nothing looks unusual and that there is no burning smell.
+- **Initial Power-On Check**
+      - Plug in the machine and turn it to “On”.
+      - Ensure the machine powers on correctly.
+      - Check that nothing looks unusual and that there is no burning smell.
 
-- [ ] **Water Flow Test**
-      * Fill the water tank with clean water and reattach it.
-      * Place a cup under the grouphead water-spout.
-      * Turn the rotary knob to “Brew” mode.
-      * Observe the flow of water from the tank, through the pump, the T-Fitting, and then to both the boiler and the Elbow Fitting and Pressure Transducer.
-      * Run “brew” mode for at least 60 seconds.
+- **Water Flow Test**
+      - Fill the water tank with clean water and reattach it.
+      - Place a cup under the grouphead water-spout.
+      - Turn the rotary knob to “Brew” mode.
+      - Observe the flow of water from the tank, through the pump, the T-Fitting, and then to both the boiler and the Elbow Fitting and Pressure Transducer.
+      - Run “brew” mode for at least 60 seconds.
 
-- [ ] **Check for Leaks**
-      * There should be no leaks.
-      * If you see any leaks, immediately turn the knob to “Off” to shut down the machine.
-      * Allow the machine to depressurize before touching anything.
+- **Check for Leaks**
+      - There should be no leaks.
+      - If you see any leaks, immediately turn the knob to “Off” to shut down the machine.
+      - Allow the machine to depressurize before touching anything.
 
-- [ ] **Fix Leaks**
-      * Re-seat the hoses where leaks were observed.
-      * Press the hoses in gently but firmly, as deep as they can go.
-      * Ensure the T-Fitting and Elbow Fittings quick-connect ends are fully extended and not pushed in.
-      * If needed, use quick connector clips (or thick paperclips) to prevent the quick connectors from retracting.
+- **Fix Leaks**
+      - Re-seat the hoses where leaks were observed.
+      - Press the hoses in gently but firmly, as deep as they can go.
+      - Ensure the T-Fitting and Elbow Fittings quick-connect ends are fully extended and not pushed in.
+      - If needed, use quick connector clips (or thick paperclips) to prevent the quick connectors from retracting.
 
-- [ ] **Repeat Testing**
-      * Repeat the above tests until no leaks are observed. Once the system is leak-free, you may proceed with the installation.
+- **Repeat Testing**
+      - Repeat the above tests until no leaks are observed. Once the system is leak-free, you may proceed with the installation.
 
-## **Wiring the Screen**
+## Wiring the Screen
 
 This section explains how to prepare a **LILYGO screen** for connection to the PCB.
 
 If you purchased a **Waveshare screen**, you will need to perform **two additional wire cuts and splices** to connect to the PCB. I strongly recommend using a **LILYGO screen** for simplicity.
 
-- [ ] **Prepare the Screen-side Wires**
-      * Take one **4-pin jumper wire** (2.0 mm PA, 4P).
+- **Prepare the Screen-side Wires**
+      - Take one **4-pin jumper wire** (2.0 mm PA, 4P).
 
 <Preview src={image_4_pin_preparation} alt="" width={300} />
 
-      * Remove the **green** and **yellow** wires from the connector by pulling up the tiny tab over each and then pulling gently. ⚠️ <span style={{ color: 'red' }}>*Ensure the small JST PH pin connectors are removed when pulling out these two wires.*</span>
-      * Only the **red** and **black** wires should remain connected.
-      * Release the **red** and **black** wires as well.
-      * Reinsert the **black** into the first position (where the **green** wire was).
-      * Reinsert the **red** wire into the second position (where the **yellow** wire was).
-      * Cut the **DuPont connector** off both the red and black wires.
-      * Strip at least **½ inch** from the end of both the red and black wires.
+      - Remove the **green** and **yellow** wires from the connector by pulling up the tiny tab over each and then pulling gently. ⚠️ <warn>*Ensure the small JST PH pin connectors are removed when pulling out these two wires.*</warn>
+      - Only the **red** and **black** wires should remain connected.
+      - Release the **red** and **black** wires as well.
+      - Reinsert the **black** into the first position (where the **green** wire was).
+      - Reinsert the **red** wire into the second position (where the **yellow** wire was).
+      - Cut the **DuPont connector** off both the red and black wires.
+      - Strip at least **½ inch** from the end of both the red and black wires.
 
-- [ ] **Prepare the 22 AWG Wires**
-      * Cut **two 22 AWG** wires, about 20 inches long. You can trim them shorter later if needed.
-      * Strip about **½ inch** from one end of each wire.
+- **Prepare the 22 AWG Wires**
+      - Cut **two 22 AWG** wires, about 20 inches long. You can trim them shorter later if needed.
+      - Strip about **½ inch** from one end of each wire.
 
-- [ ] **Splice the Screen-side and PCB-side Wires Together**
-      * Attach the stripped ends of the 22 AWG wires to the **stripped ends of the black** and **red** wires on the 4-pin connector.
-      * Twist the wires together to ensure a firm connection.
+- **Splice the Screen-side and PCB-side Wires Together**
+      - Attach the stripped ends of the 22 AWG wires to the **stripped ends of the black** and **red** wires on the 4-pin connector.
+      - Twist the wires together to ensure a firm connection.
 
 <Preview src={image_wire_spliced} alt="" width={300} />
 
-      * Slide a **heat-shrink butt connector** over each wire.
+      - Slide a **heat-shrink butt connector** over each wire.
 
-      ⚠️ <span style={{ color: 'red' }}>*Ensure the **solder section of the butt connector** is positioned directly over the twisted wires.*</span>
+      ⚠️ <warn>*Ensure the **solder section of the butt connector** is positioned directly over the twisted wires.*</warn>
 
 <Preview src={image_spliced_4_pin_PCB_connection} alt="" width={300} />
 
-- [ ] **Secure the Connection between the Spliced Wires**
-      * Use a heat source (e.g., **heat gun or lighter**) to shrink the **left** and **right insulated ends** of the butt connector.
-      * Then heat the middle **solder section** to melt it and shrink the remaining insulation. This creates a tight, secure splice.
+- **Secure the Connection between the Spliced Wires**
+      - Use a heat source (e.g., **heat gun or lighter**) to shrink the **left** and **right insulated ends** of the butt connector.
+      - Then heat the middle **solder section** to melt it and shrink the remaining insulation. This creates a tight, secure splice.
 
-      ⚠️ <span style={{ color: 'red' }}>*Other splicing methods can be used, but this method is recommended for simplicity and reliability.*</span>
+      ⚠️ <warn>*Other splicing methods can be used, but this method is recommended for simplicity and reliability.*</warn>
 
-- [ ] **Prepare the PCB-side Wires**
-      * From your **JST PH 2.0 connectors kit**, obtain **two metal pins**.
-      * Crimp **one metal pin** onto each of the **uncrimped ends** of the two wires.
-      * Take a **female 2-pin connector** from the JST PH 2.0 kit.
+- **Prepare the PCB-side Wires**
+      - From your **JST PH 2.0 connectors kit**, obtain **two metal pins**.
+      - Crimp **one metal pin** onto each of the **uncrimped ends** of the two wires.
+      - Take a **female 2-pin connector** from the JST PH 2.0 kit.
 
 <Preview src={image_2_pin_setup} alt="" width={300} />
 
-      * Insert the connector crimped on the **black** wire into **slot 1** (note the tab orientation).
-      * Insert the connector crimped on the **red** wire into **slot 2** (note the tab orientation).
-      * Gently tug on both wires to ensure they are **securely seated** in the connector.
+      - Insert the connector crimped on the **black** wire into **slot 1** (note the tab orientation).
+      - Insert the connector crimped on the **red** wire into **slot 2** (note the tab orientation).
+      - Gently tug on both wires to ensure they are **securely seated** in the connector.
 
-## **Diagram - PCB Wiring Pinout**
+## Diagram - PCB Wiring Pinout
 
 Refer to the wiring pinout diagram below as we begin connecting the remaining wires to the PCB. Following the pinout carefully is crucial to ensure proper functionality and avoid damage to components.
 
 <Preview src={image_pcb_diagram} alt="" width={300} />
 
-## **Wiring the PCB**
+## Wiring the PCB
 
 <Preview src={image_pcb_wiring} alt="" width={300} />
-⚠️ <span style={{ color: 'red' }}>It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.</span>
+⚠️ <warn>*It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages. The image above is just for visual reference.*</warn>
 
-- [ ] **Screen Connection**
-      * Insert the **2-pin JST connector** from the screen wiring into the **PCB**.
+- **Screen Connection**
+      - Insert the **2-pin JST connector** from the screen wiring into the **PCB**.
 Ensure the tab is oriented correctly — it can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
-      * Next, connect the **4-pin JST connector** on the other end of these wires to the **4-pin slot on your LILYGO screen**.
+      - Next, connect the **4-pin JST connector** on the other end of these wires to the **4-pin slot on your LILYGO screen**.
 
 <Preview src={image_screen_connection} alt="" width={300} />
 
-- [ ] **SSR Connection**
-Insert the **3-pin JST connector** from the SSR wiring into the PCB. Again, check the tab orientation and confirm it’s **securely seated**.
+- **SSR Connection**
+Insert the **3-pin JST connector** from the SSR wiring into the PCB. Again, check the tab orientation and confirm it is **securely seated**.
 
-- [ ] **Pressure Transducer Connection**
+- **Pressure Transducer Connection**
 Insert the **three exposed wire ends** of the pressure transducer into their **color-coded slots** on the PCB (refer to the image in the [*Diagram – PCB Wiring Pinout*](#diagram---pcb-wiring-pinout) section).
 
-- [ ] **Thermocouple Connection**
-If your thermocouple has **ferrule connectors**, first try inserting them into their respective PCB slots. If they don’t fit securely, carefully pull off the insulating cap that’s shortening the ferrules. This will expose more metal and allow for a better connection.
+- **Thermocouple Connection**
+If your thermocouple has **ferrule connectors**, first try inserting them into their respective PCB slots. If they do not fit securely, carefully pull off the insulating cap that is shortening the ferrules. This will expose more metal and allow for a better connection.
 
     If your thermocouple has **fork connectors**, cut them off and strip ½ inch of insulation to expose the wires. Twist the exposed wire gently to prevent fraying.
 
     Insert the **red wire** into the **T+ slot** on the PCB, and the **blue wire** into the **T- slot**.
 
-- [ ] **Pump Wire Connection**
-      * Strip about ½ inch of insulation from the uncrimped end of the wire tapped into the **pump**.
-        * ⚠️ <span style={{ color: 'red' }}>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</span>
-      * Twist the exposed wire gently to prevent fraying, then insert it into the **Pump slot** on the PCB.
+- **Pump Wire Connection**
+      - Strip about ½ inch of insulation from the uncrimped end of the wire tapped into the **pump**. ⚠️ <warn>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</warn>
+      - Twist the exposed wire gently to prevent fraying, then insert it into the **Pump slot** on the PCB.
 
-- [ ] **Neutral Wire Connection**
-      * Strip about **½ inch** of insulation from the wire tapped into **neutral**.
-        * ⚠️ <span style={{ color: 'red' }}>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</span>
-      * Twist the exposed wire gently to prevent fraying, then insert it into the **Neutral slot** on the PCB.
+- **Neutral Wire Connection**
+      - Strip about **½ inch** of insulation from the wire tapped into **neutral**. ⚠️ <warn>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</warn>
+      - Twist the exposed wire gently to prevent fraying, then insert it into the **Neutral slot** on the PCB.
 
-- [ ] **Line Wire Connection**
-      * Strip about ½ inch of insulation from the wire tapped into **live**.
-        * ⚠️ <span style={{ color: 'red' }}>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</span>
-      * Twist the wire to prevent fraying, then insert it into the **Line slot** on the PCB.
+- **Line Wire Connection**
+      - Strip about ½ inch of insulation from the wire tapped into **live**. ⚠️ <warn>*On my machine, this was the wire attached to **pin B** on the rotary switch.*</warn>
+      - Twist the wire to prevent fraying, then insert it into the **Line slot** on the PCB.
 
-## **Power-On Test and First Boot**
+## Power-On Test and First Boot
 
-⚠️ <span style={{ color: 'red' }}>*Do not touch any exposed wires or terminals while the machine is powered.*</span>
+⚠️ <warn>*Do not touch any exposed wires or terminals while the machine is powered.*</warn>
 
 With everything connected, **plug in your machine** and **turn it on**. If everything is wired correctly, you should observe the following:
 
 1. The **LED lights** on your machine illuminate.
 2. The **LED indicators** on the underside of the PCB light up.
-3. Your **LILYGO screen** powers on and begins its **first boot sequence**.
+3. Your **screen** powers on and begins its **first boot sequence**.
 
 If any of these three things do **not** occur, there is likely a wiring issue. Review the guide carefully and retrace your connections to locate and correct the error.
 
 Assuming all three systems power on correctly, visit the **GaggiMate website** and follow the instructions in the [First Start](https://docs.gaggimate.eu/docs/usage-first-start/) documentation. While there, also review the [Configuration](https://docs.gaggimate.eu/docs/usage-configuration/) and [Touch Screen Usage](https://docs.gaggimate.eu/docs/screen-ui-description/) documents to familiarize yourself with the GaggiMate software and its features.
 
-## **Final Setup and Testing**
+## Final Setup and Testing
 
-- [ ] Use **GaggiMate’s software Auto-Tune** feature in the PID Autotune page to generate PID values specific to your machine. This ensures the software can control temperature effectively and accurately.
+- Use GaggiMate’s software **Auto-Tune** feature in the PID Autotune page to generate PID values specific to your machine. This ensures the software can control temperature effectively and accurately.
 
-- [ ] For **DeLonghi ECP** users, it’s recommended to **disable Steam Assist** in the *Settings* page by setting its value to **0**.
+- For **DeLonghi ECP** users, it is recommended to **disable Steam Assist** in the *Settings* page by setting its value to **0**.
 
-- [ ] Before reassembling your machine completely, **test pulling a shot** using the GaggiMate interface. Confirm that there are no leaks and that everything powers and functions as expected.
+- Before reassembling your machine completely, **test pulling a shot** using the GaggiMate interface. Confirm that there are no leaks and that everything powers and functions as expected.
 
-    If all looks good—**congratulations\!** You’ve completed the installation.
+      If it all looks good, you have completed the installation\!
 
-- [ ] Before final reassembly, take some time to **organize your internal wiring**. Use **zip ties** or cable clips to secure wires neatly, and verify that no wires are **resting directly on the grouphead** where heat could cause damage to them over time.
+- Before final reassembly, take some time to **organize your internal wiring** using your solution of choice. Verify that no wires are **resting directly on the grouphead** where heat could cause damage to them over time.
 
-### **🎉 Congratulations\!**
+## 🎉 Congratulations\!
 
 Welcome to the world of **turbocharged espresso**\! Now you can extract café-quality shots from a compact, affordable machine that now rivals the big names at a fraction of the cost.
 
-## **Acknowlegements**
+## Acknowlegements
 
-* **Flavius** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for successfully installing a GaggiMate on a European-model DeLonghi ECP, answering a ton of questions, and helping identify the required components.
-* **mdwasp** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for also providing a lot of information, and for being the creator of the GaggiMate project\!
-* **TorxFighter** on the GaggiMate Discord for doing a lot of tinkering and sharing awesome 3D prints specific to our beloved little DeLonghis.
-* [George Mierau](https://www.printables.com/@georgmierau) for his generosity and time designing a [3D-print](http://www.printables.com/model/1420411-delonghi-ecp-magnetic-screen-holder/files) front mount for the LCD screens.
-* The **GaggiMate team** for their incredible work and contributions.
+- **Flavius** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for successfully installing a GaggiMate on a European-model DeLonghi ECP, answering a ton of questions, and helping identify the required components.
+- **mdwasp** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for also providing a lot of information, and for being the creator of the GaggiMate project\!
+- **TorxFighter** on the GaggiMate Discord for doing a lot of tinkering and sharing awesome 3D prints specific to our beloved little DeLonghis.
+- [George Mierau](https://www.printables.com/@georgmierau) for his generosity and time designing a [3D-print](http://www.printables.com/model/1420411-delonghi-ecp-magnetic-screen-holder/files) front mount for the LCD screens.
+- The **GaggiMate team** for their incredible work and contributions.
