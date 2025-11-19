@@ -1,10 +1,11 @@
 ---
 import { Image, getImage } from 'astro:assets';
-const {src, width, alt} = Astro.props;
+const { src, width, alt = "", priority = false } = Astro.props;
 
-const linkTarget = await getImage({src});
+const linkTarget = await getImage({ src });
+const loading = priority ? "eager" : "lazy";
 ---
 
 <a href={linkTarget.src} target="_blank" class="inline-block">
-    <Image src={src} alt={alt} width={width} />
+  <Image src={src} alt={alt} width={width} loading={loading} />
 </a>
