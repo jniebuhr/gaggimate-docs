@@ -5,6 +5,6 @@ const {src, width, alt} = Astro.props;
 const linkTarget = await getImage({src});
 ---
 
-<a href={linkTarget.src} target="_blank">
+<a href={linkTarget.src} target="_blank" class="inline-block">
     <Image src={src} alt={alt} width={width} />
 </a>
