@@ -7,6 +7,8 @@ order: 13
 ---
 
 import Preview from '../../components/Preview.astro';
+import img_diagram_120v from '../../assets/images/gcp/00_diagram_120v.png';
+import img_diagram_240v from '../../assets/images/gcp/00_diagram_240v.png';
 import img_01 from '../../assets/images/gcp/01_parts.jpeg';
 import img_02 from '../../assets/images/gcp/02_parts.jpeg';
 import img_03 from '../../assets/images/gcp/03_screen_glue.jpeg';
@@ -126,6 +128,22 @@ We have split up chapter 6 in 2 parts for either the new or the old kind of plum
 We've prepared a printable guide to label your wires in order to easier follow the install and fix mistakes. You can also just use tape, sticky labels or whatever else you have.
 
 <a href="/downloads/gcp-wiring-labels.pdf" target="_blank">Download the wire labels</a>
+
+#### Wiring Diagrams
+
+You can check the wiring diagram for additional information.
+
+<div className="flex flex-row gap-8">
+  <div className="flex flex-col gap-4">
+    <span className="font-bold text-md">100 / 120V</span>
+    <Preview src={img_diagram_120v} width={400} alt="" />
+  </div>
+  <div className="flex flex-col gap-4">
+    <span className="font-bold text-md">240V (with Eco PCB)</span>
+    <Preview src={img_diagram_240v} width={400} alt="" />
+  </div>
+</div>
+
 
 #### Check the screen
 
