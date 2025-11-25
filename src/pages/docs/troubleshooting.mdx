@@ -61,3 +61,14 @@ This can happen when the pressure sensors black cable is not making a connection
 ## PID Autotune does not finish / reports weird looking values
 
 Please always start the Autotune from a cold machine.
+
+## My Homekit stopped working
+
+If your GaggiMate suddenly stops responding in the Apple Home app or you get a forever-spinning “Select an Accessory to Add to My Home” dialog when trying to re-add it, try resetting the HomeKit plugin:
+
+1. Connect your GaggiMate to the [flashing web interface](./flashing) and open **Logs & Console**.
+2. In the console, send `?` to list available HomeKit commands.
+3. Send `H` to perform a HomeKit reset (this clears pairing info and restarts the accessory).
+4. Re-add GaggiMate in the Home app using the setup code.
+
+If `H` is not available, check the console help (`?`). If this doesn't resolve your issue, you may need to do a full reset with `E`.
