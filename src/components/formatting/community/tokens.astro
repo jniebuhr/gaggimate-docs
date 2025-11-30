@@ -1,0 +1,64 @@
+---
+interface Props {
+  type?: TokenType;
+  color?: 'red' | 'blue' | 'green' | 'orange' | 'purple' | 'grey';
+  style?: 'badge' | 'text';
+  icon?: boolean;
+  maxWidth?: string;
+  block?: boolean;
+}
+
+const { type = 'default', color, style = 'badge', icon = false, maxWidth = '', block = false } = Astro.props;
+
+const tokenStyle: 'badge' | 'text' = style;
+
+const semanticColors = {
+  warn:    { badge: 'border-red-400 bg-red-200', text: 'text-red-600' },
+  danger:  { badge: 'border-red-400 bg-red-200 font-bold', text: 'text-red-600 font-bold' },
+  info:    { badge: 'border-blue-400 bg-blue-200', text: 'text-blue-600' },
+  success: { badge: 'border-green-400 bg-green-200', text: 'text-green-600' },
+  optional:{ badge: 'border-purple-400 bg-purple-200', text: 'text-purple-600' },
+  pro:     { badge: 'border-orange-400 bg-orange-200 uppercase', text: 'text-orange-600 uppercase' },
+  alt:     { badge: 'border-green-400 bg-green-200 font-bold uppercase', text: 'text-green-600 font-bold uppercase' },
+  default: { badge: 'border-gray-400 bg-gray-200', text: 'text-gray-600' },
+} as const;
+
+type TokenType = keyof typeof semanticColors;
+
+// Optional color overrides
+const colorMap = {
+  red:    { badge: 'border-red-400 bg-red-200', text: 'text-red-600' },
+  blue:   { badge: 'border-blue-400 bg-blue-200', text: 'text-blue-600' },
+  green:  { badge: 'border-green-400 bg-green-200', text: 'text-green-600' },
+  orange: { badge: 'border-orange-400 bg-orange-200', text: 'text-orange-600' },
+  purple: { badge: 'border-purple-400 bg-purple-200', text: 'text-purple-600' },
+  grey:   { badge: 'border-gray-400 bg-gray-200', text: 'text-gray-600' },
+  yellow: { badge: 'border-yellow-400 bg-yellow-200', text: 'text-yellow-600' },
+};
+
+const icons: Record<string, string> = {
+  warn: '⚠️',
+  danger: '⚡',
+  info: 'ℹ️',
+  pro: '⭐',
+  alt: '🔀'
+};
+
+const displayIcon = (icon || type in icons) ? icons[type] ?? '' : '';
+const safeType = type in semanticColors ? type : 'default';
+const appliedClass = color ? colorMap[color]?.[tokenStyle] ?? '' : semanticColors[safeType][tokenStyle];
+
+const baseClass = [
+  'rounded-lg py-0.5 px-2 border text-sm font-sans tracking-tight break-words',
+  maxWidth,
+  appliedClass,
+  block
+    ? 'block w-max mt-1 text-left'
+    : 'inline-block mr-1 mb-0.5 last:mr-0'
+].filter(Boolean).join(' ');
+---
+
+<span class={baseClass}>
+  {displayIcon && <span class="inline mr-1">{displayIcon}</span>}
+  <span class="inline"><slot /></span>
+</span>
