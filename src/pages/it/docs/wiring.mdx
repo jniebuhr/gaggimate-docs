@@ -1,0 +1,236 @@
+---
+layout: ../../../layouts/Layout.astro
+title: Cablaggio
+description: Quali parti assemblare prima di iniziare l'installazione
+section: Installazione
+order: 11
+---
+import { Image } from 'astro:assets';
+import imgWiring from '../../../assets/images/wiring_kit.jpg';
+
+<Image src={imgWiring} width={800} alt="Wiring Kit Pinout" />
+
+Se non hai acquistato il kit, fai riferimento a questo elenco dei cavi necessari. Si raccomanda vivamente di usare cavi in silicone per alte temperature.
+
+<table>
+  <thead>
+  <tr>
+    <th>Uso</th>
+    <th>Quantità</th>
+    <th>Pin</th>
+    <th>Connettore (A)</th>
+    <th>AWG</th>
+    <th>Colore</th>
+    <th>Lunghezza</th>
+    <th>Connettore (B)</th>
+    <th>Pin</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Eco Bridge</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td>18</td>
+      <td>Giallo</td>
+      <td>30mm</td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Heater Bridge</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td>18</td>
+      <td>Rosso</td>
+      <td>30mm</td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Three Way Valve</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td>18</td>
+      <td>Rosso</td>
+      <td>450mm</td>
+      <td>10mm cavo spellato</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Pump</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Femmina Quick Connect</td>
+      <td>18</td>
+      <td>Verde</td>
+      <td>450mm</td>
+      <td>10mm cavo spellato</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Neutral</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td>18</td>
+      <td>Blu</td>
+      <td>450mm</td>
+      <td>10mm cavo spellato</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th valign="baseline">Live</th>
+      <td>1</td>
+      <td></td>
+      <td>6.35mm Piggyback Quick Connect or <br /> Femmina + 30mm Maschio Extension<br /><small>Wiring kits come like this, just the Maschio one is necessary for a Gaggia Classic Pro</small></td>
+      <td>18</td>
+      <td>Grigio</td>
+      <td>450mm</td>
+      <td>10mm cavo spellato</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Heater to SSR</th>
+      <td>2</td>
+      <td></td>
+      <td>6.35mm Maschio Quick Connect</td>
+      <td>18</td>
+      <td>Giallo</td>
+      <td>300mm</td>
+      <td>connettore a forchetta / puntalino</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowSpan={4} valign="middle">Buttons</th>
+      <td rowSpan={4} style="vertical-align: middle">1</td>
+      <td>1 (Brew)</td>
+      <td rowSpan={4} style="vertical-align: middle">JST PH 2.0mm 4P</td>
+      <td>22</td>
+      <td>Verde</td>
+      <td>450mm</td>
+      <td>6.35mm Femmina Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">2 (Steam)</td>
+      <td>22</td>
+      <td>Verde</td>
+      <td>450mm</td>
+      <td>6.35mm Femmina Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
+      <td>22</td>
+      <td>Nero</td>
+      <td>450mm</td>
+      <td>6.35mm Femmina Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">4 (GND)</td>
+      <td>22</td>
+      <td>Nero</td>
+      <td>450mm</td>
+      <td>6.35mm Femmina Quick Connect</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowSpan={3} valign="middle">SSR Signal</th>
+      <td rowSpan={3} style="vertical-align: middle">1</td>
+      <td>1 (Empty / Signal 2)</td>
+      <td rowSpan={3} style="vertical-align: middle">JST PH 2.0mm 3P</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">2 (Signal)</td>
+      <td>22</td>
+      <td>Giallo</td>
+      <td>150mm</td>
+      <td>connettore a forchetta / puntalino</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">3 (GND)</td>
+      <td>22</td>
+      <td>Nero</td>
+      <td>150mm</td>
+      <td>connettore a forchetta / puntalino</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th rowSpan={4} valign="middle">Screen Power</th>
+      <td rowSpan={4} style="vertical-align: middle">1</td>
+      <td>1 (GND)</td>
+      <td rowSpan={4} style="vertical-align: middle">JST PH 2.0mm 2P</td>
+      <td>22</td>
+      <td>Nero</td>
+      <td>550mm</td>
+      <td rowSpan={4} style="vertical-align: middle">JST PA 2.0mm 4P / Grove 2.0mm 4P</td>
+      <td>1 (GND)</td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em">2 (+3.3V)</td>
+      <td>22</td>
+      <td>Rosso</td>
+      <td>550mm</td>
+      <td>2 (+3.3V)</td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>3 (SDA)</td>
+    </tr>
+    <tr>
+      <td style="padding-inline-start: 0.5714286em"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>4 (SCL)</td>
+    </tr>
+  </tbody>
+</table>
+
+### BOM Cavi
+
+Si consiglia di comprarne in più
+
+| Cavo | Colore | Lunghezza |
+| ---- | ------ | --------- |
+| AWG 18 Silicone | Rosso | 480 mm |
+| AWG 18 Silicone | Giallo | 630 mm |
+| AWG 18 Silicone | Verde | 450 mm |
+| AWG 18 Silicone | Grigio | 480 mm |
+| AWG 18 Silicone | Blu | 450 mm |
+| AWG 22 Silicone | Verde | 900 mm |
+| AWG 22 Silicone | Rosso | 550 mm |
+| AWG 22 Silicone | Giallo | 150 mm |
+| AWG 22 Silicone | Nero | 1600 mm |
+
+### BOM Connettori
+
+Si consiglia di comprarne in più
+
+| Descrizione | Quantità |
+| ----------- | -------- |
+| 6.35mm Faston Maschio | 9 |
+| 6.35mm Faston Femmina | 6 |
+| 6.35mm Faston Piggyback | 1 (opzionale) |
+| Forcella / Puntalino (ferrule) | 4 |
+| JST PH 2P corpo connettore | 1 |
+| JST PH 3P corpo connettore | 1 |
+| JST PH 4P corpo connettore | 1 |
+| JST PH Crimp | 8 |
+| JST PA 2.0mm / Grove 4P corpo connettore | 1 |
+| JST PA 2.0mm / Grove Crimps | 2 |
+

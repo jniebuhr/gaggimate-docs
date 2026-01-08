@@ -1,0 +1,25 @@
+---
+layout: ../../../layouts/Layout.astro
+title: Flash
+description: Cosa fare con i componenti prima di accenderli per la prima volta.
+section: Installazione
+order: 10
+---
+
+Il processo di flashing dei tuoi nuovi componenti si esegue direttamente su questo sito. Per funzionare è necessario usare Chrome, Edge o Opera (browser basati su Chromium). Collega semplicemente i dispositivi via USB e premi il pulsante corretto qui sotto.
+
+**Nota**: Al primo flashing potresti dover avviare i dispositivi in modalità Bootloader. Per farlo, tieni premuto il pulsante BOOT indicato con SW1 mentre li colleghi alla porta USB.
+
+![](../../../assets/images/gm_pcb_flashing.jpeg)
+
+<esp-web-install-button manifest="/manifests/display-manifest.json">
+    <button slot="activate" class="bg-gray-50 border border-[#b0b3b8] border-opacity-40 hover:bg-gray-200 text-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-full px-5 py-3 mr-2 gap-3 items-center text-center">Flash Display</button>
+</esp-web-install-button>
+<esp-web-install-button manifest="/manifests/controller-manifest.json">
+    <button slot="activate" class="bg-gray-50 border border-[#b0b3b8] border-opacity-40 hover:bg-gray-200 text-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-full px-5 py-3 mr-2 gap-3 items-center text-center">Flash Controller</button>
+</esp-web-install-button>
+
+<span class="font-medium">Disclaimer:</span> Lo strumento di flashing via Web e l’aggiornamento OTA sono attualmente pensati solo per i componenti suggeriti (ESP32‑S3 N8R8 e display LilyGo).
+Questo software può funzionare anche con altre configurazioni, ma dovrai adattare la build di PlatformIO e flashare via USB.
+
+Una volta completato il flash del display, verrà mostrata la schermata di avvio di GaggiMate.
