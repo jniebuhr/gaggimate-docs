@@ -26,24 +26,27 @@ You can go the PCB route if you already have a bunch of the components for the i
 
 * Pressure Transducer 0 - 1.6MPa, 5V Supply, 0.5 - 4.5V Output [(AliExpress)](https://s.click.aliexpress.com/e/_Evn1mNS)
 * 1/4 inch silicone gasket [(AliExpress)](https://s.click.aliexpress.com/e/_EuWMCw8)
+* Roll of PTFE Tape [(AliExpress)](https://s.click.aliexpress.com/e/_Eyp2WhE)
 
 **for Gaggia Classic (Pressure Fittings)**
 
-* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_EGn7WBq)
+* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_ExUQF9Q)
 * 6mm OD Pressure T-Fitting PE - PE 1/4" [(AliExpress)](https://s.click.aliexpress.com/e/_EyxHEI4)
-* 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EzlXYGY)
+* 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
 
 **for Gaggia Classic Pro/Evo/E24 (Barb fittings)**
 
-* High Pressure Silicone braided hose (~6mm ID, 12mm OD) [(AliExpress)](https://s.click.aliexpress.com/e/_EvUXSPe)
-* 6mm Barb T-Fitting [(AliExpress)](https://s.click.aliexpress.com/e/_Ev2iqBQ)
-* 6mm Barb to G1/4 female fitting - PCF 6mm 1/4" [(AliExpress)](https://s.click.aliexpress.com/e/_EGT7xgU)
-* Hose Clamps - 6-12mm 10pcs [(AliExpress)](https://s.click.aliexpress.com/e/_EyizSFY)
+* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_ExUQF9Q)
+* 6mm OD Pressure Fitting to G1/8 male - PL 06-01 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
+* 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
+* G1/8 Tee-Fitting - Female-Male-Female BSP 1/8" [(AliExpress)](https://s.click.aliexpress.com/e/_EzqEE9a)
 
 **for Rancilio Silvia**
-* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_EGn7WBq)
-* Male T-Fitting G1/4 - T-MMM 1/4" [(AliExpress)](https://www.aliexpress.com/item/1005005296973353.html)
-* 2 pieces 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EzlXYGY)
+
+* 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_ExUQF9Q)
+* 6mm OD Pressure Fitting to G1/8 male - PL 06-01 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
+* 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
+* G1/8 Tee-Fitting - Female-Female-Male BSP 1/8" [(AliExpress)](https://s.click.aliexpress.com/e/_EzqEE9a)
 
 ## Tools
 
