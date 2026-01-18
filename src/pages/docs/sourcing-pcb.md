@@ -25,16 +25,21 @@ You can go the PCB route if you already have a bunch of the components for the i
 ### GaggiMate Pro
 
 * Pressure Transducer 0 - 1.6MPa, 5V Supply, 0.5 - 4.5V Output [(AliExpress)](https://s.click.aliexpress.com/e/_Evn1mNS)
+
+### Plumbing
+
+You can buy the plumbing kit from the [Website](https://shop.gaggimate.eu/collections/parts/products/gaggimate-plumbing-kit) or alternatively use the components below.
+
 * 1/4 inch silicone gasket [(AliExpress)](https://s.click.aliexpress.com/e/_EuWMCw8)
 * Roll of PTFE Tape [(AliExpress)](https://s.click.aliexpress.com/e/_Eyp2WhE)
 
-**for Gaggia Classic (Pressure Fittings)**
+**for Gaggia Classic**
 
 * 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_ExUQF9Q)
 * 6mm OD Pressure T-Fitting PE - PE 1/4" [(AliExpress)](https://s.click.aliexpress.com/e/_EyxHEI4)
 * 6mm OD Pressure Fitting to G1/4 female - PLF 06-02 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
 
-**for Gaggia Classic Pro/Evo/E24 (Barb fittings)**
+**for Gaggia Classic Pro/Evo/E24**
 
 * 4mm ID 6mm OD PTFE Tube [(AliExpress)](https://s.click.aliexpress.com/e/_ExUQF9Q)
 * 6mm OD Pressure Fitting to G1/8 male - PL 06-01 [(AliExpress)](https://s.click.aliexpress.com/e/_EIb1Qt2)
