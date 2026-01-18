@@ -10,7 +10,7 @@ If you don't feel like ordering a PCB or kit and are more comfortable connecting
 
 ## Lego Components
 
-* ESP-S3 DevKit - N8R8 [(AliExpress)](https://s.click.aliexpress.com/e/_EQmqlAC)
+* ESP-S3 DevKit - N8R2 [(AliExpress)](https://s.click.aliexpress.com/e/_EuVDj60)
 * RoboDyn AC Dimmer [(AliExpress)](https://s.click.aliexpress.com/e/_EHUTAaU) (Dimmer 4A-400V)
 * 1-Channel SSR [(AliExpress)](https://s.click.aliexpress.com/e/_EviCKOc) (1-Channel high 5V)
 * TXS0102 Logic Level Converter [(AliExpress)](https://a.aliexpress.com/_EQCtKUC)
