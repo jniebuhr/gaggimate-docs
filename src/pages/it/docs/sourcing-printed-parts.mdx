@@ -1,0 +1,87 @@
+---
+layout: ../../../layouts/Layout.astro
+title: Parti stampate
+description: Elenco di tutte le parti stampate in questo repository.
+section: Procurarsi il materiale
+order: 7
+---
+
+import { Image } from 'astro:assets';
+import imgScreenExploded from '../../../assets/images/screen-exploded-view.png';
+import imgScreenAngledExploded from '../../../assets/images/screen-angled-exploded-view.png';
+import imgPcbExploded from '../../../assets/images/pcb-exploded-view.png';
+
+GaggiMate richiede alcune parti stampate per funzionare. Dovrai stamparle tu stesso oppure acquistarle nello shop. Probabilmente potrai anche trovare un servizio locale che le stampi per te.
+
+Si consiglia di non usare il PLA perché ha un punto di fusione basso e le linguette flessibili potrebbero rompersi facilmente durante la stampa. Puoi usare materiali come PETG, ABS, ASA.
+
+## Tutti i percorsi - Scocca display
+
+<Image src={imgScreenAngledExploded} width={800} alt="Exploded View" />
+
+#### BOM
+
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_front.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/case_front.stl) (Stamparne 2 se non sei sicuro della robustezza della stampa)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_back_*</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/) (Scegli il retro corretto per la tua macchina)
+* LilyGo T-RGB (vedi altre pagine di approvvigionamento)
+
+#### Assemblaggio
+
+Posiziona il display nella parte posteriore della scocca e allinea correttamente i connettori. Ora premi con attenzione il frontale della scocca sul display finché non scatta in posizione.
+Questo piegherà verso l’esterno le linguette lungo le linee di stampa: fai attenzione a non romperle.
+
+
+### Variante: Scocca display magnetica
+
+<Image src={imgScreenExploded} width={800} alt="Exploded View" />
+
+### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/case_front.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/display/case_front.stl) (Stamparne 2 se non sei sicuro della robustezza della stampa)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/display/Alternative backplate</span> [(Github)](https://github.com/jniebuhr/gaggimate/tree/master/stls/display/Alternative%20backplate)
+* 4 pezzi Magneti al Neodimio 6x3 mm N52  [(AliExpress)](https://s.click.aliexpress.com/e/_EjwXuaU) (Ignora se vuoi fissare il display con viti)
+* LilyGo T-RGB (vedi altre pagine di approvvigionamento)
+
+### Assemblaggio
+
+Inserisci i magneti nei 4 fori se stai optando per un’installazione magnetica, altrimenti fora la scocca della macchina e fissa con le viti nei fori predisposti.
+I magneti dovrebbero reggere da soli; se risultano un po’ laschi, usa una goccia di supercolla.
+
+Posiziona il display nella parte posteriore della scocca e allinea correttamente i connettori. Ora premi con attenzione il frontale della scocca sul display finché non scatta in posizione.
+Questo piegherà verso l’esterno le linguette lungo le linee di stampa: fai attenzione a non romperle.
+
+## Percorso PCB - Scatola PCB
+
+### Assemblaggio
+
+Posiziona la PCB sopra il fondo della scatola e allinea correttamente i fori di montaggio. Ora premi con attenzione il coperchio verso il basso fino a farlo scattare in posizione.
+Questo piegherà verso l’esterno le linguette lungo le linee di stampa: fai attenzione a non romperle.
+
+### GaggiMate Pro Rev 1.0
+
+#### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-pro-rev1/pcb_base_clipped.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-pro-rev1/pcb_base_clipped.stl)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-pro-rev1/pcb_cover_clipped_[support].stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-pro-rev1/pcb_cover_clipped_%5Bsupport%5D.stl) (Stamparne 2 se non sei sicuro della robustezza della stampa)
+* GaggiMate Pro PCB Rev 1.0 (vedi altre pagine di approvvigionamento)
+* Biadesivo (VHB o simile)
+
+### GaggiMate Standard Rev 2.0
+
+#### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-standard-rev2/pcb_base_clipped.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-standard-rev2/pcb_base_clipped.stl)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-standard-rev2/pcb_cover_clipped_[support].stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-standard-rev2/pcb_cover_clipped_%5Bsupport%5D.stl) (Stamparne 2 se non sei sicuro della robustezza della stampa)
+* GaggiMate Standard PCB Rev 1.0 (vedi altre pagine di approvvigionamento)
+* Biadesivo (VHB o simile)
+
+### GaggiMate Standard Rev 1.0 (Group Buy 2024)
+<Image src={imgPcbExploded} width={800} alt="Exploded View" />
+
+### BOM
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-standard-rev1/pcb_clipped_base.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-standard-rev1/pcb_clipped_base.stl)
+* <span class="font-mono bg-slate-100 p-1 text-sm">stls/pcb/gaggimate-standard-rev1/pcb_clipped_cover.stl</span> [(Github)](https://github.com/jniebuhr/gaggimate/blob/master/stls/pcb/gaggimate-standard-rev1/pcb_clipped_cover.stl) (Stamparne 2 se non sei sicuro della robustezza della stampa)
+* GaggiMate Controller PCB (vedi altre pagine di approvvigionamento)
+* Biadesivo (VHB o simile)
+
+
+## Percorso Lego - Scatola Lego
+
+Attualmente in lavorazione.
