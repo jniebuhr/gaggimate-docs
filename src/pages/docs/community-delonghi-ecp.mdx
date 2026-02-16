@@ -102,7 +102,7 @@ To get the GaggiMate to work with the DeLonghi ECP series, you must buy the foll
 
       - [Solid State Relay DC to AC 40-DA](https://www.amazon.com/SSR-40DA-3-32VDC-Output-24-480VAC-Plastic/dp/B08GPB7N2T):
 <Preview src={image_ssr} alt="" width={300} />
-      - [K-Type 5mm 0.5m Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR02/FTARR02-K-D5S0.5.html) <Tokens type="warn" icon>It must be ungrounded.</Tokens>
+      - [K-Type 6mm 0.5m Ungrounded Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR02/FTARR02-K-D6S0.5.html) <Tokens type="warn" icon>It must be ungrounded. Grounded thermocouples will not work with the GaggiMate.</Tokens>
 
       - [22 AWG silicone wire](https://a.co/d/4bYdrS1) <Tokens type="warn" icon>You can buy 24 AWG silicone wire instead for an easier time crimping to JST connectors.</Tokens>
       - [18 AWG silicone wire](https://a.co/d/8NlcNLm)
@@ -125,8 +125,10 @@ To get the GaggiMate to work with the DeLonghi ECP series, you must buy the foll
       - <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [4mm OD Pressure Fitting to G1/4 female PLF 04-02](https://www.aliexpress.us/item/3256802393459934.html)
 <Preview src={image_pneumatic_elbow_fitting} alt="" width={300} />
       - <Tokens type="usa" icon>American Version Only</Tokens> [3-Prong Power Cord](https://www.amazon.com/dp/B07BQCMPF2)
-      <Tokens type="info" icon>The American version of the machine does not have a grounded boiler. As is, the DeLonghi engineers have determined this is safe. However, we are heavily modifying the machine beyond spec. We strongly recommend that you ground your boiler for safety. You will need to purchase a 3-prong power cord in order to do that.<br />
-      If you plug your machine into a GCFI-outlet, which is strongly recommended in all cases, you may not need to ground your boiler, but only if you're willing to incur the risks involved.</Tokens>
+
+            The American version of the machine does not have a grounded boiler. The DeLonghi engineers have determined this is safe for the stock machine. However, we are modifying the machine well beyond spec and introducing more high-voltage components. We strongly recommend that you ground your boiler for safety. You will need to purchase a 3-prong power cord in order to do that.<br />
+
+            <Tokens type="info" icon>If you plug your machine into a GCFI-outlet, which is strongly recommended in all cases regardless, you may not need to ground your boiler. Do this at your own risk.</Tokens>
 
 ## Printed Parts
 
