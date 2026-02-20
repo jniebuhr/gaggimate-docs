@@ -50,7 +50,7 @@ import CommunityHeader from '../../components/CommunityHeader.astro';
 import Tokens from '../../components/formatting/community/tokens.astro';
 import Preview from '../../components/Preview.astro';
 
-<CommunityHeader author="Jay R." updated="Feb. 13, 2026" credits="Jay R. (Jayblah), Flavius, mdwasp, TorxFighter"/>
+<CommunityHeader author="Jay R." updated="Feb. 19, 2026" credits="Jay R. (Jayblah), Flavius, mdwasp, TorxFighter"/>
 <Preview src={image_teaser} alt="" width={500} priority/>
 <Tokens type="credit">Image credit: Torxfighter</Tokens>
 
@@ -143,8 +143,10 @@ There are multiple options for the screen housing:
 
 ### PCB Prints
 
-      - You can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself.
-      <Tokens type="warn" icon>It is strongly recommended that you keep your PCB secure within a housing when your build is done. Leaving the PCB exposed may result in shocks or shortages.</Tokens>
+      <Tokens type="danger" icon>Please keep your PCB and SSR secure within a housing when your build is done. Leaving them exposed may result in exposure to electrocution.</Tokens>
+
+      - User ph has generously designed and [shared a beautiful PCB housing](https://www.printables.com/model/1607556-gaggimate-pro-pcb-ssr-electronics-enclosuree). This fits both the SSR and PCB and is mounted on the back of the machine.
+      - Alternatively, you can buy the [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself. Note that this housing only holds the PCB. You will need to find your own solution for mounting the SSR if you go with this option. Double-sided tape works well for the SSR on the inside of the machine.
 
 ## Tools & Consumables
 
@@ -584,9 +586,10 @@ Refer to the wiring pinout diagram below as we begin connecting the remaining wi
 ## Wiring the PCB
 
 <Preview src={image_pcb_wiring} alt="" width={300} />
-<Tokens type="danger" icon>It is strongly recommended that you keep your PCB covered and secure within a housing when your build is done. Leaving the high-voltage PCB exposed can be dangerous.</Tokens>
 
+      <Tokens type="danger" icon>Please keep your PCB and SSR secure within a housing when your build is done. Leaving them exposed may result in exposure to electrocution.</Tokens>
 - **Screen Connection**
+
       - Insert the **2-pin JST connector** from the screen wiring into the **PCB**.
         - Ensure the tab is oriented correctly. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
       - Next, connect the **4-pin JST connector** on the other end of these wires to the **4-pin slot on your LILYGO screen**. It should look like the image below. Please note the orientation of the wires.
