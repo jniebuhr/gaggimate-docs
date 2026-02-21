@@ -386,9 +386,6 @@ The diagram above shows you the wires and connectors you will need for a typical
 - **Attach the SSR-side Control Wires to the SSR**
       - Attach both control wires to the **“CONTROL 3–32 VDC”** terminals on the SSR.
        <Tokens type="warn" icon>Label the wire connected to the “–” terminal as “GROUND.” This label will be helpful when you connect the wires to the PCB.</Tokens>
-
-<Preview src={image_ssr_wiring_of_output} alt="" width={300} />
-
       - Place each fork (or ring) connector under one of the remaining screw plates on the SSR.
       - Reinstall the Phillips screws to secure the connectors.
 
@@ -404,18 +401,18 @@ The diagram above shows you the wires and connectors you will need for a typical
 
 ## Attaching SSR Heater Wires to the Heater Elements
 
-It is important to remember **which connector the insulated wire is attached to**, since this wire contains a built-in resistor for safety. In the reference image below, the **insulated wire** is connected to **boiler connector “1”**. After you note the position of **both** wires, proceed with installation.
+It does not matter which wire from the SSR’s OUTPUT terminals goes to which heater element wire. The SSR will work either way. The important thing is that both heater wires from the SSR are connected to the two heater element wires that were previously attached to the thermostats. Please take note of how the fuse is secured to the boiler (via the metal clip). When you connect the SSR OUTPUT wires, you'll want to secure the fuse in the same way to ensure it stays in place and maintains good contact.
 
 <Preview src={image_boiler_heater_connections} alt="" width={300} />
 
 - **Connect the Left Heater Wire**
-      - From the **OUTPUT** side of the SSR, take one of the heater wires and plug its male spade connector into the female spade connector of the red wire that was previously attached to the left thermostat.
+      - From the **OUTPUT** side of the SSR, take one of the heater wires and plug its male spade connector into the female spade connector on the heater element.
       - Ensure that the connection is firm and fully seated.
 
 <Preview src={image_boiler_red_wire} alt="" width={300} />
 
 - **Connect the Right Heater Wire**
-      - From the **OUTPUT** side of the SSR, take the other heater wire and plug its male spade connector into the female spade connector of the grey wire that was previously attached to the left thermostat.
+      - From the **OUTPUT** side of the SSR, take the other heater wire and plug its male spade connector into the unoccupied female spade connector on the heater element.
       - Again, check that the connection is snug and secure.
 
 <Preview src={image_boiler_long_grey_wire} alt="" width={300} />
@@ -689,7 +686,7 @@ The list below contains common issues you might encounter. If your problem is no
 - ***I moved it to a different outlet, but I still have the same error. What should I do?***
   - Your thermocouple wires may not be making a tight connection inside their PCB slots. These wires are thin. If you're using the naked wires, make sure you've folded them over and twisted them as instructed to give the slot clamps something to bite onto.
 
-## 🎉 Congratulations!
+## Congratulations!
 
 Welcome to the world of **turbocharged espresso**! Now you can extract café-quality shots from a compact, affordable machine that rivals the big names at a fraction of the cost.
 
@@ -699,6 +696,5 @@ Welcome to the world of **turbocharged espresso**! Now you can extract café-qua
 - **mdwasp** on the [GaggiMate Discord](https://discord.com/channels/951416527721230336/1378844857426251918) for also providing a lot of information, and for being the creator of the GaggiMate project
 - **TorxFighter** on the GaggiMate Discord for doing a lot of tinkering and sharing awesome 3D-prints specific to our beloved little DeLonghis.
 - **Abunchofhicks** for wiring assistance and general knowledge and helpfulness.
-- **Stuart** for 3D-prints (e.g. clips) and some clever mounting ideas (e.g. a DIN rail).
-- [George Mierau](https://www.printables.com/@georgmierau) for his generosity and time designing a [3D-print](http://www.printables.com/model/1420411-delonghi-ecp-magnetic-screen-holder/files) front mount for the LCD screens.
+- **Stuart** for technical support and clever mounting ideas (e.g. a DIN rail).
 - The **GaggiMate team** for their incredible work and contributions.
