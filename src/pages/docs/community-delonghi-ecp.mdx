@@ -1,14 +1,16 @@
 ---
 layout: ../../layouts/Layout.astro
-title: DeLonghi ECP
-description: Community Guide for DeLonghi ECP Espresso Machines
+title: DeLonghi EC & Stilosa
+description: Community Guide for DeLonghi EC and Stilosa Espresso Machines
 section: Community Guides
 order: 51
 ---
 
 import image_2_pin_setup from '../../assets/images/community/delonghi-ecp/image_2_pin_setup.png';
+import image_2pin_JST from '../../assets/images/community/delonghi-ecp/image_2pin_JST.png';
 import image_3_pin_setup from '../../assets/images/community/delonghi-ecp/image_3_pin_setup.png';
-import image_4_pin_preparation from '../../assets/images/community/delonghi-ecp/image_4_pin_preparation.png';
+import image_3pin_JST from '../../assets/images/community/delonghi-ecp/image_3pin_JST.png';
+import image_4pin_SH10 from '../../assets/images/community/delonghi-ecp/image_4pin_SH10.png';
 import image_behind_knob_screws from '../../assets/images/community/delonghi-ecp/image_behind_knob_screws.jpg';
 import image_boiler_black_and_short_grey_wire from '../../assets/images/community/delonghi-ecp/image_boiler_black_and_short_grey_wire.png';
 import image_boiler_grounding_point from '../../assets/images/community/delonghi-ecp/image_boiler_grounding_point.jpg';
@@ -16,9 +18,9 @@ import image_boiler_heater_connections from '../../assets/images/community/delon
 import image_boiler_long_grey_wire from '../../assets/images/community/delonghi-ecp/image_boiler_long_grey_wire.png';
 import image_boiler_red_wire from '../../assets/images/community/delonghi-ecp/image_boiler_red_wire.png';
 import image_boiler_to_ssr from '../../assets/images/community/delonghi-ecp/image_boiler_to_ssr.png';
+import image_bottom_panel from '../../assets/images/community/delonghi-ecp/image_bottom_panel.jpg';
 import image_cut_hose from '../../assets/images/community/delonghi-ecp/image_cut_hose.jpg';
-import image_delonghimate from '../../assets/images/community/delonghi-ecp/image_delonghimate.png';
-import image_heater_bridge_wiring from '../../assets/images/community/delonghi-ecp/image_heater_bridge_wiring.png';
+import image_frame_screws from '../../assets/images/community/delonghi-ecp/image_frame_screws.jpg';
 import image_large_screen from '../../assets/images/community/delonghi-ecp/image_large_screen.png';
 import image_pcb_diagram from '../../assets/images/community/delonghi-ecp/image_pcb_diagram.png';
 import image_pcb_wiring from '../../assets/images/community/delonghi-ecp/image_pcb_wiring.png';
@@ -26,10 +28,8 @@ import image_pneumatic_elbow_fitting from '../../assets/images/community/delongh
 import image_pneumatic_t_fitting from '../../assets/images/community/delonghi-ecp/image_pneumatic_t_fitting.png';
 import image_pressure_installation from '../../assets/images/community/delonghi-ecp/image_pressure_installation.jpg';
 import image_pressure_position from '../../assets/images/community/delonghi-ecp/image_pressure_position.jpg';
+import image_pump_hoses from '../../assets/images/community/delonghi-ecp/image_pump_hoses.jpg';
 import image_rear_clips from '../../assets/images/community/delonghi-ecp/image_rear_clips.jpg';
-import image_rotary_switch_diagram from '../../assets/images/community/delonghi-ecp/image_rotary_switch_diagram.png';
-import image_rotary_switch_installation from '../../assets/images/community/delonghi-ecp/image_rotary_switch_installation.png';
-import image_rotary_switch_labeled from '../../assets/images/community/delonghi-ecp/image_rotary_switch_labeled.jpg';
 import image_screen_connection from '../../assets/images/community/delonghi-ecp/image_screen_connection.png';
 import image_silicone_tube from '../../assets/images/community/delonghi-ecp/image_silicone_tube.png';
 import image_ssr from '../../assets/images/community/delonghi-ecp/image_ssr.png';
@@ -41,453 +41,309 @@ import image_thermocouple_installation from '../../assets/images/community/delon
 import image_thermostats from '../../assets/images/community/delonghi-ecp/image_thermostats.jpg';
 import image_top_screws from '../../assets/images/community/delonghi-ecp/image_top_screws.jpg';
 import image_underside_screws from '../../assets/images/community/delonghi-ecp/image_underside_screws.jpg';
-import image_wire_spliced from '../../assets/images/community/delonghi-ecp/image_wire_spliced.png';
 import image_wiring_diagram from '../../assets/images/community/delonghi-ecp/image_wiring_diagram.png';
 import image_wiring_hole from '../../assets/images/community/delonghi-ecp/image_wiring_hole.jpg';
+import CB from '../../components/Checkbox.astro';
 import CommunityHeader from '../../components/CommunityHeader.astro';
 import Tokens from '../../components/formatting/community/tokens.astro';
 import Preview from '../../components/Preview.astro';
 
-<CommunityHeader author="Jay R." updated="Feb. 24, 2026" credits="Jay R. (Jayblah), Flavius, mdwasp, TorxFighter"/>
+<CommunityHeader author="Jay R. (Jayblah)" updated="March 1, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
 <Preview src={image_teaser} alt="" width={500} priority/>
 <Tokens type="credit">Image credit: Torxfighter</Tokens>
 
 ## Contents
 
 ## Foreword
-
-If you see any errors or have any suggestions on making purchasing cheaper or easier for people, please contact Jayblah in the GaggiMate Discord.
+If you see any errors or have any suggestions on making purchasing cheaper or easier for people, please join us in the [GaggiMate Discord channel](https://discord.com/channels/951416527721230336/1378844857426251918).
 
 ### About This Guide
+**Scope of Work**
 
-This guide expects you to rewire the entire machine. You will be asked to remove most of the existing wiring. We will be replacing all of the wiring with a new "wiring harness" that connects to the GaggiMate PCB. We will remove and set aside the rotary-knob because it will no longer be used to control your machine. Instead, your machine will be controlled through the GaggiMate interface. We will also install a 4-pin on/off switch to control power. Lastly, by rewiring the machine, we will remove the "Eco Mode" feature found on EU versions of the DeLonghi as a quality of life improvement.
+This is a major modification requiring a full rewire.
+      - **Rewiring:** You will remove most existing wiring and create a new harness to connect to the GaggiMate PCB.
+      - **Controls:** The stock rotary knob will be removed. The machine will be controlled entirely through the GaggiMate interface.
+      - **Power:** You will install a new 4-pin on/off switch.
+      - **Features:** This process disables the stock "Eco Mode" found on EU models.
 
-This is not a simple modification, but it is also not as difficult as it may sound. If you are comfortable with basic hand tools and have confidence and the ability to follow instructions, you should be able to complete this project.
+**Skill Level & Prerequisites**
 
-Please note that many of the recommended purchases are suggestions. If you're an experienced tinkerer, analyze the list of items (especially the ones that I recommend to make your life easier) and determine whether or not *you* actually need them.
+While not a "simple" mod, it is manageable if you are comfortable with basic hand tools and confident following detailed instructions. This guide assumes you have purchased the specific items listed below and is not suitable for a "LEGO" style build.
 
-This guide is **not** for users who opt to try a “LEGO” build. This guide **assumes** you have purchased the recommended items in the lists below.
+**Suggestions vs. Requirements**
+
+    - **Components:** The shopping list includes items that make the job easier, but experienced tinkerers may analyze the list and determine what they actually need.
+    - **Steam Wand:** We strongly encourage upgrading to a Rancilio-style wand while the machine is open. While not specifically covered in this guide, many online tutorials exist for this upgrade.
+
+**A Note on the Stilosa**
+
+This guide is compatible with the Stilosa. The only significant difference is the front panel, which may require a specific screen housing print (linked in the Printed Parts section). All images and references below feature the ECP, but the modification is identical.
 
 ### But *Why?!*
+DeLonghi makes several popular, affordable, and surprisingly capable semi-automatic espresso machines. You can often find a well-maintained pre-owned model on Facebook Marketplace or elsewhere for a great price. I paid just $50 for mine. Even in stock form, the ECP and Stilosa can produce excellent espresso. Their stainless-steel grouphead and sturdy internals make them a very capable, especially when paired with a bottomless portafilter and a quality grinder.
 
-The DeLonghi ECP is a popular, affordable, and surprisingly capable espresso machine. You can often find a well-maintained pre-owned model on Facebook Marketplace or elsewhere for a great price. I paid just $50 for mine. Even in stock form, the ECP can produce excellent espresso. Its stainless-steel grouphead and sturdy construction make it a solid performer, especially when paired with a bottomless portafilter and a quality grinder.
-
-However, if the idea of installing a *Ferrari engine inside a Toyota chassis* sounds exciting, this modification is for you. After installing the GaggiMate, this little sleeper can rival the performance and features of $1,000-plus single-boiler espresso machines, all for a fraction of the cost.
+However, if the idea of installing a *Ferrari engine inside a Toyota chassis* sounds exciting, this modification is for you. After installing the GaggiMate, these little sleepers can rival the performance and features of $1,000-plus single-boiler espresso machines for a fraction of the cost.
 
 ### You *Can* Do This!
-
 Before I started this modification, I had never cut, crimped, or spliced a wire in my life. Despite that, I successfully installed the GaggiMate on my DeLonghi ECP. If I can do it, you can do it too.
 
 Take your time, follow each step carefully, and you will be just fine. Make sure to read through the entire guide at least once before you start working on the machine. This will help you understand the overall process and prepare you for what's ahead.
 
 ## Shopping List
+To get the GaggiMate to work with the DeLonghi ECP series, you **must** buy the components in this list **exactly** as specified.
+      1. <CB>[GaggiMate Pro PCB](https://shop.gaggimate.eu/products/gaggimate-pro-pcb)</CB>
+      1. A compatible ESP-32-S3 screen <Tokens type="warn" icon>Buy only one.</Tokens>
+      <CB>[2.1 inch Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-ESP32-S3-2-1inch-Processor-Resolution/dp/B0DDPQSKJD) <Tokens type="info" icon>Buy the 2.1 inch screen if you're modding the ECP. There are no 2.8 inch prints right now.</Tokens></CB>
+      **or**
+      <CB><Tokens type="alt" icon>Alternative</Tokens>[2.8 inch Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-Capacitive-Development-Dual-core-Processor/dp/B0DMJZPH2R) <Tokens type="info" icon>Buy the 2.8 inch screen if you're modding the Stilosa to use Stuart's print.</Tokens></CB>
+      1. <CB>[Solid State Relay DC to AC 40-DA](https://www.amazon.com/SSR-40DA-3-32VDC-Output-24-480VAC-Plastic/dp/B08GPB7N2T)</CB>
+      <Preview src={image_ssr} alt="" width={100} />
+      1. <CB>[K-Type 6mm 0.5m Ungrounded Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR02/FTARR02-K-D6S0.5.html) <Tokens type="info" icon>If you're in the EU, you can also source your thermocouples from [this shop](https://www.testo-sensor.shop/de/thermoelemente?p=1).</Tokens></CB>
+      1. <CB>[22 AWG silicone wires](https://a.co/d/4bYdrS1)</CB>
+      1. <CB>[18 AWG silicone wires](https://a.co/d/8NlcNLm)</CB>
+      1. <CB>[6.3mm and 4.8mm spade connectors](https://www.amazon.com/Feggizuli-Connectors-Insulating-Terminals-Electrical/dp/B0CJQ8H94N?s=industrial) <Tokens type="info" icon>If you buy the crimping tool linked in the Tools & Consumables section, you do **not** need to buy these connectors separately.</Tokens></CB>
+      1. <CB>[Fork connectors, Color: SV1.25-5s-50PCS](https://www.aliexpress.us/item/3256805889663603.html) <Tokens type="info" icon>If you buy the crimping tool linked in the Tools & Consumables section, you do **not** need to buy these. You may use the included ring connectors for the SSR instead.</Tokens></CB>
+      1. <CB>[JST PH 2.0 Connectors](https://www.aliexpress.us/item/3256806312346188.html)</CB>
+      **or**
+      <CB><Tokens type="alt" icon>Alternative</Tokens>[30cm PH2.0 JST Connector 2P](https://www.aliexpress.us/item/3256808900846056.html) and [30cm PH2.0 JST Connector 3P](https://www.aliexpress.us/item/3256808900846056.html)</CB> <Tokens type="info" icon>If you do not want to experience the frustration of crimping tiny JST connectors, buy these. You will splice the unconnected ends of these to their corresponding wires on the screen and SSR. You **must** buy both. Choose 30cm length for both to give you enough wire.</Tokens>
+      1. <CB><Tokens type="usa" icon>American Version Only</Tokens> [3-Prong Power Cord](https://www.amazon.com/dp/B07BQCMPF2) — Upgrades the stock 2-prong cord to a grounded connection. Recommended given the extent of the modifications.</CB>
+      1. <CB>[Pressure Transducer, Color: 0-1.6Mpa](https://www.aliexpress.us/item/3256805324139332.html)</CB>
+      1. <CB>[Silicone gasket, Size: 1/4 inch](https://www.aliexpress.us/item/2255799841120591.html)</CB>
+      1. <CB>[PTFE Tube, Color: 2 x 4mm White](https://www.aliexpress.us/item/2251832544541096.html)</CB>
+      1. <CB>[Pressure T-Fitting, Color: PE, Specification: 4mm 5/32 inch](https://www.aliexpress.us/item/3256808320030680.html)</CB>
+      1. <CB>[90° Pressure Fitting, Color: 4-02, Specification: PLF](https://www.aliexpress.us/item/3256802393459934.html)</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens><Tokens type="usa" icon>American Version Only</Tokens> [Grounded Outlet Adapter with On/Off Switch](www.amazon.com/dp/B0DQDFM1CN?th=1) — This modification removes the machine's power knob. Without it, you'd need to unplug the machine to cut power entirely. With it, you get a manual power switch while still letting GaggiMate manage the heater schedule.</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens> [Rancilio-style steam wand](https://www.aliexpress.us/item/3256808331478432.html) — Highly recommended upgrade. The stock Pannarello wand lacks precision; this one includes a one-hole and three-hole tip.</CB>
 
-To get the GaggiMate to work with the DeLonghi ECP series, you must buy the following.
+      ### Tools & Consumables
 
-      1. [GaggiMate Pro PCB](https://shop.gaggimate.eu/products/gaggimate-pro-pcb) **or** [GaggiMate Standard PCB](https://shop.gaggimate.eu/products/gaggimate-standard-pcb)
-<Tokens type="warn" icon>Buy only one.</Tokens>
-
-      2. Buy **only one** of the following:
-
-            - [2.1 inch Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-ESP32-S3-2-1inch-Processor-Resolution/dp/B0DDPQSKJD)
-
-            - <Tokens type="alt" icon>Alternative</Tokens>[2.8 inch Waveshare ESP32-S3 Round Touch Screen](https://www.amazon.com/Waveshare-Capacitive-Development-Dual-core-Processor/dp/B0DMJZPH2R)
-                  <Tokens type="info" icon>There are currently no DeLonghi-specific 3D-prints for the 2.8 inch screen size. If you have modeling talent, please make one for us!</Tokens>
-
-                  <Preview src={image_large_screen} alt="Large screen" width={300} /> <Tokens type="credit" icon block>For reference, this image above shows what the 2.8” screen looks like against the DeLonghi.</Tokens>
-
-      3. [Solid State Relay DC to AC 40-DA](https://www.amazon.com/SSR-40DA-3-32VDC-Output-24-480VAC-Plastic/dp/B08GPB7N2T):
-            <Preview src={image_ssr} alt="" width={150} />
-      4. [K-Type 6mm 0.5m Ungrounded Thermocouple](https://www.finglai.com/products/instruments/temperature-sensors/FTARR02/FTARR02-K-D6S0.5.html) <Tokens type="warn" icon>It must be ungrounded. Grounded thermocouples will not work with the GaggiMate.</Tokens>
-
-            4. <Tokens type="alt" icon>Alternative</Tokens>If you're in the EU, you can also source your thermocouples from this shop: https://www.testo-sensor.shop/de/thermoelemente?p=1
-
-      5. [22 AWG silicone wire](https://a.co/d/4bYdrS1) <Tokens type="warn" icon>You can buy 24 AWG silicone wire instead for an easier time crimping to JST connectors.</Tokens>
-      6. [18 AWG silicone wire](https://a.co/d/8NlcNLm)
-      7. [6.3mm and 4.8mm Spade Connectors](https://www.amazon.com/Feggizuli-Connectors-Insulating-Terminals-Electrical/dp/B0CJQ8H94N?s=industrial) <Tokens type="warn" icon>If you buy the crimping tool linked in the Tools & Consumables section, then you do not need to buy these connectors separately.</Tokens>
-      8. [Fork connectors (SV1.25-5s)](https://www.aliexpress.us/item/3256805889663603.html) <Tokens type="warn" icon>If you buy the crimping tool linked in the Tools & Consumables section, you do not need to buy these connectors separately. Otherwise, you may use the included ring connectors for the SSR instead of fork connectors.</Tokens>
-      9. [JST PH 2.0 Connectors](https://www.aliexpress.us/item/3256806312346188.html)
-
-            9. <Tokens type="alt" icon>Alternative</Tokens>[30cm PH2.0 JST Connector 2P](https://www.aliexpress.us/item/3256808900846056.html) and [30cm PH2.0 JST Connector 3P](https://www.aliexpress.us/item/3256808900846056.html) <Tokens type="info" icon>If you do not want to experience the pain of crimping tiny JST connectors, buy these. You will splice the unconnected ends of these to their corresponding wires on the screen and SSR. You **must** buy both. Choose 30cm length for both to give you enough wire.</Tokens>
-
-      10. [4-pin On/Off Rocker Switch](https://www.amazon.com/Baomain-1-Pack-Household-Appliances-Equipment/dp/B01EJDT2W0) - For added safety, we are going to install a 4-pin rocker switch to control power to your machine. Both the Line and Neutral wires will run through this switch, so it will completely cut power to the machine when switched off. This is a much safer setup than leaving one of the wires connected while the other is switched, which is unfortunately how the stock machine is wired, including the EU version.
-
-      11. <Tokens type="usa" icon>American Version Only</Tokens> [3-Prong Power Cord](https://www.amazon.com/dp/B07BQCMPF2) - The American version does not have a grounded boiler. The DeLonghi engineers have determined this to be safe for the stock machine. We are modifying the machine well beyond stock. As a result, we strongly recommend that you ground your boiler for safety. You will need to purchase a 3-prong power cord in order to do that. EU version owners already have this on their machine.<br />
-
-      12. <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [Pressure Transducer 0-1.6 MPa, 5V Supply, 0.5 \- 4.5V Output](https://www.aliexpress.us/item/3256805324139332.html)
-      13. <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [Silicone gasket 1/4 inch](https://www.aliexpress.us/item/2255799841120591.html)
-      14. <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [ID-2mm OD-4mm Tube](https://www.aliexpress.us/item/2251832544541096.html)
-            <Preview src={image_silicone_tube} alt="" width={150} />
-      15. <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [4mm 5/32 inch OD Pressure T-Fitting PE](https://www.aliexpress.us/item/3256808320030680.html)
-            <Preview src={image_pneumatic_t_fitting} alt="" width={150} />
-      16. <Tokens type="pro" icon>Pro PCB Version Only</Tokens> [4mm OD Pressure Fitting to G1/4 female PLF 04-02](https://www.aliexpress.us/item/3256802393459934.html)
-            <Preview src={image_pneumatic_elbow_fitting} alt="" width={150} />
-
+      1. <CB>Razor / PTFE cutter — Required for clean, straight cuts on water line tubes without crushing them. Or [print your own](https://www.printables.com/model/382498-ptfe-bowden-tube-cutter-34568mm-remix)!</CB>
+      1. <CB>[Crimping tool](https://www.amazon.com/dp/B0DPKYVZYC?titleSource=true) — Crimps **uninsulated** connectors only. If you buy this one, you do **not** need to buy the separate connectors in the shopping list.</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens> [Mini-micro open barrel crimping tool](https://www.amazon.com/IWISS-Crimping-AWG28-20-Terminals-Connectors/dp/B078WNZ9FW) — Only needed if you are crimping your own JST PH connectors. Not needed if you bought the pre-crimped JST wires.</CB>
+      1. <CB>[Heat-shrink butt connectors](https://www.amazon.com/Waterproof-Electrical-Maintenance-Automotive-Decoration/dp/B0BNXRSMB5?refinements=p_72%3A1248921011) — You need at least 6 compatible with AWG 22 and 1 for AWG 18.</CB>
+      1. <CB>[WAGO connectors](https://www.amazon.com/s?k=wago%20connectors) — Much easier than wire nuts or terminal blocks. You need at least one 2-slot, one 3-slot, and one 5-slot connector.</CB>
+      1. <CB>[Tube clips](https://www.amazon.com/dp/B0FKB8BKF5) — To secure water lines. You need at least 4. <Tokens type="info" icon>3D-printable clips are also available, download [here](https://github.com/0xStuart/Espresso/blob/main/PushFit_Clip.stl).</Tokens></CB>
+      1. <CB>Multimeter — Highly recommended for testing connections for continuity.</CB>
+      1. <CB>Wire-cutter & wire-stripper</CB>
+      1. <CB>Phillips screwdriver</CB>
+      1. <CB>Torx screwdriver — Only needed if your bottom panel is attached with Torx screws. Check before buying.</CB>
+      1. <CB>[Spring Clips](https://www.aliexpress.us/item/3256806851724904.html) — Only needed if your steam hose is clamped with single-use clamps. You need at least 2.</CB>
+      1. <CB>Thermal paste — Required for good thermal contact with the thermocouple.</CB>
+      1. <CB>Pliers</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens> Zip-ties or other cable management solutions</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens> Labels</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens> Double-sided tape</CB>
 
 ## Printed Parts
-
-We recommend you print all parts using PETG or ABS for durability and heat resistance. PETG is the preferred material as it is less flammable.
+We recommend printing all parts using PETG or ABS for durability and heat resistance. PETG is preferred. It has a higher heat tolerance than ABS, comes in a wider variety of colors, and is easier to print. There's no reason you can't glam up your machine with a bright color while you're at it!
 
 ### Screen Prints
-
-      - **TorxFighter** designed the front panel print shown at the start of this guide. It can be found [here](https://www.printables.com/model/1471726-delonghi-ecp-front-panel-for-gaggimate). Note that this is **not** a free print, but it completely elevates the look of the machine and imbues an elegance that it lacks otherwise. It replaces the entire front panel to seamlessly integrate the screen. Given that we are going to remove the rotary-knob, this print is an excellent solution. The author of this guide does **not** earn any money from the sale of the print but does use this print.
-      - Alternatively, you can buy the [housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing), or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself and attach it to your machine in a way that works best for you.
+      - DeLonghi ECP:
+            - **TorxFighter** designed the front panel replacement shown at the start of this guide — it's not free, but it completely transforms the look of the machine by replacing the entire front panel and seamlessly integrating the screen. The author of this guide uses this print and recommends it. Find it [here](https://www.printables.com/model/1471726-delonghi-ecp-front-panel-for-gaggimate).
+            - Alternatively, buy the [housing for a 2.1" screen](https://shop.gaggimate.eu/products/2-1-angled-screen-housing) or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself.
+      - DeLonghi Stilosa:
+            - **Stuart** has designed a screen housing for the 2.8" WaveShare screen that mounts on the front panel. Find the model [here](https://github.com/0xStuart/Espresso/tree/main/Stilosa).
 
 ### PCB Prints
+      <Tokens type="danger" icon>Please keep your PCB and SSR secure within a housing when your build is done. Leaving them exposed is an electrocution risk.</Tokens>
+      - **TorxFighter**, creator of the front panel replacement print, has also released a [PCB housing](https://www.printables.com/model/1616865-delonghi-ecp-gaggimate-electronics-box) that mounts on the back of the machine and holds both the PCB and SSR.
+      - **ph** has designed and shared [another version](https://www.printables.com/model/1607556-gaggimate-pro-pcb-ssr-electronics-enclosuree) that also fits both the SSR and PCB, mounted on the back of the machine.
+      - You can also buy a pre-printed [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing) or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) and print it yourself. Note that this housing only holds the PCB. You'll need a separate solution for the SSR.
 
-      <Tokens type="danger" icon>Please keep your PCB and SSR secure within a housing when your build is done. Leaving them exposed may result in exposure to electrocution.</Tokens>
-      - **TorxFighter**, creator of the iconic front panel replacement print, has also released a [beautiful PCB housing design](https://www.printables.com/model/1616865-delonghi-ecp-gaggimate-electronics-box) that mounts on the back of the machine. It holds both the PCB the SSR.
-      - **ph** has also generously designed and [shared his version of a beautiful PCB housing](https://www.printables.com/model/1607556-gaggimate-pro-pcb-ssr-electronics-enclosuree). This also fits both the SSR and PCB and is mounted on the back of the machine.
-      - You can also buy a pre-printed [GaggiMate Pro PCB housing](https://shop.gaggimate.eu/products/gaggimate-pro-pcb-housing) or download the [model](https://github.com/jniebuhr/gaggimate/tree/master/stls) for it and print it yourself. Note that this housing only holds the PCB. You will need to find your own solution for mounting the SSR if you go with this option. There is just enough space inside the machine to mount the SSR with double-sided tape if you go with this housing.
+## Before You Begin
+      <CB>**Safety First** — Unplug the machine and allow it to cool completely before performing any work.</CB>
+      <CB>**Set Up Your Workspace** — Make sure you have all the necessary tools and a clean, well-lit workspace.</CB>
+      <CB>**Remove All Loose Components** — Detach the water tank, drip tray, cup tray, and all other removable parts and set them aside.</CB>
+      <CB>**Document Internal Layout** — Take clear, detailed photos of the machine's interior before disassembly. Configurations can differ between machines, so these will serve as a valuable reference. This [video](https://youtu.be/paImrXJvxlg?si=31uOG_DgweDzkNb_) is also useful for familiarizing yourself with the internals.</CB>
+      <CB>**Read the Instructions** — Read through this entire guide at least once before you begin.</CB>
+      <CB>**Measure Twice, Cut Once** — When you get to the wiring stages, measure carefully before making any cuts or crimps. It's much easier to fix a mistake before you cut than after.</CB>
 
-## Tools & Consumables
-
-      1. Razor / PTFE cutter - The water line tubes require very clean, very precise, straight cuts without any crushing to obtain a proper seal.
-      2. [Crimping tool](https://www.amazon.com/dp/B0DPKYVZYC?titleSource=true) <Tokens type="warn" icon>This will only crimp non-insulated connectors.</Tokens>
-      3. [Mini-micro open barrel crimping tool](https://www.amazon.com/IWISS-Crimping-AWG28-20-Terminals-Connectors/dp/B078WNZ9FW) - Only needed if you are crimping your own JST PH connectors. If you buy the pre-crimped JST wires linked in the shopping list, then you do not need this tool.
-      4. [Heat-shrink butt connectors](https://www.amazon.com/Waterproof-Electrical-Maintenance-Automotive-Decoration/dp/B0BNXRSMB5?refinements=p_72%3A1248921011) or [WAGO connectors](https://www.amazon.com/s?k=wago%20connectors). - Highly recommended. You will need to splice at least two wires. These will make it much easier.
-      5. [Clips](https://www.amazon.com/dp/B0FKB8BKF5) - Highly recommended to secure the water lines.<Tokens type="info" icon>You can also find 3D-printable clips (and other prints) by downloading the PushFit_Clip.stl file [here](https://github.com/0xStuart/Espresso).</Tokens>
-      6. Wire-cutter / stripper
-      7. Screwdriver(s)
-      8. Thermal paste
-      9. Wrench / spanner
-      10. Zip-ties or other cable management solutions
-      11. Labels / tape
-
-## Installation
-
-Please refer to the GaggiMate installation documents for installation on your machine:
-[https://docs.gaggimate.eu/docs/flashing/](https://docs.gaggimate.eu/docs/flashing/)
-
-## Preparation
-
-- **Safety First**
-      Unplug the machine and allow it to cool completely before performing any work.
-
-- **Set Up Your Workspace**
-      Make sure you have all the necessary tools and a clean, well-lit workspace.
-
-- **Remove External Components**
-      Detach the water tank, drip tray, and any other removable parts, then set them aside.
-
-- **Document Internal Layout**
-      Before proceeding with disassembly, take clear, detailed photos of the machine's interior. These will serve as a reference for how the wiring and tubing are connected, as configurations can differ between machines.
-
-      Here is a [useful video](https://youtu.be/paImrXJvxlg?si=31uOG_DgweDzkNb_) for familiarizing yourself with the internals.
-
-- **Replace Steam Wand**
-      It is strongly recommended that you install a [Rancilio Silvia steam wand](https://www.amazon.com/dp/B00K49GMMW) before attempting the GaggiMate modification.
-
-      Doing this will help you familiarize yourself with the internal layout of your machine and increase your confidence when working on it.
-
-      This [video guide](https://www.youtube.com/watch?v=cW8ft7pLJpQ) provides an excellent walkthrough for the steam wand installation.
-
-- **Read Before Starting**
-      Please, read through this entire document **at least once** before you begin.
-
-## Diagram - Wiring
-
+## Diagram - Wiring Schematic
 <Preview src={image_wiring_diagram} alt="" width={600} />
-The diagram above shows the bare minimum wiring connections and components you will need to make to get the DeLonghi machine to work.
+Refer back to this diagram often; it's your roadmap for the entire project. It may look intimidating at first, but take your time and you'll find it's more approachable than it appears.
 
-## Opening the Machine
+## Flashing the Hardware
+Flash both the PCB and screen before installing them. It's much easier to do outside the machine. Follow the instructions at [docs.gaggimate.eu/docs/flashing](https://docs.gaggimate.eu/docs/flashing/).
+<CB>PCB flashed.</CB>
+<CB>Screen flashed.</CB>
 
-- **Remove Grouphead Screws**
-      Using a Phillips screwdriver, remove the two screws located near the grouphead. Keep these screws in a safe place for reassembly.
+## Prepare the Machine
+      <CB>**Remove Grouphead Screws** — Using a Phillips screwdriver, remove the two screws located near the grouphead and set aside for reassembly.</CB>
+            <Preview src={image_underside_screws} alt="" width={300} />
+      <CB>**Remove the Front Knob** — Gently pull the front knob straight off the shaft. Avoid twisting or prying.</CB>
+      <CB>**Remove Front Panel Screws** — Behind the knob, remove the two Phillips screws securing the front panel and set aside for reassembly.</CB>
+            <Preview src={image_behind_knob_screws} alt="" width={300} />
+      <CB>**Remove the Front Panel** — With all four screws removed, carefully lift off the front metal panel. If it's snug, use a slim plastic tool such as a bike tire lever or a taped flathead screwdriver to gently unseat it. <Tokens type="warn" icon>Take care not to scratch the surface.</Tokens></CB>
+      <CB>**Remove Case Screws** — Locate and remove the two deep-set Phillips screws that hold the outer case in place and set aside for reassembly.</CB>
+            <Preview src={image_top_screws} alt="" width={300} />
+      <CB>**Release Rear Clips** — On the back of the machine, press the two plastic clips inward to release the top cover. Use gentle, even pressure. A flathead screwdriver can help, but avoid excessive force.</CB>
+      <Preview src={image_rear_clips} alt="" width={300} />
+      <CB>**Remove the Top Cover** — Lift the top cover off and set it aside.</CB>
+      <CB>**Remove the Bottom Panel** — Flip the machine over and remove the bottom panel by unscrewing the 5 Torx screws. Set the panel and screws aside for reassembly.</CB>
+      <Preview src={image_bottom_panel} alt="" width={300} />
+      <CB><Tokens type="usa" icon>American Version Only</Tokens> **Detach the Plug** — Locate the wiring junction connecting the 2-prong plug's Line and Neutral wires to the machine's internal wiring. Detach all wires, then remove both the plug and the junction. Neither will be reused; they will be replaced with a grounded 3-prong plug.</CB>
+      <CB>**Detach the Pump Hoses** — Unscrew the 3 Phillips screws securing the pump to the chassis and set aside for reassembly. Detach the 2 tubes and be careful not to lose the filter screens inside the tube ends.</CB>
+      <Preview src={image_pump_hoses} alt="" width={300} />
+      <CB>**Detach the Steam Hose** — If clamped with spring-clips, squeeze the clips with a plier and gently pull the hose free from both connection points. If clamped with single-use clamps, carefully break them open with a screwdriver or plier, then pull the hose free.</CB>
+      <CB>**Detach the Frame** — Remove the 5 Phillips screws securing the frame to the chassis and set aside for reassembly.</CB>
+      <Preview src={image_frame_screws} alt="" width={300} />
+      <CB>**Remove the Frame** — Slowly and carefully lift the frame out, disconnecting any remaining wires to the boiler or pump before fully removing it. Set it aside in an accessible spot; you'll be doing most of the rewiring on it.</CB>
+      <CB><Tokens type="optional" icon>Optional</Tokens> **Remove the Pannarello Steam Wand** — If you plan to install a Rancilio-style wand (recommended), now is the time. This [video guide](https://www.youtube.com/watch?v=cW8ft7pLJpQ) is an excellent walkthrough. The basic process is as follows.</CB>
+            1. <CB>Note the orientation of the plastic ring clip, lift it off, then remove the Pannarello wand cover.</CB>
+            1. <CB>Push the Pannarello wand up from the bottom and through the machine.</CB>
+            1. <CB>Remove the metal "C" clip and pull the plastic ball joint off the wand.</CB>
+            1. <CB>Slide the silicone grip off your Rancilio wand if pre-installed, then slide the ball joint onto the top. Use a little water or lubricant if needed.</CB>
+            1. <CB>Slide the silicone grip down to the bend and then feed the Rancilio wand through the machine from the top until the ball joint seats in its original position. </CB>
+            1. <CB>Secure the ball joint with the plastic ring clip.</CB>
 
-<Preview src={image_underside_screws} alt="" width={300} />
+      <CB>**Remove Existing Wires** — Gently but firmly pull off all wires from the boiler, pump, and any other components on the frame. The only exception is the red boiler wire with the fuse attached. You can leave the end connected to the boiler attached. If any connectors are stubborn, gently wiggle it back and forth while pulling.</CB>
+      <CB>**Save the Red Boiler Wire with the Fuse Attached** - This is the only wire you will keep.</CB>
+      <CB>**Remove the Old Thermostats** — Unscrew the nut between the two thermostats and save it for later. Remove the bracket and both thermostats from the boiler. They will not be needed after the GaggiMate installation.</CB>
+      <Preview src={image_thermostats} alt="" width={300} />
+      <CB>**Clean the Boiler Surface and Frame** — Wipe away any old thermal paste from the boiler surface with a damp paper towel. Make sure the area is clean and smooth. Take this opportunity to clean the frame as well if needed.</CB>
 
-- **Remove the Front Knob**
-      Gently pull the front knob straight off the shaft. Avoid twisting or prying to prevent damage.
+## Create a Wire Port
+You will need to drill a hole in the back panel to route wires from inside the machine to the PCB. Choose a location that is easily accessible when fully assembled and does not interfere with any other components. Drill the hole large enough to fit at least an **13 mm** (inner-dimension) grommet. This keeps the opening tidy and protects the wires from sharp edges.
 
-- **Remove Front Panel Screws**
-      Behind the knob, remove the two Phillips screws securing the front panel. Keep these screws in a safe place for reassembly.
+<Preview src={image_wiring_hole} alt="" width={300} />
+<CB>Hole drilled and grommet (optional) installed.</CB>
 
-<Preview src={image_behind_knob_screws} alt="" width={300} />
+## Wire the Pump
+The pump is not polarized. It does not matter which wire connects to which terminal.
 
-- **Remove the Front Metal Panel**
-      - With all four screws removed, carefully lift off the front metal panel.
-      - If the panel is snug, use a slim plastic tool, such as a bike tire lever or a flathead screwdriver wrapped in tape, to gently unseat it.
-      <Tokens type="warn" icon>Take care not to scratch the surface.</Tokens>
-
-- **Remove Case Screws**
-      Locate and remove the two deep-set Phillips screws that hold the outer case in place. Keep these screws in a safe place for reassembly.
-
-<Preview src={image_top_screws} alt="" width={300} />
-
-- **Release Rear Clips**
-      - On the back of the machine, press the two plastic clips inward to release the top cover.
-      - Use gentle, even pressure. A flathead screwdriver can help, but avoid excessive force to prevent breaking the clips.
-
-<Preview src={image_rear_clips} alt="" width={300} />
-
-- **Remove the Top Cover**
-      Once the clips are released, lift the top cover off and set it aside. You now have full access to the internal components of the machine.
-
-## Drill a Hole
-
-Unfortunately, to route the wires from inside the machine to the PCB, you will need to drill a hole in the back panel.
-
-- Drill a hole large enough to fit a **½ inch** grommet. This keeps the opening tidy and protects the wires from sharp edges.
-<Tokens type="warn" icon>Before drilling, double-check what is behind the panel to make sure you do not hit any internal components or wiring.</Tokens>
-
-            <Preview src={image_wiring_hole} alt="" width={300} />
-
-## <Tokens type="pro" icon>Pro PCB Version Only</Tokens><span class="inline">Connect the Pressure Transducer</span>
-
-- **Cut the water line that runs from the pump to the grouphead.**
-      Ensure that each cut is straight, not angled. Use a razor-sharp blade to avoid crushing the hose, as this can cause improper fit.
-
+      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Pump Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to **reach the plug** from the pump. Before crimping, slide an insulation sleeve onto the wire. Strip at least **5 mm** from one end, then crimp a **6.3mm female spade connector** onto it. Attach it to either terminal on the pump. Slide the insulation over the connection.</CB>
+      <CB>**Route the <Tokens color="blue">Blue</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> pump wire to the bottom of the machine, behind the pump, through the large hole at the bottom of the pump. It will be connected to the ground wire on the 3-prong plug using a 3-slot WAGO connector.</CB>
+      <CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire** — Cut a <Tokens color="green">green</Tokens>18 AWG wire long enough to reach from the pump, up and out through the wire port, to the Pump port on the PCB *(this will be mounted outside the machine on the rear panel)*. Before crimping, slide an insulation sleeve onto the wire. Strip at least **5 mm** from one end, and crimp a **6.3mm female spade connector** onto that end and attach it to the free terminal on the pump.</CB>
+      <CB>**Cut the Water Line** — Cut the water line running from the pump to the grouphead. The cut should be made closer to the pump, and it must be straight and clean. Use a razor-sharp blade to avoid crushing the hose. Scissors will crush the hose and are not a good choice.</CB>
             <Preview src={image_cut_hose} alt="" width={300} />
-
-- **Install the T-Fitting**
-      - Take your **4mm (5/32”) OD Pressure T-Fitting (PE)** and push each cut end of the water line into the T-fitting.
-      - Press gently but firmly until both ends are seated snugly.
-      - Give each side a light tug to confirm they are secure.
-
-- **Prepare the Short Hose Section**
-      - Cut a **3 inch** length of your **2mm ID / 4mm OD** tube.
-      - Again, make sure your cuts are clean and straight. No crushing or angled cuts.
-
-- **Connect the Short Hose**
-      - Attach one end of the short hose to the **Elbow Fitting (4mm OD Pressure Fitting to G1/4" Female, PLF 04-02)** using the same push-fit method.
-      - Carefully fill this tube with water. Using a syringe is ideal. Otherwise, submerge the open end of the tube into a water-filled bowl until the tube is full. The goal is to ensure there is no air in the tube and to provide a buffer that decouples the pressure sensor from vibrations and protects it from overheating.
-      - Attach the other end of the now water-filled short hose to the open branch of the T-Fitting
-      - Ensure both connections are snug.
-
-- **Install the Gasket and Transducer**
-      - Drop a **¼ inch** silicone gasket into the threaded opening of the Elbow Fitting to ensure a leak-proof seal.
-      - Screw your **Pressure Transducer (0–1.6 MPa, 5V Supply, 0.5–4.5V Output)** onto the threaded end of the elbow fitting.
-<Tokens type="warn" icon>Do not overtighten! Hand-tighten until snug.</Tokens>
-
-- **Position the Transducer**
-      - Tuck the connected Pressure Transducer into the open space to the left of the pump or wherever it fits snugly.
-
+      <CB>**Reinsert the Frame** — Now that the pump is wired and the steam wand replaced, reseat the frame. Take care not to snag any wires or pinch any tubing. Make they are out of the way before lowering the frame into place. Once the frame is securely in position, reinsert and tighten the 5 Phillips screws you previously removed.</CB>
+      <CB>**Route the <Tokens color="green">Green</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="green">green</Tokens> pump wire out of the machine through the wire port you created on the back. It will be connected to the PCB later. Feel free to secure it with tape for now.</CB>
+      <CB>**Install the T-Fitting** — Push each cut end of the water line into the **Pressure T-Fitting**. Press firmly until both ends are seated snugly, then give each side a light tug to confirm.</CB>
+      <CB>**Prepare the Short Hose Section** — Cut at least a **3 inch** length of **2mm x 4mm PTFE tube**. Cuts must be clean and straight.</CB>
+      <CB>**Connect the Short Hose** — Attach one end to the **90° Pressure Fitting** using the same push-fit method. Fill the tube completely with water using a syringe or by submerging the open end in a bowl of water. No air should remain inside. Attach the other end to the open branch of the T-Fitting and confirm both connections are snug.</CB>
+      <CB>**Install the Gasket and Transducer** — Drop the **¼ inch** silicone gasket into the threaded opening of the Elbow Fitting. Screw the **Pressure Transducer** onto the threaded end. <Tokens type="warn" icon>Hand-tighten only. Do **not** overtighten.</Tokens></CB>
+      <CB>**Position the Transducer** — Tuck the transducer into the open space to the left of the pump or wherever it fits snugly.</CB>
             <Preview src={image_pressure_position} alt="" width={300} />
-
-- **Route the Wire**
-      - Feed the thick black wire from the transducer through the hole you drilled earlier in the back of the machine.
-      - Leave it for now. These wires will connect to the PCB later.
-
+      <CB>**Route the Wire** — Feed the thick black wire from the transducer out of the machine through the wire port you created on the back. It will be connected to the PCB later. Feel free to secure it with tape for now.</CB>
             <Preview src={image_pressure_installation} alt="" width={300} />
-            <Tokens type="credit" icon>A correct installation of the Pressure Transducer and the fittings looks like the image above.</Tokens>
+            <Tokens type="credit">A correct installation of the Pressure Transducer and fittings will look similar to the image above.</Tokens>
+
+## Wire the Boiler
+The boiler is not polarized. Note how the **fuse** is secured to the boiler via the metal clip. When you reconnect the fuse-wire, secure it the same way to ensure it stays in place and maintains good contact with the boiler surface.
+
+      <Preview src={image_boiler_heater_connections} alt="" width={300} />
+      <Tokens type="credit">The fuse is indicated by the arrow pointing down from label 1.</Tokens>
+      <CB>**Connect the <Tokens color="red">Red</Tokens> Boiler Wire** — Take the <Tokens color="red">red</Tokens>wire with the fuse you saved earlier. If it's not long enough to reach your SSR *(this will be mounted outside the machine on the rear panel)*, splice an additional length of red wire using a heat-shrink butt connector. Attach the end with the existing plastic cap to either terminal on the boiler and secure the fuse under the metal clip.</CB>
+      <CB>**Route the <Tokens color="red">Red</Tokens> Boiler Wire** — Feed the unconnected end of the <Tokens color="red">red</Tokens> boiler wire out of the machine through the wire port you created on the back. It will be connected to the SSR later. Feel free to secure it with tape for now.</CB>
+      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to **reach the plug** from the boiler. Slide an insulation sleeve onto the wire, strip ¼ inch from one end, and crimp a **4.8mm female spade connector** onto it. Attach to the remaining terminal on the boiler. Slide the insulation over the connection.</CB>
+      <CB>**Route the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> boiler wire behind the pump, through the large hole at the bottom of the pump. It will be connected to the plug later. Feel free to secure it with tape for now.</CB>
+
+## Wire the Screen
+
+This section explains how to prepare a **WaveShare screen** for connection to the PCB. If you purchased a **LilyGo screen**, the process will be similar, but wiring may differ. Refer to the documentation that came with your screen for specifics.
+
+<CB>**Prepare the 2-Pin Female PH 2.0 Connector**</CB>
+      The wire ends come pre-stripped, but you'll need more exposed wire for a strong splice. Strip at least **10 mm** from the end of each wire.
+      <Preview src={image_2pin_JST} alt="" width={200} />
+
+<CB>**Prepare the 4-Pin Female SH 1.0 Connector**</CB>
+      <Preview src={image_4pin_SH10} alt="" width={300} />
+      <Tokens type="credit">The WaveShare includes 2 of these. You only need 1, but keep the other as a backup.</Tokens>
+
+      1. Using a narrow-tip tweezer, lift the retention tabs *(depicted above)* on the <Tokens color="yellow">yellow</Tokens> wire and pull it out. Repeat for the <Tokens color="orange">orange</Tokens> wire.
+      1. Cut the black rectangular connectors off the <Tokens color="red">red</Tokens>and <Tokens color="black">black</Tokens> wires.
+      1. Strip at least **10 mm** from each wire's exposed end.
+
+<CB>**Prepare the 22 AWG Wires**</CB>
+      1. Cut one <Tokens color="red">red</Tokens>22 AWG and one <Tokens color="black">black</Tokens>22 AWG wire long enough to **reach the 2-pin screen male JST port** from the front panel, through the wire port. Both wires should be identical in length.
+      1. Strip at least **10 mm** from both ends of each wire.
+
+<CB>**Prepare the Screen Connection** <Tokens type="info" icon>Other splicing methods can be used, but this method is recommended for simplicity and reliability.</Tokens></CB>
+      1. Slide a **heat-shrink butt connector** onto the <Tokens color="red">red</Tokens> 22 AWG wire.
+      1. Bring its stripped end to the stripped end of the <Tokens color="red">red</Tokens>SH 1.0 connector wire and twist them firmly together.
+            - This [short video](https://www.youtube.com/shorts/Gw2Sh4ZR_IQ) is a helpful tutorial.
+      1. Slide the butt connector over the twisted wires.
+      <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens>
+      1. Using a heat gun or lighter, shrink both **insulated ends** of the connector.
+      1. Heat the **middle solder section** until it melts and the insulation shrinks tight.
+      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="black">black</Tokens> SH 1.0 connector wire.
+
+<CB>**Prepare the PCB Connection**</CB>
+      1. Slide a **heat-shrink butt connector** onto other end of the <Tokens color="red">red</Tokens> 22 AWG wire.
+      1. Bring its stripped end to the stripped end of the <Tokens color="red">red</Tokens> PH 2.0 connector wire and twist them firmly together.
+      1. Slide the butt connector over the twisted wires.
+      <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens>
+      1. Using a heat gun or lighter, shrink both **insulated ends** of the connector.
+      1. Heat the **middle solder section** until it melts and the insulation shrinks tight.
+      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="black">black</Tokens> PH 2.0 connector wire.
+
+<CB>**Route the PCB Connection** — Feed the JST PH 2.0 connector end of the screen wires out of the machine through the wire port you created on the back. They will be connected to the PCB later.</CB>
 
 ## Attach the Thermocouple
+      <CB>**Apply Thermal Paste** — Squeeze a small amount of thermal paste around the base of the threaded stud exposed after removing the thermostat bracket.</CB>
+      <CB>**Install the Thermocouple** — Place the hole connector of your **thermocouple** over the threaded stud and slide it down until it rests flat against the boiler and is seated in the thermal paste.</CB>
+      <CB>**Secure the Thermocouple** — Screw the saved nut back on to hold the thermocouple in place. <Tokens type="warn" icon>The thermocouple's sensor tip is fragile. Do not bend it acutely or twist it at any point during installation.</Tokens></CB>
+      <CB>**Route the Thermocouple Wire** — Feed the wire end of the thermocouple out of the machine through the wire port you created on the back. They will connect to the PCB later.</CB>
+      <Preview src={image_thermocouple_installation} alt="" width={300} />
+      <Tokens type="credit">A successful thermocouple installation will look like this (rear-view of the boiler).</Tokens>
 
-- **Remove the Old Thermostats**
-      - You will now remove the two thermostats attached to the boiler (see image below).
-      - These will no longer be needed after the GaggiMate installation.
+## Wire the Solid State Relay (SSR)
+      <CB>**Remove the SSR Screws** — Unscrew all four Phillips screws from the SSR and save them along with the small metal screw plates. You will reuse them shortly.</CB>
+      <CB>**Cut an SSR Output-to-Plug Wire** — Cut one <Tokens color="red">red</Tokens>18 AWG wire that can comfortably **reach the plug** from the SSR. Measure carefully before cutting.</CB>
+      <CB>**Attach the SSR Output-to-Plug Wire** — Strip at least **5 mm** from one end of this wire. On this end, crimp a **ring connector**. Attach the wire to any **OUTPUT** terminal on the SSR. Place the wire's ring connector under a screw plate and reinstall the Phillips screw.</CB>
+      <CB>**Prepare the 3-Pin Female PH 2.0 Connector**</CB>
+            <Preview src={image_3pin_JST} alt="" width={200} />
+            1. Using a narrow-tip tweezer, gently lift the retention tabs *(depicted above)* on the 3-pin JST connector and remove all three wires.
+            2. Insert the <Tokens color="red">red</Tokens>wire into the middle slot and the <Tokens color="black">black</Tokens> into the right slot.
+            3. Gently tug both to confirm they are securely seated. <Tokens type="warn" icon>Correct placement in the connector is critical for proper SSR control and PCB operation.</Tokens>
+            <Preview src={image_3_pin_setup} alt="" width={200} />
+      <CB>**Prepare the Control Wire Ends on the SSR Side** — Crimp a **ring connector** onto the 3-Pin Female PH 2.0 Connector's <Tokens color="red">red</Tokens>wire and <Tokens color="black">black</Tokens> wire.</CB>
+      <CB>**Attach the Control Wires to the SSR** — Attach both wires to the **CONTROL 3-32 VDC** terminals. This side *is* polarized. Connect exactly as shown, with the <Tokens color="black">black</Tokens> wire's ring connector attached to the **-** side of the SSR Control terminal, and the <Tokens color="red">red</Tokens>wire's ring connector attached to the **+** side.</CB>
+      <Preview src={image_ssr_wiring_of_control} alt="" width={300} />
 
-<Preview src={image_thermostats} alt="" width={300} />
-
-- **Disconnect the Wires**
-      - Gently but firmly pull off the four wires attached to the two thermostats.
-      - Take your time and avoid yanking the connectors to prevent damage.
-
-- **Remove the Mounting Nut and Washers**
-      - Unscrew the nut that holds the thermostat bracket in place. The nut is located between the two thermostats.
-      - Save this nut for later.
-      - Remove the flat washer and the thin black washer as well. At a minimum, keep the flat washer.
-
-- **Remove the Thermostats and Bracket**
-      - Once the nut and washers are off, lift the bracket and the two thermostats away from the boiler.
-
-- **Clean the Boiler Surface**
-      - Use a damp paper towel to wipe away any old thermal paste from the boiler surface where the thermostats were attached.
-      - Make sure the area is clean and smooth before continuing.
-
-- **Apply New Thermal Paste**
-      - Take your new thermal paste and squeeze a small amount around the base of the threaded stud that is now exposed after removing the bracket.
-      - This will help ensure good thermal contact for the thermocouple.
-
-- **Install the New Thermocouple**
-      - Take your **K-Type M4 0.5m thermocouple** and place the hole connector over the threaded stud where the thermostat bracket was.
-      - Slide it down until it rests flat against the boiler and is seated in the thermal paste.
-
-- **Secure the Thermocouple**
-      - Slide the flat washer back onto the stud, and, if desired, add the thin black washer as well (this is optional).
-      - Screw the saved nut back onto the stud to hold the thermocouple in place.
-<Tokens type="warn" icon>Do not overtighten!</Tokens>
-
-- **Route the Thermocouple Wire**
-      - Feed the double-connector end of the thermocouple through the hole you drilled earlier in the back of the machine.
-      - Leave it there for now. These leads will be connected to the PCB later.
-
-      A successful thermocouple installation will look like this (rear-view of the boiler):
-
-<Preview src={image_thermocouple_installation} alt="" width={300} />
-
-## Wiring the Solid State Relay (SSR)
-
-- **Remove the SSR Screws**
-      - Start by unscrewing all four Phillips screws from the SSR.
-      - Save these screws and the small metal screw plates that come off with them. You will reuse them shortly.
-
-- **Cut the Wires**
-      - Cut four wires as follows:
-            1. Two **18 AWG** wires, about **4 inches** or longer. These will be your *heater wires*.
-            2. Two **22 (or 24) AWG** wires, about **16 inches** or longer. These will be your *control* wires and will later connect to the PCB. You can trim them shorter later if needed.
-
-- **Prepare the Heater Wires**
-      - Strip about **¼ inch** of insulation from both ends of each heater wire.
-      - Slide the insulation cover for the fork (or ring) connector onto the wires before crimping.
-      - On one end of each heater wire, crimp a **fork connector** (or a **ring connector** that fits snugly under the SSR screw).
-      - On the other end of each heater wire, slide on the insulation cover for a **4.8 mm male spade connector**, then crimp the connector onto the stripped wire end.
-      - Make sure all crimps are tight and secure.
-
-- **Attach the Heater Wires to the SSR**
-      - Attach both heater wires to the **OUTPUT** terminals on the SSR.
-      - For each heater wire, place the fork (or ring) connector under one of the SSR’s screw plates.
-      - Reinstall the Phillips screws to hold them in place.
-
-<Preview src={image_ssr_wiring_of_output} alt="" width={300} />
-
-- **Prepare the SSR-side of the Control Wires**
-      - Strip about **¼ inch** of insulation from one end of each control wire.
-      - Slide the insulation cover for the fork (or ring) connector onto the wires before crimping.
-      - Crimp a **fork (or ring) connector** onto the stripped ends.
-
-- **Prepare the PCB-side of the Control Wires**
-      - From your JST PH 2.0 connectors kit, obtain two metal pins.
-      - Crimp one metal pin onto each of the uncrimped ends of the two wires.
-      - Take a female **3-pin** connector from the JST PH 2.0 kit.
-      - Insert the wire connected to the SSR “–” terminal into **slot 3** of the **3-pin** connector (see image below). This is the SSR ground wire (note the tab orientation).
-      - Insert the wire connected to the SSR “+” terminal wire into **slot 2** of the **3-pin** connector (see image below). This is the SSR communication wire (note the tab orientation).
-
-<Preview src={image_3_pin_setup} alt="" width={300} />
-
-    * Gently tug on both wires to ensure they are securely seated in the connector.
-      <Tokens type="warn" icon>Correct placement in the connector is critical for proper SSR control and PCB operation.</Tokens>
-
-- **Attach the SSR-side Control Wires to the SSR**
-      - Attach both control wires to the **“CONTROL 3–32 VDC”** terminals on the SSR.
-       <Tokens type="warn" icon>Label the wire connected to the “–” terminal as “GROUND.” This label will be helpful when you connect the wires to the PCB.</Tokens>
-      - Place each fork (or ring) connector under one of the remaining screw plates on the SSR.
-      - Reinstall the Phillips screws to secure the connectors.
-
-<Preview src={image_ssr_wiring_of_control} alt="" width={300} />
-
-- **Route the Control Wires**
-      - Feed the uncrimped ends of the control wires through the hole you drilled in the back of the machine.
-      - Set them aside for now. You will connect these to the PCB later.
-
-- **Position the SSR**
-      - Tuck the SSR with all four attached wires into an open space inside the machine.
-      - You can use **double-sided adhesive tape** to secure it to an inner wall near the pump to prevent it from moving.
-
-## Attaching SSR Heater Wires to the Heater Elements
-
-Please take note of how the fuse is secured to the boiler (via the metal clip). When you connect the SSR OUTPUT wires, you'll want to secure the fuse in the same way to ensure it stays in place and maintains good contact.
-
-<Preview src={image_boiler_heater_connections} alt="" width={300} />
-<Tokens type="credit" icon>The fuse is indicated by the arrow point down from label 1</Tokens>
-
-
-- **Connect the Left Heater Wire**
-      - From the **OUTPUT** side of the SSR, take one of the heater wires and plug its male spade connector into the female spade connector on the heater element.
-      - Ensure that the connection is firm and fully seated.
-
-<Preview src={image_boiler_red_wire} alt="" width={300} />
-
-- **Connect the Right Heater Wire**
-      - From the **OUTPUT** side of the SSR, take the other heater wire and plug its male spade connector into the unoccupied female spade connector on the heater element.
-      - Again, check that the connection is snug and secure.
-
-<Preview src={image_boiler_long_grey_wire} alt="" width={300} />
-
-## Wiring the Screen
-
-This section explains how to prepare a **WaveShare screen** for connection to the PCB. If you purchased a **LilyGo screen**, installation will be similar, but the wiring may differ. Please refer to the documentation that came with your screen for specific wiring instructions. The general process of preparing the wires and connecting to the PCB will be the same.
-
-- **Prepare the Screen-side Wires**
-      - FIXME
-
-            <Preview src={image_4_pin_preparation} alt="" width={300} />
-
-- **Prepare the 22 AWG Wires**
-      - Cut **two 22 AWG** wires, about **20 inches** long. You can trim them shorter later if needed.
-      - Strip about **½ inch** from one end of each wire.
-
-- **Splice the Screen-side and PCB-side Wires Together**
-      - Attach the stripped ends of the 22 AWG wires to the **stripped ends of the black** and **red** wires on the 4-pin connector.
-      - Slide a **heat-shrink butt connector** onto each wire.
-      - Twist the wires together to ensure a firm connection.
-      - Slide the **heat-shrink butt connector** over the twisted wires.
-      <Tokens type="warn" icon>Ensure the solder section of the butt connector is positioned directly over the twisted wires.</Tokens>
-
-- **Secure the Connection between the Spliced Wires**
-      - Use a **heat source** (e.g., a heat gun or lighter) to shrink the left and right insulated ends of the butt connector.
-      - Then heat the **middle** solder section to melt it and shrink the remaining insulation. This creates a tight, secure splice.
-      <Tokens type="info" icon>Other splicing methods can be used, but this method is recommended for simplicity and reliability.</Tokens>
-
-- **Prepare the PCB-side Wires**
-      - From your **JST PH 2.0 connectors kit**, obtain **two metal pins**.
-      - Crimp **one metal pin** onto each of the **uncrimped ends** of the two wires.
-      - Take a **female 2-pin connector** from the JST PH 2.0 kit.
-
-            <Preview src={image_2_pin_setup} alt="" width={300} />
-
-      - Insert the connector crimped on the **black** wire into **slot 1** (note the tab orientation).
-      - Insert the connector crimped on the **red** wire into **slot 2** (note the tab orientation).
-      - Gently tug on both wires to ensure they are **securely seated** in the connector.
-
-## Diagram - PCB Wiring Pinout
-
+## Diagram — PCB Wiring Pinout
 Refer to the wiring pinout diagram below as we begin connecting the remaining wires to the PCB. Following the pinout carefully is crucial to ensure proper functionality and avoid damage to components.
 
             <Preview src={image_pcb_diagram} alt="" width={800} />
 
-## Wiring the PCB
+## Connect the Components
+<Tokens type="danger" icon>Keep your PCB and SSR secured inside a housing when your build is complete. Leaving them exposed is an electrocution hazard.</Tokens>
 
-<Preview src={image_pcb_wiring} alt="" width={300} />
+<CB>**Connect the Screen to the PCB**</CB>
+      1. Insert the **2-pin PH 2.0 connector** from the screen wiring into the correct slot on the PCB. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
+      1. Insert the **4-pin SH 1.0 connector** into the **4-pin slot on your WaveShare screen**. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
+            <Preview src={image_screen_connection} alt="" width={400} />
 
-      <Tokens type="danger" icon>Please keep your PCB and SSR secure within a housing when your build is done. Leaving them exposed may result in exposure to electrocution.</Tokens>
-- **Screen Connection**
+<CB>**Connect the Solid State Relay (SSR)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
+      Insert the **3-pin JST connector** connected to the SSR into the correct slot on the PCB. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**. Ensure that the wire positions exactly match the PCB Pinout diagram.
 
-      - Insert the **2-pin JST connector** from the screen wiring into the **PCB**.
-        - Ensure the tab is oriented correctly. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
-      - Next, connect the **4-pin JST connector** on the other end of these wires to the **4-pin slot on your LILYGO screen**. It should look like the image below. Please note the orientation of the wires.
-      <Tokens type="warn" icon>If your LILYGO screen came with a non-grove connector, you may have to trim the edges of the connector in order to plug it in smoothly.</Tokens>
+<CB>**Connect the Pressure Transducer (PT)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
+      1. Insert the <Tokens color="red">red</Tokens>pressure transducer wire into the **+5V** slot.
+      1. Insert the <Tokens color="green">green</Tokens>pressure transducer wire into the **Analog In** slot.
+      1. Insert the <Tokens color="black">black</Tokens>pressure transducer wire into the **Ground** slot. <Tokens type="info" icon>If you have an older board with 3-slots for the PT, the black wire goes into the empty slot.</Tokens>
 
-<Preview src={image_wire_spliced} alt="" width={300} />
+<CB>**Connect the Thermocouple (TC)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
+      1. If your thermocouple has fork connectors, gently pull them off and strip at least **20 mm** of insulation. Fold the exposed wire back on itself before gently twisting them. This makes them thick enough for the two ports to hold securely.
+      2. Insert the <Tokens color="red">red</Tokens>thermocouple wire into the **T+ slot**.
+      3. Insert the <Tokens color="blue">blue</Tokens>thermocouple wire into the **T- slot**.
 
-- **SSR Connection**
-      - Insert the **3-pin** JST connector from the SSR wiring into the PCB.
+<CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire**</CB>
+      1. Strip at least **10 mm** of insulation from the uncrimped end of the green pump wire.
+      2. Twist the exposed wire gently to prevent fraying, then insert it into the **Pump slot** on the PCB.
 
-- **Pressure Transducer Connection**
-      - Insert the **three exposed wire ends** of the pressure transducer into their **color-coded slots** on the PCB (refer to the image in the [*Diagram – PCB Wiring Pinout*](#diagram---pcb-wiring-pinout) section).
+<CB>**Connect the <Tokens color="blue">Blue</Tokens> Neutral Wire**</CB>
+      - Strip at least **10 mm** of insulation from the uncrimped end of the blue neutral wire.
+      - Twist the exposed wire gently to prevent fraying, then insert it into the **Neutral slot**.
 
-- **Thermocouple Connection**
-      - If your thermocouple has **ferrule connectors**, first try inserting them into their respective PCB slots. If they do not fit securely, carefully pull off the insulating cap that is shortening the ferrules. This will expose more metal and allow for a better connection.
-      - If your thermocouple has **fork connectors**, cut them off and strip **½ inch** of insulation to expose the wires. Twist the exposed wire gently to prevent fraying.
-    <Tokens type="warn" icon>If the exposed wire is too thin to properly connect to the PCB port, strip an additional ½ inch (total of 1 inch) of insulation. Fold the exposed wire over on itself to make it thicker and then gently twist. This should allow the port's clamp to hold onto it.</Tokens>
-      - Insert the **red wire** into the **T+ slot** on the PCB.
-      - Insert the **blue wire** into the **T- slot** on the PCB.
+<CB>**Line Wire Connection**</CB>
+      - Strip at least **10 mm** of insulation from the live wire.
+      - Twist the exposed wire to prevent fraying, then insert it into the **Line slot**.
 
-- **Pump Wire Connection**
-      - Strip about **½ inch** of insulation from the uncrimped end of the wire tapped into the **pump**.
-      - Twist the exposed wire gently to prevent fraying, then insert it into the **Pump slot** on the PCB.
-
-- **Neutral Wire Connection**
-      - Strip about **½ inch** of insulation from the wire tapped into **neutral**.
-      - Twist the exposed wire gently to prevent fraying, then insert it into the **Neutral slot** on the PCB.
-
-- **Line Wire Connection**
-      - Strip about **½ inch** of insulation from the wire tapped into **live**.
-      - Twist the wire to prevent fraying, then insert it into the **Line slot** on the PCB.
-
-## <Tokens type="usa" icon>American Version Only</Tokens><span class="inline">Wiring the Grounded Power Cord</span>
+## <Tokens type="usa" icon heading>American Version Only</Tokens>Wiring the Grounded Power Cord
 
 <Tokens type="danger" icon>Proper grounding is crucial for safety. If you are unsure about any part of this process, please join us in Discord.</Tokens>
 
-I apologize in advance for the lack of images for this section. In a future version of the guide, I will try to add some more. Interestingly, even though the American version is not grounded by default, the grounding-point is there for us to use. The GaggiMate team strongly encourages you to ground your boiler. While the DeLonghi America engineers chose not to ground the boiler, they also did not expect you to dramatically modify their machine. Given that we are, you should really ground your boiler.
-
-- **Remove the 2-Prong Power Cord**
-      - Remove 5 screws from the bottom panel of the machine to access the power cord.
-      <Tokens type="info" icon>You will need a torx screwdriver to remove these screws.</Tokens>
-      - With the panel removed, make note of how the 2-prong power cord is connected to the machine. <Tokens type="warn" icon>You will be replacing this with a grounded 3-prong power cord, so understanding the current wiring is important.</Tokens>
-      - Unscrew the clip holding the power cord wiring together, then disconnect all wires. You will be connecting these wires to your new grounded power cord.
-      - Remove the old power cord from the machine.
+Interestingly, even though the American version is not grounded by default, the grounding-point is there for us to use. The GaggiMate team strongly encourages you to ground your boiler. While the DeLonghi America engineers chose not to ground the boiler, they also did not expect you to dramatically modify their machine. Given that we are, you should ground your boiler.
 
 - **Connect the 3-Prong Power Cord**
       - Take your new grounded 3-prong power cord and identify the three wires: **live (line)**, and **neutral**. The color coding may vary, but typically:
@@ -499,7 +355,7 @@ I apologize in advance for the lack of images for this section. In a future vers
 - **Connect a Ground Wire to the Power Cord's Ground**
       - Cut a 24 AWG wire. <Tokens type="warn" icon>The length of this wire must be able to reach from the power cord to the grounding point on the boiler, seen below.</Tokens>
       <Preview src={image_boiler_grounding_point} alt="" width={300} />
-      - Strip about **½ inch** of insulation from one end of the ground wire.
+      - Strip at least **10 mm** of insulation from one end of the ground wire.
       - Slide a **heat-shrink butt connector** onto one of the wires.
       - Bring the stripped end of the ground wire to the already stripped ground attached to the power cord.
       - Twist the wires together to ensure a firm connection.
@@ -512,8 +368,8 @@ I apologize in advance for the lack of images for this section. In a future vers
       <Tokens type="info" icon>Other splicing methods can be used, but this method is recommended for simplicity and reliability.</Tokens>
 
 - **Prepare the Boiler Side of the Ground Wire**
-      - Strip about **¼ inch** of insulation from the other end of the ground wire.
-      - Slide the insulation cover for the connector onto the wire before crimping.
+      - Strip about at least **5 mm** of insulation from the other end of the ground wire.
+      - Slide the insulation sleeve for the connector onto the wire before crimping.
       - Crimp an M4 or M5 **fork (or ring) connector** onto the stripped end.
       - Attach the connector to the grounding point on the boiler using an M4 screw. Ensure it is securely fastened. It'll be a snug fit, so you have to use some elbow grease, but it should go in without too much trouble.
 
@@ -562,4 +418,5 @@ Welcome to the world of **turbocharged espresso**! Now you can extract café-qua
 - **TorxFighter** on the GaggiMate Discord for doing a lot of tinkering and sharing awesome 3D-prints specific to our beloved little DeLonghis.
 - **Abunchofhicks** for wiring assistance and general knowledge and helpfulness.
 - **Stuart** for technical support and clever mounting ideas (e.g. a DIN rail).
+- **odor4fun** for sharing his knowledge about the mushroom valve and how to optimize pressure values for better extraction.
 - The **GaggiMate team** for their incredible work and contributions.

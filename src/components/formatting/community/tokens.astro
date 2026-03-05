@@ -6,7 +6,6 @@
  * <Tokens type="pro" icon>Advanced Mode</Tokens> // Uses orange semantic mapping + icon
  * <Tokens color="blue" style="text">Custom Blue Text</Tokens> // Overrides with colorMap
  */
-
 interface Props {
   type?: TokenType;
   color?: keyof typeof colorMap;
@@ -14,19 +13,38 @@ interface Props {
   icon?: boolean | string; // Pass 'true' for default mapping, or a string for a custom icon
   maxWidth?: string; // Optional Tailwind width class (e.g., 'max-w-[200px]')
   block?: boolean; // Forces block layout instead of inline-block
+  heading?: boolean; // Inline alignment for use inside markdown headings
 }
 
 // 1. RAW COLOR DEFINITIONS
 // Every color has a "badge" class (BG + Border) and a "text" class (Text Color).
+// const colorMap = {
+//   red: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
+//   blue: { badge: "border-blue-700 bg-blue-100", text: "text-blue-900" },
+//   green: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
+//   orange: { badge: "border-orange-700 bg-orange-100", text: "text-orange-900" },
+//   purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
+//   grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+//   yellow: { badge: "border-yellow-700 bg-yellow-100", text: "text-yellow-900" },
+//   white: { badge: "border-white-700 bg-white-100", text: "text-white-900" },
+//   black: { badge: "border-black bg-black", text: "text-white" },
+//   danger: { badge: "border-black bg-red-800", text: "text-white" },
+//   hazard: {
+//     badge:
+//       "p-[4px] bg-[repeating-linear-gradient(-45deg,#000,#000_10px,#facc15_10px,#facc15_20px)] overflow-hidden",
+//     text: "text-yellow-400 font-black uppercase tracking-wider",
+//   },
+// };
 const colorMap = {
-  red: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
-  blue: { badge: "border-blue-700 bg-blue-100", text: "text-blue-900" },
-  green: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
-  orange: { badge: "border-orange-700 bg-orange-100", text: "text-orange-900" },
+  red: { badge: "border-red-700 bg-red-600", text: "text-white" },
+  blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
+  green: { badge: "border-green-700 bg-green-700", text: "text-white" },
+  orange: { badge: "border-orange-600 bg-orange-600", text: "text-white" },
   purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
   grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-  yellow: { badge: "border-yellow-700 bg-yellow-100", text: "text-yellow-900" },
-  white: { badge: "border-white-700 bg-white-100", text: "text-white-900" },
+  yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
+  white: { badge: "border-gray-300 bg-white", text: "text-black" },
+  black: { badge: "border-black bg-black", text: "text-white" },
   danger: { badge: "border-black bg-red-800", text: "text-white" },
   hazard: {
     badge:
@@ -37,36 +55,69 @@ const colorMap = {
 
 // 2. SEMANTIC MAPPING
 // Maps the "type" prop to a specific color set and adds extra styling (like uppercase).
+// const semanticColors = {
+//   warn: colorMap.red,
+//   danger: {
+//     badge: colorMap.hazard.badge,
+//     text: colorMap.hazard.text,
+//   },
+//   info: colorMap.grey,
+//   success: colorMap.green,
+//   optional: {
+//     badge: `${colorMap.purple.badge}`,
+//     text: `${colorMap.purple.text} uppercase`,
+//   },
+//   pro: {
+//     badge: `${colorMap.orange.badge}`,
+//     text: `${colorMap.orange.text} uppercase`,
+//   },
+//   alt: {
+//     badge: `${colorMap.green.badge}`,
+//     text: `${colorMap.green.text} uppercase`,
+//   },
+//   default: colorMap.grey,
+//   credit: {
+//     badge: "border-transparent bg-transparent italic opacity-80",
+//     text: "text-gray-500 italic",
+//   },
+//   usa: {
+//     badge: `${colorMap.blue.badge}`,
+//     text: `${colorMap.blue.text} uppercase`,
+//   },
+// } as const;
+
 const semanticColors = {
-  warn: colorMap.red,
+  warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
   danger: {
     badge: colorMap.hazard.badge,
     text: colorMap.hazard.text,
   },
-  info: colorMap.grey,
-  success: colorMap.green,
-  optional: colorMap.purple,
+  info: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+  success: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
+  optional: {
+    badge: "border-purple-700 bg-purple-100",
+    text: "text-purple-900 uppercase",
+  },
   pro: {
-    badge: `${colorMap.orange.badge}`,
-    text: `${colorMap.orange.text} uppercase`,
+    badge: "border-orange-700 bg-orange-100",
+    text: "text-orange-900 uppercase",
   },
   alt: {
-    badge: `${colorMap.green.badge}`,
-    text: `${colorMap.green.text} uppercase`,
+    badge: "border-green-700 bg-green-100",
+    text: "text-green-900 uppercase",
   },
-  default: colorMap.grey,
+  default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   credit: {
     badge: "border-transparent bg-transparent italic opacity-80",
     text: "text-gray-500 italic",
   },
   usa: {
-    badge: `${colorMap.blue.badge}`,
-    text: `${colorMap.blue.text} uppercase`,
+    badge: "border-blue-700 bg-blue-100",
+    text: "text-blue-900 uppercase",
   },
 } as const;
 
 type TokenType = keyof typeof semanticColors;
-
 const {
   type = "default",
   color,
@@ -74,6 +125,7 @@ const {
   icon = false,
   maxWidth = "",
   block = false,
+  heading = false,
 } = Astro.props;
 
 // 3. ICON MAPPING
@@ -83,6 +135,7 @@ const icons: Record<string, string> = {
   info: "ℹ️",
   pro: "⭐",
   alt: "🔀",
+  optional: "💡",
   usa: "🇺🇸",
 };
 
@@ -96,32 +149,33 @@ const appliedClass = color
   : semanticColors[type in semanticColors ? type : "default"][style];
 
 const baseClass = [
-  style === "badge" ? "rounded-lg py-0.5 px-2 border" : "", // Structural badge styles
-  "text-sm font-sans tracking-tight break-words", // Typography base
+  style === "badge" ? "rounded-lg py-0.5 px-1 border" : "",
+  "text-sm font-sans tracking-tight break-words no-underline",
   maxWidth,
-  appliedClass, // Inject BG/Border or standard text styles
+  appliedClass,
   type === "credit"
-    ? "block w-full -mt-4 mb-4 text-left" // Layout override for credits
-    : block
-      ? "block w-max mt-1 text-left" // Layout override for block mode
-      : "inline-block mr-1 mb-0.5 last:mr-0", // Default inline-block layout
+    ? "block w-full -mt-4 mb-4 text-left"
+    : heading
+      ? "inline align-middle mr-1"
+      : block
+        ? "block w-max mt-1 text-left"
+        : "inline-block mr-1 mb-0.5 last:mr-0",
 ]
   .filter(Boolean)
   .join(" ");
 ---
 
-<span class={baseClass}>
+<span class={`token-badge ${baseClass}`}>
   <span
     class={[
-      "inline-flex items-center px-2 py-0.5 rounded-[calc(0.5rem-2px)]",
-      type === "danger" ? "bg-black" : "", // Black background for danger
+      "inline-flex items-center px-0.5 py-0.5 rounded-[calc(0.5rem-2px)]",
+      type === "danger" ? "bg-black" : "",
     ].join(" ")}
   >
     {displayIcon && <span class="inline mr-1">{displayIcon}</span>}
-
     <span
       class={[
-        "inline whitespace-pre-line",
+        "inline whitespace-pre-line [&_strong]:text-inherit",
         color ? colorMap[color].text : semanticColors[type]?.text,
       ].join(" ")}
     >
