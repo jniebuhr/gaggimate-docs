@@ -7,136 +7,98 @@
  * <Tokens color="blue" style="text">Custom Blue Text</Tokens> // Overrides with colorMap
  */
 interface Props {
-  type?: TokenType;
+  block?: boolean; // Forces block layout instead of inline-block
   color?: keyof typeof colorMap;
-  style?: "badge" | "text"; // "badge" = pill with border/bg | "text" = plain colored text
+  heading?: boolean; // Inline alignment for use inside markdown headings
   icon?: boolean | string; // Pass 'true' for default mapping, or a string for a custom icon
   maxWidth?: string; // Optional Tailwind width class (e.g., 'max-w-[200px]')
-  block?: boolean; // Forces block layout instead of inline-block
-  heading?: boolean; // Inline alignment for use inside markdown headings
+  style?: "badge" | "text"; // "badge" = pill with border/bg | "text" = plain colored text
+  type?: TokenType;
 }
 
 // 1. RAW COLOR DEFINITIONS
 // Every color has a "badge" class (BG + Border) and a "text" class (Text Color).
-// const colorMap = {
-//   red: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
-//   blue: { badge: "border-blue-700 bg-blue-100", text: "text-blue-900" },
-//   green: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
-//   orange: { badge: "border-orange-700 bg-orange-100", text: "text-orange-900" },
-//   purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
-//   grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-//   yellow: { badge: "border-yellow-700 bg-yellow-100", text: "text-yellow-900" },
-//   white: { badge: "border-white-700 bg-white-100", text: "text-white-900" },
-//   black: { badge: "border-black bg-black", text: "text-white" },
-//   danger: { badge: "border-black bg-red-800", text: "text-white" },
-//   hazard: {
-//     badge:
-//       "p-[4px] bg-[repeating-linear-gradient(-45deg,#000,#000_10px,#facc15_10px,#facc15_20px)] overflow-hidden",
-//     text: "text-yellow-400 font-black uppercase tracking-wider",
-//   },
-// };
 const colorMap = {
-  red: { badge: "border-red-700 bg-red-600", text: "text-white" },
-  blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
-  green: { badge: "border-green-700 bg-green-700", text: "text-white" },
-  orange: { badge: "border-orange-600 bg-orange-600", text: "text-white" },
-  purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
-  grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-  yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
-  white: { badge: "border-gray-300 bg-white", text: "text-black" },
   black: { badge: "border-black bg-black", text: "text-white" },
+  blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
   danger: { badge: "border-black bg-red-800", text: "text-white" },
+  green: { badge: "border-green-700 bg-green-700", text: "text-white" },
+  grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   hazard: {
     badge:
       "p-[4px] bg-[repeating-linear-gradient(-45deg,#000,#000_10px,#facc15_10px,#facc15_20px)] overflow-hidden",
     text: "text-yellow-400 font-black uppercase tracking-wider",
   },
+  orange: { badge: "border-orange-600 bg-orange-600", text: "text-white" },
+  purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
+  red: { badge: "border-red-700 bg-red-600", text: "text-white" },
+  white: { badge: "border-gray-300 bg-white", text: "text-black" },
+  yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
 };
 
-// 2. SEMANTIC MAPPING
-// Maps the "type" prop to a specific color set and adds extra styling (like uppercase).
-// const semanticColors = {
-//   warn: colorMap.red,
-//   danger: {
-//     badge: colorMap.hazard.badge,
-//     text: colorMap.hazard.text,
-//   },
-//   info: colorMap.grey,
-//   success: colorMap.green,
-//   optional: {
-//     badge: `${colorMap.purple.badge}`,
-//     text: `${colorMap.purple.text} uppercase`,
-//   },
-//   pro: {
-//     badge: `${colorMap.orange.badge}`,
-//     text: `${colorMap.orange.text} uppercase`,
-//   },
-//   alt: {
-//     badge: `${colorMap.green.badge}`,
-//     text: `${colorMap.green.text} uppercase`,
-//   },
-//   default: colorMap.grey,
-//   credit: {
-//     badge: "border-transparent bg-transparent italic opacity-80",
-//     text: "text-gray-500 italic",
-//   },
-//   usa: {
-//     badge: `${colorMap.blue.badge}`,
-//     text: `${colorMap.blue.text} uppercase`,
-//   },
-// } as const;
-
 const semanticColors = {
-  warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
+  alt: {
+    badge: "border-green-700 bg-green-100",
+    text: "text-green-900 uppercase",
+  },
+  credit: {
+    badge: "border-transparent bg-transparent italic opacity-80",
+    text: "text-gray-500 italic",
+  },
   danger: {
     badge: colorMap.hazard.badge,
     text: colorMap.hazard.text,
   },
+  default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+  eu: {
+    badge:
+      "border-yellow-300 bg-[linear-gradient(135deg,#1e3a8a_0%,#3b82f6_100%)]",
+    text: "text-yellow-300 uppercase",
+  },
   info: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-  success: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
   optional: {
     badge: "border-purple-700 bg-purple-100",
     text: "text-purple-900 uppercase",
+  },
+  newtab: {
+    badge: "border-transparent bg-transparent",
+    text: "text-gray-500 [&_a]:text-gray-500",
   },
   pro: {
     badge: "border-orange-700 bg-orange-100",
     text: "text-orange-900 uppercase",
   },
-  alt: {
-    badge: "border-green-700 bg-green-100",
-    text: "text-green-900 uppercase",
-  },
-  default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-  credit: {
-    badge: "border-transparent bg-transparent italic opacity-80",
-    text: "text-gray-500 italic",
-  },
+  success: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
   usa: {
-    badge: "border-blue-700 bg-blue-100",
-    text: "text-blue-900 uppercase",
+    badge:
+      "border-black bg-[linear-gradient(135deg,#fca5a5_0%,#ffffff_40%,#ffffff_60%,#93c5fd_100%)]",
+    text: "text-black uppercase",
   },
+  warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
 } as const;
 
 type TokenType = keyof typeof semanticColors;
 const {
-  type = "default",
+  block = false,
   color,
-  style = "badge",
+  heading = false,
   icon = false,
   maxWidth = "",
-  block = false,
-  heading = false,
+  style = "badge",
+  type = "default",
 } = Astro.props;
 
 // 3. ICON MAPPING
 const icons: Record<string, string> = {
-  warn: "⚠️",
-  danger: "⚡",
-  info: "ℹ️",
-  pro: "⭐",
   alt: "🔀",
+  danger: "⚡",
+  eu: "🇪🇺",
+  info: "ℹ️",
+  newtab: "↗️",
   optional: "💡",
+  pro: "⭐",
   usa: "🇺🇸",
+  warn: "⚠️",
 };
 
 // Logic: Determine which icon to show (prop string vs map lookup vs none)

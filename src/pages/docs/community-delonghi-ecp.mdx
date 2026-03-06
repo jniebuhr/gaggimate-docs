@@ -48,6 +48,14 @@ import CommunityHeader from '../../components/CommunityHeader.astro';
 import Tokens from '../../components/formatting/community/tokens.astro';
 import Preview from '../../components/Preview.astro';
 
+export const SITE_URL = "https://docs.gaggimate.eu/docs/community-delonghi-ecp/";
+
+export const WIRING = () => <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens>;
+
+export const PINOUT = () => <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer"><strong>Refer to the PCB Pinout</strong></a></Tokens>;
+
+export const WIRING_AND_PINOUT = () => <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a> and <a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer"><strong>PCB Pinout</strong></a></Tokens>;
+
 <CommunityHeader author="Jay R. (Jayblah)" updated="March 1, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
 <Preview src={image_teaser} alt="" width={500} priority/>
 <Tokens type="credit">Image credit: Torxfighter</Tokens>
@@ -106,13 +114,14 @@ To get the GaggiMate to work with the DeLonghi ECP series, you **must** buy the 
       1. <CB>[JST PH 2.0 Connectors](https://www.aliexpress.us/item/3256806312346188.html)</CB>
       **or**
       <CB><Tokens type="alt" icon>Alternative</Tokens>[30cm PH2.0 JST Connector 2P](https://www.aliexpress.us/item/3256808900846056.html) and [30cm PH2.0 JST Connector 3P](https://www.aliexpress.us/item/3256808900846056.html)</CB> <Tokens type="info" icon>If you do not want to experience the frustration of crimping tiny JST connectors, buy these. You will splice the unconnected ends of these to their corresponding wires on the screen and SSR. You **must** buy both. Choose 30cm length for both to give you enough wire.</Tokens>
-      1. <CB><Tokens type="usa" icon>American Version Only</Tokens> [3-Prong Power Cord](https://www.amazon.com/dp/B07BQCMPF2) — Upgrades the stock 2-prong cord to a grounded connection. Recommended given the extent of the modifications.</CB>
       1. <CB>[Pressure Transducer, Color: 0-1.6Mpa](https://www.aliexpress.us/item/3256805324139332.html)</CB>
       1. <CB>[Silicone gasket, Size: 1/4 inch](https://www.aliexpress.us/item/2255799841120591.html)</CB>
       1. <CB>[PTFE Tube, Color: 2 x 4mm White](https://www.aliexpress.us/item/2251832544541096.html)</CB>
       1. <CB>[Pressure T-Fitting, Color: PE, Specification: 4mm 5/32 inch](https://www.aliexpress.us/item/3256808320030680.html)</CB>
       1. <CB>[90° Pressure Fitting, Color: 4-02, Specification: PLF](https://www.aliexpress.us/item/3256802393459934.html)</CB>
-      1. <CB><Tokens type="optional" icon>Optional</Tokens><Tokens type="usa" icon>American Version Only</Tokens> [Grounded Outlet Adapter with On/Off Switch](www.amazon.com/dp/B0DQDFM1CN?th=1) — This modification removes the machine's power knob. Without it, you'd need to unplug the machine to cut power entirely. With it, you get a manual power switch while still letting GaggiMate manage the heater schedule.</CB>
+      1. <CB><Tokens type="eu" icon>European Version Only</Tokens> [21mm x 15mm DPST On/Off Rocker Switch, Color: 4Pin Black](https://www.aliexpress.us/item/2255800768510409.html) — Replace the stock rocker switch with a 21mm x 15mm 4-pin DPST Black On/Off switch. This modification is required to bypass the factory ECO mode and ensure the machine remains powered for consistent thermal stability.</CB>
+      1. <CB><Tokens type="usa" icon>American Version Only</Tokens> [3-Prong Power Cord](https://www.amazon.com/dp/B07BQCMPF2) — Upgrades the stock 2-prong cord to a grounded connection. Required given the extent of the modifications.</CB>
+      1. <CB><Tokens type="optional" icon>Optional</Tokens><Tokens type="usa" icon>American Version Only</Tokens> [Grounded Outlet Adapter with On/Off Switch](https://www.amazon.com/gp/product/B0DQDFM1CN?th=1) — This modification removes the machine's power knob. Without it, you'd need to unplug the machine to cut power entirely. With it, you get a manual power switch while still letting GaggiMate manage the heater schedule.</CB>
       1. <CB><Tokens type="optional" icon>Optional</Tokens> [Rancilio-style steam wand](https://www.aliexpress.us/item/3256808331478432.html) — Highly recommended upgrade. The stock Pannarello wand lacks precision; this one includes a one-hole and three-hole tip.</CB>
 
       ### Tools & Consumables
@@ -208,37 +217,54 @@ You will need to drill a hole in the back panel to route wires from inside the m
 <Preview src={image_wiring_hole} alt="" width={300} />
 <CB>Hole drilled and grommet (optional) installed.</CB>
 
-## Wire the Pump
+## Wire the Pump <WIRING />
 The pump is not polarized. It does not matter which wire connects to which terminal.
 
-      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Pump Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to **reach the plug** from the pump. Before crimping, slide an insulation sleeve onto the wire. Strip at least **5 mm** from one end, then crimp a **6.3mm female spade connector** onto it. Attach it to either terminal on the pump. Slide the insulation over the connection.</CB>
-      <CB>**Route the <Tokens color="blue">Blue</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> pump wire to the bottom of the machine, behind the pump, through the large hole at the bottom of the pump. It will be connected to the ground wire on the 3-prong plug using a 3-slot WAGO connector.</CB>
-      <CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire** — Cut a <Tokens color="green">green</Tokens>18 AWG wire long enough to reach from the pump, up and out through the wire port, to the Pump port on the PCB *(this will be mounted outside the machine on the rear panel)*. Before crimping, slide an insulation sleeve onto the wire. Strip at least **5 mm** from one end, and crimp a **6.3mm female spade connector** onto that end and attach it to the free terminal on the pump.</CB>
-      <CB>**Cut the Water Line** — Cut the water line running from the pump to the grouphead. The cut should be made closer to the pump, and it must be straight and clean. Use a razor-sharp blade to avoid crushing the hose. Scissors will crush the hose and are not a good choice.</CB>
+      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Pump Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to reach the <Tokens color="grey">plug</Tokens> at the bottom of the machine, down through the large hole below the pump.</CB>
+      <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
+      <CB>Strip at least **5 mm** from one end, then crimp a <Tokens color="grey">6.3mm female spade</Tokens> connector onto it. Attach this end to either male spade connector on the pump.</CB>
+      <CB>Slide the insulation over this connection.</CB>
+      <CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire** — Cut a <Tokens color="green">green</Tokens>18 AWG wire long enough to reach the pump port on the <Tokens color="grey">PCB</Tokens> *(this will be mounted outside the machine on the rear panel)* from the pump, outside through the wire port.</CB>
+      <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
+      <CB>Strip at least **5 mm** from one end, then crimp a <Tokens color="grey">6.3mm female spade</Tokens> connector onto it. Attach this end to the unconnected pin on the pump.</CB>
+      <CB>Slide the insulation over this connection.</CB>
+
+## Prepare the Water Line
+      <CB>**Cut the Pump-to-Boiler Water Line** — While the frame is still out, cut the water line running from the pump to the boiler. The cut should be made closer to the pump. It must be straight and clean. Use a razor-sharp blade to avoid crushing the hose. Scissors will crush the hose and are not a good choice.</CB>
             <Preview src={image_cut_hose} alt="" width={300} />
+
+## Re-seat the Frame
       <CB>**Reinsert the Frame** — Now that the pump is wired and the steam wand replaced, reseat the frame. Take care not to snag any wires or pinch any tubing. Make they are out of the way before lowering the frame into place. Once the frame is securely in position, reinsert and tighten the 5 Phillips screws you previously removed.</CB>
-      <CB>**Route the <Tokens color="green">Green</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="green">green</Tokens> pump wire out of the machine through the wire port you created on the back. It will be connected to the PCB later. Feel free to secure it with tape for now.</CB>
-      <CB>**Install the T-Fitting** — Push each cut end of the water line into the **Pressure T-Fitting**. Press firmly until both ends are seated snugly, then give each side a light tug to confirm.</CB>
-      <CB>**Prepare the Short Hose Section** — Cut at least a **3 inch** length of **2mm x 4mm PTFE tube**. Cuts must be clean and straight.</CB>
-      <CB>**Connect the Short Hose** — Attach one end to the **90° Pressure Fitting** using the same push-fit method. Fill the tube completely with water using a syringe or by submerging the open end in a bowl of water. No air should remain inside. Attach the other end to the open branch of the T-Fitting and confirm both connections are snug.</CB>
-      <CB>**Install the Gasket and Transducer** — Drop the **¼ inch** silicone gasket into the threaded opening of the Elbow Fitting. Screw the **Pressure Transducer** onto the threaded end. <Tokens type="warn" icon>Hand-tighten only. Do **not** overtighten.</Tokens></CB>
-      <CB>**Position the Transducer** — Tuck the transducer into the open space to the left of the pump or wherever it fits snugly.</CB>
+      <CB>**Route the <Tokens color="blue">Blue</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> pump wire down through the large hole below the pump. It will be connected to the ground wire on the <Tokens color="grey">plug</Tokens>.</CB>
+      <CB>**Route the <Tokens color="green">Green</Tokens> Pump Wire** — Feed the unconnected end of the <Tokens color="green">green</Tokens> pump wire outside of the machine through the wire port you created on the back. It will be connected to the PCB later. Secure it with tape for now.</CB>
+      <CB>**Connect the Boiler to the T-Fitting** — Push the cut end of the boiler water line into the <Tokens color="grey">T-Fitting</Tokens>. Press firmly until it is seated snugly, then give it a light tug to confirm.</CB>
+      <CB>**Connect the Pump to the T-Fitting** — Push the cut end of the pump water line into the <Tokens color="grey">T-Fitting</Tokens>. Press firmly until it is seated snugly, then give it a light tug to confirm.</CB>
+      <CB>**Prepare the Pressure Transducer (PT) Tube** — Cut at least a **75mm** length of <Tokens color="grey">2mm x 4mm PTFE tubing</Tokens>. Cuts must be clean and straight.</CB>
+      <CB>**Install the Gasket and Transducer** — Drop the <Tokens color="grey">silicone gasket</Tokens> into the threaded opening of the <Tokens color="grey">90° Fitting</Tokens>.</CB>
+      <CB>**Connect the Elbow Fitting and the Pressure Transducer** — Screw on the pressure transducer onto the threaded end of the 90° Fitting. <Tokens type="warn" icon>Hand-tighten only. Do **not** overtighten.</Tokens></CB>
+      <CB>**Connect the PT Tube** — Attach one end to the <Tokens color="grey">90° Fitting</Tokens> using the same push-fit method.</CB>
+      <CB>**Fill the PT Tube** — To eliminate air in the tubing connected to the pressure transducer, fill it with water using a syringe or by submerging the open end in a bowl of water. Attach the other end of the tube to the open branch of the <Tokens color="grey">T-Fitting</Tokens> and confirm both connections are snug.</CB>
+      <CB>**Secure the Pressure Transducer** — Tuck the transducer into the open space to the left of the pump or wherever it fits snugly.</CB>
             <Preview src={image_pressure_position} alt="" width={300} />
-      <CB>**Route the Wire** — Feed the thick black wire from the transducer out of the machine through the wire port you created on the back. It will be connected to the PCB later. Feel free to secure it with tape for now.</CB>
+      <CB>**Route the Pressure Transducer Wire** — Feed the thick black wire from the transducer outside of the machine through the wire port you created on the back. It will be connected to the <Tokens color="grey">PCB</Tokens> later. Secure it with tape for now.</CB>
             <Preview src={image_pressure_installation} alt="" width={300} />
             <Tokens type="credit">A correct installation of the Pressure Transducer and fittings will look similar to the image above.</Tokens>
 
-## Wire the Boiler
-The boiler is not polarized. Note how the **fuse** is secured to the boiler via the metal clip. When you reconnect the fuse-wire, secure it the same way to ensure it stays in place and maintains good contact with the boiler surface.
+## Wire the Boiler <WIRING />
+The boiler is not polarized. Note how the fuse is secured to the boiler via the metal clip. When you reconnect the fused wire, secure it the same way to ensure it stays in place and maintains good contact with the boiler surface.
 
       <Preview src={image_boiler_heater_connections} alt="" width={300} />
-      <Tokens type="credit">The fuse is indicated by the arrow pointing down from label 1.</Tokens>
-      <CB>**Connect the <Tokens color="red">Red</Tokens> Boiler Wire** — Take the <Tokens color="red">red</Tokens>wire with the fuse you saved earlier. If it's not long enough to reach your SSR *(this will be mounted outside the machine on the rear panel)*, splice an additional length of red wire using a heat-shrink butt connector. Attach the end with the existing plastic cap to either terminal on the boiler and secure the fuse under the metal clip.</CB>
-      <CB>**Route the <Tokens color="red">Red</Tokens> Boiler Wire** — Feed the unconnected end of the <Tokens color="red">red</Tokens> boiler wire out of the machine through the wire port you created on the back. It will be connected to the SSR later. Feel free to secure it with tape for now.</CB>
-      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to **reach the plug** from the boiler. Slide an insulation sleeve onto the wire, strip ¼ inch from one end, and crimp a **4.8mm female spade connector** onto it. Attach to the remaining terminal on the boiler. Slide the insulation over the connection.</CB>
-      <CB>**Route the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> boiler wire behind the pump, through the large hole at the bottom of the pump. It will be connected to the plug later. Feel free to secure it with tape for now.</CB>
+      <Tokens type="credit">The fused wire is indicated by the arrow pointing down from label 1.</Tokens>
+      <CB>**Connect the <Tokens color="red">Red</Tokens> Fused Boiler Wire** — Take the <Tokens color="red">red</Tokens>fused wire with the fuse you saved earlier. If it's not long enough to reach your <Tokens color="grey">SSR</Tokens> *(this will be mounted outside the machine on the rear panel)*, splice an additional length of red 18 AWG wire using a heat-shrink butt connector.</CB>
+      <CB>Attach the end with the existing plastic cap to either pin on the boiler and secure the fuse under the metal clip.</CB>
+      <CB>**Route the <Tokens color="red">Red</Tokens> Fused Boiler Wire** — Feed the unconnected end of the <Tokens color="red">red</Tokens> fused boiler wire out of the machine through the wire port you created on the back. It will be connected to the <Tokens color="grey">SSR</Tokens> later. Secure it with tape for now.</CB>
+      <CB>**Connect the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Cut a <Tokens color="blue">blue</Tokens>18 AWG wire long enough to reach the <Tokens color="grey">plug</Tokens> from the boiler, down through the large hole beneath the pump.</CB>
+      <CB>Slide an insulation sleeve onto the wire, strip at least **5mm** from one end, and crimp a <Tokens color="grey">4.8mm female spade</Tokens> connector onto it.</CB>
+      <CB>Attach this end to the unconnected pin on the boiler.</CB>
+      <CB>Slide the insulation over this connection.</CB>
+      <CB>**Route the <Tokens color="blue">Blue</Tokens> Boiler Wire** — Feed the unconnected end of the <Tokens color="blue">blue</Tokens> boiler wire down through the hole beneath the pump. It will be connected to the <Tokens color="grey">plug</Tokens> later. Secure it with tape for now.</CB>
 
-## Wire the Screen
+## Wire the Screen <WIRING />
 
 This section explains how to prepare a **WaveShare screen** for connection to the PCB. If you purchased a **LilyGo screen**, the process will be similar, but wiring may differ. Refer to the documentation that came with your screen for specifics.
 
@@ -255,50 +281,52 @@ This section explains how to prepare a **WaveShare screen** for connection to th
       1. Strip at least **10 mm** from each wire's exposed end.
 
 <CB>**Prepare the 22 AWG Wires**</CB>
-      1. Cut one <Tokens color="red">red</Tokens>22 AWG and one <Tokens color="black">black</Tokens>22 AWG wire long enough to **reach the 2-pin screen male JST port** from the front panel, through the wire port. Both wires should be identical in length.
+      1. Cut one <Tokens color="red">red</Tokens>22 AWG and one <Tokens color="black">black</Tokens>22 AWG wire long enough to reach the 2-pin screen port on the <Tokens color="grey">PCB</Tokens> from the front panel, outside through the wire port. Both wires should be identical in length.
       1. Strip at least **10 mm** from both ends of each wire.
 
-<CB>**Prepare the Screen Connection** <Tokens type="info" icon>Other splicing methods can be used, but this method is recommended for simplicity and reliability.</Tokens></CB>
-      1. Slide a **heat-shrink butt connector** onto the <Tokens color="red">red</Tokens> 22 AWG wire.
-      1. Bring its stripped end to the stripped end of the <Tokens color="red">red</Tokens>SH 1.0 connector wire and twist them firmly together.
-            - This [short video](https://www.youtube.com/shorts/Gw2Sh4ZR_IQ) is a helpful tutorial.
-      1. Slide the butt connector over the twisted wires.
-      <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens>
-      1. Using a heat gun or lighter, shrink both **insulated ends** of the connector.
-      1. Heat the **middle solder section** until it melts and the insulation shrinks tight.
-      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="black">black</Tokens> SH 1.0 connector wire.
+<CB>**Prepare the Screen Connection**</CB>
+      1. Slide a heat-shrink butt connector onto the <Tokens color="red">red</Tokens> 22 AWG wire.
+      1. Bring its stripped end to the stripped end of the <Tokens color="grey">SH1.0</Tokens> connector's <Tokens color="red">red</Tokens>wire and twist them firmly together.
+            - This ↗️ [short video](https://www.youtube.com/shorts/Gw2Sh4ZR_IQ) is a helpful tutorial.
+      1. Slide the heat-shrink butt connector over the twisted wires. <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens>
+      1. Using a heat gun or lighter, shrink both insulated ends of the connector.
+      1. Heat the middle solder section until it melts and the insulation shrinks tight.
+      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="grey">SH1.0</Tokens> connector's <Tokens color="black">black</Tokens> wire.
 
 <CB>**Prepare the PCB Connection**</CB>
-      1. Slide a **heat-shrink butt connector** onto other end of the <Tokens color="red">red</Tokens> 22 AWG wire.
-      1. Bring its stripped end to the stripped end of the <Tokens color="red">red</Tokens> PH 2.0 connector wire and twist them firmly together.
+      1. Slide a heat-shrink butt connector onto other end of the <Tokens color="red">red</Tokens> 22 AWG wire.
+      1. Bring its stripped end to the stripped end of the <Tokens color="grey">PH 2.0</Tokens>connector's <Tokens color="red">red</Tokens> wire and twist them firmly together.
       1. Slide the butt connector over the twisted wires.
       <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens>
       1. Using a heat gun or lighter, shrink both **insulated ends** of the connector.
       1. Heat the **middle solder section** until it melts and the insulation shrinks tight.
-      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="black">black</Tokens> PH 2.0 connector wire.
+      1. Repeat the steps above for the <Tokens color="black">black</Tokens>22 AWG wire and the <Tokens color="grey">PH 2.0</Tokens> connector's <Tokens color="black">black</Tokens>  wire.
 
-<CB>**Route the PCB Connection** — Feed the JST PH 2.0 connector end of the screen wires out of the machine through the wire port you created on the back. They will be connected to the PCB later.</CB>
+<CB>**Route the PCB Connection** — Feed the <Tokens color="grey">PH 2.0</Tokens> connector end of the wires outside of the machine through the wire port you created on the back. It will be connected to the <Tokens color="grey">PCB</Tokens> later.</CB>
 
 ## Attach the Thermocouple
-      <CB>**Apply Thermal Paste** — Squeeze a small amount of thermal paste around the base of the threaded stud exposed after removing the thermostat bracket.</CB>
-      <CB>**Install the Thermocouple** — Place the hole connector of your **thermocouple** over the threaded stud and slide it down until it rests flat against the boiler and is seated in the thermal paste.</CB>
+      <CB>**Apply Thermal Paste** — Squeeze a small amount of <Tokens color="grey">thermal paste</Tokens> around the base of the threaded stud exposed after removing the thermostat bracket.</CB>
+      <CB>**Install the Thermocouple** — Place the hole connector of your thermocouple over the threaded stud and slide it down until it rests flat against the boiler and is seated in the thermal paste.</CB>
       <CB>**Secure the Thermocouple** — Screw the saved nut back on to hold the thermocouple in place. <Tokens type="warn" icon>The thermocouple's sensor tip is fragile. Do not bend it acutely or twist it at any point during installation.</Tokens></CB>
-      <CB>**Route the Thermocouple Wire** — Feed the wire end of the thermocouple out of the machine through the wire port you created on the back. They will connect to the PCB later.</CB>
+      <CB>**Route the Thermocouple Wire** — Feed the wire end of the thermocouple outside of the machine through the wire port you created on the back. They will connect to the <Tokens color="grey">PCB</Tokens> later.</CB>
       <Preview src={image_thermocouple_installation} alt="" width={300} />
       <Tokens type="credit">A successful thermocouple installation will look like this (rear-view of the boiler).</Tokens>
 
 ## Wire the Solid State Relay (SSR)
       <CB>**Remove the SSR Screws** — Unscrew all four Phillips screws from the SSR and save them along with the small metal screw plates. You will reuse them shortly.</CB>
-      <CB>**Cut an SSR Output-to-Plug Wire** — Cut one <Tokens color="red">red</Tokens>18 AWG wire that can comfortably **reach the plug** from the SSR. Measure carefully before cutting.</CB>
-      <CB>**Attach the SSR Output-to-Plug Wire** — Strip at least **5 mm** from one end of this wire. On this end, crimp a **ring connector**. Attach the wire to any **OUTPUT** terminal on the SSR. Place the wire's ring connector under a screw plate and reinstall the Phillips screw.</CB>
+      <CB>**Cut an SSR Output-to-Plug Wire** — Cut one <Tokens color="red">red</Tokens>18 AWG wire that can comfortably reach the <Tokens color="grey">plug</Tokens> from the SSR. Measure carefully before cutting.</CB>
+      <CB>**Attach the SSR Output-to-Plug Wire** — Strip at least **5 mm** from one end of this wire. On this end, crimp a **ring connector**. Attach the wire to either terminal on the <Tokens color="grey">OUTPUT</Tokens> side of the SSR. Place the wire's ring connector under a screw plate and reinstall the Phillips screw.</CB>
       <CB>**Prepare the 3-Pin Female PH 2.0 Connector**</CB>
             <Preview src={image_3pin_JST} alt="" width={200} />
-            1. Using a narrow-tip tweezer, gently lift the retention tabs *(depicted above)* on the 3-pin JST connector and remove all three wires.
+            1. Using a narrow-tip tweezer, gently lift the retention tabs *(depicted above)* on the <Tokens color="grey">3-pin connector</Tokens> and remove all three wires.
             2. Insert the <Tokens color="red">red</Tokens>wire into the middle slot and the <Tokens color="black">black</Tokens> into the right slot.
             3. Gently tug both to confirm they are securely seated. <Tokens type="warn" icon>Correct placement in the connector is critical for proper SSR control and PCB operation.</Tokens>
             <Preview src={image_3_pin_setup} alt="" width={200} />
-      <CB>**Prepare the Control Wire Ends on the SSR Side** — Crimp a **ring connector** onto the 3-Pin Female PH 2.0 Connector's <Tokens color="red">red</Tokens>wire and <Tokens color="black">black</Tokens> wire.</CB>
-      <CB>**Attach the Control Wires to the SSR** — Attach both wires to the **CONTROL 3-32 VDC** terminals. This side *is* polarized. Connect exactly as shown, with the <Tokens color="black">black</Tokens> wire's ring connector attached to the **-** side of the SSR Control terminal, and the <Tokens color="red">red</Tokens>wire's ring connector attached to the **+** side.</CB>
+      **Prepare the Control Wire Ends on the SSR Side**
+            1. <CB>Crimp a **ring connector** onto the <Tokens color="grey">3-pin</Tokens> connector's <Tokens color="red">red</Tokens> wire.</CB>
+            1. <CB>Crimp a **ring connector** onto the <Tokens color="grey">3-pin</Tokens> connector's <Tokens color="black">black</Tokens> wire.</CB>
+
+      <CB>**Attach the Control Wires to the SSR** — Attach both wires to the terminals to the <Tokens color="grey">CONTROL</Tokens> side of the SSR. This side *is* polarized. Connect exactly as shown, with the <Tokens color="black">black</Tokens>wire's ring connector attached to the <Tokens color="grey">-</Tokens>side of the SSR Control terminal, and the <Tokens color="red">red</Tokens>wire's ring connector attached to the <Tokens color="grey">+</Tokens> side.</CB>
       <Preview src={image_ssr_wiring_of_control} alt="" width={300} />
 
 ## Diagram — PCB Wiring Pinout
@@ -309,69 +337,96 @@ Refer to the wiring pinout diagram below as we begin connecting the remaining wi
 ## Connect the Components
 <Tokens type="danger" icon>Keep your PCB and SSR secured inside a housing when your build is complete. Leaving them exposed is an electrocution hazard.</Tokens>
 
-<CB>**Connect the Screen to the PCB**</CB>
-      1. Insert the **2-pin PH 2.0 connector** from the screen wiring into the correct slot on the PCB. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
-      1. Insert the **4-pin SH 1.0 connector** into the **4-pin slot on your WaveShare screen**. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**.
+<CB>**Connect the Screen to the PCB** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**Refer to the PCB Pinout**</a></Tokens></CB>
+      1. Insert the <Tokens color="grey">2-pin PH 2.0</Tokens> connector from into the correct slot on the <Tokens color="grey">PCB</Tokens>. It can only fit one way. Do **not** force it,but make sure it is firmly seated.
+      1. Insert the <Tokens color="grey">4-pin SH 1.0</Tokens> connector into the <Tokens color="grey">4-pin</Tokens>slot on your <Tokens color="grey">WaveShare</Tokens>screen. It can only fit one way. Do **not** force it, but make sure it is firmly seated.
             <Preview src={image_screen_connection} alt="" width={400} />
 
-<CB>**Connect the Solid State Relay (SSR)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
-      Insert the **3-pin JST connector** connected to the SSR into the correct slot on the PCB. It can only fit one way. Do **not** force it, but make sure it is **firmly seated**. Ensure that the wire positions exactly match the PCB Pinout diagram.
+<CB>**Connect the Solid State Relay (SSR) to the PCB** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**Refer to the PCB Pinout**</a></Tokens></CB>
+      1. Insert the <Tokens color="grey">3-pin</Tokens> connector from the <Tokens color="grey">SSR</Tokens> into the correct slot on the <Tokens color="grey">PCB</Tokens>. It can only fit one way. Do **not** force it, but make sure it is firmly seated.
+      1. Ensure that the wire positions match the PCB Pinout diagram exactly.
 
-<CB>**Connect the Pressure Transducer (PT)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
-      1. Insert the <Tokens color="red">red</Tokens>pressure transducer wire into the **+5V** slot.
-      1. Insert the <Tokens color="green">green</Tokens>pressure transducer wire into the **Analog In** slot.
-      1. Insert the <Tokens color="black">black</Tokens>pressure transducer wire into the **Ground** slot. <Tokens type="info" icon>If you have an older board with 3-slots for the PT, the black wire goes into the empty slot.</Tokens>
+<CB>**Connect the Pressure Transducer (PT) to the PCB** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**Refer to the PCB Pinout**</a></Tokens></CB>
+      1. Insert the <Tokens color="red">red</Tokens>pressure transducer wire into the <Tokens color="grey">+5V</Tokens> slot.
+      1. Insert the <Tokens color="green">green</Tokens>pressure transducer wire into the <Tokens color="grey">Analog In</Tokens> slot.
+      1. Insert the <Tokens color="black">black</Tokens>pressure transducer wire into the <Tokens color="grey">Ground</Tokens> slot. <Tokens type="info" icon>If you have an older board with 3-slots for the PT, the black wire goes into the empty slot.</Tokens>
+      1. Give the wires a gentle pull to verify that all are secured within their respective slots.
 
-<CB>**Connect the Thermocouple (TC)** – [See PCB Pinout](#diagram--pcb-wiring-pinout)</CB>
-      1. If your thermocouple has fork connectors, gently pull them off and strip at least **20 mm** of insulation. Fold the exposed wire back on itself before gently twisting them. This makes them thick enough for the two ports to hold securely.
-      2. Insert the <Tokens color="red">red</Tokens>thermocouple wire into the **T+ slot**.
-      3. Insert the <Tokens color="blue">blue</Tokens>thermocouple wire into the **T- slot**.
+<CB>**Connect the Thermocouple (TC) to the PCB** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**Refer to the PCB Pinout**</a></Tokens></CB>
+      1. If your thermocouple has fork connectors, gently pull them off, then strip at least **20 mm** of insulation.
+      1. Fold the exposed wire back on itself before gently twisting them. This makes them thick enough for the two ports to hold securely.
+      1. Insert the <Tokens color="red">red</Tokens>thermocouple wire into the <Tokens color="grey">T+ slot</Tokens>.
+      1. Insert the <Tokens color="blue">blue</Tokens>thermocouple wire into the <Tokens color="grey">T- slot</Tokens>.
+      1. Give the wires a gentle pull to verify that they are secure within their respective slots.
 
-<CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire**</CB>
-      1. Strip at least **10 mm** of insulation from the uncrimped end of the green pump wire.
-      2. Twist the exposed wire gently to prevent fraying, then insert it into the **Pump slot** on the PCB.
+<CB>**Connect the <Tokens color="green">Green</Tokens> Pump Wire** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a> and <a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**PCB Pinout**</a></Tokens></CB>
+      1. Strip at least **10 mm** of insulation from the uncrimped end of the <Tokens color="green">green</Tokens> wire connected to the pump.
+      1. Twist the exposed wire gently to prevent fraying, then insert this end into the <Tokens color="grey">pump</Tokens>slot on the <Tokens color="grey">PCB</Tokens>.
+      1. Give the wire a gentle pull to verify that it is secured within the slot.
 
-<CB>**Connect the <Tokens color="blue">Blue</Tokens> Neutral Wire**</CB>
-      - Strip at least **10 mm** of insulation from the uncrimped end of the blue neutral wire.
-      - Twist the exposed wire gently to prevent fraying, then insert it into the **Neutral slot**.
+<CB>**Connect the <Tokens color="blue">Blue</Tokens> Neutral Wire** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a> and <a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**PCB Pinout**</a></Tokens></CB>
+      1. Strip at least **10 mm** of insulation from the uncrimped end of the <Tokens color="blue">blue</Tokens> neutral wire.
+      1. Twist the exposed wire gently to prevent fraying, then insert it into the <Tokens color="grey">neutral</Tokens> slot on the <Tokens color="grey">PCB</Tokens>.
+      1. Give the wire a gentle pull to verify that it is secured within the slot.
 
-<CB>**Line Wire Connection**</CB>
-      - Strip at least **10 mm** of insulation from the live wire.
-      - Twist the exposed wire to prevent fraying, then insert it into the **Line slot**.
+<CB>**Connect the <Tokens color="red">Red</Tokens> Line Wire** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a> and <a href={`${SITE_URL}#diagram--pcb-wiring-pinout`} target="_blank" rel="noopener noreferrer">**PCB Pinout**</a></Tokens></CB>
+      1. Strip at least **10 mm** of insulation from the uncrimped end of the <Tokens color="red">red</Tokens> wire connected to the <Tokens color="grey">OUTPUT</Tokens> side of the <Tokens color="grey">SSR</Tokens>.
+      1. Twist the exposed wire to prevent fraying, then insert it into the <Tokens color="grey">line</Tokens> slot on the <Tokens color="grey">PCB</Tokens>.
+      1. Give the wire a gentle pull to verify that it is secured within the slot.
 
-## <Tokens type="usa" icon heading>American Version Only</Tokens>Wiring the Grounded Power Cord
+## <Tokens type="usa" icon>American Version Only</Tokens> Wiring the Grounded Power Cord
 
 <Tokens type="danger" icon>Proper grounding is crucial for safety. If you are unsure about any part of this process, please join us in Discord.</Tokens>
 
-Interestingly, even though the American version is not grounded by default, the grounding-point is there for us to use. The GaggiMate team strongly encourages you to ground your boiler. While the DeLonghi America engineers chose not to ground the boiler, they also did not expect you to dramatically modify their machine. Given that we are, you should ground your boiler.
+Even though the American version is not grounded by default, the grounding-point is there for us to use. While the DeLonghi America engineers chose not to ground the boiler, they also didn't expect dramatic modification of their machine. The GaggiMate team strongly recommends that you ground your boiler.
 
-- **Connect the 3-Prong Power Cord**
-      - Take your new grounded 3-prong power cord and identify the three wires: **live (line)**, and **neutral**. The color coding may vary, but typically:
-            - Live (Line) is **brown** or **black**.
-            - Neutral is **blue**.
-      - Connect the **live (line)** wire from the new power cord to the same live wire that was previously connected to the 2-prong power cord.
-      - Connect the **neutral** wire from the new power cord to the same neutral wire that was previously connected to the 2-prong power cord.
+      <CB>**Wire the 3-Prong Power Cord** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens></CB>
+            On the 3-prong power cord, identify the following wires:
+                  - Line is typically <Tokens color="black">black</Tokens>
+                  - Neutral is typically <Tokens color="white">white</Tokens>
+                  - Ground is typically <Tokens color="green">green</Tokens>and <Tokens color="yellow">yellow</Tokens>
 
-- **Connect a Ground Wire to the Power Cord's Ground**
-      - Cut a 24 AWG wire. <Tokens type="warn" icon>The length of this wire must be able to reach from the power cord to the grounding point on the boiler, seen below.</Tokens>
-      <Preview src={image_boiler_grounding_point} alt="" width={300} />
-      - Strip at least **10 mm** of insulation from one end of the ground wire.
-      - Slide a **heat-shrink butt connector** onto one of the wires.
-      - Bring the stripped end of the ground wire to the already stripped ground attached to the power cord.
-      - Twist the wires together to ensure a firm connection.
-      - Slide the **heat-shrink butt connector** over the twisted wires.
-      <Tokens type="warn" icon>Ensure the solder section of the butt connector is positioned directly over the twisted wires.</Tokens>
+      <CB>**Connect the Ground Wire to the Plug** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens></CB>
+            1. Cut a <Tokens color="green">green</Tokens>18 AWG wire long enough to reach the boiler's <Tokens color="grey">grounding point</Tokens> from the plug, up through the large hole beneath the pump.
+            <Preview src={image_boiler_grounding_point} alt="" width={200} />
+            1. Strip at least **10 mm** of insulation from the end of the ground wire that will be connected to the ground wire on the <Tokens color="grey">plug</Tokens>.
+            1. Slide a heat-shrink butt connector onto the wire.
+            1. Bring the stripped end of the ground wire to the already stripped ground wire on the power cord.
+            1. Twist the wires together to ensure a firm connection.
+            1. Slide the heat-shrink butt connector over the twisted wires. <Tokens type="warn" icon>Ensure the solder section of the butt connector is positioned directly over the twisted wires.</Tokens>
+            1. Use a heat source (e.g., a heat gun or lighter) to shrink the left and right insulated ends of the heat-shrink butt connector.
+            1. Then heat the middle solder section to melt it. This creates a tight, secure splice.
 
-- **Secure the Connection between the Spliced Wires**
-      - Use a **heat source** (e.g., a heat gun or lighter) to shrink the left and right insulated ends of the butt connector.
-      - Then heat the **middle** solder section to melt it and shrink the remaining insulation. This creates a tight, secure splice.
-      <Tokens type="info" icon>Other splicing methods can be used, but this method is recommended for simplicity and reliability.</Tokens>
+      <CB>**Connect the Boiler Side of the Ground Wire** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens></CB>
+            1. Strip at least **5 mm** of insulation from the other end of the ground wire that will connect to the boiler's <Tokens color="grey">grounding point</Tokens>.
+            1. Before crimping, slide an insulation sleeve onto this wire.
+            1. Crimp an <Tokens color="grey">M5 ring</Tokens> connector onto the stripped end.
+            1. Attach this connector to the grounding point on the boiler using an <Tokens color="grey">M4 screw</Tokens>. Ensure it is securely fastened.
 
-- **Prepare the Boiler Side of the Ground Wire**
-      - Strip about at least **5 mm** of insulation from the other end of the ground wire.
-      - Slide the insulation sleeve for the connector onto the wire before crimping.
-      - Crimp an M4 or M5 **fork (or ring) connector** onto the stripped end.
-      - Attach the connector to the grounding point on the boiler using an M4 screw. Ensure it is securely fastened. It'll be a snug fit, so you have to use some elbow grease, but it should go in without too much trouble.
+## <Tokens type="eu" icon>European Version Only</Tokens> Replacing the Stock Power Switch (Disabling ECO Mode)
+      <CB>**Disconnect and Remove the Stock Power Switch**</CB>
+            1. Locate the stock power switch on your European-model machine and disconnect the two wires attached to it.
+            1. After disconnecting, push the power switch out and remove it from the machine.
+
+       <CB>**Replace the Power Switch**</CB>
+            1. Push in the power switch you purchased from the shopping list above into the empty hole. This hole will accept a 21mm x 15mm rectangular switch.
+
+      <CB>**Connect the Plug to the Power Switch** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens></CB>
+            1. Cut a <Tokens color="red">red</Tokens>18 AWG wire long enough to reach a pin on the power switch from the line wire on the plug.
+            1. Strip at least **5 mm** of insulation from end of the wire that will be connected to the power switch.
+            1. Before crimping, slide an insulation sleeve onto this wire.
+            1. Crimp a <Tokens color="grey">4.9mm female spade connector</Tokens> onto this end of the wire.
+            1. Attach the connector onto a pin on the power switch.
+
+      <CB>**Connect the Power Switch to the SSR** — <Tokens type="newtab" icon><a href={`${SITE_URL}#diagram---wiring-schematic`} target="_blank" rel="noopener noreferrer">Refer to the Wiring Diagram</a></Tokens></CB>
+            1. Cut a <Tokens color="red">red</Tokens>18 AWG wire long enough to reach the <Tokens color="grey">OUTPUT</Tokens> side of the <Tokens color="grey">SSR</Tokens> from the switch, up through the large hole beneath the pump, and outside through the wire port.
+            1. Strip at least **5 mm** of insulation from end of the wire that will be connected to a pin on the power switch.
+            1. Before crimping, slide an insulation sleeve onto this wire.
+            1. Crimp a <Tokens color="grey">4.8mm female spade</Tokens>  connector onto this end of the wire.
+            1. Strip at least **5 mm** of insulation from end of the wire that will be connected to the <Tokens color="grey">OUTPUT</Tokens> side of the <Tokens color="grey">SSR</Tokens>.
+            1. Before crimping, slide an insulation sleeve onto this wire.
+            1. Crimp a <Tokens color="grey">6.3mm ring</Tokens> connector onto this end of the wire.
+            1. Attach the connector onto a pin on the power switch.
 
 ## Power-On Test and First Boot
 
