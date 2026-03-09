@@ -1,0 +1,37 @@
+---
+const { id } = Astro.props;
+---
+
+<label class="flex items-start cursor-pointer mb-2.5">
+  <input
+    type="checkbox"
+    class="mt-1 mr-2 cursor-pointer h-4 w-4 checkbox-input"
+  />
+  <span class="transition-all duration-200 opacity-100 checkbox-label">
+    <slot />
+  </span>
+</label>
+
+<script define:vars={{ id }}>
+  (() => {
+    const labels = document.querySelectorAll("label:has(.checkbox-input)");
+    const label = labels[labels.length - 1];
+    const input = label.querySelector(".checkbox-input");
+    const span = label.querySelector(".checkbox-label");
+
+    const storageKey = `check-state-${id ?? span.textContent.trim().slice(0, 40)}`;
+
+    if (localStorage.getItem(storageKey) === "true") {
+      input.checked = true;
+      span.classList.add("line-through", "opacity-60");
+      span.classList.remove("opacity-100");
+    }
+
+    input.addEventListener("change", () => {
+      localStorage.setItem(storageKey, String(input.checked));
+      span.classList.toggle("line-through", input.checked);
+      span.classList.toggle("opacity-60", input.checked);
+      span.classList.toggle("opacity-100", !input.checked);
+    });
+  })();
+</script>

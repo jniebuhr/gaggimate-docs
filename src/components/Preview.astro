@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Image, getImage } from "astro:assets";
 const { src, width, alt = "", priority = false } = Astro.props;
 
 const linkTarget = await getImage({ src });
