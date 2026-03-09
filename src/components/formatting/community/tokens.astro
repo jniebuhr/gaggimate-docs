@@ -21,7 +21,13 @@ interface Props {
 const colorMap = {
   black: { badge: "border-black bg-black", text: "text-white" },
   blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
+  brown: { badge: "border-yellow-900 bg-yellow-800", text: "text-white" },
   danger: { badge: "border-black bg-red-800", text: "text-white" },
+  earth: {
+    badge:
+      "border-green-700 bg-[linear-gradient(180deg,#15803d_0%,#15803d_50%,#ca8a04_50%,#ca8a04_100%)]",
+    text: "text-white",
+  },
   green: { badge: "border-green-700 bg-green-700", text: "text-white" },
   grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   hazard: {
@@ -32,6 +38,7 @@ const colorMap = {
   orange: { badge: "border-orange-600 bg-orange-600", text: "text-white" },
   purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
   red: { badge: "border-red-700 bg-red-600", text: "text-white" },
+  teal: { badge: "border-teal-700 bg-teal-600", text: "text-white" },
   white: { badge: "border-gray-300 bg-white", text: "text-black" },
   yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
 };
@@ -60,9 +67,13 @@ const semanticColors = {
     badge: "border-purple-700 bg-purple-100",
     text: "text-purple-900 uppercase",
   },
+  video: {
+    badge: "border-transparent bg-transparent",
+    text: "text-blue-500 [&_a]:text-blue-500",
+  },
   newtab: {
     badge: "border-transparent bg-transparent",
-    text: "text-gray-500 [&_a]:text-gray-500",
+    text: "text-gray-400 [&_a]:text-gray-400",
   },
   pro: {
     badge: "border-orange-700 bg-orange-100",
@@ -98,6 +109,7 @@ const icons: Record<string, string> = {
   optional: "💡",
   pro: "⭐",
   usa: "🇺🇸",
+  video: "▶️",
   warn: "⚠️",
 };
 
