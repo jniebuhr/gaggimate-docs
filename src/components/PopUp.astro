@@ -1,0 +1,104 @@
+---
+// PopUp.astro
+const { src, alt, width = 300 } = Astro.props;
+const imageSrc = typeof src === "string" ? src : src.src;
+---
+
+<div class="image-popup-wrapper inline-block cursor-zoom-in group relative">
+  <div
+    class="relative overflow-hidden rounded-lg shadow-none transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]"
+  >
+    <img
+      src={imageSrc}
+      alt={alt}
+      style={`width: ${width}px;`}
+      class="trigger-open block"
+    />
+
+    <div
+      class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none"
+    >
+      <span
+        class="bg-black/50 text-white text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm"
+      >
+        CLICK TO ZOOM
+      </span>
+    </div>
+  </div>
+
+  <div
+    class="image-overlay fixed inset-0 z-[100] hidden flex-col bg-black/95 cursor-zoom-out animate-fade-in"
+  >
+    <div class="w-full flex justify-end p-6">
+      <button
+        class="text-white/70 hover:text-white text-5xl transition-colors z-[101]"
+      >
+        &times;
+      </button>
+    </div>
+
+    <div
+      class="flex-1 flex flex-col items-center justify-center p-6 overflow-y-auto"
+    >
+      <img
+        src={imageSrc}
+        alt={alt}
+        class="max-h-[75vh] w-auto rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+      />
+
+      {
+        alt && (
+          <p class="mt-6 text-white/80 text-sm font-medium tracking-wide text-center">
+            {alt}
+          </p>
+        )
+      }
+    </div>
+  </div>
+
+  <script>
+    const wrappers = document.querySelectorAll(".image-popup-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      const trigger = wrapper.querySelector(".trigger-open");
+      const overlay = wrapper.querySelector(".image-overlay");
+      const closeBtn = wrapper.querySelector("button");
+
+      const open = () => {
+        overlay?.classList.remove("hidden");
+        overlay?.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      };
+
+      const close = () => {
+        overlay?.classList.add("hidden");
+        overlay?.classList.remove("flex");
+        document.body.style.overflow = "";
+      };
+
+      trigger?.addEventListener("click", open);
+      closeBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        close();
+      });
+      overlay?.addEventListener("click", close);
+    });
+  </script>
+
+  <style>
+    .image-overlay {
+      backdrop-filter: blur(16px);
+    }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.2s ease-out;
+    }
+  </style>
+</div>

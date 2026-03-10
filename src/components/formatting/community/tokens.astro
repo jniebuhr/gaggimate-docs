@@ -12,17 +12,16 @@ interface Props {
   heading?: boolean; // Inline alignment for use inside markdown headings
   icon?: boolean | string; // Pass 'true' for default mapping, or a string for a custom icon
   maxWidth?: string; // Optional Tailwind width class (e.g., 'max-w-[200px]')
-  style?: "badge" | "text"; // "badge" = pill with border/bg | "text" = plain colored text
+  style?: "badge" | "text"; // "badge" = pill with border/bg (may be invisible for some types) | "text" = plain colored text
   type?: TokenType;
 }
 
-// 1. RAW COLOR DEFINITIONS
-// Every color has a "badge" class (BG + Border) and a "text" class (Text Color).
+// 1. COLOR DEFINITIONS
+// Every color has a "badge" class (background & border) and a "text" class (text color).
 const colorMap = {
   black: { badge: "border-black bg-black", text: "text-white" },
   blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
   brown: { badge: "border-yellow-900 bg-yellow-800", text: "text-white" },
-  danger: { badge: "border-black bg-red-800", text: "text-white" },
   earth: {
     badge:
       "border-green-700 bg-[linear-gradient(180deg,#15803d_0%,#15803d_50%,#ca8a04_50%,#ca8a04_100%)]",
@@ -43,6 +42,8 @@ const colorMap = {
   yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
 };
 
+// 2. SEMANTIC MAPPING
+// Maps the "type" prop to a specific color set and adds extra styling.
 const semanticColors = {
   alt: {
     badge: "border-green-700 bg-green-100",
@@ -63,17 +64,13 @@ const semanticColors = {
     text: "text-yellow-300 uppercase",
   },
   info: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
-  optional: {
-    badge: "border-purple-700 bg-purple-100",
-    text: "text-purple-900 uppercase",
-  },
-  video: {
-    badge: "border-transparent bg-transparent",
-    text: "text-blue-500 [&_a]:text-blue-500",
-  },
   newtab: {
     badge: "border-transparent bg-transparent",
     text: "text-gray-400 [&_a]:text-gray-400",
+  },
+  optional: {
+    badge: "border-purple-700 bg-purple-100",
+    text: "text-purple-900 uppercase",
   },
   pro: {
     badge: "border-orange-700 bg-orange-100",
@@ -84,6 +81,10 @@ const semanticColors = {
     badge:
       "border-black bg-[linear-gradient(135deg,#fca5a5_0%,#ffffff_40%,#ffffff_60%,#93c5fd_100%)]",
     text: "text-black uppercase",
+  },
+  video: {
+    badge: "border-transparent bg-transparent",
+    text: "text-blue-500 [&_a]:text-blue-500",
   },
   warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
 } as const;
@@ -113,11 +114,10 @@ const icons: Record<string, string> = {
   warn: "⚠️",
 };
 
-// Logic: Determine which icon to show (prop string vs map lookup vs none)
 const displayIcon = typeof icon === "string" ? icon : icon ? icons[type] : "";
 
 // 4. CLASS CONSTRUCTION
-// Logic: If 'color' prop is present, it overrides the 'type' semantic color.
+// If 'color' prop is present, it overrides the 'type' semantic color.
 const appliedClass = color
   ? colorMap[color][style]
   : semanticColors[type in semanticColors ? type : "default"][style];
