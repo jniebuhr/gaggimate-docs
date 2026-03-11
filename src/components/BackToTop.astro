@@ -1,0 +1,64 @@
+<button
+  id="back-to-top"
+  aria-label="Back to top"
+  class="fixed bottom-6 right-6 z-50 p-2.5 rounded-full bg-black border border-black text-white shadow-lg opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:bg-gray-800"
+>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 15l7-7 7 7"></path>
+  </svg>
+</button>
+
+<script>
+  (() => {
+    let scrollListener: (() => void) | null = null;
+
+    function init() {
+      const btn = document.getElementById("back-to-top");
+      if (!btn) return;
+
+      // Cleans up listeners
+      if (scrollListener) {
+        window.removeEventListener("scroll", scrollListener);
+      }
+
+      const toggle = () => {
+        const visible = window.scrollY > 400;
+        btn.classList.toggle("opacity-0", !visible);
+        btn.classList.toggle("translate-y-4", !visible);
+        btn.classList.toggle("pointer-events-none", !visible);
+      };
+
+      scrollListener = toggle;
+      window.addEventListener("scroll", toggle, { passive: true });
+
+      // Runs once on init to set correct state
+      toggle();
+
+      if (!btn.dataset.initialized) {
+        btn.dataset.initialized = "true";
+        btn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    }
+
+    document.addEventListener("astro:page-load", init);
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+
+    document.addEventListener("astro:before-swap", () => {
+      if (scrollListener) {
+        window.removeEventListener("scroll", scrollListener);
+        scrollListener = null;
+      }
+    });
+  })();
+</script>
