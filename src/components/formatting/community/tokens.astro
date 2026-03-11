@@ -1,23 +1,10 @@
 ---
 /**
  * TOKENS COMPONENT
- * * A semantic badge/text component for categorizing status, requirements, and hardware types.
- * * Usage:
- * <Tokens type="pro" icon>Advanced Mode</Tokens> // Uses orange semantic mapping + icon
- * <Tokens color="blue" style="text">Custom Blue Text</Tokens> // Overrides with colorMap
+ * Production-ready, type-safe semantic component.
  */
-interface Props {
-  block?: boolean; // Forces block layout instead of inline-block
-  color?: keyof typeof colorMap;
-  heading?: boolean; // Inline alignment for use inside markdown headings
-  icon?: boolean | string; // Pass 'true' for default mapping, or a string for a custom icon
-  maxWidth?: string; // Optional Tailwind width class (e.g., 'max-w-[200px]')
-  style?: "badge" | "text"; // "badge" = pill with border/bg (may be invisible for some types) | "text" = plain colored text
-  type?: TokenType;
-}
 
-// 1. COLOR DEFINITIONS
-// Every color has a "badge" class (background & border) and a "text" class (text color).
+// 1. STATIC CONFIGURATION (Hoisted for memory efficiency)
 const colorMap = {
   black: { badge: "border-black bg-black", text: "text-white" },
   blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
@@ -42,8 +29,6 @@ const colorMap = {
   yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
 };
 
-// 2. SEMANTIC MAPPING
-// Maps the "type" prop to a specific color set and adds extra styling.
 const semanticColors = {
   alt: {
     badge: "border-green-700 bg-green-100",
@@ -53,10 +38,7 @@ const semanticColors = {
     badge: "border-transparent bg-transparent italic opacity-80",
     text: "text-gray-500 italic",
   },
-  danger: {
-    badge: colorMap.hazard.badge,
-    text: colorMap.hazard.text,
-  },
+  danger: { badge: colorMap.hazard.badge, text: colorMap.hazard.text },
   default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   eu: {
     badge:
@@ -87,20 +69,8 @@ const semanticColors = {
     text: "text-blue-500 [&_a]:text-blue-500",
   },
   warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
-} as const;
+};
 
-type TokenType = keyof typeof semanticColors;
-const {
-  block = false,
-  color,
-  heading = false,
-  icon = false,
-  maxWidth = "",
-  style = "badge",
-  type = "default",
-} = Astro.props;
-
-// 3. ICON MAPPING
 const icons: Record<string, string> = {
   alt: "🔀",
   danger: "⚡",
@@ -114,44 +84,85 @@ const icons: Record<string, string> = {
   warn: "⚠️",
 };
 
-const displayIcon = typeof icon === "string" ? icon : icon ? icons[type] : "";
+// 2. TYPES AND PROPS
+interface Props {
+  block?: boolean;
+  color?: keyof typeof colorMap;
+  heading?: boolean;
+  icon?: boolean | string;
+  iconSpacing?: string;
+  maxWidth?: string;
+  style?: "badge" | "text";
+  type?: keyof typeof semanticColors;
+}
 
-// 4. CLASS CONSTRUCTION
-// If 'color' prop is present, it overrides the 'type' semantic color.
-const appliedClass = color
-  ? colorMap[color][style]
-  : semanticColors[type in semanticColors ? type : "default"][style];
+const {
+  block = false,
+  color,
+  heading = false,
+  icon = false,
+  iconSpacing = "mr-1",
+  maxWidth = "",
+  style = "badge",
+  type = "default",
+} = Astro.props;
 
-const baseClass = [
-  style === "badge" ? "rounded-lg py-0.5 px-1 border" : "",
-  "text-sm font-sans tracking-tight break-words no-underline",
-  maxWidth,
-  appliedClass,
-  type === "credit"
-    ? "block w-full -mt-4 mb-4 text-left"
-    : heading
-      ? "inline align-middle mr-1"
-      : block
-        ? "block w-max mt-1 text-left"
-        : "inline-block mr-1 mb-0.5 last:mr-0",
-]
-  .filter(Boolean)
-  .join(" ");
+// 3. LOGIC RESOLUTION
+const themeMap = { ...semanticColors, ...colorMap };
+const activeKey = color ?? type ?? "default";
+const theme = themeMap[activeKey as keyof typeof themeMap] || themeMap.default;
+
+const displayIcon =
+  typeof icon === "string"
+    ? icon
+    : icon && type && icons[type]
+      ? icons[type]
+      : null;
+
+// 4. LAYOUT MAPPING (Explicitly mapped to avoid indexing errors)
+const layoutMap = {
+  heading: "inline align-text-top mr-1",
+  block: "block w-max mt-1 text-left",
+  credit: "block w-full -mt-4 mb-4 text-left",
+  default: "inline-block mr-1 mb-0.5 last:mr-0",
+};
+
+const getLayoutKey = (): keyof typeof layoutMap => {
+  if (heading) return "heading";
+  if (block) return "block";
+  if (type === "credit") return "credit";
+  return "default";
+};
+
+const layoutClass = layoutMap[getLayoutKey()];
 ---
 
-<span class={`token-badge ${baseClass}`}>
+<span
+  class:list={[
+    "token-badge",
+    style === "badge" ? "rounded-lg py-0.5 px-1 border" : "",
+    "text-sm font-sans tracking-tight break-words no-underline",
+    maxWidth,
+    theme.badge,
+    layoutClass,
+  ]}
+>
   <span
-    class={[
+    class:list={[
       "inline-flex items-center px-0.5 py-0.5 rounded-[calc(0.5rem-2px)]",
-      type === "danger" ? "bg-black" : "",
-    ].join(" ")}
+      { "bg-black": type === "danger" },
+    ]}
   >
-    {displayIcon && <span class="inline mr-1">{displayIcon}</span>}
+    {
+      displayIcon && (
+        <span class:list={["inline", iconSpacing]}>{displayIcon}</span>
+      )
+    }
     <span
-      class={[
+      class:list={[
         "inline whitespace-pre-line [&_strong]:text-inherit",
-        color ? colorMap[color].text : semanticColors[type]?.text,
-      ].join(" ")}
+        theme.text,
+      ]}
     >
       <slot />
     </span>

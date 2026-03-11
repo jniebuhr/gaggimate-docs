@@ -35,7 +35,7 @@ import image_wiring_hole from '../../assets/images/community/delonghi-ecp/image_
 import CB from '../../components/Checkbox.astro';
 import CommunityHeader from '../../components/CommunityHeader.astro';
 import Tokens from '../../components/formatting/community/tokens.astro';
-import PopUp from '../../components/PopUp.astro';
+import Lightbox from '../../components/Lightbox.astro';
 import Preview from '../../components/Preview.astro';
 
 export const SITE_URL = "/docs/community-delonghi-ecp/";
@@ -47,8 +47,8 @@ export const WIRING = () => <Tokens type="newtab" icon><WIRING_LINK /></Tokens>;
 export const PINOUT = () => <Tokens type="newtab" icon><PINOUT_LINK /></Tokens>;
 export const WIRING_AND_PINOUT = () => <Tokens type="newtab" icon><WIRING_LINK /> and <PINOUT_LINK /></Tokens>;
 
-<CommunityHeader author="Jay R. (Jayblah)" updated="March 9, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
-<PopUp src={image_teaser} alt="GaggiMate installed on a DeLonghi ECP" width={500} priority/>
+<CommunityHeader author="Jay R. (Jayblah)" updated="March 10, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
+<Lightbox src={image_teaser} alt="GaggiMate installed on a DeLonghi ECP" width={500} priority/>
 <Tokens type="credit">Image credit: Torxfighter</Tokens>
 
 ## Contents
@@ -169,10 +169,10 @@ Please ensure you reference the appropriate wiring diagram below as your primary
 <Tokens type="info" icon>You may install a power switch on the American version of your machine if you wish, but it will require cutting an additional hole in the chassis to support the new switch. This is not covered by this guide. If you proceed with this addition, you must follow the principles of the European wiring diagram (Diagram B).</Tokens>
 
 ### Diagram A — No Power Switch (e.g. American Models)
-<PopUp src={image_wiring_diagram} alt="Wiring diagram without a power switch" width={600} />
+<Lightbox src={image_wiring_diagram} alt="Wiring diagram without a power switch" width={600} />
 
 ### Diagram B — Power Switch (e.g. European Models)
-<PopUp src={image_wiring_diagram_with_switch} alt="Wiring diagram with switch" width={600} />
+<Lightbox src={image_wiring_diagram_with_switch} alt="Wiring diagram with switch" width={600} />
 
 ## Flashing the Hardware
 Flash both the PCB and screen before installing them. It's much easier to do outside the machine. Follow the instructions at [docs.gaggimate.eu/docs/flashing](https://docs.gaggimate.eu/docs/flashing/).
@@ -181,26 +181,26 @@ Flash both the PCB and screen before installing them. It's much easier to do out
 
 ## Prepare the Machine
       1. <CB>**Remove Grouphead Screws** — Using a Phillips screwdriver, remove the two screws located near the grouphead and set aside for reassembly.</CB>
-            <PopUp src={image_underside_screws} alt="Underside grouphead screws" width={300} />
+            <Lightbox src={image_underside_screws} alt="Underside grouphead screws" width={300} />
       1. <CB>**Remove the Front Knob** — Gently pull the front knob straight off the shaft. Avoid twisting or prying.</CB>
       1. <CB>**Remove Front Panel Screws** — Behind the knob, remove the two Phillips screws securing the front panel and set aside for reassembly.</CB>
-            <PopUp src={image_behind_knob_screws} alt="Screws behind knob" width={300} />
+            <Lightbox src={image_behind_knob_screws} alt="Screws behind knob" width={300} />
       1. <CB>**Remove the Front Panel** — With all four screws removed, carefully lift off the front metal panel. If it's snug, use a slim plastic tool such as a bike tire lever or a taped flathead screwdriver to gently unseat it. Take care not to scratch the surface.</CB>
       1. <CB>**Remove Case Screws** — Locate and remove the two deep-set Phillips screws that hold the outer case in place and set aside for reassembly.</CB>
-            <PopUp src={image_top_screws} alt="Top case screws" width={300} />
+            <Lightbox src={image_top_screws} alt="Top case screws" width={300} />
       1. <CB>**Release Rear Clips** — On the back of the machine, press the two plastic clips inward to release the top cover. Use gentle, even pressure. A flathead screwdriver can help, but avoid excessive force.</CB>
-            <PopUp src={image_rear_clips} alt="Rear case clips" width={300} />
+            <Lightbox src={image_rear_clips} alt="Rear case clips" width={300} />
       1. <CB>**Remove the Top Cover** — Lift the top cover off and set it aside.</CB>
       1. <CB>**Remove the Bottom Panel** — Flip the machine over and remove the bottom panel by unscrewing the 5 Torx screws. Set the panel and screws aside for reassembly.</CB>
-            <PopUp src={image_bottom_panel} alt="Bottom panel" width={300} />
+            <Lightbox src={image_bottom_panel} alt="Bottom panel" width={300} />
       1. <CB><Tokens type="usa" icon>American Version Only</Tokens> **Detach the Plug** — Locate the wiring junction connecting the 2-prong plug's Line and Neutral wires to the machine's internal wiring. Detach all wires, then remove both the plug and the junction. Neither will be reused; they will be replaced with a grounded 3-prong plug and WAGO connectors.</CB>
-            <PopUp src={image_plug} alt="Power plug junction" width={300}/>
+            <Lightbox src={image_plug} alt="Power plug junction" width={300}/>
             <Tokens type="credit">Image credit: lchasemarsh</Tokens>
       1. <CB>**Detach the Pump Hoses** — Unscrew the 3 Phillips screws securing the pump to the chassis and set aside for reassembly. Detach the 2 tubes and be careful not to lose the filter screens inside the tube ends.</CB>
-            <PopUp src={image_pump_hoses} alt="Pump hoses" width={300} />
+            <Lightbox src={image_pump_hoses} alt="Pump hoses" width={300} />
       1. <CB>**Detach the Steam Hose** — If clamped with spring-clips, squeeze the clips with a plier and gently pull the hose free from both connection points. If clamped with single-use clamps, carefully break them open with a screwdriver or plier, then pull the hose free.</CB>
       1. <CB>**Detach the Frame** — Remove the 5 Phillips screws securing the frame to the chassis and set aside for reassembly.</CB>
-            <PopUp src={image_frame_screws} alt="Frame screws" width={300} />
+            <Lightbox src={image_frame_screws} alt="Frame screws" width={300} />
       1. <CB>**Remove the Frame** — Slowly and carefully lift the frame out, disconnecting any remaining wires to the boiler or pump before fully removing it. Set it aside in an accessible spot; you'll be doing most of the rewiring on it.
             <Tokens type="video" icon>This [video guide](https://www.youtube.com/watch?v=paImrXJvxlg) is an excellent reference for the disassembly process, specifically showing how to access the internal components and remove the frame for a deep overhaul.</Tokens></CB>
       1. <CB><Tokens type="optional" icon>Optional</Tokens> **Remove the Pannarello Steam Wand** — If you plan to install a Rancilio-style wand (recommended), now is the time.
@@ -216,13 +216,13 @@ Flash both the PCB and screen before installing them. It's much easier to do out
       1. <CB>**Remove Existing Wires** — Gently but firmly pull off all wires from the boiler, pump, and any other components on the frame. The only exception is the red boiler wire with the fuse attached. You can leave the end connected to the boiler attached. If any connectors are stubborn, gently wiggle it back and forth while pulling.</CB>
       1. <CB>**Save the Red Boiler Wire with the Fuse Attached** — This is the only wire you will keep.</CB>
       1. <CB>**Remove the Old Thermostats** — Unscrew the nut between the two thermostats and save it for later. Remove the bracket and both thermostats from the boiler. They will not be needed after the GaggiMate installation.</CB>
-            <PopUp src={image_thermostats} alt="Stock thermostats" width={300} />
+            <Lightbox src={image_thermostats} alt="Stock thermostats" width={300} />
       1. <CB>**Clean the Boiler Surface and Frame** — Wipe away any old thermal paste from the boiler surface with a damp paper towel. Make sure the area is clean and smooth. Take this opportunity to clean the frame as well if needed.</CB>
 
 ## Create a Wire Port
 You will need to drill a hole in the back panel to route wires from inside the machine to the PCB. Choose a location that is easily accessible when fully assembled and does not interfere with any other components. Drill the hole large enough to fit at least a **13 mm** (inner-dimension) grommet. This keeps the opening tidy and protects the wires from sharp edges.
 
-<PopUp src={image_wiring_hole} alt="Wiring port on the back of the machine" width={300} />
+<Lightbox src={image_wiring_hole} alt="Wiring port on the back of the machine" width={300} />
 <CB>Hole drilled and grommet (optional) installed.</CB>
 
 ## Wire the Pump
@@ -242,7 +242,7 @@ The pump is not polarized. It does not matter which wire connects to which termi
 
 ## Prepare the Water Line
       <CB>**Cut the Pump-to-Boiler Water Line** — While the frame is still out, cut the water line running from the pump to the boiler. The cut should be made closer to the pump. It must be straight and clean. Use a razor-sharp blade to avoid crushing the hose. Scissors will crush the hose and are not a good choice.</CB>
-            <PopUp src={image_cut_hose} alt="Cut pump-to-boiler hose" width={300} />
+            <Lightbox src={image_cut_hose} alt="Cut pump-to-boiler hose" width={300} />
 
 ## Re-seat the Frame
       1. <CB>**Reinsert the Frame** — Now that the pump is wired and the steam wand replaced, re-seat the frame. Take care not to snag any wires or pinch any tubing. Make sure they are out of the way before lowering the frame into place. Once the frame is securely in position, reinsert and tighten the 5 Phillips screws you previously removed.</CB>
@@ -256,15 +256,15 @@ The pump is not polarized. It does not matter which wire connects to which termi
       1. <CB>**Connect the PT Tube** — Attach one end to the <Tokens color="grey">90° Fitting</Tokens> using the same push-fit method.</CB>
       1. <CB>**Fill the PT Tube** — To eliminate air in the tubing connected to the pressure transducer, fill it with water using a syringe or by submerging the open end in a bowl of water. Attach the other end of the tube to the open branch of the <Tokens color="grey">T-Fitting</Tokens> and confirm both connections are snug.</CB>
       1. <CB>**Secure the Pressure Transducer** — Tuck the pressure transducer into the open space to the left of the pump or wherever it fits snugly.</CB>
-            <PopUp src={image_pressure_position} alt="Pressure transducer position" width={300} />
+            <Lightbox src={image_pressure_position} alt="Pressure transducer position" width={300} />
       1. <CB>**Route the Pressure Transducer Wire** — Feed the thick <Tokens color="black">black</Tokens> wire from the pressure transducer outside of the machine through the wire port you created on the back. It will be connected to the <Tokens color="grey">PCB</Tokens> later. Secure it with tape for now.</CB>
-            <PopUp src={image_pressure_installation} alt="Pressure transducer installation" width={300} />
+            <Lightbox src={image_pressure_installation} alt="Pressure transducer installation" width={300} />
             <Tokens type="credit">A correct installation of the Pressure Transducer and fittings will look similar to the image above.</Tokens>
 
 ## Wire the Boiler
 The boiler is not polarized. Note how the fuse is secured to the boiler via the metal clip. When you reconnect the fused wire, secure it the same way to ensure it stays in place and maintains good contact with the boiler surface. <WIRING />
 
-      <PopUp src={image_boiler_heater_connections} alt="Boiler heater connections" width={300} />
+      <Lightbox src={image_boiler_heater_connections} alt="Boiler heater connections" width={300} />
       <Tokens type="credit">The fused wire is indicated by the arrow pointing down from label 1.</Tokens>
 
       #### Connect the <Tokens color="red">Red</Tokens> Fused Boiler Wire
@@ -284,10 +284,10 @@ This section explains how to prepare a **WaveShare screen** for connection to th
 
 #### Prepare the 2-Pin Female PH 2.0 Connector
       1. <CB>The wire ends come pre-stripped, but you'll need more exposed wire for a strong splice. Strip at least **10 mm** from the end of each wire.</CB>
-      <PopUp src={image_2pin_JST} alt="2-pin JST connector" width={200} />
+      <Lightbox src={image_2pin_JST} alt="2-pin JST connector" width={200} />
 
 #### Prepare the 4-Pin Female SH 1.0 Connector
-      <PopUp src={image_4pin_SH10} alt="4-pin SH 1.0 wiring" width={300} />
+      <Lightbox src={image_4pin_SH10} alt="4-pin SH 1.0 wiring" width={300} />
       <Tokens type="credit">The WaveShare includes 2 of these. You only need 1, but keep the other as a backup.</Tokens>
 
       1. <CB>Using a narrow-tip tweezer, lift the retention tabs *(depicted above)* on the <Tokens color="yellow">yellow</Tokens> wire and pull it out. Repeat for the <Tokens color="green">green</Tokens> wire.</CB>
@@ -300,11 +300,11 @@ This section explains how to prepare a **WaveShare screen** for connection to th
 
 #### Prepare the Screen Connection
       1. <CB>Slide a heat-shrink butt connector onto the <Tokens color="red">red</Tokens> 22 AWG wire.</CB>
-      1. <CB>Bring its stripped end to the stripped end of the <Tokens color="grey">SH1.0</Tokens> connector's <Tokens color="red">red</Tokens> wire and twist them firmly together.<Tokens type="video" icon>This [short video](https://www.youtube.com/shorts/Gw2Sh4ZR_IQ) is an excellent reference.</Tokens></CB>
+      1. <CB>Bring its stripped end to the stripped end of the <Tokens color="grey">SH 1.0</Tokens> connector's <Tokens color="red">red</Tokens> wire and twist them firmly together.<Tokens type="video" icon>This [short video](https://www.youtube.com/shorts/Gw2Sh4ZR_IQ) is an excellent reference.</Tokens></CB>
       1. <CB>Slide the heat-shrink butt connector over the twisted wires. <Tokens type="warn" icon>Ensure the solder section is centered over the twisted wires before heating.</Tokens></CB>
       1. <CB>Using a heat gun or lighter, shrink both insulated ends of the connector.</CB>
       1. <CB>Heat the middle solder section until it melts and the insulation shrinks tight.</CB>
-      1. <CB>Repeat the steps above for the <Tokens color="black">black</Tokens> 22 AWG wire and the <Tokens color="grey">SH1.0</Tokens> connector's <Tokens color="black">black</Tokens> wire.</CB>
+      1. <CB>Repeat the steps above for the <Tokens color="black">black</Tokens> 22 AWG wire and the <Tokens color="grey">SH 1.0</Tokens> connector's <Tokens color="black">black</Tokens> wire.</CB>
 
 #### Prepare the PCB Connection
       1. <CB>Slide a heat-shrink butt connector onto the other end of the <Tokens color="red">red</Tokens> 22 AWG wire.</CB>
@@ -322,7 +322,7 @@ This section explains how to prepare a **WaveShare screen** for connection to th
       1. <CB>**Install the Thermocouple** — Place the hole connector of your thermocouple over the threaded stud and slide it down until it rests flat against the boiler and is seated in the thermal paste.</CB>
       1. <CB>**Secure the Thermocouple** — Screw the saved nut back on to hold the thermocouple in place. <Tokens type="warn" icon>The thermocouple's sensor tip is fragile. Do not bend it acutely or twist it at any point during installation.</Tokens></CB>
       1. <CB>**Route the Thermocouple Wire** — Feed the wire end of the thermocouple outside of the machine through the wire port you created on the back. It will connect to the <Tokens color="grey">PCB</Tokens> later.</CB>
-      <PopUp src={image_thermocouple_installation} alt="Successful installation of the thermocouple" width={300} />
+      <Lightbox src={image_thermocouple_installation} alt="Successful installation of the thermocouple" width={300} />
       <Tokens type="credit">A successful thermocouple installation will look like this (rear-view of the boiler).</Tokens>
 
 ## Wire the Solid State Relay (SSR)
@@ -339,11 +339,11 @@ This section explains how to prepare a **WaveShare screen** for connection to th
       1. <CB>Give the wire a gentle pull to verify that it is secured within its slot.</CB>
 
       #### Prepare the 3-Pin Female PH 2.0 Connector
-            <PopUp src={image_3pin_JST} alt="3-pin JST connector" width={200} />
+            <Lightbox src={image_3pin_JST} alt="3-pin JST connector" width={200} />
             1. <CB>Using a narrow-tip tweezer, gently lift the retention tabs *(depicted above)* on the <Tokens color="grey">3-pin connector</Tokens> and remove all three wires.</CB>
             2. <CB>Insert the <Tokens color="red">red</Tokens> wire into the middle slot and the <Tokens color="black">black</Tokens> into the right slot.</CB>
             3. <CB>Gently tug both to confirm they are securely seated. <Tokens type="warn" icon>Correct placement in the connector is critical for proper SSR control and PCB operation.</Tokens></CB>
-            <PopUp src={image_3_pin_setup} alt="3-pin JST connector wiring" width={200} />
+            <Lightbox src={image_3_pin_setup} alt="3-pin JST connector wiring" width={200} />
 
       #### Prepare the Control Wire Ends on the SSR Side
             1. <CB>Crimp a **ring connector** onto the <Tokens color="grey">3-pin</Tokens> connector's <Tokens color="red">red</Tokens> wire.</CB>
@@ -351,12 +351,12 @@ This section explains how to prepare a **WaveShare screen** for connection to th
 
       #### Attach the Control Wires to the SSR
             1. <CB>Attach both wires to the terminals on the <Tokens color="grey">CONTROL</Tokens> side of the SSR. This side *is* polarized. Connect exactly as shown, with the <Tokens color="black">black</Tokens> wire's ring connector attached to the <Tokens color="grey">-</Tokens> side of the SSR Control terminal, and the <Tokens color="red">red</Tokens> wire's ring connector attached to the <Tokens color="grey">+</Tokens> side.</CB>
-            <PopUp src={image_ssr_wiring_of_control} alt="Wiring the CONTROL side of the SSR" width={300} />
+            <Lightbox src={image_ssr_wiring_of_control} alt="Wiring the CONTROL side of the SSR" width={300} />
 
 ## Diagram — PCB Wiring Pinout
 Refer to the wiring pinout diagram below as we begin connecting the remaining wires to the PCB. Following the pinout carefully is crucial to ensure proper functionality and avoid damage to components.
 
-            <PopUp src={image_pcb_diagram} alt="Diagram of the PCB and connections" width={300} />
+            <Lightbox src={image_pcb_diagram} alt="Diagram of the PCB and connections" width={300} />
 
 ## Connect the Components
 <Tokens type="danger" icon>Keep your PCB and SSR secured inside a housing when your build is complete. Leaving them exposed is an electrocution hazard.</Tokens>
@@ -371,7 +371,7 @@ Refer to the wiring pinout diagram below as we begin connecting the remaining wi
 #### Connect the Screen to the PCB — <PINOUT />
       1. <CB>Insert the <Tokens color="grey">2-pin PH 2.0</Tokens> connector into the correct slot on the <Tokens color="grey">PCB</Tokens>. It can only fit one way. Do **not** force it, but make sure it is firmly seated.</CB>
       1. <CB>Insert the <Tokens color="grey">4-pin SH 1.0</Tokens> connector into the <Tokens color="grey">4-pin</Tokens> slot on your <Tokens color="grey">WaveShare</Tokens> screen. It can only fit one way. Do **not** force it, but make sure it is firmly seated.</CB>
-            <PopUp src={image_screen_connection} alt="Connecting the WaveShare screen" width={400} />
+            <Lightbox src={image_screen_connection} alt="Connecting the WaveShare screen" width={400} />
 
 #### Connect the Solid State Relay (SSR) to the PCB — <PINOUT />
       1. <CB>Insert the <Tokens color="grey">3-pin</Tokens> connector from the <Tokens color="grey">SSR</Tokens> into the correct slot on the <Tokens color="grey">PCB</Tokens>. It can only fit one way. Do **not** force it, but make sure it is firmly seated.</CB>
@@ -421,14 +421,14 @@ On the 3-prong power cord linked in the shopping list, identify the following wi
       - Ground is <Tokens color="teal">teal</Tokens>. For the EU machine, it is <Tokens color="earth">green and yellow</Tokens>.
 
       #### Connect the SSR to the Plug — <WIRING />
-            1. <CB>Locate the <Tokens color="grey">Line</Tokens> wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
-            1. <CB>Strip at least **10 mm** of insulation from the <Tokens color="grey">Line</Tokens> wire.</CB>
+            1. <CB>Locate the <Tokens color="black">black</Tokens> line wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
+            1. <CB>Strip at least **10 mm** of insulation from the <Tokens color="black">black</Tokens> line wire.</CB>
             1. <CB>Twist the exposed wire gently to prevent fraying, then insert it into the last free slot in the <Tokens color="grey">3-slot WAGO</Tokens> connector.</CB>
             1. <CB>Give the wire a gentle pull to verify that it is secured within the slot.</CB>
 
       #### Connect the Pump to the Plug — <WIRING />
-            1. <CB>Locate the <Tokens color="grey">Neutral</Tokens> wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
-            1. <CB>Strip at least **10 mm** of insulation from the <Tokens color="grey">Neutral</Tokens> wire.</CB>
+            1. <CB>Locate the <Tokens color="white">white</Tokens> neutral wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
+            1. <CB>Strip at least **10 mm** of insulation from the <Tokens color="white">white</Tokens> neutral.</CB>
             1. <CB>Twist the exposed wire gently to prevent fraying, then insert it into a free slot in the <Tokens color="grey">5-slot WAGO</Tokens> connector.</CB>
             1. <CB>Give the wire a gentle pull to verify that it is secured within the slot.</CB>
             1. <CB>Locate the <Tokens color="blue">blue</Tokens> 18 AWG wire that you routed to the plug from the pump, through the large hole.</CB>
@@ -452,10 +452,10 @@ On the 3-prong power cord linked in the shopping list, identify the following wi
 
       #### Connect the Ground Wire to the Plug — <WIRING />
             1. <CB>Cut a <Tokens color="green">green</Tokens> 18 AWG wire long enough to reach the boiler's <Tokens color="grey">grounding point</Tokens> from the plug, up through the large hole beneath the pump.</CB>
-            <PopUp src={image_boiler_grounding_point} alt="Location of the boiler's grounding point" width={200} />
+            <Lightbox src={image_boiler_grounding_point} alt="Location of the boiler's grounding point" width={200} />
             1. <CB>Strip at least **10 mm** of insulation from the end of the ground wire that will be connected to the ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
             1. <CB>Slide a heat-shrink butt connector onto the wire.</CB>
-            1. <CB>Bring the stripped end of the ground wire to the already stripped <Tokens color="grey">Ground</Tokens> wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
+            1. <CB>Bring the stripped end of the ground wire to the already stripped <Tokens color="teal">teal</Tokens> ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
             1. <CB>Twist the wires together to ensure a firm connection.</CB>
             1. <CB>Slide the heat-shrink butt connector over the twisted wires. <Tokens type="warn" icon>Ensure the solder section of the butt connector is positioned directly over the twisted wires.</Tokens></CB>
             1. <CB>Use a heat source (e.g., a heat gun or lighter) to shrink the left and right insulated ends of the heat-shrink butt connector.</CB>
