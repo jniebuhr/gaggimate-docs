@@ -159,7 +159,7 @@ We recommend printing all parts using PETG or ABS for durability and heat resist
       <CB>**Safety First** — Unplug the machine and allow it to cool completely before performing any work.</CB>
       <CB>**Set Up Your Workspace** — Make sure you have all the necessary tools and a clean, well-lit workspace.</CB>
       <CB>**Remove All Loose Components** — Detach the water tank, drip tray, cup tray, and all other removable parts and set them aside.</CB>
-      <CB>**Document Internal Layout** — Take clear, detailed photos of the machine's interior before disassembly. Configurations can differ between machines, so these will serve as a valuable reference. This [video](https://youtu.be/paImrXJvxlg?si=31uOG_DgweDzkNb_) is also useful for familiarizing yourself with the internals.</CB>
+      <CB>**Document Internal Layout** — Take clear, detailed photos of the machine's interior before disassembly. Configurations can differ between machines, so these will serve as a reference. <Tokens type="video" icon>Thie [video](https://youtu.be/paImrXJvxlg?si=31uOG_DgweDzkNb_) is an excellent guide to the inside of the DeLonghi.</Tokens></CB>
       <CB>**Read the Instructions** — Read through this entire guide at least once before you begin.</CB>
       <CB>**Measure Twice, Cut Once** — When you get to the wiring stages, measure carefully before making any cuts or crimps. It's much easier to fix a mistake before you cut than after.</CB>
 
@@ -498,7 +498,7 @@ With everything connected, plug in your machine and turn it on. If everything is
 
 1. <CB>The **LED lights** on your machine illuminate.</CB>
 1. <CB>The **LED indicators** on the underside of the PCB light up.</CB>
-1. <CB>Your **screen** powers on and begins its first boot sequence.</CB>
+1. <CB>Your **screen** powers on and begins its first boot sequence. The first boot will take longer than normal. Don't panic.</CB>
 
 If any of these three things do **not** occur, there is likely a wiring issue. **Unplug your machine**, review the guide carefully, and retrace your connections to locate and correct the error.
 
@@ -507,10 +507,9 @@ Assuming all three systems power on correctly, visit the **GaggiMate website** a
 ## Final Setup and Testing
 
 - Use GaggiMate’s software **Auto-Tune** feature in the PID Autotune page to generate PID values specific to your machine. This ensures the software can control temperature effectively and accurately.
-- For **DeLonghi ECP** users, it is recommended to **disable** Steam Assist in the Settings page by setting its value to **0**.
-- Before reassembling your machine completely, **test pulling a shot** using the GaggiMate interface. Confirm that there are no leaks and that everything powers and functions as expected.
-- If everything looks good, you're ready to reassemble your machine.
-- Before final reassembly, **unplug your machine** and take some time to organize your internal wiring using your solution of choice. Verify that **no wires are resting directly on the boiler surface** where heat could cause damage to them over time. The **only** wire that may rest on the boiler surface is the fuse-protected heater wire.
+- Before reassembling your machine completely, consider pulling a test shot using the GaggiMate interface. Confirm that there are **no leaks**.
+- If everything looks good, if you have no leaks, then you're ready to reassemble your machine.
+- Before final reassembly, **unplug your machine** and take some time to organize your internal wiring using your solution of choice. Verify that **no wires are resting directly on the boiler surface** where heat could cause damage to them over time. The **only** wire that may rest on the boiler surface is the fuse-protected wire.
 
 ## Troubleshooting
 
@@ -523,11 +522,17 @@ The list below contains common issues you might encounter. If your problem is no
       - Nothing is wrong, per se. Even the highest-end machines have a temperature difference from where the thermocouple takes a measurement and the actual grouphead. The GaggiMate software allows you to compensate for this by adjusting the "Temperature Offset" value in the settings. You can increase this value to raise the target temperature that the PID controller is trying to reach, which will help ensure that the grouphead reaches your desired temperature for espresso extraction. Use a probe to measure the actual temperature at the grouphead and adjust the offset accordingly until you achieve the desired taste. Don't be alarmed if you measure an offset of 10–20 degrees Celsius between the thermocouple reading and the actual grouphead temperature. This is normal for machines like the DeLonghi ECP that do not have a thermocouple located directly at the grouphead.
 1. ***I have my temperature offset dialed-in, but my coffee still tastes underextracted or sour. What else could be wrong?***
       - According to **odor4fun**, the mushroom valve inside the DeLonghi machines requires at least 4-bars of pressure to hold open. If your pump is not generating enough pressure to extract properly, the mushroom valve may not be opening fully. This can lead to underextraction. If your shots still don't taste correct after dialing in the temperature offset, increase the pressure values in all phases of your preferred profile(s) by plus 4. This should help ensure the mushroom valve is opening fully and allow for proper extraction.
+1. ***I have leaks!***
+      - To ensure a leak-free installation, carefully inspect your water line connections. Begin by ensuring all cuts made to the tubing are sharp, straight, and clean, as any crushed or jagged edges will prevent a proper seal.  Verify that each hose is seated firmly into its respective fitting. Finally, confirm that the hoses leading to both the boiler and the overpressure valve are clipped in securely, ensuring the black o-ring is present and correctly seated at each connection point.
+1. ***What PID values do you recommend?***
+      -  While there is no universal "consensus" setting for PIDs, Prowler recommends starting with a Kp of 22, a Ki of 0.01, a Kd of 30 (i.e. 22,0.01,30), and a Thermal Feedforward Gain (Kff) of 0.6. Additionally, a Temperature Offset of 15° is a common starting point; however, because every machine behaves differently, you may need to adjust this. If you lack a Scace device or a method to measure portafilter temperatures directly, you can use the "flash steaming method" to calibrate your offset. For detailed instructions on this process, please refer to
+1. ***Lance Hedrick called this a <Tokens type="video" icon>"[meme-machine](https://www.youtube.com/watch?v=nEI9z4D0x1A)"</Tokens> so I wanna embrace that and go buckwild! What else can I do?***
+      -  The level of modification possible is truly up to you. Enthusiastic users have pushed the limits in various ways: some trim the mushroom valve spring to achieve lower brewing pressures, while others swap the standard vibratory pump for a quieter, more consistent rotary pump.  For those seeking superior thermal performance, some have opened the boiler to install diversion plates or water tubes, which prevent incoming cold water from directly hitting the heating element.  Furthermore, advanced modders have even drilled into the boiler casing to mount submersible, probe-type thermocouples for precise, real-time temperature monitoring. Meme your heart out!
 
-      For more troubleshooting tips, please check the [GaggiMate Troubleshooting Documentation](https://docs.gaggimate.eu/docs/troubleshooting/). The ones mentioned above are commonly observed in DeLonghi ECP machines, but the troubleshooting documentation contains resolutions for a wide variety of issues.
+      If you need further assistance, please refer to the [GaggiMate Troubleshooting Documentation](https://docs.gaggimate.eu/docs/troubleshooting/). While the guidance provided here addresses specific concerns relevant to this model, the full documentation covers a broader range of potential issues you may encounter during operation or maintenance.
 
 ## Congratulations!
-Welcome to the world of **turbocharged espresso**! Now you can extract café-quality shots from a compact, affordable machine that rivals the big names at a fraction of the cost.
+Welcome to the world of turbocharged espresso! Now you can extract better than café-quality shots from a compact, affordable machine that rivals the big names at a fraction of the cost.
 
 ## Acknowledgements
 - **Flavius** for successfully being the first (as far as we know) to install GaggiMate on a DeLonghi ECP, answering a ton of questions, and helping identify the required components.
