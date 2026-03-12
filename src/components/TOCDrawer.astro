@@ -29,9 +29,7 @@
         Contents
       </p>
     </div>
-    <nav id="toc-nav" class="max-h-[60vh] overflow-y-auto py-2">
-      <!-- Populated by script -->
-    </nav>
+    <nav id="toc-nav" class="max-h-[60vh] overflow-y-auto py-2"></nav>
   </div>
 </div>
 
@@ -45,7 +43,6 @@
       const nav = document.getElementById("toc-nav");
       if (!nav) return;
 
-      // Disconnect any previous observer before rebuilding
       if (headingObserver) {
         headingObserver.disconnect();
         headingObserver = null;
