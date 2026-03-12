@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const {
   src,
   alt,
@@ -6,22 +8,37 @@ const {
   priority = false,
   hideCaption = false,
 } = Astro.props;
+
 if (!src) throw new Error("Lightbox: src prop is required");
-const imageSrc = typeof src === "string" ? src : src.src;
+
+const isImageObject = typeof src === "object" && "src" in src;
 ---
 
 <div class="lightbox-wrapper inline-block group relative">
   <div
     class="relative overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]"
   >
-    <img
-      src={imageSrc}
-      alt={alt}
-      class="trigger-open block cursor-zoom-in"
-      style={`width: ${width}px;`}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-    />
+    {
+      isImageObject ? (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          class="trigger-open block cursor-zoom-in"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          class="trigger-open block cursor-zoom-in"
+          style={`width: ${width}px;`}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      )
+    }
   </div>
 
   <dialog
@@ -54,9 +71,8 @@ const imageSrc = typeof src === "string" ? src : src.src;
               d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-
         <a
-          href={imageSrc}
+          href={typeof src === "string" ? src : src.src}
           target="_blank"
           rel="noopener"
           class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
@@ -75,11 +91,24 @@ const imageSrc = typeof src === "string" ? src : src.src;
           </svg>
         </a>
       </div>
-      <img
-        src={imageSrc}
-        alt={alt}
-        class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
-      />
+
+      {
+        isImageObject ? (
+          <Image
+            src={src}
+            alt={alt}
+            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+            loading="eager"
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+          />
+        )
+      }
+
       {
         alt && !hideCaption && (
           <p class="mt-6 text-white/80 text-sm font-medium text-center max-w-2xl pointer-events-auto">
