@@ -16,6 +16,7 @@ import image_boiler_heater_connections from '../../assets/images/community/delon
 import image_bottom_panel from '../../assets/images/community/delonghi-ecp/image_bottom_panel.jpg';
 import image_cut_hose from '../../assets/images/community/delonghi-ecp/image_cut_hose.jpg';
 import image_frame_screws from '../../assets/images/community/delonghi-ecp/image_frame_screws.jpg';
+import image_lchasemarsh_build from '../../assets/images/community/delonghi-ecp/image_lchasemarsh_build.jpg';
 import image_pcb_diagram from '../../assets/images/community/delonghi-ecp/image_pcb_diagram.png';
 import image_plug from '../../assets/images/community/delonghi-ecp/image_plug.jpg';
 import image_pressure_installation from '../../assets/images/community/delonghi-ecp/image_pressure_installation.jpg';
@@ -24,10 +25,10 @@ import image_pump_hoses from '../../assets/images/community/delonghi-ecp/image_p
 import image_rear_clips from '../../assets/images/community/delonghi-ecp/image_rear_clips.jpg';
 import image_screen_connection from '../../assets/images/community/delonghi-ecp/image_screen_connection.png';
 import image_ssr_wiring_of_control from '../../assets/images/community/delonghi-ecp/image_ssr_wiring_of_control.png';
-import image_teaser from '../../assets/images/community/delonghi-ecp/image_teaser.png';
 import image_thermocouple_installation from '../../assets/images/community/delonghi-ecp/image_thermocouple_installation.jpg';
 import image_thermostats from '../../assets/images/community/delonghi-ecp/image_thermostats.jpg';
 import image_top_screws from '../../assets/images/community/delonghi-ecp/image_top_screws.jpg';
+import image_torx_build from '../../assets/images/community/delonghi-ecp/image_torx_build.png';
 import image_underside_screws from '../../assets/images/community/delonghi-ecp/image_underside_screws.jpg';
 import image_wiring_diagram from '../../assets/images/community/delonghi-ecp/image_wiring_diagram.png';
 import image_wiring_diagram_with_switch from '../../assets/images/community/delonghi-ecp/image_wiring_diagram_with_switch.png';
@@ -48,9 +49,18 @@ export const WIRING = () => <Tokens type="newtab" icon><WIRING_LINK /></Tokens>;
 export const PINOUT = () => <Tokens type="newtab" icon><PINOUT_LINK /></Tokens>;
 export const WIRING_AND_PINOUT = () => <Tokens type="newtab" icon><WIRING_LINK /> and <PINOUT_LINK /></Tokens>;
 
-<CommunityHeader author="Jay R. (Jayblah)" updated="March 11, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
-<Lightbox src={image_teaser} alt="GaggiMate installed on a DeLonghi ECP" width={500} priority/>
-<Tokens type="credit">Image credit: Torxfighter</Tokens>
+<CommunityHeader author="Jay R. (Jayblah)" updated="March 15, 2026" credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"/>
+
+<div class="flex flex-row gap-4 flex-wrap items-stretch">
+  <div class="flex flex-col flex-1">
+    <Lightbox src={image_torx_build} alt="GaggiMate installed on a DeLonghi ECP, in black" width={500} priority/>
+    <Tokens type="credit">Image credit: Torxfighter</Tokens>
+  </div>
+  <div class="flex flex-col flex-1">
+    <Lightbox src={image_lchasemarsh_build} alt="GaggiMate installed on a DeLonghi ECP, in white" width={500} priority/>
+    <Tokens type="credit">Image credit: lchasemarsh</Tokens>
+  </div>
+</div>
 
 ## Contents
 
@@ -110,7 +120,7 @@ The most important factor is that the technical specifications of your parts are
       1. <CB>[18 AWG silicone wires](https://a.co/d/8NlcNLm)</CB>
       1. <CB>[6.3mm and 4.8mm female spade connectors](https://www.amazon.com/Feggizuli-Connectors-Insulating-Terminals-Electrical/dp/B0CJQ8H94N?s=industrial) <Tokens type="info" icon>If you buy the crimping tool linked in the Tools & Consumables section, you do **not** need to buy these connectors separately.</Tokens></CB>
       1. <CB>[Fork connectors, Color: SV1.25-5s-50PCS](https://www.aliexpress.us/item/3256805889663603.html) <Tokens type="info" icon>If you buy the crimping tool linked in the Tools & Consumables section, you do **not** need to buy these. You may use the included ring connectors for the SSR instead.</Tokens></CB>
-      1. <CB>[JST PH 2.0 Connectors](https://www.aliexpress.us/item/3256806312346188.html) <Tokens type="warn" icon>Buy only this or the alternative below. You do not need both.</Tokens></CB>
+      1. <CB>[JST PH 2.0 Connectors](https://www.aliexpress.us/item/3256806312346188.html) <Tokens type="warn" icon>Buy only this or the alternative below. You do not need to buy both.</Tokens></CB>
             1. <CB><Tokens type="alt" icon>Alternative</Tokens>[30cm PH2.0 JST Connector 2P](https://www.aliexpress.us/item/3256808900846056.html) and [30cm PH2.0 JST Connector 3P](https://www.aliexpress.us/item/3256808900846056.html) <Tokens type="info" icon>If you do not want to experience the frustration of crimping tiny JST connectors, buy these. You will splice the unconnected ends of these to their corresponding wires on the screen and SSR. You **must** buy both. Choose 30cm length for both to give you enough wire.</Tokens></CB>
       1. <CB>[Pressure Transducer, Color: 0-1.6Mpa](https://www.aliexpress.us/item/3256805324139332.html)</CB>
       1. <CB>[Silicone gasket, Size: 1/4 inch](https://www.aliexpress.us/item/2255799841120591.html)</CB>
@@ -174,11 +184,16 @@ Please ensure you reference the appropriate wiring diagram below as your primary
 
 <Tokens type="info" icon>You may install a power switch on the American version of your machine if you wish, but it will require cutting an additional hole in the chassis to support the new switch. This is not covered by this guide. If you proceed with this addition, you must follow the principles of the European wiring diagram (Diagram B).</Tokens>
 
-### Diagram A — No Power Switch (e.g. American Models)
-<Lightbox src={image_wiring_diagram} alt="Wiring diagram without a power switch" width={600} />
-
-### Diagram B — Power Switch (e.g. European Models)
-<Lightbox src={image_wiring_diagram_with_switch} alt="Wiring diagram with switch" width={600} />
+<div class="flex flex-row gap-4 flex-wrap items-stretch">
+  <div class="flex flex-col flex-1">
+    ### Diagram A — No Power Switch (e.g. American Models)
+    <Lightbox src={image_wiring_diagram} alt="Wiring diagram without a power switch" width={600} />
+  </div>
+  <div class="flex flex-col flex-1">
+    ### Diagram B — Power Switch (e.g. European Models)
+    <Lightbox src={image_wiring_diagram_with_switch} alt="Wiring diagram with switch" width={600} />
+  </div>
+</div>
 
 ## Flashing the Hardware
 Flash both the PCB and screen before installing them. It's much easier to do outside the machine. Follow the instructions at [docs.gaggimate.eu/docs/flashing](https://docs.gaggimate.eu/docs/flashing/).

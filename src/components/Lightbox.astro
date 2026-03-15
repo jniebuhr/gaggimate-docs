@@ -24,7 +24,7 @@ const isImageObject = typeof src === "object" && "src" in src;
           src={src}
           alt={alt}
           width={width}
-          class="trigger-open block cursor-zoom-in"
+          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center"
           loading={priority ? "eager" : "lazy"}
           decoding="async"
         />
@@ -32,8 +32,7 @@ const isImageObject = typeof src === "object" && "src" in src;
         <img
           src={src}
           alt={alt}
-          class="trigger-open block cursor-zoom-in"
-          style={`width: ${width}px;`}
+          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center"
           loading={priority ? "eager" : "lazy"}
           decoding="async"
         />

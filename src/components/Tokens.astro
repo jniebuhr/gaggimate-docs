@@ -45,7 +45,10 @@ const semanticColors = {
       "border-yellow-300 bg-[linear-gradient(135deg,#1e3a8a_0%,#3b82f6_100%)]",
     text: "text-yellow-300 uppercase",
   },
-  info: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+  info: {
+    badge: "border-gray-300 bg-gray-100",
+    text: "text-gray-500",
+  },
   newtab: {
     badge: "border-transparent bg-transparent",
     text: "text-gray-400 [&_a]:text-gray-400",
@@ -160,7 +163,7 @@ const layoutClass = layoutMap[getLayoutKey()];
     }
     <span
       class:list={[
-        "inline whitespace-pre-line [&_strong]:text-inherit",
+        "inline whitespace-pre-line [&_strong]:text-inherit [&_a]:text-inherit",
         theme.text,
       ]}
     >
