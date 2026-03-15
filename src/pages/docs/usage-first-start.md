@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: First Start
-description: Installed your GaggiMate? Here's what to do next!
+description: "GaggiMate First Start Guide: How to configure WiFi."
 section: Usage
 order: 15
 ---

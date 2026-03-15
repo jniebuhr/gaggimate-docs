@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: Profiles
-description: Creating brew profiles in the web UI
+description: "GaggiMate Brew Profile Guide: Create custom espresso profiles, download community recipes, and master pressure profiling."
 section: Usage
 order: 18
 ---
@@ -60,7 +60,7 @@ To create a Pro profile, simply select the Pro option when creating a new profil
 ![Pro profile screen](../../assets/images/pro_profile.png)
 
 At the top you have the basic profile settings, followed by a visualization of the entire profile. At the bottom you can edit the specific phases.
-You can change through the phases using the arrow buttons at the right top of the Brew phases section. 
+You can change through the phases using the arrow buttons at the right top of the Brew phases section.
 
 For each phase you set which type and name it should have, the maximum duration of the phase (if there's stop conditions, it will stop when either the duration or any of the conditions are reached) and a temperature override for that phase.
 Next you should select if you want the Valve to be open (you usually want that) and in which mode to run the pump.
@@ -214,12 +214,12 @@ Profiles provided on this page or on our Discord server in the #profiles channel
 
 **Recommendations**:
 
-Roast: Medium-Dark to Very Dark  
-Grind: 4 on DF64  
-Texture: Lots of crema, traditional  
-Time: 40-60s  
-Ratio: 1:1.5 - 1:2.2  
-Temperature: 78-90 (increase/decrease it by 1 or 2ºC at a time until your preferred flavor, varies by roast)  
+Roast: Medium-Dark to Very Dark
+Grind: 4 on DF64
+Texture: Lots of crema, traditional
+Time: 40-60s
+Ratio: 1:1.5 - 1:2.2
+Temperature: 78-90 (increase/decrease it by 1 or 2ºC at a time until your preferred flavor, varies by roast)
 
 <a href="/downloads/profiles/cremina-lever.json" download>Download</a>
 

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: Kit Build
-description: What you need to get if you go the Kit route.
+description: "GaggiMate complete hardware kits: Official installation bundles for Gaggia Classic, Pro, Evo, and Rancilio Silvia espresso machines."
 section: Sourcing
 order: 4
 ---
@@ -53,7 +53,7 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 
 * Philipps Screwdriver
 * 4mm + 5mm Allen Key to to unbolt the boiler and steam wand
-* Adjustable or 14mm Wrench / Spanner 
+* Adjustable or 14mm Wrench / Spanner
 * Electrical tape for insulating unused connections
 * Multimeter
 * Optional: Thermal paste, useful for older machines where the pre-applied paste has dried out

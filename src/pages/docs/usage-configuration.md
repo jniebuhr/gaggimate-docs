@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: Configuration
-description: Walkthrough of what you should probably configure on your GaggiMate
+description: "GaggiMate configuration guide: Step-by-step instructions for PID tuning, temperature offsets, and smart home integration."
 section: Usage
 order: 16
 ---
