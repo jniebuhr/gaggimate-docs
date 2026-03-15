@@ -1,0 +1,198 @@
+---
+import { Image } from "astro:assets";
+
+const {
+  src,
+  alt,
+  width = 300,
+  priority = false,
+  hideCaption = false,
+} = Astro.props;
+
+if (!src) throw new Error("Lightbox: src prop is required");
+
+const isImageObject = typeof src === "object" && "src" in src;
+---
+
+<div class="lightbox-wrapper inline-block group relative">
+  <div
+    class="relative overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]"
+  >
+    {
+      isImageObject ? (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      )
+    }
+  </div>
+
+  <dialog
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image lightbox"
+    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/95 backdrop:backdrop-blur-sm outline-none"
+  >
+    <div
+      class="w-full h-full flex flex-col items-center justify-center p-6 pointer-events-none"
+    >
+      <div
+        class="absolute top-4 right-4 flex flex-row-reverse gap-4 pointer-events-auto"
+      >
+        <button
+          class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
+          type="button"
+          aria-label="Close dialog"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <a
+          href={typeof src === "string" ? src : src.src}
+          target="_blank"
+          rel="noopener"
+          class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
+          aria-label="Open original image"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="w-6 h-6"
+          >
+            <path
+              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+            ></path>
+          </svg>
+        </a>
+      </div>
+
+      {
+        isImageObject ? (
+          <Image
+            src={src}
+            alt={alt}
+            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+            loading="eager"
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+          />
+        )
+      }
+
+      {
+        alt && !hideCaption && (
+          <p class="mt-6 text-white/80 text-sm font-medium text-center max-w-2xl pointer-events-auto">
+            {alt}
+          </p>
+        )
+      }
+    </div>
+  </dialog>
+</div>
+
+<script>
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    // Open Logic
+    if (target.closest(".trigger-open")) {
+      const wrapper = target.closest(".lightbox-wrapper");
+      wrapper?.querySelector("dialog")?.showModal();
+    }
+
+    // Close Logic
+    const dialog = target.closest("dialog");
+    if (
+      dialog &&
+      (target.closest('[aria-label="Close dialog"]') || target === dialog)
+    ) {
+      dialog.close();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    const dialog = document.querySelector("dialog[open]") as HTMLDialogElement;
+    if (!dialog || e.key !== "Tab") return;
+
+    const focusable = dialog.querySelectorAll("button, a[href]");
+    const first = focusable[0] as HTMLElement;
+    const last = focusable[focusable.length - 1] as HTMLElement;
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+</script>
+
+<style>
+  .image-modal {
+    opacity: 0;
+    display: none;
+    transition:
+      opacity 0.2s ease-out,
+      display 0.2s ease-out allow-discrete;
+  }
+
+  .image-modal[open] {
+    opacity: 1;
+    display: flex;
+  }
+
+  @starting-style {
+    .image-modal[open] {
+      opacity: 0;
+    }
+  }
+
+  .image-modal::backdrop {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition:
+      background 0.2s,
+      backdrop-filter 0.2s;
+  }
+
+  .image-modal[open]::backdrop {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(16px);
+  }
+
+  .lightbox-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -6px;
+    border-radius: 9999px;
+  }
+</style>

@@ -1,0 +1,192 @@
+<div
+  id="toc-wrapper"
+  class="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex items-center justify-end"
+>
+  <!-- Tab button -->
+  <button
+    id="toc-toggle"
+    aria-label="Table of contents"
+    aria-expanded="false"
+    class="flex items-center justify-center w-8 h-16 bg-black text-white rounded-l-lg shadow-lg hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/30"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h10"></path>
+    </svg>
+  </button>
+
+  <!-- Panel -->
+  <div
+    id="toc-panel"
+    class="absolute right-full mr-1 w-64 max-w-[calc(100vw-4rem)] bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden translate-x-4 opacity-0 pointer-events-none transition-all duration-300"
+    aria-hidden="true"
+  >
+    <div class="px-4 py-3 border-b border-gray-100">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
+        Contents
+      </p>
+    </div>
+    <nav id="toc-nav" class="max-h-[60vh] overflow-y-auto py-2"></nav>
+  </div>
+</div>
+
+<script>
+  (() => {
+    let isOpen = false;
+    let closeOnOutsideClick: ((e: MouseEvent) => void) | null = null;
+    let headingObserver: IntersectionObserver | null = null;
+
+    function buildToc() {
+      const nav = document.getElementById("toc-nav");
+      if (!nav) return;
+
+      if (headingObserver) {
+        headingObserver.disconnect();
+        headingObserver = null;
+      }
+
+      nav.innerHTML = "";
+
+      const headings = Array.from(
+        document.querySelectorAll<HTMLHeadingElement>("h1, h2"),
+      ).filter(
+        (h) =>
+          h.textContent?.trim() &&
+          !document.getElementById("toc-wrapper")?.contains(h),
+      );
+
+      if (headings.length === 0) {
+        nav.innerHTML = `<p class="px-4 py-2 text-sm text-gray-400 italic">No headings found.</p>`;
+        return;
+      }
+
+      headingObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              nav
+                .querySelectorAll("a")
+                .forEach((a) =>
+                  a.classList.remove(
+                    "text-black",
+                    "font-semibold",
+                    "bg-gray-100",
+                  ),
+                );
+              nav
+                .querySelector(`a[href="#${entry.target.id}"]`)
+                ?.classList.add("text-black", "font-semibold", "bg-gray-100");
+            }
+          });
+        },
+        { rootMargin: "-65px 0px -80% 0px" },
+      );
+
+      headings.forEach((heading) => {
+        if (!heading.id) {
+          heading.id = heading
+            .textContent!.trim()
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/\s+/g, "-");
+        }
+
+        const a = document.createElement("a");
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent?.trim() ?? "";
+        a.className =
+          "block px-4 py-1.5 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-50 transition-colors duration-150 truncate";
+
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          closeToc();
+          document
+            .getElementById(heading.id)
+            ?.scrollIntoView({ behavior: "smooth" });
+        });
+
+        nav.appendChild(a);
+        headingObserver!.observe(heading);
+      });
+    }
+
+    function openToc() {
+      const panel = document.getElementById("toc-panel");
+      const toggle = document.getElementById("toc-toggle");
+      if (!panel || !toggle) return;
+
+      isOpen = true;
+      panel.classList.remove(
+        "translate-x-4",
+        "opacity-0",
+        "pointer-events-none",
+      );
+      panel.classList.add("translate-x-0", "opacity-100");
+      panel.setAttribute("aria-hidden", "false");
+      toggle.setAttribute("aria-expanded", "true");
+
+      closeOnOutsideClick = (e: MouseEvent) => {
+        const wrapper = document.getElementById("toc-wrapper");
+        if (wrapper && !wrapper.contains(e.target as Node)) {
+          closeToc();
+        }
+      };
+      document.addEventListener("click", closeOnOutsideClick);
+    }
+
+    function closeToc() {
+      const panel = document.getElementById("toc-panel");
+      const toggle = document.getElementById("toc-toggle");
+      if (!panel || !toggle) return;
+
+      isOpen = false;
+      panel.classList.add("translate-x-4", "opacity-0", "pointer-events-none");
+      panel.classList.remove("translate-x-0", "opacity-100");
+      panel.setAttribute("aria-hidden", "true");
+      toggle.setAttribute("aria-expanded", "false");
+
+      if (closeOnOutsideClick) {
+        document.removeEventListener("click", closeOnOutsideClick);
+        closeOnOutsideClick = null;
+      }
+    }
+
+    function init() {
+      const toggle = document.getElementById("toc-toggle");
+      if (!toggle) return;
+
+      const newToggle = toggle.cloneNode(true) as HTMLElement;
+      toggle.replaceWith(newToggle);
+
+      newToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        isOpen ? closeToc() : openToc();
+      });
+
+      buildToc();
+    }
+
+    document.addEventListener("astro:page-load", init);
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+
+    document.addEventListener("astro:before-swap", () => {
+      if (headingObserver) {
+        headingObserver.disconnect();
+        headingObserver = null;
+      }
+      if (closeOnOutsideClick) {
+        document.removeEventListener("click", closeOnOutsideClick);
+        closeOnOutsideClick = null;
+      }
+      isOpen = false;
+    });
+  })();
+</script>
