@@ -21,11 +21,14 @@
   <!-- Panel -->
   <div
     id="toc-panel"
-    class="absolute right-full mr-1 w-64 max-w-[calc(100vw-4rem)] bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden translate-x-4 opacity-0 pointer-events-none transition-all duration-300"
+    class="absolute right-full mr-1 w-max min-w-48 max-w-80 max-w-[calc(100vw-4rem)] bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden translate-x-4 opacity-0 pointer-events-none transition-all duration-300"
     aria-hidden="true"
   >
     <div class="px-4 py-3 border-b border-gray-100">
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
+      <p
+        id="toc-title"
+        class="text-xs font-semibold uppercase tracking-widest text-gray-400"
+      >
         Contents
       </p>
     </div>
@@ -50,8 +53,12 @@
 
       nav.innerHTML = "";
 
+      const title = document.querySelector("h1")?.textContent?.trim();
+      const tocTitle = document.getElementById("toc-title");
+      if (tocTitle && title) tocTitle.textContent = title;
+
       const headings = Array.from(
-        document.querySelectorAll<HTMLHeadingElement>("h1, h2"),
+        document.querySelectorAll<HTMLHeadingElement>("h2"),
       ).filter(
         (h) =>
           h.textContent?.trim() &&
@@ -98,7 +105,7 @@
         a.href = `#${heading.id}`;
         a.textContent = heading.textContent?.trim() ?? "";
         a.className =
-          "block px-4 py-1.5 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-50 transition-colors duration-150 truncate";
+          "block px-4 py-1.5 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-50 transition-colors duration-150 line-clamp-2";
 
         a.addEventListener("click", (e) => {
           e.preventDefault();
