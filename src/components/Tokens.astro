@@ -1,0 +1,173 @@
+---
+/**
+ * TOKENS COMPONENT
+ * Production-ready, type-safe semantic component.
+ */
+
+// 1. STATIC CONFIGURATION (Hoisted for memory efficiency)
+const colorMap = {
+  black: { badge: "border-black bg-black", text: "text-white" },
+  blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
+  brown: { badge: "border-yellow-900 bg-yellow-800", text: "text-white" },
+  earth: {
+    badge:
+      "border-green-700 bg-[linear-gradient(180deg,#15803d_0%,#15803d_50%,#ca8a04_50%,#ca8a04_100%)]",
+    text: "text-white",
+  },
+  green: { badge: "border-green-700 bg-green-700", text: "text-white" },
+  grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+  hazard: {
+    badge:
+      "p-[4px] bg-[repeating-linear-gradient(-45deg,#000,#000_10px,#facc15_10px,#facc15_20px)] overflow-hidden",
+    text: "text-yellow-400 font-black uppercase tracking-wider",
+  },
+  orange: { badge: "border-orange-600 bg-orange-600", text: "text-white" },
+  purple: { badge: "border-purple-700 bg-purple-100", text: "text-purple-900" },
+  red: { badge: "border-red-700 bg-red-600", text: "text-white" },
+  teal: { badge: "border-teal-700 bg-teal-600", text: "text-white" },
+  white: { badge: "border-gray-300 bg-white", text: "text-black" },
+  yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
+};
+
+const semanticColors = {
+  alt: {
+    badge: "border-green-700 bg-green-100",
+    text: "text-green-900 uppercase",
+  },
+  credit: {
+    badge: "border-transparent bg-transparent italic opacity-80",
+    text: "text-gray-500 italic",
+  },
+  danger: { badge: colorMap.hazard.badge, text: colorMap.hazard.text },
+  default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
+  eu: {
+    badge:
+      "border-yellow-300 bg-[linear-gradient(135deg,#1e3a8a_0%,#3b82f6_100%)]",
+    text: "text-yellow-300 uppercase",
+  },
+  info: {
+    badge: "border-gray-300 bg-gray-100",
+    text: "text-gray-500",
+  },
+  newtab: {
+    badge: "border-transparent bg-transparent",
+    text: "text-gray-400 [&_a]:text-gray-400",
+  },
+  optional: {
+    badge: "border-purple-700 bg-purple-100",
+    text: "text-purple-900 uppercase",
+  },
+  pro: {
+    badge: "border-orange-700 bg-orange-100",
+    text: "text-orange-900 uppercase",
+  },
+  success: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
+  usa: {
+    badge:
+      "border-black bg-[linear-gradient(135deg,#fca5a5_0%,#ffffff_40%,#ffffff_60%,#93c5fd_100%)]",
+    text: "text-black uppercase",
+  },
+  video: {
+    badge: "border-transparent bg-transparent",
+    text: "text-blue-500 [&_a]:text-blue-500",
+  },
+  warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
+};
+
+const icons: Record<string, string> = {
+  alt: "🔀",
+  danger: "⚡",
+  eu: "🇪🇺",
+  info: "ℹ️",
+  newtab: "↗️",
+  optional: "💡",
+  pro: "⭐",
+  usa: "🇺🇸",
+  video: "▶️",
+  warn: "⚠️",
+};
+
+// 2. TYPES AND PROPS
+interface Props {
+  block?: boolean;
+  color?: keyof typeof colorMap;
+  heading?: boolean;
+  icon?: boolean | string;
+  iconSpacing?: string;
+  maxWidth?: string;
+  style?: "badge" | "text";
+  type?: keyof typeof semanticColors;
+}
+
+const {
+  block = false,
+  color,
+  heading = false,
+  icon = false,
+  iconSpacing = "mr-1",
+  maxWidth = "",
+  style = "badge",
+  type = "default",
+} = Astro.props;
+
+// 3. LOGIC RESOLUTION
+const themeMap = { ...semanticColors, ...colorMap };
+const activeKey = color ?? type ?? "default";
+const theme = themeMap[activeKey as keyof typeof themeMap] || themeMap.default;
+
+const displayIcon =
+  typeof icon === "string"
+    ? icon
+    : icon && type && icons[type]
+      ? icons[type]
+      : null;
+
+// 4. LAYOUT MAPPING (Explicitly mapped to avoid indexing errors)
+const layoutMap = {
+  heading: "inline align-text-top mr-1",
+  block: "block w-max mt-1 text-left",
+  credit: "block w-full -mt-4 mb-4 text-left",
+  default: "inline-block mr-1 mb-0.5 last:mr-0",
+};
+
+const getLayoutKey = (): keyof typeof layoutMap => {
+  if (heading) return "heading";
+  if (block) return "block";
+  if (type === "credit") return "credit";
+  return "default";
+};
+
+const layoutClass = layoutMap[getLayoutKey()];
+---
+
+<span
+  class:list={[
+    "token-badge",
+    style === "badge" ? "rounded-lg py-0.5 px-1 border" : "",
+    "text-sm font-sans tracking-tight break-words no-underline",
+    maxWidth,
+    theme.badge,
+    layoutClass,
+  ]}
+>
+  <span
+    class:list={[
+      "inline-flex items-center px-0.5 py-0.5 rounded-[calc(0.5rem-2px)]",
+      { "bg-black": type === "danger" },
+    ]}
+  >
+    {
+      displayIcon && (
+        <span class:list={["inline", iconSpacing]}>{displayIcon}</span>
+      )
+    }
+    <span
+      class:list={[
+        "inline whitespace-pre-line [&_strong]:text-inherit [&_a]:text-inherit",
+        theme.text,
+      ]}
+    >
+      <slot />
+    </span>
+  </span>
+</span>

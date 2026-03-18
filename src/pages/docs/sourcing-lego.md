@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: Lego Build
-description: What you need to get if you go the Lego route.
+description: "Build your own GaggiMate: Comprehensive parts list and module guide for the DIY Lego route."
 section: Sourcing
 order: 6
 ---
@@ -35,7 +35,7 @@ If you don't feel like ordering a PCB or kit and are more comfortable connecting
 * K-Type M3/M4 Thermocouple - 0.5m (M3 for Silvia, M4 for Gaggia Classic) [(AliExpress)](https://s.click.aliexpress.com/e/_EwzbL6M)
 * Pressure Transducer 0 - 1.6MPa, 5V Supply, 0.5 - 4.5V Output [(AliExpress)](https://s.click.aliexpress.com/e/_Evn1mNS)
 
-### Plumbing 
+### Plumbing
 
 You can buy the plumbing kit from the [Website](https://shop.gaggimate.eu/collections/parts/products/gaggimate-plumbing-kit) or alternatively use the components below.
 

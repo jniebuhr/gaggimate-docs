@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: PCB Build
-description: What you need to get if you go the PCB route.
+description: "GaggiMate PCB build: Complete Bill of Materials (BOM) and component sourcing guide for DIY espresso machine upgrades."
 section: Sourcing
 order: 5
 ---

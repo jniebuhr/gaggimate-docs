@@ -1,18 +1,27 @@
 ---
-const docs = await Astro.glob("../pages/docs/*.{md,mdx}");
-
-const sortedDocs = docs.sort(function (a, b) {
-  return a.frontmatter.order - b.frontmatter.order;
+// import.meta.glob returns untyped modules, so `any` is necessary here
+const docModules = import.meta.glob("../pages/docs/*.{md,mdx}", {
+  eager: true,
 });
-
-const groupedDocs = sortedDocs.reduce((docs, object) => {
-  const property = object.frontmatter.section;
-  docs[property] = docs[property] || [];
-
-  docs[property].push(object);
-
-  return docs;
-}, {});
+const docs = Object.entries(docModules).map(([path, mod]: [string, any]) => ({
+  url: path
+    .replace("../pages", "")
+    .replace(/\.(md|mdx)$/, "")
+    .replace(/\/index$/, "/"),
+  frontmatter: mod.frontmatter,
+}));
+const sortedDocs = docs.sort(
+  (a, b) => a.frontmatter.order - b.frontmatter.order,
+);
+const groupedDocs = sortedDocs.reduce(
+  (acc, doc) => {
+    const section = doc.frontmatter.section;
+    acc[section] = acc[section] || [];
+    acc[section].push(doc);
+    return acc;
+  },
+  {} as Record<string, typeof docs>,
+);
 ---
 
 <label
@@ -33,7 +42,6 @@ const groupedDocs = sortedDocs.reduce((docs, object) => {
   </svg>
   <span class="sr-only">Toggle menu</span>
 </label>
-
 <input type="checkbox" name="navigation" id="navigation" class="hidden peer" />
 <label
   for="navigation"
@@ -42,7 +50,7 @@ const groupedDocs = sortedDocs.reduce((docs, object) => {
   class="fixed hidden transition-opacity peer-checked:block duration-200 z-30 w-full h-full bg-slate-300/50 lg:hidden cursor-pointer"
 ></label>
 <aside
-  class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 transition-transform -translate-x-full peer-checked:translate-x-0 lg:transition-none lg:translate-x-0 duration-200 ease-in-out motion-reduce:transistion-none lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none bg-white lg:bg-slate-50 z-40"
+  class="fixed top-[3.5rem] h-screen shadow-xl px-4 left-0 transition-transform -translate-x-full peer-checked:translate-x-0 lg:transition-none lg:translate-x-0 duration-200 ease-in-out motion-reduce:transition-none lg:relative lg:top-0 lg:h-auto lg:px-0 lg:block lg:flex-none lg:shadow-none bg-white lg:bg-slate-50 z-40"
 >
   <div
     class="absolute inset-y-0 right-0 w-full lg:w-[50vw] bg-white lg:bg-slate-50"
@@ -56,23 +64,31 @@ const groupedDocs = sortedDocs.reduce((docs, object) => {
       class="-ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto pt-7 pb-20 md:pb-7 pl-0.5 space-y-8"
     >
       {
-        Object.entries(groupedDocs).map((section) => (
+        Object.entries(groupedDocs).map(([sectionName, items]) => (
           <li>
             <h3 class="font-semibold tracking-tight text-slate-900">
-              {section[0]}
+              {sectionName}
             </h3>
-
             <ul role="list" class="pl-3 mt-3 space-y-2">
-              {section[1].map((item) => (
-                <li>
-                  <a
-                    href={item.url}
-                    class="text-slate-900 hover:text-slate-800"
-                  >
-                    {item.frontmatter.title}
-                  </a>
-                </li>
-              ))}
+              {items.map((item) => {
+                const isActive =
+                  Astro.url.pathname.replace(/\/$/, "") ===
+                  item.url.replace(/\/$/, "");
+                return (
+                  <li>
+                    <a
+                      href={item.url}
+                      class={`block transition-colors duration-200 ${
+                        isActive
+                          ? "text-black font-semibold border-l-2 border-black pl-2"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      {item.frontmatter.title}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </li>
         ))
