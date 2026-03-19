@@ -134,7 +134,7 @@ const isImageObject = typeof src === "object" && "src" in src;
 
         <!-- Open original image in a new tab -->
 
-        href={typeof src === "string" ? src : src.src}
+        <a href={typeof src === "string" ? src : src.src}
         target="_blank" rel="noopener" class="lightbox-btn text-white/60 hover:text-white
         transition-colors p-2 rounded-full outline-none" aria-label="Open original
         image" >
