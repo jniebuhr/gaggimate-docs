@@ -1,25 +1,78 @@
 ---
 import { Image } from "astro:assets";
 
+/**
+ * LIGHTBOX COMPONENT
+ *
+ * Displays a thumbnail image that opens a full-size modal on click.
+ *
+ * PROPS:
+ * - src (required): Imported image object or string URL.
+ *     Imported objects (e.g. `import img from '...'`) get full Astro image
+ *     optimization (WebP, srcset, lazy loading). String URLs do not.
+ * - alt (required): Alt text for the image. Also shown as caption in the
+ *     modal unless hideCaption is true.
+ * - width (default: 300): Width of the thumbnail in pixels.
+ * - priority (default: false): Set true for above-the-fold images to use
+ *     eager loading instead of lazy.
+ * - hideCaption (default: false): Set true to suppress the alt text caption
+ *     in the modal overlay.
+ * - caption: Optional text shown below the thumbnail. Styled as a small
+ *     italic gray line. Use for credits or contextual notes.
+ *     Note: caption renders as a sibling outside the lightbox wrapper.
+ *     Do NOT nest Lightbox inside an overflow-hidden container if using
+ *     caption, as it will be clipped.
+ *
+ * USAGE:
+ * Basic:
+ *   <Lightbox src={myImage} alt="Description of image" />
+ *
+ * With all options:
+ *   <Lightbox
+ *     src={myImage}
+ *     alt="Description of image"
+ *     width={400}
+ *     priority
+ *     hideCaption
+ *     caption="Image credit: Someone"
+ *   />
+ *
+ * MODAL BEHAVIOR:
+ * - Click thumbnail to open modal
+ * - Click backdrop or X button to close
+ * - Tab key cycles focus between close button and open-original link
+ * - Top-right buttons: close (X) and open original in new tab (↗)
+ */
+
 const {
   src,
   alt,
   width = 300,
   priority = false,
   hideCaption = false,
+  caption,
 } = Astro.props;
 
 if (!src) throw new Error("Lightbox: src prop is required");
 
+// Distinguish between imported image objects and plain string URLs.
+// Imported objects support Astro's <Image> component for optimization.
 const isImageObject = typeof src === "object" && "src" in src;
 ---
 
+<!--
+  .lightbox-wrapper: Used by the click handler to scope dialog lookup.
+  inline-block ensures the wrapper shrinks to fit the image width.
+-->
 <div class="lightbox-wrapper inline-block group relative">
+  <!-- Thumbnail container with hover scale effect -->
   <div
     class="relative overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]"
   >
     {
       isImageObject ? (
+        // Optimized path: uses Astro's Image component for WebP conversion,
+        // correct srcset, and automatic width/height to prevent layout shift.
         <Image
           src={src}
           alt={alt}
@@ -29,6 +82,7 @@ const isImageObject = typeof src === "object" && "src" in src;
           decoding="async"
         />
       ) : (
+        // Fallback path for string URLs — no optimization applied.
         <img
           src={src}
           alt={alt}
@@ -40,18 +94,25 @@ const isImageObject = typeof src === "object" && "src" in src;
     }
   </div>
 
+  <!--
+    Modal dialog — uses the native <dialog> element for accessibility.
+    showModal() is called by the click handler on .trigger-open.
+    Backdrop styles are handled in <style> below using ::backdrop.
+  -->
   <dialog
     role="dialog"
     aria-modal="true"
     aria-label="Image lightbox"
-    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/95 backdrop:backdrop-blur-sm outline-none"
+    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm outline-none"
   >
     <div
       class="w-full h-full flex flex-col items-center justify-center p-6 pointer-events-none"
     >
+      <!-- Top-right controls: close button and open-original link -->
       <div
         class="absolute top-4 right-4 flex flex-row-reverse gap-4 pointer-events-auto"
       >
+        <!-- Close button — targeted by aria-label in the click handler -->
         <button
           class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
           type="button"
@@ -70,66 +131,85 @@ const isImageObject = typeof src === "object" && "src" in src;
               d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-        <a
-          href={typeof src === "string" ? src : src.src}
-          target="_blank"
-          rel="noopener"
-          class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
-          aria-label="Open original image"
+
+        <!-- Open original image in a new tab -->
+
+        href={typeof src === "string" ? src : src.src}
+        target="_blank" rel="noopener" class="lightbox-btn text-white/60 hover:text-white
+        transition-colors p-2 rounded-full outline-none" aria-label="Open original
+        image" >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="w-6 h-6"
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            class="w-6 h-6"
-          >
-            <path
-              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-            ></path>
-          </svg>
-        </a>
+          <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+          ></path>
+        </svg>
       </div>
-
-      {
-        isImageObject ? (
-          <Image
-            src={src}
-            alt={alt}
-            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
-            loading="eager"
-          />
-        ) : (
-          <img
-            src={src}
-            alt={alt}
-            class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
-          />
-        )
-      }
-
-      {
-        alt && !hideCaption && (
-          <p class="mt-6 text-white/80 text-sm font-medium text-center max-w-2xl pointer-events-auto">
-            {alt}
-          </p>
-        )
-      }
     </div>
+
+    <!-- Full-size image in the modal — always eager loaded -->
+    {
+      isImageObject ? (
+        <Image
+          src={src}
+          alt={alt}
+          class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+          loading="eager"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+        />
+      )
+    }
+
+    <!--
+        Modal caption — uses alt text by default.
+        Set hideCaption to suppress, or provide a separate caption prop
+        for the below-thumbnail caption instead.
+      -->
+    {
+      alt && !hideCaption && (
+        <p class="mt-6 text-white/80 text-sm font-medium text-center max-w-2xl pointer-events-auto">
+          {alt}
+        </p>
+      )
+    }
   </dialog>
 </div>
+
+<!--
+  Below-thumbnail caption — rendered as a sibling outside lightbox-wrapper.
+  WARNING: If Lightbox is placed inside an overflow-hidden container (e.g. a
+  fixed-height image row), this caption will be clipped. In that case, render
+  the caption manually as a sibling element outside the container instead.
+-->
+{
+  caption && (
+    <span class="block text-sm text-gray-500 italic opacity-80 -mt-1 mb-2">
+      {caption}
+    </span>
+  )
+}
 
 <script>
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
-    // Open Logic
+    // Open: clicking any element with .trigger-open opens the nearest dialog
     if (target.closest(".trigger-open")) {
       const wrapper = target.closest(".lightbox-wrapper");
       wrapper?.querySelector("dialog")?.showModal();
     }
 
-    // Close Logic
+    // Close: clicking the close button or the backdrop (dialog element itself)
     const dialog = target.closest("dialog");
     if (
       dialog &&
@@ -139,6 +219,8 @@ const isImageObject = typeof src === "object" && "src" in src;
     }
   });
 
+  // Trap focus within the modal while it is open (accessibility requirement).
+  // Cycles between the close button and the open-original link.
   document.addEventListener("keydown", (e) => {
     const dialog = document.querySelector("dialog[open]") as HTMLDialogElement;
     if (!dialog || e.key !== "Tab") return;
@@ -158,6 +240,7 @@ const isImageObject = typeof src === "object" && "src" in src;
 </script>
 
 <style>
+  /* Hidden by default — shown via showModal() */
   .image-modal {
     opacity: 0;
     display: none;
@@ -171,12 +254,14 @@ const isImageObject = typeof src === "object" && "src" in src;
     display: flex;
   }
 
+  /* Fade in from transparent when dialog first opens */
   @starting-style {
     .image-modal[open] {
       opacity: 0;
     }
   }
 
+  /* Backdrop fades in alongside the modal */
   .image-modal::backdrop {
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
@@ -186,10 +271,11 @@ const isImageObject = typeof src === "object" && "src" in src;
   }
 
   .image-modal[open]::backdrop {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(2px);
   }
 
+  /* Focus ring for keyboard navigation */
   .lightbox-btn:focus-visible {
     outline: 2px solid white;
     outline-offset: -6px;
