@@ -7,6 +7,7 @@ const {
   width = 300,
   priority = false,
   hideCaption = false,
+  caption,
 } = Astro.props;
 
 if (!src) throw new Error("Lightbox: src prop is required");
@@ -44,7 +45,7 @@ const isImageObject = typeof src === "object" && "src" in src;
     role="dialog"
     aria-modal="true"
     aria-label="Image lightbox"
-    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/95 backdrop:backdrop-blur-sm outline-none"
+    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm outline-none"
   >
     <div
       class="w-full h-full flex flex-col items-center justify-center p-6 pointer-events-none"
@@ -118,6 +119,13 @@ const isImageObject = typeof src === "object" && "src" in src;
     </div>
   </dialog>
 </div>
+{
+  caption && (
+    <span class="block text-sm text-gray-500 italic opacity-80 -mt-1 mb-2">
+      {caption}
+    </span>
+  )
+}
 
 <script>
   document.addEventListener("click", (e) => {
@@ -186,8 +194,8 @@ const isImageObject = typeof src === "object" && "src" in src;
   }
 
   .image-modal[open]::backdrop {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(2px);
   }
 
   .lightbox-btn:focus-visible {

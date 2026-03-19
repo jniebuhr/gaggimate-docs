@@ -34,10 +34,6 @@ const semanticColors = {
     badge: "border-green-700 bg-green-100",
     text: "text-green-900 uppercase",
   },
-  credit: {
-    badge: "border-transparent bg-transparent italic opacity-80",
-    text: "text-gray-500 italic",
-  },
   danger: { badge: colorMap.hazard.badge, text: colorMap.hazard.text },
   default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   eu: {
@@ -126,14 +122,12 @@ const displayIcon =
 const layoutMap = {
   heading: "inline align-text-top mr-1",
   block: "block w-max mt-1 text-left",
-  credit: "block w-full -mt-4 mb-4 text-left",
   default: "inline-block mr-1 mb-0.5 last:mr-0",
 };
 
 const getLayoutKey = (): keyof typeof layoutMap => {
   if (heading) return "heading";
   if (block) return "block";
-  if (type === "credit") return "credit";
   return "default";
 };
 
