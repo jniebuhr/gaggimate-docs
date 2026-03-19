@@ -2,7 +2,7 @@
   id="toc-wrapper"
   class="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex items-center justify-end"
 >
-  <!-- Tab button -->
+  <!-- Tab button — fixed to right edge, vertically centered -->
   <button
     id="toc-toggle"
     aria-label="Table of contents"
@@ -18,12 +18,16 @@
     </svg>
   </button>
 
-  <!-- Panel -->
+  <!-- Sliding panel — hidden by default, shown on toggle click -->
   <div
     id="toc-panel"
     class="absolute right-full mr-1 w-max min-w-48 max-w-80 max-w-[calc(100vw-4rem)] bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden translate-x-4 opacity-0 pointer-events-none transition-all duration-300"
     aria-hidden="true"
   >
+    <!--
+      Title: defaults to "Contents" but is replaced at runtime with the page's h1 text.
+      See buildToc() below.
+    -->
     <div class="px-4 py-3 border-b border-gray-100">
       <p
         id="toc-title"
@@ -32,6 +36,8 @@
         Contents
       </p>
     </div>
+
+    <!-- Nav links are injected here by buildToc() -->
     <nav id="toc-nav" class="max-h-[60vh] overflow-y-auto py-2"></nav>
   </div>
 </div>
@@ -40,12 +46,34 @@
   (() => {
     let isOpen = false;
     let closeOnOutsideClick: ((e: MouseEvent) => void) | null = null;
+    // Stored so we can disconnect it on page navigation to prevent memory leaks
     let headingObserver: IntersectionObserver | null = null;
 
+    /**
+     * Scrapes all h2 headings from the page and builds the TOC nav links.
+     *
+     * FILTERING:
+     * - Headings inside #toc-wrapper itself are excluded (avoids self-reference).
+     * - Headings with the `toc-ignore` attribute are excluded.
+     *   Usage in MDX: <h2 toc-ignore>Heading</h2>
+     *
+     * STRIPPING:
+     * - Any element inside a heading with `data-toc-strip` will be removed
+     *   from the TOC link text only (the heading on the page is unaffected).
+     *   Usage: wrap text you want hidden from TOC in <span data-toc-strip>...</span>
+     *   Example: ## <Tokens type="eu" icon><span data-toc-strip>EU Only</span></Tokens> Section Title
+     *   Result in TOC: "🇪🇺 Section Title"
+     *
+     * ACTIVE STATE:
+     * - An IntersectionObserver highlights the TOC link for the heading
+     *   currently nearest the top of the viewport.
+     * - rootMargin accounts for the 65px sticky header offset.
+     */
     function buildToc() {
       const nav = document.getElementById("toc-nav");
       if (!nav) return;
 
+      // Disconnect previous observer before rebuilding to prevent stacking
       if (headingObserver) {
         headingObserver.disconnect();
         headingObserver = null;
@@ -53,6 +81,7 @@
 
       nav.innerHTML = "";
 
+      // Replace "Contents" label with the page's h1 title if available
       const title = document.querySelector("h1")?.textContent?.trim();
       const tocTitle = document.getElementById("toc-title");
       if (tocTitle && title) tocTitle.textContent = title;
@@ -62,7 +91,8 @@
       ).filter(
         (h) =>
           h.textContent?.trim() &&
-          !document.getElementById("toc-wrapper")?.contains(h),
+          !document.getElementById("toc-wrapper")?.contains(h) &&
+          !h.hasAttribute("toc-ignore"),
       );
 
       if (headings.length === 0) {
@@ -70,6 +100,7 @@
         return;
       }
 
+      // Highlights the TOC link for the heading nearest the top of the viewport
       headingObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -89,10 +120,13 @@
             }
           });
         },
+        // Negative top margin accounts for sticky header; bottom margin
+        // ensures only the topmost visible heading is highlighted
         { rootMargin: "-65px 0px -80% 0px" },
       );
 
       headings.forEach((heading) => {
+        // Auto-generate an id from heading text if one isn't already set
         if (!heading.id) {
           heading.id = heading
             .textContent!.trim()
@@ -103,10 +137,19 @@
 
         const a = document.createElement("a");
         a.href = `#${heading.id}`;
-        a.textContent = heading.textContent?.trim() ?? "";
+
+        // Clone the heading to safely strip data-toc-strip elements
+        // without mutating the actual DOM
+        const headingClone = heading.cloneNode(true) as HTMLElement;
+        headingClone
+          .querySelectorAll("[data-toc-strip]")
+          .forEach((el) => el.remove());
+        a.textContent = headingClone.textContent?.trim() ?? "";
+
         a.className =
           "block px-4 py-1.5 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-50 transition-colors duration-150 line-clamp-2";
 
+        // Close the drawer and scroll to heading on click
         a.addEventListener("click", (e) => {
           e.preventDefault();
           closeToc();
@@ -135,6 +178,7 @@
       panel.setAttribute("aria-hidden", "false");
       toggle.setAttribute("aria-expanded", "true");
 
+      // Close when clicking outside the TOC wrapper
       closeOnOutsideClick = (e: MouseEvent) => {
         const wrapper = document.getElementById("toc-wrapper");
         if (wrapper && !wrapper.contains(e.target as Node)) {
@@ -165,6 +209,8 @@
       const toggle = document.getElementById("toc-toggle");
       if (!toggle) return;
 
+      // Clone the toggle button to remove any stale event listeners
+      // from previous page loads (Astro view transitions)
       const newToggle = toggle.cloneNode(true) as HTMLElement;
       toggle.replaceWith(newToggle);
 
@@ -176,6 +222,7 @@
       buildToc();
     }
 
+    // Re-initialize on every Astro page navigation
     document.addEventListener("astro:page-load", init);
 
     if (document.readyState === "loading") {
@@ -184,6 +231,7 @@
       init();
     }
 
+    // Clean up before Astro swaps the page to prevent memory leaks
     document.addEventListener("astro:before-swap", () => {
       if (headingObserver) {
         headingObserver.disconnect();

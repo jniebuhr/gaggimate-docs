@@ -1,15 +1,77 @@
 ---
 /**
  * TOKENS COMPONENT
- * Production-ready, type-safe semantic component.
+ *
+ * A flexible inline badge/label component for annotating content with
+ * semantic meaning, wire colors, region labels, warnings, and more.
+ *
+ * USAGE — Semantic types:
+ *   <Tokens type="warn" icon>This is a warning</Tokens>
+ *   <Tokens type="info" icon>Helpful note</Tokens>
+ *   <Tokens type="danger" icon>High voltage — be careful</Tokens>
+ *   <Tokens type="optional" icon>This step is optional</Tokens>
+ *   <Tokens type="eu" icon>European Version Only</Tokens>
+ *   <Tokens type="usa" icon>American Version Only</Tokens>
+ *   <Tokens type="video" icon><a href="...">Watch this video</a></Tokens>
+ *   <Tokens type="newtab" icon><a href="...">Link label</a></Tokens>
+ *   <Tokens type="alt" icon>Alternative</Tokens>
+ *   <Tokens type="pro" icon>GaggiMate Pro</Tokens>
+ *
+ * USAGE — Wire/component colors:
+ *   <Tokens color="blue">blue</Tokens>
+ *   <Tokens color="red">red</Tokens>
+ *   <Tokens color="green">green</Tokens>
+ *   <Tokens color="grey">PCB</Tokens>
+ *   <Tokens color="earth">green and yellow</Tokens>   ← EU ground wire
+ *
+ * USAGE — Layout variants:
+ *   <Tokens type="warn" icon block>Displayed as a block element</Tokens>
+ *   <Tokens type="info" heading>Inline, aligned to heading text</Tokens>
+ *
+ * USAGE — Custom icon:
+ *   <Tokens icon="🔥">Custom icon badge</Tokens>
+ *
+ * USAGE — Icon only (no text):
+ *   <Tokens type="warn" icon />   ← icon prop without children shows just the icon
+ *
+ * PROPS:
+ * - type: Semantic color preset. Defaults to "default" (gray).
+ *     See semanticColors below for all options.
+ * - color: Wire/component color override. Overrides type styling.
+ *     See colorMap below for all options.
+ * - icon: Show the default icon for the type (boolean), or pass a custom
+ *     emoji/string to use instead.
+ * - block: Render as a block element instead of inline.
+ * - heading: Render inline, vertically aligned to heading text.
+ * - style: "badge" (default) shows border+background. "text" shows text only.
+ * - iconSpacing: Tailwind class for spacing between icon and text. Default "mr-1".
+ * - maxWidth: Tailwind max-width class to constrain badge width.
+ *
+ * NOTES:
+ * - Links inside a badge inherit the badge text color via [&_a]:text-inherit.
+ * - Bold text inside a badge inherits the badge text color via [&_strong]:text-inherit.
+ * - color prop takes precedence over type for styling.
+ * - The danger type renders with the hazard stripe pattern and a black inner background.
+ *
+ * TOC INTEGRATION:
+ * - When used inside an h2 heading, wrap text you want hidden from the TOC
+ *   in <span data-toc-strip>...</span>. The icon emoji will still appear.
+ *   Example: ## <Tokens type="eu" icon><span data-toc-strip>EU Only</span></Tokens> Section Title
  */
 
 // 1. STATIC CONFIGURATION (Hoisted for memory efficiency)
+
+/**
+ * colorMap: Used with the `color` prop for wire and component color badges.
+ * These are purely visual — use `type` for semantic meaning.
+ * Add new colors here and they become available as color="newcolor".
+ */
 const colorMap = {
   black: { badge: "border-black bg-black", text: "text-white" },
   blue: { badge: "border-blue-900 bg-blue-800", text: "text-white" },
   brown: { badge: "border-yellow-900 bg-yellow-800", text: "text-white" },
   earth: {
+    // EU ground wire color: green on top, yellow on bottom
     badge:
       "border-green-700 bg-[linear-gradient(180deg,#15803d_0%,#15803d_50%,#ca8a04_50%,#ca8a04_100%)]",
     text: "text-white",
@@ -17,6 +79,7 @@ const colorMap = {
   green: { badge: "border-green-700 bg-green-700", text: "text-white" },
   grey: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   hazard: {
+    // Black and yellow diagonal stripes — used internally by the danger type
     badge:
       "p-[4px] bg-[repeating-linear-gradient(-45deg,#000,#000_10px,#facc15_10px,#facc15_20px)] overflow-hidden",
     text: "text-yellow-400 font-black uppercase tracking-wider",
@@ -29,47 +92,73 @@ const colorMap = {
   yellow: { badge: "border-yellow-500 bg-yellow-400", text: "text-black" },
 };
 
+/**
+ * semanticColors: Used with the `type` prop for meaning-driven badges.
+ * Add new types here and they become available as type="newtype".
+ * To add a default icon for a new type, also add it to the icons map below.
+ */
 const semanticColors = {
   alt: {
+    // Alternative option badge
     badge: "border-green-700 bg-green-100",
     text: "text-green-900 uppercase",
   },
-  danger: { badge: colorMap.hazard.badge, text: colorMap.hazard.text },
+  danger: {
+    // High voltage / danger warning — uses hazard stripe pattern
+    badge: colorMap.hazard.badge,
+    text: colorMap.hazard.text,
+  },
   default: { badge: "border-gray-700 bg-gray-100", text: "text-gray-900" },
   eu: {
+    // European version label — blue gradient with yellow text
     badge:
       "border-yellow-300 bg-[linear-gradient(135deg,#1e3a8a_0%,#3b82f6_100%)]",
     text: "text-yellow-300 uppercase",
   },
   info: {
+    // Subtle informational note — intentionally low contrast
     badge: "border-gray-300 bg-gray-100",
     text: "text-gray-500",
   },
   newtab: {
+    // Transparent badge for external links — arrow icon indicates new tab
     badge: "border-transparent bg-transparent",
     text: "text-gray-400 [&_a]:text-gray-400",
   },
   optional: {
+    // Optional step label
     badge: "border-purple-700 bg-purple-100",
     text: "text-purple-900 uppercase",
   },
   pro: {
+    // GaggiMate Pro feature label
     badge: "border-orange-700 bg-orange-100",
     text: "text-orange-900 uppercase",
   },
   success: { badge: "border-green-700 bg-green-100", text: "text-green-900" },
   usa: {
+    // American version label — red/white/blue gradient
     badge:
       "border-black bg-[linear-gradient(135deg,#fca5a5_0%,#ffffff_40%,#ffffff_60%,#93c5fd_100%)]",
     text: "text-black uppercase",
   },
   video: {
+    // Video link badge — transparent with blue text
     badge: "border-transparent bg-transparent",
     text: "text-blue-500 [&_a]:text-blue-500",
   },
-  warn: { badge: "border-red-700 bg-red-100", text: "text-red-900" },
+  warn: {
+    // Caution/warning badge
+    badge: "border-red-700 bg-red-100",
+    text: "text-red-900",
+  },
 };
 
+/**
+ * icons: Default icons shown when icon={true} for a given type.
+ * Types not listed here will show no icon even if icon={true}.
+ * Pass a custom string to icon prop to override (e.g. icon="🔥").
+ */
 const icons: Record<string, string> = {
   alt: "🔀",
   danger: "⚡",
@@ -107,10 +196,16 @@ const {
 } = Astro.props;
 
 // 3. LOGIC RESOLUTION
+
+// color prop overrides type — merge both maps with colorMap taking precedence
 const themeMap = { ...semanticColors, ...colorMap };
 const activeKey = color ?? type ?? "default";
 const theme = themeMap[activeKey as keyof typeof themeMap] || themeMap.default;
 
+// Resolve which icon to display:
+// - string passed to icon prop → use it directly as a custom icon
+// - icon={true} → look up the default icon for this type
+// - icon={false} or no match → no icon
 const displayIcon =
   typeof icon === "string"
     ? icon
@@ -120,9 +215,9 @@ const displayIcon =
 
 // 4. LAYOUT MAPPING (Explicitly mapped to avoid indexing errors)
 const layoutMap = {
-  heading: "inline align-text-top mr-1",
-  block: "block w-max mt-1 text-left",
-  default: "inline-block mr-1 mb-0.5 last:mr-0",
+  heading: "inline align-text-top mr-1", // Sits inline with heading text
+  block: "block w-max mt-1 text-left", // Full block, left-aligned
+  default: "inline-block mr-1 mb-0.5 last:mr-0", // Default inline badge
 };
 
 const getLayoutKey = (): keyof typeof layoutMap => {
@@ -147,6 +242,7 @@ const layoutClass = layoutMap[getLayoutKey()];
   <span
     class:list={[
       "inline-flex items-center px-0.5 py-0.5 rounded-[calc(0.5rem-2px)]",
+      // danger type needs a black inner background to contrast with the hazard stripes
       { "bg-black": type === "danger" },
     ]}
   >
