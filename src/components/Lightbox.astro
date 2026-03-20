@@ -76,19 +76,42 @@ const imageSrc = isImageObject ? (src as { src: string }).src : (src as string);
         type="button"
         aria-label="Close dialog"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <a
-        href={imageSrc}
-        target="_blank"
-        rel="noopener"
-        class="lightbox-btn"
-        aria-label="Open original image"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+        <!-- Close button — targeted by aria-label in the click handler -->
+        <button
+          class="lightbox-btn text-white/60 hover:text-white transition-colors p-2 rounded-full outline-none"
+          type="button"
+          aria-label="Close dialog"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Open original image in a new tab -->
+
+        <a href={typeof src === "string" ? src : src.src}
+        target="_blank" rel="noopener" class="lightbox-btn text-white/60 hover:text-white
+        transition-colors p-2 rounded-full outline-none" aria-label="Open original
+        image" >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="w-6 h-6"
+        >
+          <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+          ></path>
         </svg>
       </a>
     </div>
