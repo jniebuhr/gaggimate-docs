@@ -27,7 +27,7 @@ import { Image } from "astro:assets";
 
 const {
   src,
-  alt,
+  alt = "", // Default to empty string
   width = 300,
   priority = false,
   hideCaption = false,
