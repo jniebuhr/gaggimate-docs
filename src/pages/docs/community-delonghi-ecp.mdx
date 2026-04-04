@@ -15,6 +15,7 @@ import image_boiler_grounding_point from "../../assets/images/community/delonghi
 import image_boiler_heater_connections from "../../assets/images/community/delonghi-ecp/image_boiler_heater_connections.png";
 import image_bottom_panel from "../../assets/images/community/delonghi-ecp/image_bottom_panel.jpg";
 import image_build_jochen from "../../assets/images/community/delonghi-ecp/image_build_jochen.jpeg";
+import image_build_julia from "../../assets/images/community/delonghi-ecp/image_build_julia.jpeg";
 import image_cut_hose from "../../assets/images/community/delonghi-ecp/image_cut_hose.jpg";
 import image_frame_screws from "../../assets/images/community/delonghi-ecp/image_frame_screws.jpg";
 import image_location_pcb from "../../assets/images/community/delonghi-ecp/image_location_pcb.jpeg";
@@ -93,19 +94,26 @@ export const LAYOUT = () => (
 
 <CommunityHeader
   author="Jay R. (Jayblah)"
-  updated="March 19, 2026"
+  updated="April 4, 2026"
   credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"
 />
 
-<div class="block w-full max-w-4xl">
-  <div class="mb-3">
+<div class="grid grid-cols-2 gap-4 w-full max-w-4xl">
+  <div class="w-full">
     <Lightbox
       src={image_build_jochen}
       alt="GaggiMate installed on a DeLonghi ECP, in black"
       width={600}
-      priority
       caption="Image credit: mdwasp"
-   />
+    />
+  </div>
+  <div class="w-full">
+    <Lightbox
+      src={image_build_julia}
+      alt="GaggiMate installed on a DeLonghi ECP, in white"
+      width={600}
+      caption="Image credit: julia"
+    />
   </div>
 </div>
 
@@ -124,17 +132,17 @@ If you see any errors or have any suggestions on making purchasing cheaper or ea
 This is a major modification requiring a full rewire.
       - **Rewiring:** You will remove most existing wiring and create a new harness to connect to the GaggiMate PCB.
       - **Controls:** The stock rotary knob will be removed. The machine will be controlled entirely through the GaggiMate interface.
-      - **Power:** You will install a new 3-prong plug and a 4-pin on/off switch (for the EU model).
-      - **ECO Mode:** This process disables the stock "ECO Mode" found on EU models.
+      - **Power:** You will install a new 3-prong plug for the American model.
+      - **ECO Mode:** This process disables the stock "ECO Mode" found on EU models. You will replace the existing power switch with a 4-pin on/off switch.
 
 While not a "simple" mod, it is manageable if you are comfortable with basic hand tools and confident following detailed instructions. This guide assumes you have purchased the specific items listed below and is not suitable for a "LEGO" style build.
 
 #### A Note for the Pros
 While this guide provides a tested, reliable path for the ECP, the GaggiMate system is highly adaptable. If you're an experienced tinkerer, feel free to innovate and be sure to share your ideas with the rest of us!
 
-#### A Note on the Stilosa
+#### A Note on the Stilosa and the EC-702
 
-This guide *is* compatible with the Stilosa. The only significant difference is the front panel, which will require a different screen housing print (linked in the Printed Parts section). All images and references below feature the ECP, but the process is basically identical.
+This modification *is* compatible with the Stilosa and the EC-702. The latter might actually be the best platform for the modification due to its build quality and spacious internal capacity. The only significant difference is the screen housing, which will require a different print. All images and references below feature the ECP, but the process is basically identical for the other models.
 
 ---
 
@@ -310,7 +318,7 @@ Please ensure you reference the appropriate wiring diagram below as your primary
       <Lightbox src={image_bottom_panel} alt="Bottom panel" width={300}/>
 1. <CB><Tokens type="usa" icon>American Version Only</Tokens> **Detach the Plug** — Locate the wiring junction connecting the 2-prong plug's Line and Neutral wires to the machine's internal wiring. Detach all wires, then remove both the plug. It will be replaced with a grounded 3-prong plug.</CB>
       <Lightbox src={image_plug} alt="Power plug junction" width={300} caption="Image credit: lchasemarsh"/>
-1. <CB>**Detach the Pump Hoses** — Unscrew the 3 Phillips screws securing the pump to the chassis and set aside for reassembly. Detach the 2 tubes and be careful not to lose the filter screens inside the tube ends.</CB>
+1. <CB>**Detach the Pump Hoses** — Unscrew the 3 Phillips screws securing the pump to the chassis and set aside for reassembly. Detach the tubing and be careful not to lose the filter screens inside the tube ends.</CB>
       <Lightbox src={image_pump_hoses} alt="Pump hoses" width={300}/>
 1. <CB>**Detach the Steam Hose** — If clamped with spring-clips, squeeze the clips with a plier and gently pull the hose free from both connection points. If clamped with single-use clamps, carefully break them open with a screwdriver or plier, then pull the hose free.</CB>
 1. <CB>**Detach the Frame** — Remove the 5 Phillips screws securing the frame to the chassis and set aside for reassembly.</CB>
@@ -621,8 +629,8 @@ On the 3-prong power cord linked in the shopping list, identify the following wi
 
 ### Connect the Ground Wire to the Plug —<WIRING/>
 1. <CB>Cut a <Tokens color="green">green</Tokens> 18 AWG wire long enough to reach the boiler's <Tokens color="grey">grounding point</Tokens> from the plug, up through the large hole below the pump.</CB>
-      <Lightbox src={image_boiler_grounding_point} alt="Image depicting the boiler's grounding point" width={200} caption="Location of the boiler's grounding point"/>
-1. <CB>Strip at least **10 mm** of insulation from the end of the ground wire that will be connected to the ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
+      <Lightbox src={image_boiler_grounding_point} alt="The boiler's grounding point" width={200} caption="Location of the boiler's grounding point"/>
+1. <CB>Strip at least **10 mm** of insulation from the eImage depicting nd of the ground wire that will be connected to the ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
 1. <CB>Slide a heat-shrink butt connector onto the wire.</CB>
 1. <CB>Bring the stripped end of the ground wire to the already stripped <Tokens color="teal">teal</Tokens> ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
 1. <CB>Twist the wires together to ensure a firm connection.</CB>
@@ -728,7 +736,7 @@ The mushroom valve in DeLonghi machines requires at least 4-bars of pressure to 
 While there is currently no "consensus best" setting for the DeLonghi, **Prowler** recommends starting with a Kp of 22, a Ki of 0.01, a Kd of 30 (i.e. 22,0.01,30), and a Thermal Feedforward Gain (Kff) of 0.6. Additionally, a Temperature Offset of 15° is a common starting point, but every machine behaves differently. You may need to adjust this. If you lack a Scace device or a method to measure portafilter temperatures directly, you can use the "flash steaming method" to calibrate your offset. For detailed instructions on this process, please refer to this [Discord channel](https://discord.com/channels/951416527721230336/1466150695756497122).
 
 ### Lance Hedrick called this a "meme-machine". What else can I do?
-<Tokens type="video" icon>[He sure did!](https://www.youtube.com/watch?v=nEI9z4D0x1A)</Tokens> If you want to go "buckwild," the community has experimented with:
+Yes, he most certainly <Tokens type="video" icon>[did!](https://www.youtube.com/watch?v=nEI9z4D0x1A)</Tokens> If you want to go "buckwild," the community has experimented with:
 *   Trimming mushroom valve springs for lower brewing pressure.
 *   Swapping vibratory pumps for quiet rotary pumps.
 *   Installing boiler diversion plates for better thermal stability.
