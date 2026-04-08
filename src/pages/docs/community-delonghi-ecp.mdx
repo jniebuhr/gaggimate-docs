@@ -6,10 +6,12 @@ section: Community Guides
 order: 51
 ---
 
+import { YouTube } from '@astro-community/astro-embed-youtube';
 import image_2pin_JST from "../../assets/images/community/delonghi-ecp/image_2pin_JST.png";
 import image_3_pin_setup from "../../assets/images/community/delonghi-ecp/image_3_pin_setup.png";
 import image_3pin_JST from "../../assets/images/community/delonghi-ecp/image_3pin_JST.png";
 import image_4pin_SH10 from "../../assets/images/community/delonghi-ecp/image_4pin_SH10.png";
+import image_4pin_switch from "../../assets/images/community/delonghi-ecp/image_4pin_switch.jpg";
 import image_behind_knob_screws from "../../assets/images/community/delonghi-ecp/image_behind_knob_screws.jpg";
 import image_boiler_grounding_point from "../../assets/images/community/delonghi-ecp/image_boiler_grounding_point.jpg";
 import image_boiler_heater_connections from "../../assets/images/community/delonghi-ecp/image_boiler_heater_connections.png";
@@ -94,8 +96,8 @@ export const LAYOUT = () => (
 
 <CommunityHeader
   author="Jay R. (Jayblah)"
-  updated="April 4, 2026"
-  credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun"
+  updated="April 7, 2026"
+  credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun, Prowler, Stuart, and the entire GaggiMate community for their contributions to this guide and the project as a whole."
 />
 
 <div class="grid grid-cols-2 gap-4 w-full max-w-4xl">
@@ -123,12 +125,6 @@ export const LAYOUT = () => (
 
 If you see any errors or have any suggestions on making purchasing cheaper or easier for people, please join us in the [GaggiMate Discord channel](https://discord.com/channels/951416527721230336/1378844857426251918).
 
----
-
-### About This Guide
-
-#### Scope of Work
-
 This is a major modification requiring a full rewire.
       - **Rewiring:** You will remove most existing wiring and create a new harness to connect to the GaggiMate PCB.
       - **Controls:** The stock rotary knob will be removed. The machine will be controlled entirely through the GaggiMate interface.
@@ -143,6 +139,14 @@ While this guide provides a tested, reliable path for the ECP, the GaggiMate sys
 #### A Note on the Stilosa and the EC-702
 
 This modification *is* compatible with the Stilosa and the EC-702. The latter might actually be the best platform for the modification due to its build quality and spacious internal capacity. The only significant difference is the screen housing, which will require a different print. All images and references below feature the ECP, but the process is basically identical for the other models.
+
+---
+
+### Video Guide
+
+Thanks to hard work of **Prowler**, we now have a wonderful video guide to also accompany this written guide! It covers the entire process from start to finish, and is a great resource to have on hand while working on your machine.
+
+<YouTube id="https://youtu.be/r4WA3FKSe-o" />
 
 ---
 
@@ -474,7 +478,7 @@ This section explains how to prepare a **WaveShare screen** for connection to th
 1. <CB>**Install the Thermocouple** — Place the hole connector of your thermocouple over the threaded stud and slide it down until it rests flat against the boiler and is seated in the thermal paste.</CB>
 1. <CB>**Secure the Thermocouple** — Screw the saved nut back on to hold the thermocouple in place. <Tokens type="warn" icon>The thermocouple's sensor tip is fragile. Do not bend it acutely or twist it at any point during installation.</Tokens></CB>
 1. <CB>**Secure the Thermocouple Wire** — Secure the wire end of the thermocouple with tape against the outside of the machine for now. It will connect to the <Tokens color="grey">PCB</Tokens> later.</CB>
-<Lightbox src={image_thermocouple_installation} alt="Successful installation of the thermocouple" width={300} caption="A successful thermocouple installation will look like this (rear-view of the boiler)"/>
+<Lightbox src={image_thermocouple_installation} alt="Successful installation of the thermocouple" width={300} caption="A successful thermocouple installation will look like this (rear-view of the boiler)."/>
 
 ---
 
@@ -629,7 +633,7 @@ On the 3-prong power cord linked in the shopping list, identify the following wi
 
 ### Connect the Ground Wire to the Plug —<WIRING/>
 1. <CB>Cut a <Tokens color="green">green</Tokens> 18 AWG wire long enough to reach the boiler's <Tokens color="grey">grounding point</Tokens> from the plug, up through the large hole below the pump.</CB>
-      <Lightbox src={image_boiler_grounding_point} alt="The boiler's grounding point" width={200} caption="Location of the boiler's grounding point"/>
+      <Lightbox src={image_boiler_grounding_point} alt="The boiler's grounding point" width={200} caption="Location of the boiler's grounding point."/>
 1. <CB>Strip at least **10 mm** of insulation from the eImage depicting nd of the ground wire that will be connected to the ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
 1. <CB>Slide a heat-shrink butt connector onto the wire.</CB>
 1. <CB>Bring the stripped end of the ground wire to the already stripped <Tokens color="teal">teal</Tokens> ground wire on the <Tokens color="grey">3-prong plug</Tokens>.</CB>
@@ -661,16 +665,30 @@ On the 3-prong power cord linked in the shopping list, identify the following wi
 1. <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
 1. <CB>Crimp a <Tokens color="grey">4.8mm female spade</Tokens> connector onto this end of the wire.</CB>
 1. <CB>Attach the connector onto a pin on the power switch.</CB>
+1. <CB>Cut a <Tokens color="blue">blue</Tokens> 18 AWG wire long enough to reach a pin on the power switch from the line wire on the plug.</CB>
+1. <CB>Strip at least **5 mm** of insulation from the end of the wire that will be connected to the power switch.</CB>
+1. <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
+1. <CB>Crimp a <Tokens color="grey">4.8mm female spade</Tokens> connector onto this end of the wire.</CB>
+1. <CB>Attach the connector onto a pin on the power switch.</CB>
 
-### Connect the Power Switch to the SSR —<WIRING/>
-1. <CB>Cut a <Tokens color="red">red</Tokens> 18 AWG wire long enough to reach the <Tokens color="grey">OUTPUT</Tokens> side of the <Tokens color="grey">SSR</Tokens> from the switch, down through the large hole below the pump.</CB>
+### Connect the Power Switch to Line —<WIRING/>
+1. <CB>Cut a <Tokens color="red">red</Tokens> 18 AWG wire long enough to reach the <Tokens color="grey">3-slot WAGO</Tokens> connector.</CB>
 1. <CB>Strip at least **5 mm** of insulation from the end of the wire that will be connected to a pin on the power switch.</CB>
 1. <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
 1. <CB>Crimp a <Tokens color="grey">4.8mm female spade</Tokens> connector onto this end of the wire.</CB>
-1. <CB>Strip at least **5 mm** of insulation from the end of the wire that will be connected to the <Tokens color="grey">OUTPUT</Tokens> side of the <Tokens color="grey">SSR</Tokens>.</CB>
+1. <CB>Attach the connector onto a pin on the power switch. It **must** be attached to the same pin that is inline with plug's Line wire.</CB>
+1. <CB>Strip at least **10 mm** of insulation from the unconnected end of the wire.</CB>
+1. <CB>Twist the exposed wire gently to prevent fraying, then insert this end into a free slot in a <Tokens color="grey">3-slot WAGO</Tokens> connector.</CB>
+
+### Connect the Power Switch to Neutral  —<WIRING/>
+1. <CB>Cut a <Tokens color="blue">blue</Tokens> 18 AWG wire long enough to reach the <Tokens color="grey">5-slot WAGO</Tokens> connector.</CB>
+1. <CB>Strip at least **5 mm** of insulation from the end of the wire that will be connected to a pin on the power switch.</CB>
 1. <CB>Before crimping, slide an insulation sleeve onto this wire.</CB>
-1. <CB>Crimp a <Tokens color="grey">6.3mm ring</Tokens> connector onto this end of the wire.</CB>
-1. <CB>Attach the connector onto a pin on the power switch.</CB>
+1. <CB>Crimp a <Tokens color="grey">4.8mm female spade</Tokens> connector onto this end of the wire.</CB>
+1. <CB>Attach the connector onto a pin on the power switch. It **must** be attached to the same pin that is inline with plug's Neutral wire.</CB>
+1. <CB>Strip at least **10 mm** of insulation from the unconnected end of the wire.</CB>
+1. <CB>Twist the exposed wire gently to prevent fraying, then insert this end into a free slot in a <Tokens color="grey">3-slot WAGO</Tokens> connector.</CB>
+<Lightbox src={image_4pin_switch} alt="How to wire the 4-pin switch correctly." width={200} caption="How to wire the 4-pin switch correctly."/>
 
 ### Mount the SSR in the Base —<LAYOUT/>
 1. <CB>Apply double-sided tape to the back of the SSR</CB>
@@ -707,6 +725,7 @@ The list below contains common issues you might encounter. If your problem is no
 ### I have leaks!
 To ensure a leak-free installation, carefully inspect your water line connections.
 *   **Check Cuts:** Ensure all cuts to the tubing are sharp, straight, and clean.
+*   **Check Tension:** Short tube lengths can create tension that may cause leaks. It is better to have longer tubes that can sit without tension than to have tubes that are too short and pulling on the fittings.
 *   **Seating:** Verify each hose is seated firmly into its respective fitting.
 *   **O-Rings:** Confirm that hoses leading to the boiler and overpressure valve are clipped in securely and that the black o-ring is present and correctly seated.
 
