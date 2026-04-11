@@ -96,7 +96,7 @@ export const LAYOUT = () => (
 
 <CommunityHeader
   author="Jay R. (Jayblah)"
-  updated="April 7, 2026"
+  updated="April 11, 2026"
   credits="Flavius, mdwasp, TorxFighter, Abunchahicks, odor4fun, Prowler, Stuart, and the entire GaggiMate community for their contributions to this guide and the project as a whole."
 />
 
@@ -719,7 +719,6 @@ Assuming all three systems power on correctly, visit the **GaggiMate website** a
 ---
 
 ## Troubleshooting
-
 The list below contains common issues you might encounter. If your problem is not listed here, please join us in Discord. We'd be happy to try to help you.
 
 ### I have leaks!
@@ -746,12 +745,119 @@ Most machines have a temperature gap between the thermocouple and the grouphead.
 *   **Adjustment:** Increase the **"Temperature Offset"** in your settings to raise the target temperature.
 *   **Expected Range:** It is normal to see an offset of 10–20°C on machines like the DeLonghi ECP.
 
-### I dialed in the offset, but it still tastes sour. What else could it be?
-The mushroom valve in DeLonghi machines requires at least 4-bars of pressure to open. If your pump pressure is too low, the valve won't open fully, leading to underextraction.
-*   **Solution:** Increase the pressure values in all phases of your preferred profile(s) by **+4**.
+### I am not hitting the pressures I expect.
+Unlike electronically-controlled 3-way valves of more expensive machines, the mushroom valve in DeLonghi machines requires at least 4-bars of pressure to open. If your pump pressure is too low, the valve won't open fully, leading to underextraction. Increase the pressure values in all phases of your preferred profile(s). The best way to determine the exact pressure values for your machine is by using the calibration profile created by **cerealkiller**, shown below. Copy and paste it into an empty notepad text file, save it as pressure-test.json, and then import it into GaggiMate's Profile page. Run the profile without a portafilter and observe the brew group. When you begin to see steady water flow out of the brew group, that is the minimum pressure your pump needs to reach to open your valve. You can then set your profile pressures accordingly, ensuring they are above this threshold for optimal extraction.
+
+<details>
+<summary>**Click to expand utility profile "Pressure Test JSON"**</summary>
+```json
+{
+  "label": "[Utility] Pressure Test",
+  "type": "pro",
+  "description": "",
+  "temperature": 10,
+  "utility": true,
+  "phases": [
+    {
+      "name": "2.0",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 2, "flow": 0 }
+    },
+    {
+      "name": "2.5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 2.5, "flow": 0 }
+    },
+    {
+      "name": "3.0",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 3, "flow": 0 }
+    },
+    {
+      "name": "3.5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 3.5, "flow": 0 }
+    },
+    {
+      "name": "4.0",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 4, "flow": 0 }
+    },
+    {
+      "name": "4.5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 4.5, "flow": 0 }
+    },
+    {
+      "name": "5.0",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 5, "flow": 0 }
+    },
+    {
+      "name": "5.5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 5.5, "flow": 0 }
+    },
+    {
+      "name": "6.0",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 6.0, "flow": 0 }
+    },
+    {
+      "name": "6.5",
+      "phase": "brew",
+      "valve": 1,
+      "duration": 15,
+      "temperature": 0,
+      "transition": { "type": "instant", "duration": 0, "adaptive": true },
+      "pump": { "target": "pressure", "pressure": 6.5, "flow": 0 }
+    }
+  ]
+}
+```
+</details>
 
 ### What PID values do you recommend?
-While there is currently no "consensus best" setting for the DeLonghi, **Prowler** recommends starting with a Kp of 22, a Ki of 0.01, a Kd of 30 (i.e. 22,0.01,30), and a Thermal Feedforward Gain (Kff) of 0.6. Additionally, a Temperature Offset of 15° is a common starting point, but every machine behaves differently. You may need to adjust this. If you lack a Scace device or a method to measure portafilter temperatures directly, you can use the "flash steaming method" to calibrate your offset. For detailed instructions on this process, please refer to this [Discord channel](https://discord.com/channels/951416527721230336/1466150695756497122).
+While there is currently no "consensus best" setting for the DeLonghi, **mdwasp** recommends starting with a **Kp of 32, a Ki of 0.05, a Kd of 42** (i.e. 32,0.05,42), and a **Thermal Feedforward Gain (Kff) of 0.6**. We strongly recommend using AI to assist you with dialing in a precise PID configuration for your machine. Please visit this [Discord channel](https://discord.com/channels/951416527721230336/1492569123044200620) for detailed instructions on how to leverage AI for precision PID tuning.
+
+### What Temperature Offset should I use?
+A temperature offset of 15° is a common starting point, but every machine behaves differently and you should measure your actual brew temperature. If you lack a Scace device or a method to measure portafilter temperatures directly, you can use the "flash steaming method" to calibrate your offset. For detailed instructions on this process, please refer to this [Discord channel](https://discord.com/channels/951416527721230336/1466150695756497122).
 
 ### Lance Hedrick called this a "meme-machine". What else can I do?
 Yes, he most certainly <Tokens type="video" icon>[did!](https://www.youtube.com/watch?v=nEI9z4D0x1A)</Tokens> If you want to go "buckwild," the community has experimented with:
@@ -779,6 +885,7 @@ Welcome to the world of turbocharged espresso! Now you can extract better than c
 - **Stuart** for technical support and prints.
 - **Prowler** for a 2.8" screen print.
 - **odor4fun** for sharing his knowledge about the mushroom valve and how to optimize pressure values for better extraction.
+- **cerealkillers** for the pressure test utility profile.
 - The **GaggiMate team** for their incredible work and contributions.
 
 <TOCDrawer/>
