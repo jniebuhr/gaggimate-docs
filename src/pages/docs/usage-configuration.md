@@ -11,11 +11,13 @@ order: 16
 To control the heater of your machine, GaggiMate uses a [PID controller](https://en.wikipedia.org/wiki/Proportional–integral–derivative_controller).
 This controller needs the correct configuration parameters to work with your machine. All these parameters can be configured on the Settings page. We have tested this on a couple of machines and provided the following starting values for you:
 
-| Machine                    | PID values | Temperature offset | Notes |
-|----------------------------| ---------- | ------------------ | ----- |
-| Gaggia Classic             | 58.397,1.027,249.055 | 8 | |
-| Gaggia Classic Pro/Evo/E24 | 58.397,1.027,249.055 | 8 | |
-| Rancilio Silvia | 112.315,0.658,1436.887 | 5 | It is recommended to use the Boiler refill plugin to make sure there's water in the boiler |
+| Machine                    | PID values             | Temperature offset | Notes                                                                                      |
+|----------------------------|------------------------|--------------------|--------------------------------------------------------------------------------------------|
+| Gaggia Classic             | 58.397,1.027,249.055   | 8                  |                                                                                            |
+| Gaggia Classic Pro/Evo/E24 | 58.397,1.027,249.055   | 8                  |                                                                                            |
+| Rancilio Silvia            | 112.315,0.658,1436.887 | 5                  | It is recommended to use the Boiler refill plugin to make sure there's water in the boiler |
+| DeLonghi Dedica            | 10,0.006,140,0.55      | 10                 |                                                                                            |
+| DeLonghi ECP               | 32,0.05,42,0.46        | 15                 |                                                                                            |
 
 The temperature offset is used to raise the boiler wall temperature by that amount to account for thermal loss of the water leaving the grouphead.
 
