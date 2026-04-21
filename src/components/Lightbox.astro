@@ -8,45 +8,26 @@ import { Image } from "astro:assets";
  *
  * PROPS:
  * - src (required): Imported image object or string URL.
- *     Imported objects (e.g. `import img from '...'`) get full Astro image
- *     optimization (WebP, srcset, lazy loading). String URLs do not.
- * - alt (required): Alt text for the image. Also shown as caption in the
- *     modal unless hideCaption is true.
- * - width (default: 300): Width of the thumbnail in pixels.
- * - priority (default: false): Set true for above-the-fold images to use
- *     eager loading instead of lazy.
- * - hideCaption (default: false): Set true to suppress the alt text caption
- *     in the modal overlay.
- * - caption: Optional text shown below the thumbnail. Styled as a small
- *     italic gray line. Use for credits or contextual notes.
- *     Note: caption renders as a sibling outside the lightbox wrapper.
- *     Do NOT nest Lightbox inside an overflow-hidden container if using
- *     caption, as it will be clipped.
+ * - alt (required): Alt text. Also shown as modal caption unless hideCaption is true.
+ * - width (default: 300): Thumbnail width in pixels.
+ * - priority (default: false): Use eager loading for above-the-fold images.
+ * - hideCaption (default: false): Suppress alt text caption in the modal.
+ * - caption: Text shown below the thumbnail (credits, notes).
+ *     WARNING: Clipped if Lightbox is inside an overflow-hidden container.
  *
  * USAGE:
- * Basic:
- *   <Lightbox src={myImage} alt="Description of image" />
+ *   <Lightbox src={myImage} alt="Description" />
+ *   <Lightbox src={myImage} alt="Description" width={400} priority caption="Credit: Someone" />
  *
- * With all options:
- *   <Lightbox
- *     src={myImage}
- *     alt="Description of image"
- *     width={400}
- *     priority
- *     hideCaption
- *     caption="Image credit: Someone"
- *   />
- *
- * MODAL BEHAVIOR:
- * - Click thumbnail to open modal
- * - Click backdrop or X button to close
- * - Tab key cycles focus between close button and open-original link
- * - Top-right buttons: close (X) and open original in new tab (↗)
+ * MODAL:
+ * - Click thumbnail to open
+ * - Click backdrop or X to close
+ * - Tab cycles focus between close button and open-original link
  */
 
 const {
   src,
-  alt,
+  alt = "", // Default to empty string
   width = 300,
   priority = false,
   hideCaption = false,
@@ -55,62 +36,45 @@ const {
 
 if (!src) throw new Error("Lightbox: src prop is required");
 
-// Distinguish between imported image objects and plain string URLs.
-// Imported objects support Astro's <Image> component for optimization.
 const isImageObject = typeof src === "object" && "src" in src;
+const imageSrc = isImageObject ? (src as { src: string }).src : (src as string);
 ---
 
-<!--
-  .lightbox-wrapper: Used by the click handler to scope dialog lookup.
-  inline-block ensures the wrapper shrinks to fit the image width.
--->
 <div class="lightbox-wrapper inline-block group relative">
-  <!-- Thumbnail container with hover scale effect -->
-  <div
-    class="relative overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]"
-  >
-    {
-      isImageObject ? (
-        // Optimized path: uses Astro's Image component for WebP conversion,
-        // correct srcset, and automatic width/height to prevent layout shift.
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center my-0"
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-        />
-      ) : (
-        // Fallback path for string URLs — no optimization applied.
-        <img
-          src={src}
-          alt={alt}
-          class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center my-0"
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-        />
-      )
-    }
+  <div class="relative overflow-hidden rounded-lg transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]">
+    {isImageObject ? (
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center my-0"
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+      />
+    ) : (
+      <img
+        src={src}
+        alt={alt}
+        class="trigger-open block cursor-zoom-in w-full h-full object-cover object-center my-0"
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+      />
+    )}
   </div>
+</div>
 
-  <!--
-    Modal dialog — uses the native <dialog> element for accessibility.
-    showModal() is called by the click handler on .trigger-open.
-    Backdrop styles are handled in <style> below using ::backdrop.
-  -->
-  <dialog
-    role="dialog"
-    aria-modal="true"
-    aria-label="Image lightbox"
-    class="image-modal fixed inset-0 z-50 max-w-none bg-transparent p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm outline-none"
-  >
-    <div
-      class="w-full h-full flex flex-col items-center justify-center p-6 pointer-events-none"
-    >
-      <!-- Top-right controls: close button and open-original link -->
-      <div
-        class="absolute top-4 right-4 flex flex-row-reverse gap-4 pointer-events-auto"
+<dialog
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+  class="image-modal"
+>
+  <div class="lightbox-overlay">
+    <div class="lightbox-controls">
+      <button
+        class="lightbox-btn"
+        type="button"
+        aria-label="Close dialog"
       >
         <!-- Close button — targeted by aria-label in the click handler -->
         <button
@@ -149,67 +113,48 @@ const isImageObject = typeof src === "object" && "src" in src;
             d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
           ></path>
         </svg>
-      </div>
+      </a>
     </div>
 
-    <!-- Full-size image in the modal — always eager loaded -->
-    {
-      isImageObject ? (
+    <div class="lightbox-content">
+      {isImageObject ? (
         <Image
           src={src}
           alt={alt}
-          class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+          class="lightbox-image"
           loading="eager"
         />
       ) : (
         <img
           src={src}
           alt={alt}
-          class="max-h-[70vh] max-w-[90vw] w-auto h-auto rounded-xl pointer-events-auto"
+          class="lightbox-image"
         />
-      )
-    }
+      )}
 
-    <!--
-        Modal caption — uses alt text by default.
-        Set hideCaption to suppress, or provide a separate caption prop
-        for the below-thumbnail caption instead.
-      -->
-    {
-      alt && !hideCaption && (
-        <p class="mt-6 text-white/80 text-sm font-medium text-center max-w-2xl pointer-events-auto">
-          {alt}
-        </p>
-      )
-    }
-  </dialog>
-</div>
+      {alt && !hideCaption && (
+        <p class="lightbox-caption">{alt}</p>
+      )}
+    </div>
+  </div>
+</dialog>
 
-<!--
-  Below-thumbnail caption — rendered as a sibling outside lightbox-wrapper.
-  WARNING: If Lightbox is placed inside an overflow-hidden container (e.g. a
-  fixed-height image row), this caption will be clipped. In that case, render
-  the caption manually as a sibling element outside the container instead.
--->
-{
-  caption && (
-    <span class="block text-sm text-gray-500 italic opacity-80 -mt-1 mb-2">
-      {caption}
-    </span>
-  )
-}
+{caption && (
+  <span class="block text-sm text-gray-500 italic opacity-80 -mt-1 mb-2">
+    {caption}
+  </span>
+)}
 
 <script>
   document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
-    // Open: clicking any element with .trigger-open opens the nearest dialog
     if (target.closest(".trigger-open")) {
       const wrapper = target.closest(".lightbox-wrapper");
-      wrapper?.querySelector("dialog")?.showModal();
+      const dialog = wrapper?.nextElementSibling as HTMLDialogElement;
+      dialog?.showModal();
     }
 
-    // Close: clicking the close button or the backdrop (dialog element itself)
     const dialog = target.closest("dialog");
     if (
       dialog &&
@@ -219,8 +164,6 @@ const isImageObject = typeof src === "object" && "src" in src;
     }
   });
 
-  // Trap focus within the modal while it is open (accessibility requirement).
-  // Cycles between the close button and the open-original link.
   document.addEventListener("keydown", (e) => {
     const dialog = document.querySelector("dialog[open]") as HTMLDialogElement;
     if (!dialog || e.key !== "Tab") return;
@@ -240,8 +183,22 @@ const isImageObject = typeof src === "object" && "src" in src;
 </script>
 
 <style>
-  /* Hidden by default — shown via showModal() */
+  /* Reset all browser dialog defaults and force full viewport coverage */
   .image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    outline: none;
     opacity: 0;
     display: none;
     transition:
@@ -254,31 +211,89 @@ const isImageObject = typeof src === "object" && "src" in src;
     display: flex;
   }
 
-  /* Fade in from transparent when dialog first opens */
   @starting-style {
     .image-modal[open] {
       opacity: 0;
     }
   }
 
-  /* Backdrop fades in alongside the modal */
-  .image-modal::backdrop {
-    background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0px);
-    transition:
-      background 0.2s,
-      backdrop-filter 0.2s;
-  }
-
-  .image-modal[open]::backdrop {
+  /* Full-screen overlay with background */
+  .lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(2px);
+    pointer-events: none;
   }
 
-  /* Focus ring for keyboard navigation */
+  /* Top-right controls */
+  .lightbox-controls {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    pointer-events: auto;
+  }
+
+  .lightbox-btn {
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.15s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-btn:hover {
+    color: white;
+  }
+
   .lightbox-btn:focus-visible {
     outline: 2px solid white;
     outline-offset: -6px;
     border-radius: 9999px;
+  }
+
+  /* Image and caption */
+  .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+  }
+
+  .lightbox-image {
+    max-height: 70dvh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
+    border-radius: 0.75rem;
+  }
+
+  .lightbox-caption {
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 42rem;
   }
 </style>
