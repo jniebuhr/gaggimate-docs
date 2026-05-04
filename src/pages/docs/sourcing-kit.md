@@ -56,6 +56,7 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 * Adjustable or 14mm Wrench / Spanner
 * Electrical tape for insulating unused connections
 * Multimeter
+* Silvia (built before April 2025): PTFE Tape
 * Optional: Thermal paste, useful for older machines where the pre-applied paste has dried out
 * Optional: Zipties
 * Optional: Small flathead screwdriver to remove connections
