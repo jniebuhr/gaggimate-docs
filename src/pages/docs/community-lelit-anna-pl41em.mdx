@@ -1,0 +1,221 @@
+---
+layout: ../../layouts/Layout.astro
+title: Lelit Anna PL41EM 2025
+description: A community installation guide for the GaggiMate Pro on a Lelit Anna PL41EM (single boiler, 230V/50Hz, 1050W).
+section: Community Guides
+order: 52
+---
+
+import CommunityHeader from "../../components/CommunityHeader.astro";
+import Lightbox from "../../components/Lightbox.astro";
+import Tokens from "../../components/Tokens.astro";
+
+import image_pump_repositioned from "../../assets/images/community/lelit-anna/pump-repositioned.jpg";
+import image_wiring_diagram from "../../assets/images/community/lelit-anna/image_wiring_diagram.jpg";
+import image_live_connection from "../../assets/images/community/lelit-anna/image_live_connection.jpg";
+import remove_95 from "../../assets/images/community/lelit-anna/remove_95.jpeg";
+import wired_removed from "../../assets/images/community/lelit-anna/wired_removed.jpg";
+import t_plumbing from "../../assets/images/community/lelit-anna/t_plumbing.jpeg";
+import pressure_transducer from "../../assets/images/community/lelit-anna/pressure_transducer.jpeg";
+import ssr_live from "../../assets/images/community/lelit-anna/ssr_live.jpg";
+import output_ssr from "../../assets/images/community/lelit-anna/output_ssr.JPG";
+import wiring_p_pump from "../../assets/images/community/lelit-anna/wiring_p_pump.jpg";
+import neutral_3wv from "../../assets/images/community/lelit-anna/neutral_3WV.JPG";
+import phase_3wv from "../../assets/images/community/lelit-anna/3WV_red_V.JPG";
+import ssr_wiring from "../../assets/images/community/lelit-anna/ssr_wiring.jpg";
+import btn_wiring from "../../assets/images/community/lelit-anna/btn_wiring.JPG";
+
+
+
+
+<CommunityHeader
+  author="Jeff"
+  updated="May 20, 2026"
+  credits="@maspresso (MOZ) for previously documenting a Lelit Anna install and validating the wiring, @enoflagliqpap for sharing their experience, and the entire GaggiMate Discord community."
+/>
+
+This is a community guide for installing the **GaggiMate Pro** kit on a **Lelit Anna PL41EM** (single boiler, 230V/50Hz, 1050W). The Anna shares its base hydraulics with other 57mm group machines from the IMAT OEM family (La Pavoni Casa Bar, Quick Mill 57mm), so most of this guide applies to those as well with minor adjustments.
+
+<Tokens type="warn" icon>**Disclaimer.** I'm not an electrician or an expert in this field — just someone who likes to tinker, with a soldering iron, a multimeter, and a healthy dose of caution. This install works on my machine, but this guide may contain mistakes. **You are responsible** for any damage to your equipment. Double-check every connection, and if in doubt, ask before you wire.</Tokens>
+
+<Tokens type="info" icon>**Need help?** I'm available on the **GaggiMate Discord**, in the **#gaggimate-help** channel → thread **Lelit Anna [PL41EM - 2025]**. Drop your question there and I'll do my best to answer.</Tokens>
+
+## Contents
+
+## Kit variant
+
+For the Lelit Anna PL41EM 2025, the **Pro kit — M4 K-Type + Pump Fittings (Gaggia Classic Pro/Evo/E24, 2019–2025)** variant works out of the box. No custom fittings or cables are required.
+
+## What you need
+
+- **GaggiMate Pro kit** — Pro variant with M4 K-type thermocouple and pump fittings.
+- **SSR** — 40A SSR (Finglai SSR-40DA or equivalent). Often included in the kit.
+- **Pressure transducer** — 1/8" NPT, 0–1.2 MPa. Included with the Pro kit.
+- **Tools** — Multimeter (continuity / Ω mode), Phillips screwdriver, pliers, PTFE tape, optionally a crimping tool.
+
+## Lelit Anna reference schematic
+
+The official Lelit wiring diagram for the PL41EM is document **8000059 REV00** (02/11/2022, by M. Garatti and M. Epis). Components used in this guide:
+
+| # | Component | Role |
+|---|---|---|
+| 1 | IEC plug | Mains inlet |
+| 2 | ON/OFF switch | Main power |
+| 3 | Safety thermostat 165°C | Boiler safety (keep) |
+| 4 | Coffee thermostat 95°C | Brew regulation (**replaced by thermocouple**) |
+| 5 | Steam thermostat 125°C | Steam regulation (**removed**) |
+| 6 | Water pump | OLAB vibratory pump |
+| 7 | 3-way solenoid valve | Brew valve |
+| 8 | Heating element | Boiler resistance |
+| 9 | Pump switch | "Coffee" button |
+| 10 | Hot water / steam switch | "Steam" button |
+| 11 | Ready light | Indicator |
+| 13 | Anti-jamming filter | 0.33 μF capacitor |
+| 14 | ON/OFF light | Indicator |
+
+## Before you start
+
+<Tokens type="danger" icon>**Mains voltage.** The machine runs at 230V. Always **unplug** the machine from the wall before working inside. Verify with a multimeter that no voltage is present on the IEC pins before touching any wiring.</Tokens>
+
+A few tips that save time:
+
+- **Cut all the existing zip ties** before starting. You will see and reach everything much more easily.
+- The original Lelit **Faston connectors are extremely tight**. Pull them straight along the axis of the terminal, with small left-right rocking motions if needed. Never twist or pull at an angle — you will bend the terminal.
+- **Take photos** of every original connection before disconnecting anything. It saves you twice during the install.
+
+## Step 1 — Disassembly and removal
+
+1. **Open the top cover** of the machine. You will see the boiler, the OLAB pump, and the 3-way valve.
+1. **Remove the "ready" indicator light (component 11).** If you leave it connected without the original thermostats, it will just blink permanently. Disconnect both Faston connectors.
+1. **Remove the 95°C thermostat (component 4)** from the boiler. Disconnect both Faston connectors and unscrew it. The thermocouple (M4) will be screwed into this exact location later. Leave the location empty for now.
+  <Lightbox src={remove_95} alt="Description" width={500}/>
+1. **Remove the 125°C thermostat (component 5)** completely. The official GaggiMate wiring kit provides a "Heater bridge" specifically to bypass this thermostat. In this guide, however, we route the SSR output directly to the heater (see step 6), which makes the bridge unnecessary. Just remove the thermostat from the circuit and set it aside.
+1. **Disconnect all wires from the Steam and Coffee buttons** (components 10 and 9). Keep the **Power switch** wires untouched. The buttons will be re-wired in low voltage later.
+1. **Remove the original 3-way valve cable completely.** This is the only cable from the harness that is fully discarded.
+  <Lightbox src={wired_removed} alt="Description" width={500}/>
+## Step 2 — Hydraulic modifications (Pro version)
+
+The Pro kit adds a pressure transducer that needs to be teed into the line between the pump and the boiler. On the Anna there is enough space if you reposition the pump slightly.
+
+1. **Disconnect the PTFE tube from the pump outlet.** It is a push-fitting — push the collar inward, then pull the tube out.
+1. **Remove the pump from its rubber mounts (silent blocks).** Rotate each mount 180° and reinstall them. This shifts the pump slightly to the left and frees up space for the tee fitting.
+
+   <Lightbox src={image_pump_repositioned} alt="OLAB pump shifted left after rotating the silent blocks 180°" width={500} />
+
+1. **Wrap the threads of the white tee fitting with PTFE tape** and screw it onto the pump outlet. Tighten gently — over-torquing will crack the plastic.
+
+   <Tokens type="info" icon>I temporarily removed the pressure gauge during installation to have more room to work. You don't have to — it just makes life easier.</Tokens>
+
+1. **Reconnect the original PTFE tube** to the straight outlet of the tee fitting (toward the boiler).
+  <Lightbox src={t_plumbing} alt="Description" width={500}/>
+1. **Install the pressure transducer's tube** into the side outlet of the tee. The tube is also a push-fitting — insert it firmly until it stops.
+
+   <Lightbox src={pressure_transducer} alt="White tee fitting with the pressure transducer tube on the side outlet" width={500} />
+
+## Step 3 — Wiring overview
+
+The wiring transforms the machine as follows:
+
+- **Heater path**: phase now goes through the SSR (controlled by the PCB) instead of the original thermostats.
+- **Pump and 3-way valve**: phase now comes from the PCB outputs (V)
+- **Buttons**: switched from 230V switching to low-voltage signaling to the PCB.
+- **Thermocouple**: replaces the 95°C thermostat for temperature reading.
+
+Here is the simplified wiring diagram (hand-drawn but functional, exactly as shown):
+
+<Lightbox src={image_wiring_diagram} alt="Hand-drawn wiring diagram" width={600} caption="Wiring diagram" />
+
+<Tokens type="info" icon>**Safety thermostat placement.** In this guide, the **165°C safety thermostat (component 3) is kept on the neutral return line** of the heater circuit, as in the original Lelit wiring. This is functionally safe (if it trips, the heater is cut off), but it also cuts the neutral path of the pump and 3WV in this configuration. A cleaner alternative — recommended by Jochen and others — is to move the 165°C to the **phase line, between the SSR and the heater**. That way, if the safety trips, only the heater is interrupted; the pump and 3WV remain operational, which is useful for cooling down the boiler manually. This is a future improvement; the wiring shown here works, just be aware of the trade-off.</Tokens>
+
+## Step 4 — High voltage wiring
+
+1. **Remove the original phase (brown wire) from the Power switch output**, and replace it with the **gray "Live" cable** from the GaggiMate kit. The kit's Live cable has a piggyback connector on the machine side, which lets you tap into the switch terminal **while keeping the original wire connected**. The other end (10 mm of bare wire) goes to the **L terminal of the PCB**.
+
+   <Lightbox src={image_live_connection} alt="Gray Live cable connected to the power switch via the piggyback connector" width={500} />
+
+1. **Connect the SSR output (HV) side.**
+   - One yellow "Heater to SSR" cable from the kit goes from the **original heater phase wire** (the one that used to come from the thermostats) to **one of the OUTPUT terminals (1 or 2) of the SSR**. Polarity doesn't matter on the AC side.
+   - The other yellow "Heater to SSR" cable goes from the **other OUTPUT terminal of the SSR** directly to the **heating element terminal** on the boiler.
+
+   The SSR now controls the heater. The 95°C, 125°C thermostats are bypassed entirely.
+   <Lightbox src={ssr_live} alt="Gray Live cable connected to the power switch via the piggyback connector" width={500} />
+   <Lightbox src={output_ssr} alt="Gray Live cable connected to the power switch via the piggyback connector" width={500} />
+
+   <Tokens type="info" icon>The SSR has two sides: **OUTPUT (24–480 VAC)** at the top — this is where the 230V load passes through — and **CONTROL (3–32 VDC)** at the bottom — this is where the PCB signal arrives. Don't mix them up.</Tokens>
+
+1. **Wire the pump (component 6).** Remove the original phase (brown) wire from the pump terminal. Connect the **green "Pump" cable** from the kit to the same pump terminal. The other end (bare wire) goes to the **P terminal of the PCB**. The neutral side of the pump stays as it was originally.
+
+   <Lightbox src={wiring_p_pump} alt="Green Pump cable from the GaggiMate kit connected to the pump phase terminal" width={500} />
+
+1. **Wire the 3-way valve (component 7).** The 3WV has two terminals — one for phase, one for neutral.
+
+   - **Phase side**: the kit's **red "3-way valve" cable** has a male Faston. **Plug it into the female Faston that was originally on the Steam button** — this wire is already routed to the 3WV phase terminal on its other end, so reusing it saves you from rewiring anything on the 3WV itself. Leave the other Steam button pin empty. The other end of the red kit cable goes to the **V terminal of the PCB**.
+   <Lightbox src={phase_3wv} alt="Red V kit cable plugged into the female Faston freed from the Steam button (other end of that wire is on the 3WV phase terminal)" width={500} />
+
+   - **Neutral side**: the 3WV neutral is shared with the **pump neutral** via the kit's **Eco bridge** (yellow-yellow, otherwise unused on the Lelit Anna). Slightly **spread the pins of one female terminal of the Eco bridge** so it accepts **two male Fastons at once**: the **GaggiMate neutral** (blue kit cable, see next step) and the **pump neutral**. The other end of the Eco bridge plugs into the **3WV neutral terminal**. Refer to the wiring diagram for the full neutral chain.
+
+   <Lightbox src={neutral_3wv} alt="Eco bridge wired with the GaggiMate neutral and the pump neutral on the spread female end, going to the 3WV neutral" width={500} />
+
+1. **Connect the PCB neutral (N).** The blue **"Neutral"** cable from the kit has a male Faston on the machine side. Plug it into the **widened female end of the Eco bridge**, alongside the pump neutral (see previous step and diagram). The other end goes to the **N terminal of the PCB**.
+
+At this point, the high-voltage side is complete. The four PCB terminals **L, N, P, V** are connected.
+
+## Step 5 — Low voltage wiring
+
+1. **Thermocouple.** Screw the M4 K-type thermocouple into the boiler hole that used to host the 95°C thermostat. The two wires go to the **T+ and T-** terminals of the PCB (red to +, black/silver to -).
+
+   <Tokens type="info" icon>If the temperature reading drops as the boiler heats up, the polarity is reversed — just swap the two wires.</Tokens>
+
+1. **SSR signal.** The two-wire "SSR signal" cable (yellow + black, JST PH 2P on the PCB side) connects the PCB **SSR connector** to the **CONTROL terminals (3–32 VDC) of the SSR**. Yellow to +, black to -. Polarity matters here.
+
+   <Lightbox src={ssr_wiring} alt="SSR signal cable wired to the PCB SSR connector" width={500} />
+
+1. **Buttons.** Follow the image: plug the **green "Steam"** wire onto the **Steam button** and the **green "Coffee"** wire onto the **Coffee button**, with their respective **black "GND"** wires. Polarity doesn't matter on switch contacts. Refer to the [GaggiMate pinout documentation](https://docs.gaggimate.eu/docs/pinout/) for the PCB side.
+
+   <Lightbox src={btn_wiring} alt="Coffee and Steam buttons wired in low voltage to the PCB" width={500} />
+
+1. **Pressure transducer (Pro only).** The 3-wire transducer cable (red +5V, black GND, signal) plugs into the **Pressure terminal block** of the PCB.
+
+   <Tokens type="warn" icon>**PCB Pro Rev 1.1.** If you have a Rev 1.1 Pro PCB, the Pressure header has **4 pins** instead of 3 (GND, X, Analog In, +5V). The extra "X" pin is reserved for future use — **leave it unconnected**. Wire GND, Analog In, and +5V as labeled.</Tokens>
+
+1. **Screen.** Connect the screen power cable (red +3.3V, black GND) and the I2C cable (GND, SDA, SCL) as per the [GaggiMate pinout documentation](https://docs.gaggimate.eu/docs/pinout/).
+
+## Step 6 — First boot and testing
+
+1. **Visual inspection.** Check every connection. Make sure no bare wire is touching the chassis. Verify the SSR OUTPUT terminals are well screwed (they tend to loosen).
+
+1. **Continuity check (machine unplugged).**
+   - Between L of the IEC plug and L of the PCB → should be continuous when the power switch is ON, open when OFF.
+   - Between N of the IEC plug and N of the PCB → should always be continuous.
+
+1. **Power on without water.** Plug the machine in. Turn the power switch ON. The PCB should boot — the screen should light up. **Do not let the heater run** without water; if everything looks normal, turn off and proceed.
+
+1. **Fill the tank, prime the system.** Run the pump manually from the PCB interface. Water should reach the boiler and exit the steam wand when the steam knob is open.
+
+1. **First heat-up.** Set a low target (e.g. 80°C) for the first heat-up and watch the temperature reading climb. If it drops instead of rising, swap T+ and T-.
+
+1. **PID tuning.** As a starting point, the values that worked for @maspresso on his Lelit Anna are:
+   - **P = 61**
+   - **I = 0.5**
+   - **D = 976**
+   - **Offset = 0°C**
+   - **Setpoint = 93°C**
+
+   Your machine may behave slightly differently. The Anna's boiler is small and the temperature sensor is mounted on top, so expect some temperature drop during the shot. This is normal — the puck temperature (measured at ~95°C with a Scace device) is fine even when the PCB reads lower.
+
+## Notes and gotchas
+
+- **Hot water mode is no longer supported.** The original Lelit Anna lets you dispense hot water by pressing Steam + Coffee simultaneously with the steam knob open. With GaggiMate, this combined mode is not implemented. Use a separate kettle for tea or hot water.
+- **The pressure reading lags slightly behind the puck.** The pressure transducer is downstream of the pump, so the reading is the pump output pressure — not the puck pressure. This is normal and consistent with other GaggiMate installations.
+- **Save your spare bridges.** The Heater Bridge (red-red) is not used in this install if you wire the SSR directly to the heater. Keep it as a spare.
+- **Door/access for service.** Reassemble the machine carefully — the cable routing is tight. Make sure no wire is pinched against the chassis when you close the top cover.
+
+## Reference
+
+- [Official GaggiMate Pinout](https://docs.gaggimate.eu/docs/pinout/)
+- [Official GaggiMate Wiring](https://docs.gaggimate.eu/docs/wiring/)
+- Official Lelit PL41EM wiring diagram (document 8000059 REV00)
+
+---
+
+If you spot mistakes or have improvements, please open a PR or reach out on Discord. This guide will evolve with community feedback.
