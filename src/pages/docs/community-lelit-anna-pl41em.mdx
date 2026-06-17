@@ -64,8 +64,8 @@ The official Lelit wiring diagram for the PL41EM is document **8000059 REV00** (
 | 1 | IEC plug | Mains inlet |
 | 2 | ON/OFF switch | Main power |
 | 3 | Safety thermostat 165°C | Boiler safety (keep) |
-| 4 | Coffee thermostat 95°C | Brew regulation (**replaced by thermocouple**) |
-| 5 | Steam thermostat 125°C | Steam regulation (**removed**) |
+| 4 | Coffee thermostat 95°C | Brew regulation (**removed**) |
+| 5 | Steam thermostat 125°C | Steam regulation (**replaced by thermocouple**) |
 | 6 | Water pump | OLAB vibratory pump |
 | 7 | 3-way solenoid valve | Brew valve |
 | 8 | Heating element | Boiler resistance |
@@ -89,9 +89,9 @@ A few tips that save time:
 
 1. **Open the top cover** of the machine. You will see the boiler, the OLAB pump, and the 3-way valve.
 1. **Disconnect the "ready" indicator light (component 11)** from its original Faston connectors. **Do not throw it away** — we will re-wire it in parallel with the heater later (step 4) so it behaves as a heater activity indicator (blinks in sync with the PID, just like on the Gaggia Classic Pro or Rancilio Silvia).
-1. **Remove the 95°C thermostat (component 4)** from the boiler. Disconnect both Faston connectors and unscrew it. The thermocouple (M4) will be screwed into this exact location later. Leave the location empty for now.
+1. **Remove the 95°C thermostat (component 4)** from the boiler. Disconnect both Faston connectors and unscrew it. 
   <Lightbox src={remove_95} alt="95°C coffee thermostat (component 4) unscrewed from its boiler hole, leaving the threaded location empty for the M4 thermocouple" width={500}/>
-1. **Remove the 125°C thermostat (component 5)** completely. On a standard install (e.g. Gaggia Classic), the GaggiMate **"Heater bridge"** bypasses the **lower-temperature (brew) thermostat** — the same role that the steam switch normally plays when steaming. In this guide we route the SSR output directly to the heater (see step 6), so neither thermostat sits in the circuit and the heater bridge is not needed. Just remove the 125°C thermostat and set it aside.
+1. **Remove the 125°C thermostat (component 5)** completely. The thermocouple (M4) will be screwed into this exact location later. Leave the location empty for now. On a standard install (e.g. Gaggia Classic), the GaggiMate **"Heater bridge"** bypasses the **lower-temperature (brew) thermostat** — the same role that the steam switch normally plays when steaming. In this guide we route the SSR output directly to the heater (see step 6), so neither thermostat sits in the circuit and the heater bridge is not needed. Just remove the 125°C thermostat and set it aside.
 1. **Disconnect all wires from the Steam and Coffee buttons** (components 10 and 9). Keep the **Power switch** wires untouched. The buttons will be re-wired in low voltage later.
 1. **Remove the original 3-way valve cable completely.** This is the only cable from the harness that is fully discarded.
   <Lightbox src={wired_removed} alt="Lelit Anna harness after Step 1: ready light disconnected, both thermostats removed, Steam and Coffee buttons disconnected, original 3-way valve cable fully removed" width={500}/>
@@ -178,7 +178,7 @@ At this point, the high-voltage side is complete. The four PCB terminals **L, N,
 
 ## Step 5 — Low voltage wiring
 
-1. **Thermocouple.** Screw the M4 K-type thermocouple into the boiler hole that used to host the 95°C thermostat. The two wires go to the **T+ and T-** terminals of the PCB (red to +, black/silver to -).
+1. **Thermocouple.** Screw the M4 K-type thermocouple into the boiler hole that used to host the ~~95°~~ 125°C thermostat (Mounting it here, keeps the probe away from the cold-water inlet). The two wires go to the **T+ and T-** terminals of the PCB (red to +, black/silver to -).
 
    <Tokens type="info" icon>If the temperature reading drops as the boiler heats up, the polarity is reversed — just swap the two wires.</Tokens>
 
