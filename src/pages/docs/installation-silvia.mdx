@@ -65,6 +65,8 @@ import img_113 from '../../assets/images/silvia/113_plumbing.jpeg';
 import img_114 from '../../assets/images/silvia/114_plumbing.jpeg';
 import img_115 from '../../assets/images/silvia/115_plumbing.jpeg';
 import img_116 from '../../assets/images/silvia/116_plumbing.jpeg';
+import img_117 from '../../assets/images/silvia/117_plumbing_v6.jpeg';
+import img_118 from '../../assets/images/silvia/118_v6_braided_hose.jpeg';
 
 import img_plumbing_packed from '../../assets/images/new_plumbing_packed.jpeg';
 import img_plumbing_unpacked from '../../assets/images/new_plumbing_unpacked.jpeg';
@@ -279,6 +281,15 @@ Some generations of the kit came with a slightly mismatched connector. This can 
 
 Follow this part only if you're installing GaggiMate Pro.
 
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold text-red-700">Note</strong>: If you have a Silvia V6 with the new braided hose shown in the picture below, please jump to the chapter [6.2 Plumbing for Silvia V6](#62-plumbing-for-silvia-v6).<br />
+</div>
+
+<div className="flex flex-row gap-4">
+    <Preview src={img_118} width={400} alt="" />
+</div>
+
+
 ### 6.1 New Plumbing (installation at pump)
 
 <div className="flex flex-row gap-4">
@@ -313,6 +324,7 @@ Screw on the T-fitting from the kit onto the L-fitting making sure it's tight. T
 
 Make sure you thread the pump back through the rubber mount before.
 
+<a id="pressure_transducer"></a>
 <div className="flex flex-row gap-4">
   <Preview src={img_111} width={400} alt="" />
   <Preview src={img_112} width={400} alt="" />
@@ -333,6 +345,26 @@ Plug the PTFE tube into the fitting near the pump and measure out what length yo
 </div>
 
 Finally, reconnect the wires to the pump as well as the suction tube. Also connect the pressure transducer to your PCB as shown above. You have now installed the plumbing onto your machine.
+
+### 6.2 Plumbing for Silvia V6
+
+If you have the new braided hose, you are lucky :) as you don't need to remove the pump to install the plumbing.
+
+You just need to undo the braided hose from the brass fitting (2 metric 17 wrenches are the proper toolset for this)
+and then using a 12 wrench, hold the pump outlet while unscrewing the brass fitting with the 17 wrench.
+
+Now you can add the tee as shown in the picture below. The white part can be rotated around so the position doesn’t matter.
+- No PTFE tape is needed.
+- Do not overtighten the tee to the pump outlet.
+
+<div className="flex flex-row gap-4">
+    <Preview src={img_117} width={400} alt="" />
+</div>
+
+Now you can connect the PTFE tube as described in the [previous section](#pressure_transducer).
+
+There is also an alternative solution that requires some additional parts described in the [Discord help section](https://discord.com/channels/951416527721230336/1433525009380544662/1433525009380544662)
+
 
 ### 6.3 Pressure test
 
