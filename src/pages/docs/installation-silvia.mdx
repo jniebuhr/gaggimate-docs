@@ -365,21 +365,47 @@ Now you can connect the PTFE tube as described in the [previous section](#pressu
 
 There is also an alternative solution that requires some additional parts described in the [Discord help section](https://discord.com/channels/951416527721230336/1433525009380544662/1433525009380544662)
 
-
-### 6.3 Pressure test
-
-Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
-If there's no leaks at room temperature, try again at brew temperature.
-
 ## 7. Finishing steps
 Review all your labeled connections for accuracy and completeness.
 Ensure that there are no exposed wires and that all connections are secure and insulated.
 
 Once you have completed that step, test your wiring for possible shorts with a multimeter and make sure you haven't connected any LV connections with HV connections. Also test the switches operation for continuity in the different switch positions.
 
-### Testing
+### Test electronics
 Now is the big moment. Turn on your machine for the first time. The heater should not be heating on power-on and nothing else should be running. You can check if the heater is doing anything by observing the LED on the SSR.
-The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up. Check that nothing is leaking inside of the machine.
+The screen should turn on and show the Standby screen of GaggiMate. Touch the screen once to switch to warmup mode, you should see the current room temperature being displayed and the LED on the SSR will light up indicating it's heating up.
+
+### Test pressure and check for leaks
+
+#### GaggiMate Standard
+Before you close up the machine you'll want to run a pressure test of the system to catch any leaks. For this you can simply run the water mode for a while and see if anything needs fixing.
+If there's no leaks at room temperature, try again at brew temperature.
+
+#### GaggiMate Pro
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold text-red-700">Note</strong>: The steps in this section only apply if you have GaggiMate Pro with the pressure transducer installed.<br />
+</div>
+
+Bleed any air out of the PTFE tube to it before testing pressure:
+- Put down towels to protect against water.
+- Loosen the connector at the transducer (not the tube-to-connector joint).
+- Turn on the pump (Brew or Water mode) and let some water leak out until the line runs air-free.
+- Tighten the connector back up, turn off the pump, and clean up.
+
+Now run a pressure test:
+- Use the "Water" function with the knob turned all the way off — this runs the pump at full speed.
+- Check for leaks. If there's no leaks at room temperature, try again at brew temperature.
+
+#### Adjusting the OPV (requires way to measure pressure)
+
+Silvia machines got an adjustable over-pressure valve (OPV) starting around 2006. If it's set wrong, it can cap your peak pressure.
+
+With the pump running in "Water" mode, check the pressure reading on GaggiMate Pro and/or a pressure gauge attached to a portafilter.
+
+- If pressure reads < 10 bar, check the silicone tube running from the boiler to the tank. If water is streaming out there, the OPV needs tightening. If not, the issue may be with the pump instead.
+- If pressure reads > 12 bar, loosen the OPV to protect the system — avoid getting close to 16 bar, the transducer's limit.
+
+To adjust the OPV: loosen the top lock nut, turn the lower nut to set the pressure, then retighten the top nut to lock it in place. Check for leaks again after adjusting.
 
 ### Final Steps
 Reassemble the Machine: Carefully put the panels back on, ensuring that there are no pinched wires. <br />
