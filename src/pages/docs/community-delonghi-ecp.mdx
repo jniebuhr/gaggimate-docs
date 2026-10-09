@@ -754,8 +754,6 @@ Most machines have a temperature gap between the thermocouple and the grouphead.
 ### I am not hitting the pressures I expect.
 Unlike electronically-controlled 3-way valves of more expensive machines, the mushroom valve in DeLonghi machines requires at least 4-bars of pressure to open. If your pump pressure is too low, the valve won't open fully, leading to underextraction. The best way to determine the exact pressure values for your machine is by using the calibration profile created by **cerealkiller**, shown below. Copy and paste it into an empty text file, save it as pressure-test.json, and then import the file into GaggiMate's Profile page. Run the profile without a portafilter and observe the brew group. When you begin to see steady water flow out of the brew group, that is the minimum pressure your pump needs to reach to open your valve.
 
-Once you've determined the correct pressure offset number, you can adjust your pump's pressure in the GaggiMate software to ensure that your machine is operating at the correct pressure for all phases in a profile for optimal extraction. You can set this value in the "Pressure Offset" field in the GaggiMate software's Setting pages, in the "Machine" tab.
-
 <details>
 <summary>**Click to expand utility profile "Pressure Test JSON"**</summary>
 ```json
@@ -860,6 +858,10 @@ Once you've determined the correct pressure offset number, you can adjust your p
 }
 ```
 </details>
+
+Enter your calculated value into the **Pressure Offset** field (**Settings → Machine**) in the GaggiMate software. GaggiMate will automatically compensate for the offset, keeping your target pressures precise across all profile stages.
+
+<Tokens type="info" icon>If you'd prefer not to run the test profile to determine your valve cracking pressure, an offset of 4.0 is a good place to start.</Tokens>
 
 ### What PID values do you recommend?
 While there is currently no "consensus best" setting for the DeLonghi, **mdwasp** recommends starting with a **Kp of 32, a Ki of 0.05, a Kd of 42** (i.e., 32,0.05,42), and a **Thermal Feedforward Gain (Kff) of 0.6**. We strongly recommend using AI to assist you with dialing in a precise PID configuration for your machine. Please visit this [Discord channel](https://discord.com/channels/951416527721230336/1492569123044200620) for detailed instructions on how to leverage AI for precision PID tuning.
