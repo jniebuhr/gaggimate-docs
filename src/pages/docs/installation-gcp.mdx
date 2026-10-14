@@ -249,12 +249,13 @@ The picture above will show you where these labels should be placed for the butt
 
 <Lightbox src={img_24} width={400} alt="" />
 
-The picture above shows how the steam switch is wired by default. On a machine without the Eco PCB, the green wire labeled S.1 would be missing.
-<Tokens type="warn" icon>On a US machine the double white will be on the other side. Follow the labeling and modifications of the switch positions regardless of that!</Tokens>
+The picture above shows how the steam switch is wired by default on a 240V machine (US machines have the double-tapped white wire in the S.4 position). On a machine without the Eco PCB, the green wire labeled S.1 would be missing.
+<Tokens type="warn" icon>The default wiring has a neutral connection to both S.2 and S.4 with one of the connections being double-tapped to branch off to the other. When wiring is complete, the double-tapped connection should be in S.2 and S.4 should be empty, regardless of what position the double-tapped connection was originally in.</Tokens>
 
 <Lightbox src={img_25} width={400} alt="" />
 
-<CB><b>Wire up S.5 to Neutral</b> - Remove the S.5 (white) from the left side of the steam switch (or the monoblock connector, you can push the connectors out with a screwdriver). Use the blue cable from the wiring kit to extend is to the N/Neutral connector of the PCB.</CB>
+<CB><b>Wire up S.5 to Neutral</b> - Remove the single white wire from the steam switch (or the monoblock connector, you can push the connectors out with a screwdriver). Use the blue cable from the wiring kit to extend is to the N/Neutral connector of the PCB.</CB>
+<Tokens type="warn" icon>The single white wire will originally be in either S.2 or S.4 depending on if your machine is a US machine or a non-US machine. The blue cable should connect to the single-tapped white wire connection regardless of what position it was originally in.</Tokens>
 
 <Lightbox src={img_26} width={400} alt="" />
 
