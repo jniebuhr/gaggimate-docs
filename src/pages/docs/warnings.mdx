@@ -15,70 +15,77 @@ import imgLightSwitch from '../../assets/images/warnings/light-switch-off.svg';
 import imgNoConnection from '../../assets/images/warnings/link-slash-alt.svg';
 import imgFlush from '../../assets/images/warnings/raindrops-filled.svg';
 import imgNoWater from '../../assets/images/warnings/tint-slash.svg';
-import imgSettings from '../../assets/images/warnings/tint-slash.svg';
 
+You installed GaggiMate, and you are almost ready to brew. But what is that small icon in the middle of the screen?
 
+### Warning icons
 
-You installed GaggiMate, and you are about ready to brew, but what is that small icon in the middle of the screen?
+First, let's show an example of the warnings you might see on screen with your GaggiMate:
 
-### Warnings
-
-First lets show an example of warnings you might seen on screen with your GaggiMate\
 ![Screen showing two icons in the middle of the menu screen.](../../assets/images/warnings/screen-example.png)
 
-On this image we see 2 warnings on the center of the screen.  
-The first warning is a yellow droplet, and the second a red temperature warning.
-But a icon doesnt say much if you dont know what they mean.
+In this image, we see two warnings in the middle of the screen. The first is a yellow droplet, and the second is a red temperature warning. But an icon alone does not tell you much if you do not know what it means.
 
-There is currently 8 different warning icons in use. (two the currently share the same icon)
-The warnings are the following:
+There are currently eight different warning icons in use. Two of them currently share the same symbol.
 
-Low battery icon, meaning that the connected scale has a low battery status.
+The warnings are as follows:
 
-<Image src={imgBattery} width={25} alt="Connected scale battery warning: Low battery." />
+#### Low battery
 
-Cleaning/broom icon, this has a double meaning for now, it is both descaling and backflushing. The webinterface can tell you if it is one or the other.
+The connected scale has a low battery status.
 
-<Image src={imgBroom} width={25} alt="Cleaning, this has a double meaning for now, it is both descaling and backflushing. The webinterface can tell you if it is one or the other." />
+<Image src={imgBattery} width={25} alt="Connected scale battery warning: low battery." />
 
-Temperature alert icon. Meaning the temperature has not settled around the target temperature yet.  
-Please note that the absence of this warning does not mean that your espresso machine is temperature stable, this just means that the probe is meassuring around the target temperature. Please still preheat your boiler sufficient.
+#### Cleaning / descaling / backflushing
 
-<Image src={imgHighTemperature} width={25} alt="Temperature alert. Meaning the temperature has not settled around the target temperature yet." />
+This icon has a double meaning for now: it indicates either descaling or backflushing. The web interface can tell you which one it is.
 
-Switch icon, indicating that the steam switch is currently engaged, this could lead to the 3 way valve not opening towards the grouphead if you try to brew.
+<Image src={imgBroom} width={25} alt="Cleaning icon, indicating descaling or backflushing." />
 
-<Image src={imgLightSwitch} width={25} alt="Switch icon, indicating that the steam switch is currently engaged, this could lead to the 3 way valve not opening towards the grouphead if you try to brew." />
+#### Temperature alert
 
-No connection icon. There is not a scale connected to GaggiMate currently.
+The temperature has not settled around the target temperature yet.
 
-<Image src={imgNoConnection} width={25} alt="No connection icon. There is not a scale connected to GaggiMate currently." />
+Please note that the absence of this warning does not mean that your espresso machine is temperature stable. It simply means that the probe is measuring close to the target temperature. Please still preheat the boiler sufficiently.
 
-Rain drops icon. You need to flush before your next shot. (Not backflush, just regular flush. Psst, did you know if you long-press the play icon on the brew screen, it will flush?) - This warning will appear after just about any other action, as this is a general good idea to do, to ensure the boiler is at its max capacity and there is no debris in the grouphead from previous shots.
+<Image src={imgHighTemperature} width={25} alt="Temperature alert. The temperature has not settled around the target temperature yet." />
 
-<Image src={imgFlush} width={25} alt="Rain drops icon. You need to flush before your next shot." />
+#### Steam switch engaged
 
-Crossed over droplet. Meaning the waterlevel in the tank is currently low.
+This indicates that the steam switch is currently engaged. This could prevent the 3-way valve from opening toward the group head if you try to brew.
 
-<Image src={imgNoWater} width={25} alt="Crossed over droplet. Meaning the waterlevel in the tank is currently low." />
+<Image src={imgLightSwitch} width={25} alt="Steam switch engaged. The 3-way valve may not open toward the group head while brewing." />
 
+#### No connection
 
+There is currently no scale connected to GaggiMate.
 
-On the settings page you can set up the alert level you would like for the different warning types.
-These alert levels define how you see them on you screen, and if you would like them to be blocking or just a informative warning.
+<Image src={imgNoConnection} width={25} alt="No scale connected to GaggiMate." />
 
-The levels are:  
-Ignore: No warning icon is shown for this type of warning. And you will not be stopped if you try to brew while this is active.
-Warn: You will get a yellow icon on the brew and menu pages to warn you about this warning type, but it will not block a brew from starting.
-Error: You will get a red icon on the brew and menu pages. You will also get a error message if you try to brew with an active error.
+#### Flush required
 
-The settings can be found on the GaggiMate webinterface, under Settings and then General.
+You need to flush before your next shot. Not backflush; this is regular flush. Psst, did you know that if you long-press the play icon on the brew screen, it will flush? This warning may appear after many other actions, as a general reminder to ensure the boiler is at maximum capacity and that there is no debris in the group head from previous shots.
+
+<Image src={imgFlush} width={25} alt="Flush required before the next shot." />
+
+#### Low tank water level
+
+The water level in the tank is currently low.
+
+<Image src={imgNoWater} width={25} alt="Low water level in the tank." />
+
+On the settings page, you can set the alert level for each warning type.
+
+These alert levels determine how the warnings appear on your screen and whether they should block the brew or simply inform you.
+
+The levels are:
+
+- Ignore: No warning icon is shown for this type of warning, and you will not be stopped if you try to brew while it is active.
+- Warn: You will get a yellow icon on the brew and menu pages to warn you about this warning type, but it will not block a brew from starting.
+- Error: You will get a red icon on the brew and menu pages. You will also get an error message if you try to brew with an active error.
+
+The settings can be found in the GaggiMate web interface under Settings then General.
 
 ![Screen showing two icons in the middle of the menu screen.](../../assets/images/warnings/settings-page.png)
-
-
-
-
-
 
 
