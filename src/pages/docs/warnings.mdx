@@ -6,6 +6,19 @@ section: Usage
 order: "21"
 ---
 
+
+import { Image } from 'astro:assets';
+import imgBattery from '../../assets/images/warnings/battery-exclamation-2.svg';
+import imgBroom from '../../assets/images/warnings/broom.svg';
+import imgHighTemperature from '../../assets/images/warnings/high-temperature-alert.svg';
+import imgLightSwitch from '../../assets/images/warnings/light-switch-off.svg';
+import imgNoConnection from '../../assets/images/warnings/link-slash-alt.svg';
+import imgFlush from '../../assets/images/warnings/raindrops-filled.svg';
+import imgNoWater from '../../assets/images/warnings/tint-slash.svg';
+import imgSettings from '../../assets/images/warnings/tint-slash.svg';
+
+
+
 You installed GaggiMate, and you are about ready to brew, but what is that small icon in the middle of the screen?
 
 ### Warnings
@@ -22,32 +35,32 @@ The warnings are the following:
 
 Low battery icon, meaning that the connected scale has a low battery status.
 
-<img src="../../assets/images/warnings/battery-exclamation-2.svg" width="25px" alt="Connected scale battery warning: Low battery.">
+<img src="{imgBattery}" width={25] alt="Connected scale battery warning: Low battery.">
 
 Cleaning/broom icon, this has a double meaning for now, it is both descaling and backflushing. The webinterface can tell you if it is one or the other.
 
-<img src="../../assets/images/warnings/broom.svg" width="25px" alt="Cleaning, this has a double meaning for now, it is both descaling and backflushing. The webinterface can tell you if it is one or the other.">
+<img src="{imgBroom}" width={25} alt="Cleaning, this has a double meaning for now, it is both descaling and backflushing. The webinterface can tell you if it is one or the other.">
 
 Temperature alert icon. Meaning the temperature has not settled around the target temperature yet.  
 Please note that the absence of this warning does not mean that your espresso machine is temperature stable, this just means that the probe is meassuring around the target temperature. Please still preheat your boiler sufficient.
 
-<img src="../../assets/images/warnings/high-temperature-alert.svg" width="25px" alt="Temperature alert. Meaning the temperature has not settled around the target temperature yet.">
+<img src="{imgHighTemperature}" width={25} alt="Temperature alert. Meaning the temperature has not settled around the target temperature yet.">
 
 Switch icon, indicating that the steam switch is currently engaged, this could lead to the 3 way valve not opening towards the grouphead if you try to brew.
 
-<img src="../../assets/images/warnings/light-switch-off.svg" width="25px" alt="Switch icon, indicating that the steam switch is currently engaged, this could lead to the 3 way valve not opening towards the grouphead if you try to brew.">
+<img src="{imgLightSwitch}" width={25} alt="Switch icon, indicating that the steam switch is currently engaged, this could lead to the 3 way valve not opening towards the grouphead if you try to brew.">
 
 No connection icon. There is not a scale connected to GaggiMate currently.
 
-<img src="../../assets/images/warnings/link-slash-alt.svg" width="25px" alt="No connection icon. There is not a scale connected to GaggiMate currently.">
+<img src="{imgNoConnection}" width={25} alt="No connection icon. There is not a scale connected to GaggiMate currently.">
 
 Rain drops icon. You need to flush before your next shot. (Not backflush, just regular flush. Psst, did you know if you long-press the play icon on the brew screen, it will flush?) - This warning will appear after just about any other action, as this is a general good idea to do, to ensure the boiler is at its max capacity and there is no debris in the grouphead from previous shots.
 
-<img src="../../assets/images/warnings/raindrops-filled.svg" width="25px" alt="Rain drops icon. You need to flush before your next shot.">
+<img src="{imgFlush}" width={25} alt="Rain drops icon. You need to flush before your next shot.">
 
 Crossed over droplet. Meaning the waterlevel in the tank is currently low.
 
-<img src="../../assets/images/warnings/tint-slash.svg" width="25px" alt="Crossed over droplet. Meaning the waterlevel in the tank is currently low.">
+<img src="{imgNoWater}" width={25} alt="Crossed over droplet. Meaning the waterlevel in the tank is currently low.">
 
 
 
