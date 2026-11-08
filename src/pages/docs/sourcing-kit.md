@@ -12,7 +12,7 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 
 ## What the kit comes with
 
-### Pro - Gaggia Classic / Pro / Evo / E24 (M4 Thermistor + Plumbing Fittings)
+### Pro - Gaggia Classic / Pro / Evo / E24 (M4 Thermocouple  + Plumbing Fittings)
 * GaggiMate Controller Pro PCB
 * LilyGo T-RGB 2.1" Display
 * AC SSR 40-DA
@@ -21,7 +21,7 @@ Going the Kit route is the recommended way to install GaggiMate. The store is no
 * Wiring Kit
 * Plumbing kit
 
-### Pro - Rancilio Silvia (M3 Thermistor + Plumbing fittings)
+### Pro - Rancilio Silvia (M3 Thermocouple + Plumbing fittings)
 * GaggiMate Controller Pro PCB
 * LilyGo T-RGB 2.1" Display
 * AC SSR 40-DA
