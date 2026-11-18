@@ -25,14 +25,18 @@ const docs = Object.entries(
   import.meta.glob("../pages/**/*.{md,mdx}", { eager: true }),
 );
 
+const getSourceRoute = (path: string) =>
+  path
+    .replace(/^\.\.\//, "")
+    .replace(/^pages/, "")
+    .replace(/\.(md|mdx)$/, "");
+
 const match = docs.find(
-  ([path]) =>
-    path.replace(/^.*\/src\/pages/, "").replace(/\.(md|mdx)$/, "") ===
-    routePath,
+  ([path]) => getSourceRoute(path) === routePath,
 );
 
 const relativePath = match
-  ? match[0].split("/src/")[1]
+  ? match[0].replace(/^\.\.\//, "")
   : `pages${routePath}.md`;
 ---
 
